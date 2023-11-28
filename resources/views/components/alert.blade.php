@@ -1,7 +1,7 @@
-@props(['type' => null])
+@props(['type' => null, 'message' => null])
 
-<div class=" alert alert-{{ $type }} " role="alert">
+<div class="alert alert-{{ $type }}" role="alert">
     <div class="alert-content">
-        {{ $slot }}
+        {{ $message }}
     </div>
  </div>

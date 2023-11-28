@@ -1,6 +1,11 @@
-@props(['for', 'label'])
+@props(['name', 'label'])
 
-<div class="custom-file">
-    <input class="form-control custom-file-input" type="file" id="{{ $for }}">
-    <label class="custom-file-label ps-15" for="{{ $for }}">{{ $label }}</label>
- </div>
+<div class="row form-group">
+    <label for="{{ $name }}" class="col-sm-4 col-form-label">{{ $label }}</label>
+    <div class="col-sm-8">
+        <input class="form-control custom-file-input" type="file" id="{{ $name }}" {{ $attributes }}>
+        @error($name)
+            <span class="form-text text-danger">{{ $message }}</span>
+        @enderror
+    </div>
+</div>

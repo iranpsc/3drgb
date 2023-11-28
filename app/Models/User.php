@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role'
     ];
 
     /**
@@ -41,5 +42,36 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'role' => 'string'
     ];
+
+    /**
+     * The attributes that should have default values.
+     *
+     * @var array<string, string>
+     */
+    protected $attributes = [
+        'role' => 'user'
+    ];
+
+    /**
+     * Get the user's role.
+     * 
+     * @return string
+     */
+    public function role()
+    {
+        return $this->role;
+    }
+
+    /**
+     * Determine if the user has the given role
+     * 
+     * @param string $role
+     * @return bool
+     */
+    public function hasRole(string $role)
+    {
+        return $this->role === $role;
+    }
 }

@@ -1,11 +1,11 @@
 @props([
-    'for',
+    'name',
     'label',
 ])
 
-<div class="checkbox-theme-default custom-checkbox ">
-    <input class="checkbox" type="checkbox" id="{{ $for }}">
-    <label for="{{ $for }}">
+<div {{ $attributes->merge(["class" => "checkbox-theme-default custom-checkbox"]) }}>
+    <input class="checkbox" type="checkbox" id="{{ $name }}">
+    <label name="{{ $name }}">
        <span class="checkbox-text">
             {{ $label }}
        </span>

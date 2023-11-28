@@ -1,8 +1,11 @@
-@props(['for', 'label', 'type' => 'text'])
+@props(['name', 'label', 'type' => 'text'])
 
 <div class="form-group row">
-    <label for="{{ $for }}" class="form-col-label col-sm-4">{{ $label }}</label>
+    <label for="{{ $name }}" class="form-col-label col-sm-4">{{ $label }}</label>
     <div class="col-sm-8">
-        <input type="{{ $type }}" class="form-control ih-medium ip-light radius-xs b-light px-15" id="{{ $for }}" name="{{ $for }}">
+        <input type="{{ $type }}" class="form-control @error($name) is-invalid @enderror" name="{{ $name }}" id="{{ $name }}" {{ $attributes }}>
+        @error($name)
+            <span class="text-danger">{{ $message }}</span>
+        @enderror
     </div>
 </div>

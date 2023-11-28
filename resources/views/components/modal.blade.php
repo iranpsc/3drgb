@@ -1,8 +1,8 @@
 @props(['id' => null, 'title' => null])
 
-<div class="modal-colored-success modal fade show" id="{{ $id }}" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade show" id="{{ $id }}" tabindex="-1" role="dialog" aria-hidden="true" wire:ignore.self>
     <div class="modal-dialog modal-md" role="document">
-       <div class="modal-content modal-bg-success modal-colored">
+       <div class="modal-content">
           <div class="modal-header">
              <h6 class="modal-title">{{ $title }}</h6>
              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">

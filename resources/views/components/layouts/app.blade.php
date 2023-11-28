@@ -5,7 +5,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>HexaDash</title>
+   <title>{{ $title ?? config('app.name') }}</title>
 
    <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/bootstrap/bootstrap-rtl.css') }}">
 
@@ -41,6 +41,8 @@
 
    <link rel="stylesheet" href="{{ asset('assets/css/style-rtl.css') }}">
 
+   <link rel="stylesheet" href="{{ asset('assets/summernote/summernote-lite.min.css') }}">
+
    <!-- endinject -->
 
    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/favicon.png') }}">
@@ -69,127 +71,26 @@
          <div class="navbar-left">
             <div class="logo-area">
                <a class="navbar-brand" href="index.html">
-                  <img class="dark" src="img/logo-dark.png" alt="logo">
-                  <img class="light" src="img/logo-white.png" alt="logo">
+                  <img class="dark" src="{{ asset('img/logo-dark.png') }}" alt="logo">
+                  <img class="light" src="{{ asset('img/logo-white.png') }}" alt="logo">
                </a>
                <a href="#" class="sidebar-toggle">
-                  <img class="svg" src="img/svg/align-center-alt.svg" alt="img">
+                  <img class="svg" src="{{ asset('img/svg/align-center-alt.svg') }}" alt="img">
                 </a>
             </div>
          </div>
          <!-- ends: navbar-left -->
          <div class="navbar-right">
             <ul class="navbar-right__menu">
-               <li class="nav-search">
-                  <a href="#" class="search-toggle">
-                     <i class="uil uil-search"></i>
-                     <i class="uil uil-times"></i>
-                  </a>
-                  <form action="/" class="search-form-topMenu">
-                     <span class="search-icon uil uil-search"></span>
-                     <input class="form-control me-sm-2 box-shadow-none" type="search" placeholder="جستجو..." aria-label="Search">
-                  </form>
-               </li>
-               @auth
-                <li class="nav-message">
-                    <div class="dropdown-custom">
-                        <a href="javascript:;" class="nav-item-toggle icon-active">
-                            <img class="svg" src="img/svg/message.svg" alt="img">
-                        </a>
-                        <div class="dropdown-parent-wrapper">
-                            <div class="dropdown-wrapper">
-                            <h2 class="dropdown-wrapper__title">پیام ها <span class="badge-circle badge-success ms-1">2</span></h2>
-                            <ul>
-                                <li class="author-online has-new-message">
-                                    <div class="user-avater">
-                                        <img src="img/team-1.png" alt="">
-                                    </div>
-                                    <div class="user-message">
-                                        <p>
-                                        <a href="" class="subject stretched-link text-truncate" style="max-width: 180px;">طراحی وب</a>
-                                        <span class="time-posted">3 ساعت پیش</span>
-                                        </p>
-                                        <p>
-                                        <span class="desc text-truncate" style="max-width: 215px;">لورم ایپسوم یک متن ساحتگی است که کاربر فراوانی دارد</span>
-                                        <span class="msg-count badge-circle badge-success badge-sm">1</span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="author-offline has-new-message">
-                                    <div class="user-avater">
-                                        <img src="img/team-1.png" alt="">
-                                    </div>
-                                    <div class="user-message">
-                                        <p>
-                                        <a href="" class="subject stretched-link text-truncate" style="max-width: 180px;">طراحی وب</a>
-                                        <span class="time-posted">3 ساعت پیش</span>
-                                        </p>
-                                        <p>
-                                        <span class="desc text-truncate" style="max-width: 215px;">لورم ایپسوم یک متن ساحتگی است که کاربر فراوانی دارد</span>
-                                        <span class="msg-count badge-circle badge-success badge-sm">1</span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="author-online has-new-message">
-                                    <div class="user-avater">
-                                        <img src="img/team-1.png" alt="">
-                                    </div>
-                                    <div class="user-message">
-                                        <p>
-                                        <a href="" class="subject stretched-link text-truncate" style="max-width: 180px;">طراحی وب</a>
-                                        <span class="time-posted">3 ساعت پیش</span>
-                                        </p>
-                                        <p>
-                                        <span class="desc text-truncate" style="max-width: 215px;">لورم ایپسوم یک متن ساحتگی است که کاربر فراوانی دارد</span>
-                                        <span class="msg-count badge-circle badge-success badge-sm">1</span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="author-offline">
-                                    <div class="user-avater">
-                                        <img src="img/team-1.png" alt="">
-                                    </div>
-                                    <div class="user-message">
-                                        <p>
-                                        <a href="" class="subject stretched-link text-truncate" style="max-width: 180px;">طراحی وب</a>
-                                        <span class="time-posted">3 ساعت پیش</span>
-                                        </p>
-                                        <p>
-                                        <span class="desc text-truncate" style="max-width: 215px;">لورم ایپسوم یک متن ساحتگی است که کاربر فراوانی دارد</span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="author-offline">
-                                    <div class="user-avater">
-                                        <img src="img/team-1.png" alt="">
-                                    </div>
-                                    <div class="user-message">
-                                        <p>
-                                        <a href="" class="subject stretched-link text-truncate" style="max-width: 180px;">طراحی وب</a>
-                                        <span class="time-posted">3 ساعت پیش</span>
-                                        </p>
-                                        <p>
-                                        <span class="desc text-truncate" style="max-width: 215px;">لورم ایپسوم یک متن ساحتگی است که کاربر فراوانی دارد</span>
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                            <a href="" class="dropdown-wrapper__more">مشاهده همه پیام ها</a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-               @endauth
-               <!-- ends: nav-message -->
                @guest
-                   <li><a href="#">ورود</a></li>
-                   <li><a href="#">ثبت نام</a></li>
+                   <li><a href="{{ route('login') }}">ورود</a></li>
+                   <li><a href="{{ route('register') }}">ثبت نام</a></li>
                @endguest
                @auth
                 <li class="nav-author">
                     <div class="dropdown-custom">
-                        <a href="javascript:;" class="nav-item-toggle"><img src="img/author-nav.jpg" alt="" class="rounded-circle">
-                            <span class="nav-item__title">اشکان<i class="las la-angle-down nav-item__arrow"></i></span>
+                        <a href="javascript:;" class="nav-item-toggle"><img src="{{ asset('img/author-nav.jpg') }}" alt="" class="rounded-circle">
+                            <span class="nav-item__title">{{ auth()->user()->name }}<i class="las la-angle-down nav-item__arrow"></i></span>
                         </a>
                         <div class="dropdown-parent-wrapper">
                             <div class="dropdown-wrapper">
@@ -203,8 +104,16 @@
                                         <a href=""><i class="uil uil-setting"></i>تغییر رمز عبور</a>
                                     </li>
                                     </ul>
-                                    <a href="" class="nav-author__signout">
-                                    <i class="uil uil-sign-out-alt"></i> خروج</a>
+                                    <a class="nav-author__signout" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                     <i class="uil uil-sign-out-alt"></i>
+                                                     خروج
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
                                 </div>
                             </div>
                             <!-- ends: .dropdown-wrapper -->
@@ -217,7 +126,7 @@
             <!-- ends: .navbar-right__menu -->
             <div class="navbar-right__mobileAction d-md-none">
                <a href="#" class="btn-search">
-                  <img src="img/svg/search.svg" alt="search" class="svg feather-search">
+                  <img src="{{ asset('img/svg/search.svg') }}" alt="search" class="svg feather-search">
                   <img src="img/svg/x.svg" alt="x" class="svg feather-x"></a>
                <a href="#" class="btn-author-action">
                   <img class="svg" src="img/svg/more-vertical.svg" alt="more-vertical"></a>
@@ -238,128 +147,123 @@
                      </a>
                   </li>
                   <li>
-                     <a href="#" class="">
-                        <span class="nav-icon uil uil-create-dashboard"></span>
-                        <span class="menu-text">داشبورد</span>
+                     <a href="{{ route('store') }}" class="">
+                        <span class="nav-icon uil uil-bag"></span>
+                        <span class="menu-text">فروشگاه</span>
                      </a>
                   </li>
-                  <li class="has-child">
+                  <li>
                      <a href="#" class="">
                         <span class="nav-icon uil uil-bag"></span>
-                        <span class="menu-text text-initial">فروشگاه</span>
-                        <span class="toggle-icon"></span>
+                        <span class="menu-text">سبد خرید</span>
                      </a>
-                     <ul>
-                        <li class="">
-                           <a href="products.html">محصولات</a>
-                        </li>
-                        <li class="">
-                           <a href="product-details.html">جزئیات محصول</a>
-                        </li>
-                        <li class="">
-                           <a href="add-product.html">افزودن محصول</a>
-                        </li>
-                        <li class="">
-                           <a href="add-product.html">ویرایش محصول</a>
-                        </li>
-                        <li class="">
-                           <a href="cart.html">سبد خرید</a>
-                        </li>
-                        <li class="">
-                           <a href="order.html">سفارشات</a>
-                        </li>
-                        <li class="">
-                           <a href="sellers.html">فروشندگان</a>
-                        </li>
-                        <li class="">
-                           <a href="invoice.html">فاکتورها</a>
-                        </li>
-                     </ul>
                   </li>
-                  <li class="has-child">
-                     <a href="#" class="">
-                        <span class="nav-icon uil uil-users-alt"></span>
-                        <span class="menu-text">کاربران</span>
-                        <span class="toggle-icon"></span>
-                     </a>
-                     <ul>
-                        <li class="">
-                           <a href="users-membar.html">تیم</a>
-                        </li>
-                        <li class="">
-                           <a href="users-card.html">گرید کاربران</a>
-                        </li>
-                        <li class="">
-                           <a href="users-list.html">لیست کاربران</a>
-                        </li>
-                        <li class="">
-                           <a href="users-card2.html">استایل گرید کاربران </a>
-                        </li>
-                        <li class="">
-                           <a href="users-group.html">گروه کاربران</a>
-                        </li>
-                        <li class="">
-                           <a href="user-info.html">افزودن کاربر</a>
-                        </li>
-                        <li class="">
-                           <a href="users-datatable.html">جدول کاربران</a>
-                        </li>
-
-                     </ul>
-                  </li>
-                  <li class="has-child">
+                  @if (Auth::check() && Auth::user()->hasRole('admin'))
+                     <li>
+                        <a href="#" class="">
+                           <span class="nav-icon uil uil-create-dashboard"></span>
+                           <span class="menu-text">داشبورد</span>
+                        </a>
+                     </li>
+                     <li class="has-child">
+                        <a href="#" class="">
+                           <span class="nav-icon uil uil-bag"></span>
+                           <span class="menu-text text-initial">مدیریت فروشگاه</span>
+                           <span class="toggle-icon"></span>
+                        </a>
+                        <ul>
+                           <li class="">
+                              <a href="{{ route('products.index') }}">محصولات</a>
+                           </li>
+                           <li class="">
+                              <a href="{{ route('products.create') }}">ایجاد محصول</a>
+                           </li>
+                           <li class="">
+                              <a href="{{ route('categories.index') }}">دسته بندی ها</a>
+                           </li>
+                           <li class="">
+                              <a href="{{ route('attributes') }}">ویژگی ها</a>
+                           </li>
+                           <li class="">
+                              <a href="{{ route('tags') }}">برچسب ها</a>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="#" class="">
+                           <span class="nav-icon uil uil-users-alt"></span>
+                           <span class="menu-text">کاربران</span>
+                        </a>
+                     </li>
+                  @endif
+                  <li>
                      <a href="#" class="">
                         <span class="nav-icon uil uil-user"></span>
                         <span class="menu-text">پشتیبانی</span>
-                        <span class="toggle-icon"></span>
-                     </a>
-                     <ul>
-                        <li class="">
-                           <a href="support-ticket.html">پشتیبانی تیکت</a>
-                        </li>
-                        <li class="">
-                           <a href="support-details.html">جزئیات تیکت</a>
-                        </li>
-                        <li class="">
-                           <a href="new-ticket.html">تیکت جدید</a>
-                        </li>
-                     </ul>
-                  </li>
-                  <li class="has-child">
-                     <a href="#" class="">
-                        <span class="nav-icon uil uil-images"></span>
-                        <span class="menu-text">بلاگ</span>
-                        <span class="toggle-icon"></span>
-                     </a>
-                     <ul>
-                        <li class="">
-                           <a href="blog.html">استایل 1</a>
-                        </li>
-                        <li class="">
-                           <a href="blog2.html">استایل 2</a>
-                        </li>
-                        <li class="">
-                           <a href="blog3.html">استایل3</a>
-                        </li>
-                        <li class="">
-                           <a href="blog-details.html">جزئیات</a>
-                        </li>
-                     </ul>
-                  </li>
-                  <li class="">
-                     <a href="terms.html">
-                        <span class="nav-icon uil uil-question-circle"></span>
-                        <span class="menu-text">شرایط و ضوابط</span>
                      </a>
                   </li>
+                  @guest
+                      <li>
+                           <a href="{{ route('login') }}" class="">
+                                 <span class="nav-icon uil uil-user"></span>
+                                 <span class="menu-text">ورود</span>
+                           </a>
+                      </li>
+                        <li>
+                              <a href="{{ route('register') }}" class="">
+                                    <span class="nav-icon uil uil-user"></span>
+                                    <span class="menu-text">ثبت نام</span>
+                              </a>
+                        </li>  
+                  @endguest
+                  @auth
+                     <li class="has-child">
+                        <a href="#" class="">
+                           <span class="nav-icon uil uil-user"></span>
+                           <span class="menu-text text-initial">مدیریت حساب</span>
+                           <span class="toggle-icon"></span>
+                        </a>
+                        <ul>
+                           <li class="">
+                              <a href="#">داشبورد</a>
+                           </li>
+                           <li class="">
+                              <a href="#">سفارشات</a>
+                           </li>
+                           <li class="">
+                              <a href="#">آدرس ها</a>
+                           </li>
+                           <li class="">
+                              <a href="#">پروفایل</a>
+                           </li>
+                           <li class="">
+                              <a href="#">تغییر رمز عبور</a>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                          document.getElementById('logout-form1').submit();">
+                                          <i class="nav-icon uil uil-power text-danger"></i>
+                                          <span class="menu-text text-danger">خروج</span>
+                        </a>
+
+                        <form id="logout-form1" action="{{ route('logout') }}" method="POST" class="d-none">
+                              @csrf
+                        </form>
+                     </li>
+                  @endauth
                </ul>
             </div>
          </div>
       </div>
-
+      
       <div class="contents">
-         <div class="dm-page-content">
-            {{ $slot }}
+         <div class="container-fluid">
+            <div class="dm-page-content">
+               {{ $slot }}
+            </div>
          </div>
          <!-- ends: .dm-page-content -->
       </div>
@@ -368,21 +272,11 @@
          <div class="footer-wrapper__inside">
             <div class="container-fluid">
                <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-12">
                      <div class="footer-copyright">
                         <p><span>&copy; {{ date('Y') }}</span><a href="{{ route('home') }}">متارنگ</a>
                         </p>
                      </div>
-                  </div>
-                  <div class="col-md-6">
-                     <div class="footer-menu text-end">
-                        <ul>
-                           <li>
-                              <a href="#">درباره</a>
-                           </li>
-                        </ul>
-                     </div>
-                     <!-- ends: .Footer Menu -->
                   </div>
                </div>
             </div>
@@ -443,7 +337,10 @@
    <script src="{{ asset('assets/theme_assets/js/icon-loader.js') }}"></script>
    <script src="{{ asset('assets/theme_assets/js/jvectormap-init.js') }}"></script>
    <script src="{{ asset('assets/theme_assets/js/main.js') }}"></script>
+   <script src="{{ asset('assets/summernote/summernote-lite.min.js') }}"></script>
    <!-- endinject-->
+
+   @stack('scripts')
 </body>
 
 </html>
