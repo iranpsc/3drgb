@@ -10,6 +10,7 @@ use App\Livewire\StoreManagement\Categories\EditCategory;
 use App\Livewire\StoreManagement\Tags;
 use App\Livewire\StoreManagement\Products\CreateProduct;
 use App\Livewire\StoreManagement\Products\EditProduct;
+use App\Livewire\StoreManagement\Products\Import;
 use App\Livewire\StoreManagement\Products\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,7 @@ Route::middleware('auth')->group(function () {
             Route::get('/', Products::class)->name('index');
             Route::get('/create', CreateProduct::class)->name('create');
             Route::get('/{product}/edit', EditProduct::class)->name('edit');
+            Route::get('/import', Import::class)->name('import');
         });
 
         Route::prefix('categories')->name('categories.')->group(function () {

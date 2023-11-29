@@ -16,7 +16,7 @@ class Admin
     public function handle(Request $request, Closure $next): Response
     {
         if (! $request->user()->hasRole('admin')) {
-            abort(403, 'شما دسترسی لازم برای ورود به این صفحه را ندارید.');
+            abort(404);
         }
 
         return $next($request);

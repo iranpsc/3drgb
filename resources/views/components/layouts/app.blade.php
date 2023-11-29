@@ -158,7 +158,7 @@
                         <span class="menu-text">سبد خرید</span>
                      </a>
                   </li>
-                  @if (Auth::check() && Auth::user()->hasRole('admin'))
+                  @hasRole('admin')
                      <li>
                         <a href="#" class="">
                            <span class="nav-icon uil uil-create-dashboard"></span>
@@ -179,6 +179,9 @@
                               <a href="{{ route('products.create') }}">ایجاد محصول</a>
                            </li>
                            <li class="">
+                              <a href="{{ route('products.import') }}">درون ریزی محصولات</a>
+                           </li>
+                           <li class="">
                               <a href="{{ route('categories.index') }}">دسته بندی ها</a>
                            </li>
                            <li class="">
@@ -195,7 +198,7 @@
                            <span class="menu-text">کاربران</span>
                         </a>
                      </li>
-                  @endif
+                  @endHasRole
                   <li>
                      <a href="#" class="">
                         <span class="nav-icon uil uil-user"></span>
