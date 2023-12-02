@@ -1,5 +1,5 @@
 <div>
-    <x-page title="Products">
+    <x-page title="محصولات">
         @if ($products->count() > 0)
         @if (session()->has('message'))
             <x-alert type="success" message="{{ session('message') }}" />
