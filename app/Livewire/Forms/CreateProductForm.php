@@ -63,7 +63,6 @@ class CreateProductForm extends Form
                     }
                 }
             ],
-            'images' => ['required', 'array', 'min:1', 'max:5'],
             'images.*' => ['required', 'image', 'max:1024'],
             'file' => ['required', 'file', 'max:1024000'],
             'tags' => ['required', 'array', 'min:1'],
