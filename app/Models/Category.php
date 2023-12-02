@@ -40,11 +40,11 @@ class Category extends Model
     /**
      * Get the products for the category.
      * 
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function products()
     {
-        return $this->belongsToMany(Product::class,'product_category');
+        return $this->hasMany(Product::class);
     }
 
     /**

@@ -21,7 +21,6 @@ class CategoryFactory extends Factory
             'slug' => $this->faker->slug,
             'parent_id' => random_int(1, 20),
             'description' => $this->faker->text,
-            'image' => $this->faker->word,
         ];
     }
 }

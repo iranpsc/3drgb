@@ -11,11 +11,8 @@
                 <th>نامک</th>
                 <th>قیمت</th>
                 <th>قیمت ویژه</th>
-                <th>توضیح</th>
                 <th>دسته بندی</th>
-                <th>برچسب ها</th>
                 <th>تاریخ ایجاد</th>
-                <th>تاریخ ویرایش</th>
                 <th>عملیات</th>
             </x-slot:header>
 
@@ -23,52 +20,37 @@
                 <tr wire:key="{{ $product->id }}">
                     <td>
                         <div class="userDatatable-content">
-                            {{ $loop->iteration }}</td>
+                            {{ $loop->iteration }}
                          </div>
                     </td>
                     <td>
                         <div class="userDatatable-content">
-                            {{ $product->name }}</td>
+                            {{ $product->name }}
                          </div>
                     </td>
                     <td>
                         <div class="userDatatable-content">
-                            {{ $product->slug }}</td>
+                            {{ $product->slug }}
                          </div>
                     </td>
                     <td>
                         <div class="userDatatable-content">
-                            {{ $product->price }}</td>
+                            {{ $product->price }}
                          </div>
                     </td>
                     <td>
                         <div class="userDatatable-content">
-                            {{ $product->sale_price }}</td>
+                            {{ $product->sale_price }}
                          </div>
                     </td>
                     <td>
                         <div class="userDatatable-content">
-                            {{ $product->short_description }}</td>
+                            {{ $product->category->name }}
                          </div>
                     </td>
                     <td>
                         <div class="userDatatable-content">
-                            {{ $product->category->name }}</td>
-                         </div>
-                    </td>
-                    <td>
-                        <div class="userDatatable-content">
-                            {{ $product->tags->pluck('name') }}</td>
-                         </div>
-                    </td>
-                    <td>
-                        <div class="userDatatable-content">
-                            {{ jdate($product->created_at)->format('Y/m/d') }}</td>
-                         </div>
-                    </td>
-                    <td>
-                        <div class="userDatatable-content">
-                            {{ jdate($product->updated_at)->format('Y/m/d') }}</td>
+                            {{ jdate($product->created_at)->format('Y/m/d') }}
                          </div>
                     </td>
                     <td>

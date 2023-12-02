@@ -55,7 +55,7 @@ class Product extends Model
      */
     public function images()
     {
-        return $this->morphMany(Image::class, 'imageable')->select('id', 'url');
+        return $this->morphMany(Image::class, 'imageable');
     }
 
     /**
@@ -87,5 +87,46 @@ class Product extends Model
     {
         return $this->belongsToMany(Attribute::class, 'attribute_product', 'product_id', 'attribute_id')
             ->withPivot('value');
+    }
+
+    /**
+     * Get user's that own the product.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    /**
+     * Get published products.
+     * 
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopePublished($query)
+    {
+        return $query->where('published', true);
+    }
+
+    /**
+     * Get product discount
+     * 
+     * @return float
+     */
+    public function getDiscountAttribute()
+    {
+        return $this->sale_price ? round((1 - $this->sale_price / $this->price) * 100) : 0;
+    }
+
+    /**
+     * Get product final price
+     * 
+     * @return float
+     */
+    public function getFinalPriceAttribute()
+    {
+        return $this->sale_price ? $this->sale_price : $this->price;
     }
 }

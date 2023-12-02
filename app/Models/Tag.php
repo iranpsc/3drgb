@@ -11,6 +11,16 @@ class Tag extends Model
 
     protected $fillable = ['name', 'slug'];
 
+    protected $casts = [
+        'name' => 'string',
+        'slug' => 'string',
+    ];
+
+    /**
+     * Get the products for the tag.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function products()
     {
         return $this->belongsToMany(Product::class, 'product_tag', 'tag_id', 'product_id');

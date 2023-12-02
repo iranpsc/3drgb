@@ -153,16 +153,19 @@
                      </a>
                   </li>
                   <li>
-                     <a href="#" class="">
+                     <a href="{{ route('cart') }}" class="">
                         <span class="nav-icon uil uil-bag"></span>
                         <span class="menu-text">سبد خرید</span>
+                        @if (session()->has('cart'))
+                           <span class="badge badge-success menuItem rounded-circle">{{ count(session()->get('cart')) }}</span>
+                        @endif
                      </a>
                   </li>
-                  @hasRole('admin')
+                  @if(Auth::check() && Auth::user()->hasRole('admin'))
                      <li>
                         <a href="#" class="">
                            <span class="nav-icon uil uil-create-dashboard"></span>
-                           <span class="menu-text">داشبورد</span>
+                           <span class="menu-text">داشبورد مدیریت</span>
                         </a>
                      </li>
                      <li class="has-child">
@@ -198,7 +201,7 @@
                            <span class="menu-text">کاربران</span>
                         </a>
                      </li>
-                  @endHasRole
+                  @endif
                   <li>
                      <a href="#" class="">
                         <span class="nav-icon uil uil-user"></span>
@@ -231,7 +234,7 @@
                               <a href="#">داشبورد</a>
                            </li>
                            <li class="">
-                              <a href="#">سفارشات</a>
+                              <a href="{{ route('profile.orders') }}">سفارشات</a>
                            </li>
                            <li class="">
                               <a href="#">آدرس ها</a>

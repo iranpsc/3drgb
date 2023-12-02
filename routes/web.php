@@ -2,6 +2,9 @@
 
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
+use App\Livewire\Cart;
+use App\Livewire\Checkout\Checkout;
+use App\Livewire\Checkout\Verify;
 use App\Livewire\Store;
 use App\Livewire\StoreManagement\Attributes;
 use App\Livewire\StoreManagement\Categories\Categories;
@@ -12,6 +15,8 @@ use App\Livewire\StoreManagement\Products\CreateProduct;
 use App\Livewire\StoreManagement\Products\EditProduct;
 use App\Livewire\StoreManagement\Products\Import;
 use App\Livewire\StoreManagement\Products\Products;
+use App\Livewire\ProductDetails;
+use App\Livewire\Profile\Orders;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +33,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home', ['title' => 'خانه'])->name('home');
 Route::get('/store', Store::class)->name('store');
+Route::get('/products/{product:name}', ProductDetails::class)->name('products.show');
+Route::get('/cart', Cart::class)->name('cart');
+Route::get('/checkout', Checkout::class)->name('checkout');
+Route::get('/verify', Verify::class)->name('verify');
 
 Route::middleware('auth')->group(function () {
     Route::middleware('admin')->prefix('admin')->group(function () {
@@ -48,6 +57,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/tags', Tags::class)->name('tags');
 
         Route::get('/attributes', Attributes::class)->name('attributes');
+    });
+
+    Route::as('profile.')->group(function () {
+        Route::get('/orders', Orders::class)->name('orders');
     });
 });
 

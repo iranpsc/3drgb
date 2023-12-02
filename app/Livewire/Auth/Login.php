@@ -6,9 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Url;
 
 class Login extends Component
 {
+    #[Url]
+    public $redirect;
+
     public $email, $password, $remember_me;
 
     public function login(Request $request)
@@ -22,8 +26,13 @@ class Login extends Component
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember_me)) {
             $request->session()->regenerate();
 
-            return redirect()->intended(route('store'));
+            if($this->redirect) {
+                return $this->redirectRoute($this->redirect);
+            }
+
+            return redirect()->intended('/store');
         }
+        
         session()->flash('error', __('auth.failed'));
     }
 
