@@ -8,6 +8,13 @@ use Livewire\Component;
 
 class Products extends Component
 {
+
+    public function delete($id)
+    {
+        Product::find($id)->delete();
+        session()->flash('success', 'محصول با موفقیت حذف شد.');
+    }   
+    
     #[Title('محصولات')]
     public function render()
     {
