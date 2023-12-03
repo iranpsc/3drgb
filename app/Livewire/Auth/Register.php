@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\Password;
 use Livewire\Attributes\Layout;
+use Illuminate\Auth\Events\Registered;
 
 class Register extends Component
 {
@@ -17,7 +18,7 @@ class Register extends Component
         $this->validate([
             'name' => 'required|string|min:3|max:125',
             'email' => 'required|email|unique:users,email',
-            'password' => ['required', 'confirmed', Password::defaults()],
+            'password' => ['required', 'confirmed', Password::min(8)->letters()->numbers()],
             'terms' => 'required|boolean|accepted'
         ]);
 
@@ -30,6 +31,8 @@ class Register extends Component
         auth()->login($user);
 
         $request->session()->regenerate();
+
+        event(new Registered($user));
 
         return $this->redirect('/');
     }

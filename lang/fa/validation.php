@@ -93,6 +93,13 @@ return [
         "string"  => ":attribute نباید کمتر از :min کاراکتر باشد.",
         "array"   => ":attribute نباید کمتر از :min آیتم باشد.",
     ],
+    'password' => [
+        'letters' => ':attribute باید شامل حروف الفبا باشد.',
+        'mixed' => ':attribute باید شامل حروف الفبا و عدد باشد.',
+        'numbers' => ':attribute باید شامل عدد باشد.',
+        'symbols' => ':attribute باید شامل حروف الفبا، عدد و یا نماد باشد.',
+        'uncompromised' => ':attribute از لحاظ امنیتی ضعیف است.',
+    ],
     'multiple_of'      => ':attribute باید ضریبی از :value باشد.',
     "not_in"           => ":attribute انتخاب شده، معتبر نیست.",
     'not_regex'        => ':attribute فرمت معتبر نیست.',

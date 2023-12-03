@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
 use App\Livewire\Cart;
@@ -38,7 +39,7 @@ Route::get('/cart', Cart::class)->name('cart');
 Route::get('/checkout', Checkout::class)->name('checkout');
 Route::get('/verify', Verify::class)->name('verify');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware('admin')->prefix('admin')->group(function () {
 
         Route::prefix('products')->name('products.')->group(function () {
@@ -78,3 +79,19 @@ Route::post('/logout', function (Request $request) {
 
     return redirect('/');
 })->middleware('auth')->name('logout');
+
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+ 
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+ 
+    return back()->with('message', 'ایمیل تایید حساب کاربری برای شما ارسال شد.');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
