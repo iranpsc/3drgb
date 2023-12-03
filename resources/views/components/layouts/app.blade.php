@@ -89,7 +89,7 @@
                @auth
                 <li class="nav-author">
                     <div class="dropdown-custom">
-                        <a href="javascript:;" class="nav-item-toggle"><img src="{{ asset('img/author-nav.jpg') }}" alt="" class="rounded-circle">
+                        <a href="javascript:;" class="nav-item-toggle"><img src="{{ Auth::user()->avatar ? asset('storage/' . Auth::user()->avatar) : asset('img/author-nav.jpg') }}" alt="" class="rounded-circle">
                             <span class="nav-item__title">{{ auth()->user()->name }}<i class="las la-angle-down nav-item__arrow"></i></span>
                         </a>
                         <div class="dropdown-parent-wrapper">
@@ -97,11 +97,11 @@
                                 <div class="nav-author__options">
                                     <ul>
                                     <li>
-                                        <a href="">
+                                        <a href="{{ route('user.profile') }}">
                                             <i class="uil uil-user"></i> پروفایل</a>
                                     </li>
                                     <li>
-                                        <a href=""><i class="uil uil-setting"></i>تغییر رمز عبور</a>
+                                        <a href="{{ route('user.change-password') }}"><i class="uil uil-setting"></i>تغییر رمز عبور</a>
                                     </li>
                                     </ul>
                                     <a class="nav-author__signout" href="{{ route('logout') }}"
@@ -234,16 +234,16 @@
                               <a href="#">داشبورد</a>
                            </li>
                            <li class="">
-                              <a href="{{ route('profile.orders') }}">سفارشات</a>
+                              <a href="{{ route('user.orders') }}">سفارشات</a>
                            </li>
                            <li class="">
                               <a href="#">آدرس ها</a>
                            </li>
                            <li class="">
-                              <a href="#">پروفایل</a>
+                              <a href="{{ route('user.profile') }}">پروفایل</a>
                            </li>
                            <li class="">
-                              <a href="#">تغییر رمز عبور</a>
+                              <a href="{{ route('user.change-password') }}">تغییر رمز عبور</a>
                            </li>
                         </ul>
                      </li>

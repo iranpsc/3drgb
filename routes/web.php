@@ -22,7 +22,9 @@ use App\Livewire\StoreManagement\Products\EditProduct;
 use App\Livewire\StoreManagement\Products\Import;
 use App\Livewire\StoreManagement\Products\Products;
 use App\Livewire\ProductDetails;
-use App\Livewire\Profile\Orders;
+use App\Livewire\User\Orders;
+use App\Livewire\User\Profile;
+use App\Livewire\User\ChangePassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -65,8 +67,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/attributes', Attributes::class)->name('attributes');
     });
 
-    Route::as('profile.')->group(function () {
+    Route::as('user.')->group(function () {
         Route::get('/orders', Orders::class)->name('orders');
+        Route::get('/profile', Profile::class)->name('profile');
+        Route::get('/change-password', ChangePassword::class)->name('change-password');
     });
 });
 
