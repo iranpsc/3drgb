@@ -1,13 +1,13 @@
 <div>
     <x-page title="پروفایل من">
+        @if(session()->has('message'))
+            <x-alert type="success" message="{{ session('message') }}" />
+        @endif
 
         @if(session()->has('info'))
             <x-alert type="info" message="{{ session('info') }}" />
         @endif
 
-        @if(session()->has('message'))
-            <x-alert type="success" message="{{ session('message') }}" />
-        @endif
 
         <div class="row justify-content-center">
             <div class="col-sm-8 col-md-6 col-lg-4">

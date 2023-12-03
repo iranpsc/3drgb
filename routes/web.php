@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\AboutUs;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Password;
 use App\Models\User;
@@ -40,6 +41,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'home', ['title' => 'خانه'])->name('home');
+Route::get('/about-us', AboutUs::class)->name('about-us');
 Route::get('/store', Store::class)->name('store');
 Route::get('/products/{product:name}', ProductDetails::class)->name('products.show');
 Route::get('/cart', Cart::class)->name('cart');

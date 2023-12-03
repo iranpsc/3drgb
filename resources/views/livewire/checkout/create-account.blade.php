@@ -44,7 +44,7 @@
                               @else
                                  <form wire:submit="createAccount">
                                     <x-forms.text-input wire:model="name" name="name" label="نام و نام خانوادگی" />
-                                    <x-forms.text-input wire:model="email" name="email" label="ایمیل" />
+                                    <x-forms.text-input type="email" wire:model="email" name="email" label="ایمیل" />
                                     <x-forms.text-input wire:model="password" name="password" label="رمز عبور" type="password" />
                                     <x-forms.text-input wire:model="password_confirmation" name="password_confirmation" label="تکرار رمز عبور" type="password" />
                                     

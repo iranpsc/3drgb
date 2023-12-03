@@ -42,7 +42,7 @@
                                         </div>
 
                                         <div class="alert alert-success">
-                                           <p>جهت دانلود فایل به بخش <a href="{{ route('profile.orders') }}">سفارشات</a> مراجعه کنید.</p>
+                                           <p>جهت دانلود فایل به بخش <a href="{{ route('user.orders') }}">سفارشات</a> مراجعه کنید.</p>
                                         </div>
                                     @endif
                                  </div>

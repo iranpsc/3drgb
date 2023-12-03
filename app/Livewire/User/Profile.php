@@ -3,6 +3,7 @@
 namespace App\Livewire\User;
 
 use App\Models\User;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -79,7 +80,7 @@ class Profile extends Component
 
         $this->user->save();
         
-        if($this->user->isDirty('email')) {
+        if($this->user->wasChanged('email')) {
             $this->user->email_verified_at = null;
             $this->user->sendEmailVerificationNotification();
             $this->user->save();
@@ -91,6 +92,7 @@ class Profile extends Component
         session()->flash('message', 'اطلاعات کاربری شما با موفقیت بروزرسانی شدند.');
     }
     
+    #[Title('ویرایش اطلاعات کاربری')]
     public function render()
     {
         return view('livewire.user.profile');

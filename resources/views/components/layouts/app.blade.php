@@ -204,25 +204,36 @@
                   @endif
                   <li>
                      <a href="#" class="">
-                        <span class="nav-icon uil uil-user"></span>
+                        <span class="nav-icon uil uil-headphones"></span>
                         <span class="menu-text">پشتیبانی</span>
+                     </a>
+                  </li>
+                  <li>
+                     <a href="{{ route('about-us') }}" class="">
+                        <span class="nav-icon uil uil-info"></span>
+                        <span class="menu-text">درباره ما</span>
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#" class="">
+                        <span class="nav-icon uil uil-phone"></span>
+                        <span class="menu-text">تماس با ما</span>
                      </a>
                   </li>
                   @guest
                       <li>
                            <a href="{{ route('login') }}" class="">
-                                 <span class="nav-icon uil uil-user"></span>
+                                 <span class="nav-icon uil uil-signin"></span>
                                  <span class="menu-text">ورود</span>
                            </a>
                       </li>
                         <li>
                               <a href="{{ route('register') }}" class="">
-                                    <span class="nav-icon uil uil-user"></span>
+                                    <span class="nav-icon uil uil-sign-out-alt"></span>
                                     <span class="menu-text">ثبت نام</span>
                               </a>
                         </li>  
-                  @endguest
-                  @auth
+                  @else
                      <li class="has-child">
                         <a href="#" class="">
                            <span class="nav-icon uil uil-user"></span>

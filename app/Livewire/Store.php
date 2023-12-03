@@ -5,7 +5,6 @@ namespace App\Livewire;
 use App\Models\Category;
 use Livewire\Attributes\Title;
 use Livewire\Component;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 
 class Store extends Component
@@ -27,10 +26,6 @@ class Store extends Component
     {
         if(! in_array($productId, session()->get('cart', []))) {
             session()->push('cart', $productId);
-        }
-
-        if(! Auth::check()) {
-            return $this->redirectRoute('login', ['redirect' => 'checkout']);
         }
 
         return $this->redirect('/checkout');
