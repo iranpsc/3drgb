@@ -65,7 +65,7 @@
                         <div class="project-search shop-search  global-shadow ">
                            <div class="d-flex align-items-center user-member__form">
                               <img src="{{ asset('img/svg/search.svg') }}" alt="search" class="svg">
-                              <input class="form-control me-sm-2 border-0 box-shadow-none" type="search" placeholder="جستجو" aria-label="Search">
+                              <input class="form-control me-sm-2 border-0 box-shadow-none" wire:model.live.debounce.500ms="search" type="search" placeholder="جستجو" aria-label="Search">
                            </div>
                         </div>
                      </div>
@@ -77,9 +77,15 @@
                   <div class="tab-pane fade show active" id="ap-overview" role="tabpanel" aria-labelledby="ap-overview-tab">
                      <!-- Start: Shop Item -->
                      <div class="row product-page-list justify-content-center">
+                        <!-- Add a hidden loading spinner to your HTML -->
+                        <div id="loading" style="display: none;">
+                           <img src="path_to_your_spinner.gif" alt="Loading..." />
+                        </div>
+
                         @foreach ($products as $product)
                            <x-product-item :product="$product" />
                         @endforeach
+
                      </div>
                      <!-- End: Shop Item -->
                   </div>

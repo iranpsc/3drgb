@@ -85,16 +85,22 @@
           <div
             class="flex flex-col sm:gap-y-5 lg:gap-5 xl:gap-10 mt-5 lg:flex-row sm:items-center sm:justify-end md:justify-center sm:mt-0 sm:pl-5 mx-auto ">
             <a class="font-medium hover:text-blue-700 text-gray-600 duration-300  border-b-2 py-3 md:border-0 md:py-0" href=" {{ route('home') }}"
-              aria-current="page">خانه</a>
+              aria-current="page">سه بعدی متا</a>
             <a class="font-medium hover:text-blue-700 text-gray-600 duration-300  border-b-2 py-3 md:border-0 md:py-0"
               href="{{ route('store') }}" aria-current="page">
-              فروشگاه</a>
+              دسته بندی</a>
+            <a class="font-medium hover:text-blue-700 text-gray-600 duration-300  border-b-2 py-3 md:border-0 md:py-0"
+              href="abuotus.html" aria-current="page">
+              ثبت سفارش</a>
             <a class="font-medium hover:text-blue-700 text-gray-600 duration-300  border-b-2 py-3 md:border-0 md:py-0"
               href="abuotus.html" aria-current="page">
               درباره ما</a>
             <a class="font-medium hover:text-blue-700 text-gray-600 duration-300  border-b-2 py-3 md:border-0 md:py-0"
               href="abuotus.html" aria-current="page">
               تماس با ما</a>
+            <a class="font-medium hover:text-blue-700 text-gray-600 duration-300  border-b-2 py-3 md:border-0 md:py-0"
+              href="abuotus.html" aria-current="page">
+              آموزش</a>
           </div>
 
         </div>

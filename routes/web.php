@@ -48,7 +48,7 @@ Route::get('/cart', Cart::class)->name('cart');
 Route::get('/checkout', Checkout::class)->name('checkout');
 Route::get('/verify', Verify::class)->name('verify');
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::middleware('admin')->prefix('admin')->group(function () {
 
         Route::prefix('products')->name('products.')->group(function () {

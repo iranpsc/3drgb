@@ -55,7 +55,7 @@ class CreateProductForm extends Form
             'delivery_time' => ['required', 'numeric', 'min:0'],
             'customer_can_add_review' => ['required', 'boolean'],
             'price' => ['required', 'numeric', 'min:0'],
-        'sale_price' => ['required', 'numeric', 'min:0', /**'lte:form.price'*/],
+            'sale_price' => ['required', 'numeric', 'min:0', 'lte:form.price'],
             'published' => [
                 'required', 'boolean', function (string $attribute, mixed $value, Closure $fail) {
                     if ($value && (bool)$this->stock_status == false) {
@@ -63,8 +63,8 @@ class CreateProductForm extends Form
                     }
                 }
             ],
-            'images.*' => ['required', 'image', 'max:1024'],
-            'file' => ['required', 'file', 'max:1024000'],
+            'images.*' => ['required', 'image', 'max:2024'],
+            'file' => ['required', 'file'],
             'tags' => ['required', 'array', 'min:1'],
             'tags.*' => ['required', ValidationRule::exists('tags', 'id')],
             'attributes' => ['required', 'array', 'min:1'],

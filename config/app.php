@@ -184,7 +184,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        'Faker' => Ybazli\Faker\Facades\Faker::class,
+        // 
     ])->toArray(),
 
 ];
