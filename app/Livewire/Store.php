@@ -15,6 +15,12 @@ class Store extends Component
     public $search;
     private $products;
     
+    /**
+     * Add product to cart.
+     * 
+     * @param int $productId
+     * @return void
+     */
     public function addToCart($productId)
     {
         // check if product is already in cart
@@ -28,6 +34,11 @@ class Store extends Component
         session()->flash('message', 'محصول به سبد خرید اضافه شد.');
     }
 
+    /**
+     * Search for products.
+     * 
+     * @return void
+     */
     public function updatedSearch()
     {
         $this->resetPage();
@@ -37,6 +48,12 @@ class Store extends Component
             ->paginate(12);
     }
 
+    /**
+     * Purchase the product.
+     * 
+     * @param int $productId
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function purchase($productId)
     {
         if(! in_array($productId, session()->get('cart', []))) {
@@ -44,6 +61,18 @@ class Store extends Component
         }
 
         return $this->redirect('/checkout');
+    }
+
+    /**
+     * Download the product file.
+     * 
+     * @param \App\Models\Product $product
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     */
+    public function download(Product $product)
+    {
+        $this->authorize('download', $product);
+        return response()->download(storage_path('app/' . $product->file->path));
     }
 
     #[Title('فروشگاه')]

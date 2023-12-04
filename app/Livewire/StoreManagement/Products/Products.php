@@ -21,6 +21,6 @@ class Products extends Component
     public function render()
     {
         return view('livewire.store-management.products.products')
-        ->with('products', Product::paginate(10));
+        ->with('products', Product::orderByDesc('created_at')->paginate(10));
     }
 }

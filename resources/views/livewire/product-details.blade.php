@@ -116,11 +116,16 @@
                               <!-- Start: Product Selections -->
                               <div class="product-item__button mt-lg-30 mt-sm-25 mt-20 d-flex flex-wrap">
                                  <div class=" d-flex flex-wrap product-item__action align-items-center">
-                                    <button type="button" @disabled(session('cart') && in_array($product->id, session('cart'))) wire:click="addToCart" class="btn btn-light text-dark btn-squared border-0 me-10 my-sm-0 my-2">
-                                       افزودن به سبد خرید
-                                    </button>
-                                    {{-- <span wire:loading class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> --}}
-                                    <button type="button" wire:click="purchase" class="btn btn-primary btn-default btn-squared border-0 me-10 my-sm-0 my-2">خرید و دانلود</button>
+                                    @if(Auth::check() && Auth::user()->hasPurchased($product))
+                                        <x-button wire:click="download" color="info" size="block"><img src="{{ asset('img/svg/download.svg') }}" alt="download" class="svg">
+                                            دانلود
+                                        </x-button>
+                                    @else
+                                       <button type="button" @disabled(session('cart') && in_array($product->id, session('cart'))) wire:click="addToCart" class="btn btn-light text-dark btn-squared border-0 me-10 my-sm-0 my-2">
+                                          افزودن به سبد خرید
+                                       </button>
+                                       <button type="button" wire:click="purchase" class="btn btn-primary btn-default btn-squared border-0 me-10 my-sm-0 my-2">خرید و دانلود</button>
+                                    @endif
                                     <div class="like-icon">
                                        <button type="button">
                                           <i class="lar la-heart icon"></i>

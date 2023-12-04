@@ -39,10 +39,16 @@
                    </div>
                 </div>
                 <div class="product-item__button d-flex mt-20 flex-wrap">
-                   <button type="button" @disabled(session('cart') && in_array($product->id, session('cart'))) wire:click="addToCart({{ $product->id }})" class="btn btn-default btn-squared color-light btn-outline-light"><img src="{{ asset('img/svg/shopping-bag.svg') }}" alt="shopping-bag" class="svg">
-                     افزودن به سبد خرید
-                  </button>
-                  <button type="button" wire:click="purchase({{ $product->id }})" class="btn btn-primary btn-default btn-squared border-0">خرید</button>
+                  @if (Auth::check() && Auth::user()->hasPurchased($product))
+                    <x-button wire:click="download({{ $product->id }})" color="light" size="block"><img src="{{ asset('img/svg/download.svg') }}" alt="download" class="svg">
+                       دانلود
+                    </x-button>
+                  @else
+                     <button type="button" @disabled(session('cart') && in_array($product->id, session('cart'))) wire:click="addToCart({{ $product->id }})" class="btn btn-default btn-squared color-light btn-outline-light"><img src="{{ asset('img/svg/shopping-bag.svg') }}" alt="shopping-bag" class="svg">
+                        افزودن به سبد خرید
+                     </button>
+                     <button type="button" wire:click="purchase({{ $product->id }})" class="btn btn-primary btn-default btn-squared border-0">خرید</button>
+                  @endif
                 </div>
              </div>
           </div>

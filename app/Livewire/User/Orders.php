@@ -14,6 +14,7 @@ class Orders extends Component
 
     public function download(Product $product)
     {
+        $this->authorize('download', $product);
         return response()->download(storage_path('app/' . $product->file->path));
     }
 

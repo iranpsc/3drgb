@@ -3,7 +3,6 @@
 namespace App\Livewire;
 
 use App\Models\Product;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class ProductDetails extends Component
@@ -30,6 +29,12 @@ class ProductDetails extends Component
         }
 
         return $this->redirect('/checkout');
+    }
+
+    public function download()
+    {
+        $this->authorize('download', $this->product);
+        return response()->download(storage_path('app/' . $this->product->file->path));
     }
 
     public function render()
