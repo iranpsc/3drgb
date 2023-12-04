@@ -34,7 +34,9 @@ class Register extends Component
 
         event(new Registered($user));
 
-        return $this->redirect('/');
+        session()->flash('success', __('auth.registered'));
+
+        return $this->redirect('/dashboard');
     }
 
     #[Layout('components.layouts.auth', ['title' => 'ثبت نام'])]

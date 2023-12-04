@@ -26,6 +26,7 @@ use App\Livewire\ProductDetails;
 use App\Livewire\User\Orders;
 use App\Livewire\User\Profile;
 use App\Livewire\User\ChangePassword;
+use App\Livewire\User\Dashboard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -48,7 +49,7 @@ Route::get('/cart', Cart::class)->name('cart');
 Route::get('/checkout', Checkout::class)->name('checkout');
 Route::get('/verify', Verify::class)->name('verify');
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware('admin')->prefix('admin')->group(function () {
 
         Route::prefix('products')->name('products.')->group(function () {
@@ -70,6 +71,7 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::as('user.')->group(function () {
+        Route::get('/dashboard', Dashboard::class)->name('dashboard');
         Route::get('/orders', Orders::class)->name('orders');
         Route::get('/profile', Profile::class)->name('profile');
         Route::get('/change-password', ChangePassword::class)->name('change-password');
@@ -97,13 +99,13 @@ Route::get('/email/verify', function () {
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
- 
-    return redirect('/home');
+
+    return to_route('user.dashboard');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
- 
+
     return back()->with('message', 'ایمیل تایید حساب کاربری برای شما ارسال شد.');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
@@ -113,41 +115,41 @@ Route::get('/forgot-password', function () {
 
 Route::post('/forgot-password', function (Request $request) {
     $request->validate(['email' => 'required|email']);
- 
+
     $status = Password::sendResetLink(
         $request->only('email')
     );
- 
+
     return $status === Password::RESET_LINK_SENT
-                ? back()->with(['status' => __($status)])
-                : back()->withErrors(['email' => __($status)]);
+        ? back()->with(['status' => __($status)])
+        : back()->withErrors(['email' => __($status)]);
 })->middleware('guest')->name('password.email');
 
 Route::get('/reset-password/{token}', function (string $token) {
     return view('auth.reset-password', ['token' => $token]);
 })->middleware('guest')->name('password.reset');
- 
+
 Route::post('/reset-password', function (Request $request) {
     $request->validate([
         'token' => 'required',
         'email' => 'required|email',
         'password' => 'required|min:8|confirmed',
     ]);
- 
+
     $status = Password::reset(
         $request->only('email', 'password', 'password_confirmation', 'token'),
         function (User $user, string $password) {
             $user->forceFill([
                 'password' => Hash::make($password)
             ])->setRememberToken(Str::random(60));
- 
+
             $user->save();
- 
+
             event(new PasswordReset($user));
         }
     );
- 
+
     return $status === Password::PASSWORD_RESET
-                ? redirect()->route('login')->with('status', __($status))
-                : back()->withErrors(['email' => [__($status)]]);
+        ? redirect()->route('login')->with('status', __($status))
+        : back()->withErrors(['email' => [__($status)]]);
 })->middleware('guest')->name('password.update');

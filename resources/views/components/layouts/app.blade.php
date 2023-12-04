@@ -242,7 +242,7 @@
                         </a>
                         <ul>
                            <li class="">
-                              <a href="#">داشبورد</a>
+                              <a href="{{ route('user.dashboard') }}">داشبورد</a>
                            </li>
                            <li class="">
                               <a href="{{ route('user.orders') }}">سفارشات</a>

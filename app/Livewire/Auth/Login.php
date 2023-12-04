@@ -30,7 +30,7 @@ class Login extends Component
                 return $this->redirectRoute($this->redirect);
             }
 
-            return redirect()->intended('/store');
+            return redirect()->intended('/dashboard');
         }
         
         session()->flash('error', __('auth.failed'));

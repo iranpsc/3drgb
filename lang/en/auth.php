@@ -16,5 +16,6 @@ return [
     'failed' => 'These credentials do not match our records.',
     'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'registered' => 'You have been registered successfully. An email containing a verification link has been sent to your email. Click on it to verify your account',
 
 ];
