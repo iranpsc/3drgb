@@ -19,6 +19,8 @@ class CreateProduct extends Component
     public function save()
     {
         $this->form->save();
+
+        $this->redirectRoute('products.index');
     }
 
 

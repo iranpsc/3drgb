@@ -55,7 +55,7 @@ class CreateProductForm extends Form
             'delivery_time' => ['required', 'numeric', 'min:0'],
             'customer_can_add_review' => ['required', 'boolean'],
             'price' => ['required', 'numeric', 'min:0'],
-            'sale_price' => ['required', 'numeric', 'min:0', 'lte:form.price'],
+            'sale_price' => ['required', 'numeric', 'min:0', /** 'lte:form.price'*/],
             'published' => [
                 'required', 'boolean', function (string $attribute, mixed $value, Closure $fail) {
                     if ($value && (bool)$this->stock_status == false) {
@@ -112,9 +112,5 @@ class CreateProductForm extends Form
                 'value' => $attribute['value'],
             ]);
         }
-
-        session()->flash('success', 'Product created successfully.');
-
-        return redirect(route('products.index'));
     }
 }

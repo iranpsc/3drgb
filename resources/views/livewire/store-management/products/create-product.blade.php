@@ -2,9 +2,6 @@
     <x-page title="ایجاد محصول">
         <div class="row">
             <div class="col-md-6">
-                @if (session()->has('message'))
-                    <x-alert type="success" message="{{ session('message') }}" />
-                @endif
         
                 <x-forms.select-input wire:model="form.category_id" name="form.category_id" label="دسته بندی">
                     <option value="">انتخاب دسته بندی</option>
