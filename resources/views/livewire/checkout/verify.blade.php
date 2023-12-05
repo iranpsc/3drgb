@@ -28,7 +28,7 @@
                         </div>
                      </div><!-- checkout -->
                      <div class="row justify-content-center">
-                        <div class="col-xl-7 col-lg-8 col-sm-10">
+                        <div class="col-12">
                            <div class="card checkout-shipping-form shadow-none border-0 shadow-none">
                               <div class="card-body">
                                  <div class="edit-profile__body">
@@ -36,14 +36,62 @@
                                         <x-alert type="danger" :message="session('error')" />
                                     @endif
 
-                                    @if($order && $order->status == 'OK')
+                                    @if($order && $order->isPaid())
                                         <div class="alert alert-success my-2">
                                             <p>پرداخت شما با موفقیت انجام شد. کد پیگیری پرداخت: {{ $transaction->reference_id }}</p>
                                         </div>
 
-                                        <div class="alert alert-success">
-                                           <p>جهت دانلود فایل به بخش <a href="{{ route('user.orders') }}">سفارشات</a> مراجعه کنید.</p>
-                                        </div>
+                                        <div class="userDatatable orderDatatable shipped-dataTable global-shadow border-0 p-30 bg-white radius-xl w-100 mb-30">
+                                          <div class="table-responsive">
+                                             <table class="table mb-0 table-borderless border-0">
+                                                <thead>
+                                                   <tr class="userDatatable-header">
+                                                      <th>
+                                                         ردیف
+                                                      </th>
+                                                      <th>
+                                                         <span class="userDatatable-title">شناسه سفارش</span>
+                                                      </th>
+                                                      <th>
+                                                         <span class="userDatatable-title">نام محصول</span>
+                                                      </th>
+                                                      <th>
+                                                          <span class="userDatatable-title">مبلغ پرداختی</span>
+                                                      </th>
+                                                      <th>
+                                                         <span class="userDatatable-title float-end">دانلود</span>
+                                                      </th>
+                                                   </tr>
+                                                </thead>
+                                                <tbody>
+                                                   @foreach($order->products as $product)
+                                                      <tr>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>
+                                                               <div class="orderDatatable-title">
+                                                                  {{ $order->tracking_id }}
+                                                               </div>
+                                                            </td>
+                                                            <td>
+                                                               <div class="orderDatatable-title">
+                                                                  {{ $product->name }}
+                                                               </div>
+                                                            </td>
+                                                            <td>
+                                                               <div class="orderDatatable-title">
+                                                                  {{ $product->price }}
+                                                               </div>
+                                                            </td>
+                                                            <td>
+                                                               <x-button wire:click="download({{ $product->id }})"><i class="uil uil-download-alt"></i>دانلود</x-button>
+                                                            </td>
+                                                      </tr>
+                                                   @endforeach
+                                                   <!-- End: tr -->
+                                                </tbody>
+                                             </table><!-- End: table -->
+                                          </div>
+                                       </div><!-- End: .userDatatable -->
                                     @endif
                                  </div>
                               </div>

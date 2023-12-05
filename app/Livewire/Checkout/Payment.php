@@ -21,6 +21,11 @@ class Payment extends Component
         $this->products = Product::whereIn('id', $cartItems)->get();
     }
 
+    public function goBack()
+    {
+        $this->dispatch('move-to-create-account')->to(Checkout::class);
+    }
+
     public function pay()
     {
         $order = Order::create([

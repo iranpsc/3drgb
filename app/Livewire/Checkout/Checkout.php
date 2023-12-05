@@ -43,6 +43,16 @@ class Checkout extends Component
 
     }
 
+    #[On('move-to-create-account')]
+    public function backToCreateAccount()
+    {
+        if(! auth()->check()) {
+            $this->current = $this->steps[0];
+        } else {
+            $this->redirectRoute('cart');
+        }
+    }
+
     #[On('move-to-payment')]
     public function accountCreated()
     {

@@ -50,4 +50,14 @@ class Order extends Model
     {
         return $this->hasManyThrough(Product::class, OrderItem::class, 'order_id', 'id', 'id', 'product_id');
     }
+
+    /**
+     * Check if the order is paid.
+     * 
+     * @return bool
+     */
+    public function isPaid()
+    {
+        return $this->status === 'OK';
+    }
 }

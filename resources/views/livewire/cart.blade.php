@@ -56,7 +56,7 @@
                                                             <tr>
                                                                 <td class="Product-cart-title">
                                                                     <div class="media  align-items-center">
-                                                                        <img class="me-3 wh-80 align-self-center radius-xl" src="{{ $product->images->first()->url }}" alt="Generic placeholder image">
+                                                                        <img class="me-3 wh-80 align-self-center radius-xl" src="{{ asset('storage/' . $product->images->first()->path) }}" alt="Generic placeholder image">
                                                                         <div class="media-body">
                                                                             <h5 class="mt-0">{{ $product->name }}</h5>
                                                                         </div>

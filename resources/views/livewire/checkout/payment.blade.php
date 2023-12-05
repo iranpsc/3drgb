@@ -84,8 +84,14 @@
                                                   </tfoot>
                                                </table>
                                             </div>
-                                            <hr>
-                                            <x-button wire:click="pay">پرداخت</x-button>
+                                            <div class="row justify-content-between">
+                                                <div class="col-6">
+                                                   <x-button wire:click="goBack">بازگشت</x-button>
+                                                </div>
+                                                <div class="col-6">
+                                                   <x-button wire:click="pay">پرداخت</x-button>
+                                                </div>
+                                             </div>
                                          </div><!-- End: .payment-invoice-table -->
                                     </div>
                                 </div>

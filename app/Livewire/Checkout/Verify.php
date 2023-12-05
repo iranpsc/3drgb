@@ -2,8 +2,10 @@
 
 namespace App\Livewire\Checkout;
 
+use App\Models\Product;
 use Livewire\Component;
 use App\Models\Transaction;
+use Livewire\Attributes\Locked;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Url;
 
@@ -15,7 +17,11 @@ class Verify extends Component
     #[Url]
     public $Status = '';
 
-    public $transaction = null, $order = null;
+    #[Locked]
+    public $transaction = null;
+
+    #[Locked]
+    public $order = null;
 
     public function mount()
     {
@@ -64,6 +70,12 @@ class Verify extends Component
 
             $user->products()->attach($this->order->orderItems->pluck('product_id'));
         }
+    }
+
+    public function download(Product $product)
+    {
+        $this->authorize('download', $product);
+        return response()->download(storage_path('app/' . $product->file->path));
     }
 
     #[Title('تایید پرداخت')]

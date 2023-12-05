@@ -61,11 +61,11 @@
                                         </td>
                                         <td>
                                             <div class="orderDatatable-title">
-                                                {{ $order->status === 'OK' ? 'پرداخت شده' : 'پرداخت نشده' }}
+                                                {{ $order->isPaid() ? 'پرداخت شده' : 'پرداخت نشده' }}
                                             </div>
                                         </td>
                                         <td>
-                                            @if($order->status === 'OK')
+                                            @if($order->isPaid())
                                                 <x-button wire:click="download({{ $product->id }})"><i class="uil uil-download-alt"></i>دانلود</x-button>
                                             @else
                                                 <x-button wire:click="pay({{ $order->id }})"><i class="uil uil-download-alt"></i>پرداخت</x-button>
