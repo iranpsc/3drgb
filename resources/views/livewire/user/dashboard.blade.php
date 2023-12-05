@@ -1,8 +1,5 @@
 <div>
     <div class="demo5 mt-30 mb-25">
-        @if(session()->has('success'))
-            <x-alert type="success" :message="session('success')" />
-        @endif
         <div class="container-fluid">
            <div class="row">
               <div class="col-xxl-12 mb-25">

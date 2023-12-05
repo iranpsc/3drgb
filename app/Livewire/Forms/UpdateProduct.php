@@ -129,7 +129,7 @@ class UpdateProduct extends Form
         if ($this->images) {
             foreach ($this->images as $image) {
                 $this->product->images()->create([
-                    'url' => url('storage/' . $image->store('products', 'public')),
+                    'path' => $image->store('products', 'public'),
                 ]);
             }
         }

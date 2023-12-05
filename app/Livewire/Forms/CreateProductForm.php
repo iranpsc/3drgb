@@ -94,7 +94,7 @@ class CreateProductForm extends Form
 
         foreach ($this->images as $image) {
             $product->images()->create([
-                'url' => url('storage/' . $image->store('products', 'public')),
+                'path' => $image->store('products', 'public'),
             ]);
         }
 

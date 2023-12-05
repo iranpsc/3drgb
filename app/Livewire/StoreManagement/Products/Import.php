@@ -26,7 +26,7 @@ class Import extends Component
 
         $this->file = null;
 
-        session()->flash('success', 'محصولات با موفقیت درون ریزی شدند.');
+        session()->flash('message', 'محصولات با موفقیت درون ریزی شدند.');
     }
 
     #[Title('درون ریزی محصولات')]

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->nullable()->constrained('categories')->nullOnDelete();
-            $table->string('sku')->unique();
+            $table->string('sku');
             $table->string('name')->index();
-            $table->string('slug')->unique()->nullable();
+            $table->string('slug')->nullable();
             $table->text('short_description');
             $table->longText('long_description');
             $table->boolean('stock_status')->default(true);

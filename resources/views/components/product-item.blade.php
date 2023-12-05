@@ -10,7 +10,7 @@
                       <i class="lar la-heart icon"></i>
                    </button>
                 </span>
-                <a href="{{ route('products.show', $product->name) }}"><img class="card-img-top img-fluid" src="{{ $product->images->first()->url }}" alt="digital-chair"></a>
+                <a href="{{ route('products.show', $product->name) }}"><img class="card-img-top img-fluid" src="{{ asset('storage/' . $product->images->first()->path) }}" alt="digital-chair"></a>
              </div>
              <div class="card-body px-20 pb-25 pt-25">
                 <div class="product-item__body text-capitalize">

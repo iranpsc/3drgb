@@ -48,7 +48,7 @@ class EditCategory extends Component
 
         if ($this->image) {
             $this->category->images()->create([
-                'url' => $this->image->store('/categories', 'public'),
+                'path' => $this->image->store('/categories', 'public'),
             ]);
         }
 

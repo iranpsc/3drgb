@@ -34,7 +34,7 @@
                               <div class="carousel-inner">
                                   @foreach ($product->images as $image)
                                       <div class="carousel-item @if($loop->iteration == 1) active @endif">
-                                          <img class="img-fluid d-flex bg-opacity-primary " src="{{ $image->url }}" alt="Card image cap" title="">
+                                          <img class="img-fluid d-flex bg-opacity-primary " src="{{ asset('storage/' . $image->path) }}" alt="Card image cap" title="">
                                       </div>
                                   @endforeach
                               </div>
@@ -45,7 +45,7 @@
                                   @foreach ($product->images as $image)
                                       <li>
                                           <a href="#" class="thumbnail @if($loop->iteration == 1) active @endif" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ $loop->iteration }}" aria-current="true" aria-label="Slide 1">
-                                              <img class="img-fluid d-flex" src="{{ $image->url }}" alt="">
+                                              <img class="img-fluid d-flex" src="{{ asset('storage/' . $image->path) }}" alt="">
                                           </a>
                                       </li>
                                   @endforeach

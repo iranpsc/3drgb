@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('attribute_id')->constrained()->onDelete('cascade');
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
             $table->string('value');
+            $table->boolean('display')->default(true);
             $table->timestamps();
         });
     }
