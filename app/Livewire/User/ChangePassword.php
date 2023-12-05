@@ -3,30 +3,17 @@
 namespace App\Livewire\User;
 
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules\Password;
+use Livewire\Attributes\Rule;
 use Livewire\Component;
 
 class ChangePassword extends Component
 {
-    /**
-     * The current password.
-     *
-     * @var string
-     */
+    #[Rule('required|current_password')]
     public $current_password;
 
-    /**
-     * The new password.
-     *
-     * @var string
-     */
+    #[Rule('required|confirmed|min:6')]
     public $password;
 
-    /**
-     * The new password confirmation.
-     *
-     * @var string
-     */
     public $password_confirmation;
 
     /**
@@ -36,16 +23,13 @@ class ChangePassword extends Component
      */
     public function updatePassword()
     {
-        $this->validate([
-            'current_password' => 'required|current_password',
-            'password' => ['required', Password::min(8)->mixedCase()],
-        ]);
+        $this->validate();
 
         auth()->user()->update([
             'password' => Hash::make($this->password),
         ]);
 
-        $this->reset('current_password', 'password', 'password_confirmation');
+        $this->reset();
 
         session()->flash('message', 'رمز عبور شما با موفقیت تغییر کرد.');
     }
