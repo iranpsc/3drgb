@@ -2,10 +2,11 @@
 
 namespace App\Imports;
 
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Maatwebsite\Excel\Concerns\ToArray;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 
-class ProductImport implements ToArray, WithChunkReading
+class ProductImport implements ToArray, WithChunkReading, ShouldQueue
 {
 
     public function array(array $array)
