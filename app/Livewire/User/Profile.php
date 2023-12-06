@@ -53,6 +53,7 @@ class Profile extends Component
         $this->name = $this->user->name;
         $this->email = $this->user->email;
         $this->phone = $this->user->phone;
+        $this->avatar = $this->user->avatar;
     }
 
     /**
@@ -66,7 +67,7 @@ class Profile extends Component
             'name' => 'required|string|min:3|max:255',
             'email' => ['required', 'email', 'max:255', 'unique:users,email,' . $this->user->id],
             'phone' => ['required', 'string', 'min:11', 'max:11', 'unique:users,phone,' . $this->user->id],
-            'avatar' => 'nullable|image|max:1024',
+            'avatar' => 'nullable|image|max:2024',
         ]);
 
         if ($this->avatar) {

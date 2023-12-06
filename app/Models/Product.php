@@ -38,6 +38,11 @@ class Product extends Model
         'attributes',
     ];
 
+    public function getSlugAttribute()
+    {
+        return str_replace(' ', '-', $this->attributes['slug']);
+    }
+
     /**
      * Get the category that owns the product.
      * 
