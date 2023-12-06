@@ -33,7 +33,7 @@ class ProductSeeder extends Seeder
 
             for($i = 1; $i <= 3; $i++) {
                 $product->images()->create([
-                    'url' => '/products/digital-chair.png',
+                    'path' => '/products/digital-chair.png',
                     // 'is_main' => $i === 1 ? true : false
                 ]);
             }
