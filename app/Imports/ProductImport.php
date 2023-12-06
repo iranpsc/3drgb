@@ -29,8 +29,8 @@ class ProductImport implements ToArray, WithChunkReading, ShouldQueue
 
                 $category = \App\Models\Category::firstOrCreate([
                     'name' => $category,
-                    'slug' => $category,
                 ], [
+                    'slug' => $category,
                     'parent_id' => $parent_id
                 ]);
 
@@ -44,10 +44,10 @@ class ProductImport implements ToArray, WithChunkReading, ShouldQueue
             foreach ($tags as $index => $tag) {
                 $tag = trim($tag);
 
-                $tag = \App\Models\Tag::firstOrCreate([
-                    'name' => $tag,
-                    'slug' => $tag,
-                ]);
+                $tag = \App\Models\Tag::firstOrCreate(
+                    ['name' => $tag],
+                    ['slug' => $tag]
+                );
 
                 $tagsIds[] = $tag->id;
             }
@@ -89,10 +89,10 @@ class ProductImport implements ToArray, WithChunkReading, ShouldQueue
             // Iterate over $row[15] to $row[68] and create attributes
             for ($i = 15; $i <= 68; $i += 3) {
                 if ($row[$i] != null) {
-                    $attribute = \App\Models\Attribute::firstOrCreate([
-                        'name' => $row[$i],
-                        'slug' => $row[$i]
-                    ]);
+                    $attribute = \App\Models\Attribute::firstOrCreate(
+                        ['name' => $row[$i]],
+                        ['slug' => $row[$i]]
+                    );
 
                     $product->attributes()->attach($attribute->id, [
                         'value' => $row[$i + 1],
