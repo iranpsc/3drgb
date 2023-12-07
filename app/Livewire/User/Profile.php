@@ -53,7 +53,6 @@ class Profile extends Component
         $this->name = $this->user->name;
         $this->email = $this->user->email;
         $this->phone = $this->user->phone;
-        $this->avatar = $this->user->avatar;
     }
 
     /**

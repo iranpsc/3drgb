@@ -6,6 +6,7 @@ use App\Models\Category;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use App\Models\Product;
+use Livewire\Attributes\Computed;
 use Livewire\WithPagination;
 
 class Store extends Component
@@ -14,7 +15,7 @@ class Store extends Component
 
     public $search;
     private $products;
-    
+
     /**
      * Add product to cart.
      * 
@@ -56,7 +57,7 @@ class Store extends Component
      */
     public function purchase($productId)
     {
-        if(! in_array($productId, session()->get('cart', []))) {
+        if (!in_array($productId, session()->get('cart', []))) {
             session()->push('cart', $productId);
         }
 
@@ -75,13 +76,18 @@ class Store extends Component
         return response()->download(storage_path('app/' . $product->file->path));
     }
 
+    #[Computed(persist: true)]
+    public function categories()
+    {
+        return Category::select('id', 'name')->withCount('products')->get();
+    }
+
     #[Title('فروشگاه')]
     public function render()
     {
         return view('livewire.store')
-        ->with([
-            'products' => $this->products ?? Product::published()->orderByDesc('created_at')->paginate(12),
-            'categories' => Category::select('id', 'name')->withCount('products')->get(),
-        ]);
+            ->with([
+                'products' => $this->products ?? Product::published()->orderByDesc('created_at')->paginate(12),
+            ]);
     }
 }

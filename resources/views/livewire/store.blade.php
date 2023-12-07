@@ -41,7 +41,7 @@
                         <div class="card border-0 shadow-none multi-collapse mt-10 collapse show" id="multiCollapseExample2">
                            <div class="product-category limit-list-item">
                               <ul>
-                                 @foreach ($categories as $category)
+                                 @foreach ($this->categories as $category)
                                     <li>
                                        <div class="w-100">
                                           <span class="fs-14 color-gray">{{ $category->name }}<span class="item-numbers">{{ $category->products_count }}</span></span>
