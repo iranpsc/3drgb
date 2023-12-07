@@ -23,16 +23,18 @@ class Login extends Component
             'remember_me' => 'nullable|boolean'
         ]);
 
-        if (Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember_me)) {
+        $credentials = $this->only('email', 'password');
+
+        if (Auth::attempt($credentials, $this->remember_me)) {
             $request->session()->regenerate();
 
-            if($this->redirect) {
+            if ($this->redirect) {
                 return $this->redirectRoute($this->redirect);
             }
 
             return redirect()->intended('/dashboard');
         }
-        
+
         session()->flash('error', __('auth.failed'));
     }
 

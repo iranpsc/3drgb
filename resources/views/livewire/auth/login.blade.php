@@ -29,4 +29,11 @@
             فراموشی رمز عبور
         </a>
     </div>
+
+    <div class="d-grid mb-2">
+        <p>
+            ثبت نام نکرده اید؟
+            <a href="{{ route('register') }}">ثبت نام کنید</a>
+        </p>
+    </div>
 </div>

@@ -66,7 +66,7 @@ class Profile extends Component
         $this->validate([
             'name' => 'required|string|min:3|max:255',
             'email' => ['required', 'email', 'max:255', 'unique:users,email,' . $this->user->id],
-            'phone' => ['required', 'string', 'min:11', 'max:11', 'unique:users,phone,' . $this->user->id],
+            'phone' => ['required', 'ir_mobile', 'unique:users,phone,' . $this->user->id],
             'avatar' => 'nullable|image|max:2024',
         ]);
 

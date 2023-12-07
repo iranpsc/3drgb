@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Password;
 use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Validation\Rules\Password as RulesPassword;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use App\Livewire\Auth\Login;
@@ -134,7 +135,7 @@ Route::post('/reset-password', function (Request $request) {
     $request->validate([
         'token' => 'required',
         'email' => 'required|email',
-        'password' => 'required|min:8|confirmed',
+        'password' => ['required', 'confirmed', RulesPassword::min(6)->mixedCase()],
     ]);
 
     $status = Password::reset(

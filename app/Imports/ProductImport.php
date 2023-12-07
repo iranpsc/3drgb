@@ -30,7 +30,7 @@ class ProductImport implements ToArray, WithChunkReading, ShouldQueue
                 $category = \App\Models\Category::firstOrCreate([
                     'name' => $category,
                 ], [
-                    'slug' => $category,
+                    'slug' => str_replace(' ', '-', $category),
                     'parent_id' => $parent_id
                 ]);
 
@@ -46,7 +46,7 @@ class ProductImport implements ToArray, WithChunkReading, ShouldQueue
 
                 $tag = \App\Models\Tag::firstOrCreate(
                     ['name' => $tag],
-                    ['slug' => $tag]
+                    ['slug' => str_replace(' ', '-', $tag)]
                 );
 
                 $tagsIds[] = $tag->id;
@@ -72,6 +72,21 @@ class ProductImport implements ToArray, WithChunkReading, ShouldQueue
 
             $product->tags()->sync($tagsIds);
 
+            // Iterate over $row[15] to $row[68] and create attributes
+            for ($i = 15; $i <= 68; $i += 3) {
+                if ($row[$i] != null) {
+                    $attribute = \App\Models\Attribute::firstOrCreate(
+                        ['name' => $row[$i]],
+                        ['slug' => str_replace(' ', '-', $row[$i])]
+                    );
+
+                    $product->attributes()->attach($attribute->id, [
+                        'value' => $row[$i + 1],
+                        'display' => $row[$i + 2],
+                    ]);
+                }
+            }
+
             $images = explode(',', $row[13]);
 
             foreach ($images as $image) {
@@ -85,21 +100,6 @@ class ProductImport implements ToArray, WithChunkReading, ShouldQueue
             $product->file()->create([
                 'path' => $row[14]
             ]);
-
-            // Iterate over $row[15] to $row[68] and create attributes
-            for ($i = 15; $i <= 68; $i += 3) {
-                if ($row[$i] != null) {
-                    $attribute = \App\Models\Attribute::firstOrCreate(
-                        ['name' => $row[$i]],
-                        ['slug' => $row[$i]]
-                    );
-
-                    $product->attributes()->attach($attribute->id, [
-                        'value' => $row[$i + 1],
-                        'display' => $row[$i + 2],
-                    ]);
-                }
-            }
         }
     }
 

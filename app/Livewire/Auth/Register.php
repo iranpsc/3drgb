@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\Password;
 use Livewire\Attributes\Layout;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class Register extends Component
 {
@@ -18,23 +20,21 @@ class Register extends Component
         $this->validate([
             'name' => 'required|string|min:3|max:125',
             'email' => 'required|email|unique:users,email',
-            'password' => ['required', 'confirmed', Password::min(8)->letters()->numbers()],
+            'password' => ['required', 'confirmed', Password::min(6)->mixedCase()],
             'terms' => 'required|boolean|accepted'
         ]);
 
         $user = User::create([
             'name' => $this->name,
             'email' => $this->email,
-            'password' => bcrypt($this->password)
+            'password' => Hash::make($this->password)
         ]);
-
-        auth()->login($user);
-
-        $request->session()->regenerate();
 
         event(new Registered($user));
 
-        session()->flash('success', __('auth.registered'));
+        Auth::login($user);
+
+        $request->session()->regenerate();
 
         return $this->redirect('/dashboard');
     }

@@ -22,4 +22,13 @@
 
         <x-button type="submit" color="primary" size="block">ثبت نام</x-button>
     </form>
+
+    <div class="d-grid my-2">
+        <p>
+            قبلا ثبت نام کرده اید؟
+            <a href="{{ route('login') }}">
+                وارد شوید
+            </a>
+        </p>
+    </div>
 </div>
