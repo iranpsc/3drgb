@@ -10,7 +10,7 @@
                     @endforeach
                 </x-forms.select-input>
     
-                <x-forms.text-input  wire:model="form.sku" name="form.sku" label="شناسه محصول" />
+                <x-forms.text-input  wire:model="form.sku" name="form.sku" label="شناسه" />
                 <x-forms.text-input  wire:model="form.name" name="form.name" label="نام" />
                 <x-forms.text-input  wire:model="form.slug" name="form.slug" label="نامک" />
                 <x-forms.text-input  wire:model="form.price" name="form.price" label="قیمت عادی" />
@@ -149,7 +149,6 @@
                     var data = $('#select-tag').select2("val");
                     tags = data;
                 });
-
             });
 
         </script>

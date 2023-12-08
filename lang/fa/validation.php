@@ -104,7 +104,6 @@ return [
     "not_in"           => ":attribute انتخاب شده، معتبر نیست.",
     'not_regex'        => ':attribute فرمت معتبر نیست.',
     "numeric"          => ":attribute باید شامل عدد باشد.",
-    'password'         => 'رمز عبور اشتباه است.',
     'present'          => ':attribute باید وجود داشته باشد.',
     'prohibited'       => 'فیلد :attribute ممنوع است.',
     'prohibited_if'    => 'هنگام که :other، :value است فیلد :attribute ممنوع است.',

@@ -16,10 +16,10 @@
                         @endforeach
                     </x-forms.select-input>
         
-                    <x-forms.text-input  wire:model="name" name="name" label="نام دسته بندی" />
-                    <x-forms.text-input  wire:model="slug" name="slug" label="نامک دسته بندی" />
-                    <x-forms.file-input wire:model="image" name="image" label="تصویر دسته بندی" />
-                    <x-forms.textarea  wire:model="description" name="description" label="توضیحات دسته بندی" />
+                    <x-forms.text-input  wire:model="name" name="name" label="نام" />
+                    <x-forms.text-input  wire:model="slug" name="slug" label="نامک" />
+                    <x-forms.file-input wire:model="image" name="image" label="تصویر" />
+                    <x-forms.textarea  wire:model="description" name="description" label="توضیحات" />
         
                     <x-button type="submit">بروزرسانی</x-button>
                 </form>

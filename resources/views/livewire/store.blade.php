@@ -41,13 +41,19 @@
                         <div class="card border-0 shadow-none multi-collapse mt-10 collapse show" id="multiCollapseExample2">
                            <div class="product-category limit-list-item">
                               <ul>
-                                 @foreach ($this->categories as $category)
+                                 @forelse ($this->categories as $category)
                                     <li>
                                        <div class="w-100">
                                           <span class="fs-14 color-gray">{{ $category->name }}<span class="item-numbers">{{ $category->products_count }}</span></span>
                                        </div>
                                     </li>
-                                 @endforeach
+                                 @empty
+                                    <li>
+                                       <div class="w-100">
+                                          <span class="fs-14 color-gray">دسته ای وجود ندارد</span>
+                                       </div>
+                                    </li>
+                                 @endforelse
                               </ul>
                            </div>
                         </div>
@@ -82,9 +88,11 @@
                            <img src="path_to_your_spinner.gif" alt="Loading..." />
                         </div>
 
-                        @foreach ($products as $product)
+                        @forelse ($products as $product)
                            <x-product-item :product="$product" />
-                        @endforeach
+                        @empty
+                           <x-alert type="warning" message="محصولی وجود ندارد" />
+                        @endforelse
 
                      </div>
                      <!-- End: Shop Item -->
