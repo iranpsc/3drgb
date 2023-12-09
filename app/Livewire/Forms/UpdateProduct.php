@@ -96,6 +96,11 @@ class UpdateProduct extends Form
         $this->attributes = $product->attributes;
     }
 
+    public function getProduct(): Product
+    {
+        return $this->product;
+    }
+
     public function update()
     {
         $this->validate();

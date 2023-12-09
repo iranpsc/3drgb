@@ -39,6 +39,8 @@ class EditCategory extends Component
     {
         $this->validate();
 
+        $this->authorize('update', $this->category);
+
         $this->category->update([
             'name' => $this->name,
             'slug' => str_replace(' ', '-', trim($this->slug)),

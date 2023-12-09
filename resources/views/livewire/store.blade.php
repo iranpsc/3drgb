@@ -89,7 +89,7 @@
                         </div>
 
                         @forelse ($products as $product)
-                           <x-product-item :product="$product" />
+                           <livewire:product-item :$product :key="'product' . $product->id" />
                         @empty
                            <x-alert type="warning" message="محصولی وجود ندارد" />
                         @endforelse

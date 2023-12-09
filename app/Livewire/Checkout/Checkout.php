@@ -23,30 +23,29 @@ class Checkout extends Component
         'checkout.create-account',
         'checkout.payment'
     ];
-    
+
     public function mount()
     {
         $this->cart = session()->get('cart', []);
 
         $this->products = Product::whereIn('id', $this->cart)->get();
 
-        if (count($this->cart) === 0) {
+        if (count($this->cart) == 0 && count($this->products) == 0) {
             return $this->redirectRoute('cart');
         }
 
 
-        if(! auth()->check()) {
+        if (!auth()->check()) {
             $this->current = $this->steps[0];
         } else {
             $this->current = $this->steps[1];
         }
-
     }
 
     #[On('move-to-create-account')]
     public function backToCreateAccount()
     {
-        if(! auth()->check()) {
+        if (!auth()->check()) {
             $this->current = $this->steps[0];
         } else {
             $this->redirectRoute('cart');

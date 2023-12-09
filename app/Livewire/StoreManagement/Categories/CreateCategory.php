@@ -27,6 +27,8 @@ class CreateCategory extends Component
     {
         $this->validate();
 
+        $this->authorize('create', Category::class);
+
         $category = Category::create([
             'name' => $this->name,
             'slug' => str_replace(' ', '-', trim($this->slug)),

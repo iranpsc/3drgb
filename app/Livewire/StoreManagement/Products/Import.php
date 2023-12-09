@@ -22,6 +22,8 @@ class Import extends Component
     {
         $this->validate();
 
+        $this->authorize('import', Product::class);
+
         Excel::import(new ProductImport, $this->file);
 
         $this->file = null;

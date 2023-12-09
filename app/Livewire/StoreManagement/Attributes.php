@@ -22,6 +22,8 @@ class Attributes extends Component
     {
         $this->validate();
 
+        $this->authorize('create', Attribute::class);
+
         Attribute::create([
             'name' => $this->name,
             'slug' => $this->slug,

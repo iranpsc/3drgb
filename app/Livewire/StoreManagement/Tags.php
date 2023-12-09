@@ -22,6 +22,8 @@ class Tags extends Component
     {
         $this->validate();
 
+        $this->authorize('create', Tag::class);
+
         Tag::create([
             'name' => $this->name,
             'slug' => str_replace(' ', '-', trim($this->slug)),

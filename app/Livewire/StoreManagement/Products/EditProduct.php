@@ -21,6 +21,8 @@ class EditProduct extends Component
 
     public function update()
     {
+        $this->authorize('update', $this->form->getProduct());
+        
         $this->form->update();
 
         session()->flash('success', __('Product updated successfully.'));

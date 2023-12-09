@@ -18,6 +18,8 @@ class CreateProduct extends Component
 
     public function save()
     {
+        $this->authorize('create', Product::class);
+        
         $this->form->save();
 
         $this->redirectRoute('products.index');
