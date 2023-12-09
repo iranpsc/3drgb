@@ -73,7 +73,7 @@ class ProductImport implements ToArray, WithChunkReading, ShouldQueue
             $product->tags()->sync($tagsIds);
 
             // Iterate over $row[15] to $row[68] and create attributes
-            for ($i = 15; $i <= 68; $i += 3) {
+            for ($i = 15; $i <= count($row) - 1; $i += 3) {
                 if ($row[$i] != null) {
                     $attribute = \App\Models\Attribute::firstOrCreate(
                         ['name' => $row[$i]],
