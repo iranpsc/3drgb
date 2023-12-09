@@ -1,9 +1,9 @@
 <div>
     <x-page
-     title="دسته بندی ها"
-    actionBtn="true"
-    :actionBtnLink="route('categories.create')"
-    actionBtnText="ایجاد دسته بندی">
+        title="دسته بندی ها"
+        actionBtn="true"
+        :actionBtnLink="route('categories.create')"
+        actionBtnText="ایجاد دسته بندی">
         @if ($categories->count() > 0)
             @if (session()->has('message'))
                 <x-alert type="success" message="{{ session('message') }}" />

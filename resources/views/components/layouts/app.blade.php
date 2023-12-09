@@ -61,7 +61,7 @@
 <body class="layout-light side-menu">
    <div class="mobile-search">
       <form action="/" class="search-form">
-         <img src="img/svg/search.svg" alt="search" class="svg">
+         <img src="{{ asset('img/svg/search.svg') }}" alt="search" class="svg">
          <input class="form-control me-sm-2 box-shadow-none" type="search" placeholder="جستجو..." aria-label="Search">
       </form>
    </div>
@@ -83,53 +83,52 @@
          <div class="navbar-right">
             <ul class="navbar-right__menu">
                @guest
-                   <li><a href="{{ route('login') }}">ورود</a></li>
-                   <li><a href="{{ route('register') }}">ثبت نام</a></li>
-               @endguest
-               @auth
-                <li class="nav-author">
-                    <div class="dropdown-custom">
+                  <li><a href="{{ route('login') }}">ورود</a></li>
+                  <li><a href="{{ route('register') }}">ثبت نام</a></li>
+               @else
+                  <li class="nav-author">
+                     <div class="dropdown-custom">
                         <a href="javascript:;" class="nav-item-toggle"><img src="{{ Auth::user()->avatar ? asset('storage/' . Auth::user()->avatar) : asset('img/author-nav.jpg') }}" alt="" class="rounded-circle">
-                            <span class="nav-item__title">{{ auth()->user()->name }}<i class="las la-angle-down nav-item__arrow"></i></span>
+                              <span class="nav-item__title">{{ Auth::user()->name }}<i class="las la-angle-down nav-item__arrow"></i></span>
                         </a>
                         <div class="dropdown-parent-wrapper">
-                            <div class="dropdown-wrapper">
-                                <div class="nav-author__options">
+                              <div class="dropdown-wrapper">
+                                 <div class="nav-author__options">
                                     <ul>
-                                    <li>
-                                        <a href="{{ route('user.profile') }}">
-                                            <i class="uil uil-user"></i> پروفایل</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('user.change-password') }}"><i class="uil uil-setting"></i>تغییر رمز عبور</a>
-                                    </li>
+                                       <li>
+                                             <a href="{{ route('user.profile') }}">
+                                                <i class="uil uil-user"></i> پروفایل</a>
+                                       </li>
+                                       <li>
+                                             <a href="{{ route('user.change-password') }}"><i class="uil uil-setting"></i>تغییر رمز عبور</a>
+                                       </li>
                                     </ul>
                                     <a class="nav-author__signout" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                                     <i class="uil uil-sign-out-alt"></i>
-                                                     خروج
+                                                      document.getElementById('logout-form').submit();">
+                                                      <i class="uil uil-sign-out-alt"></i>
+                                                      خروج
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
+                                          @csrf
                                     </form>
-                                </div>
-                            </div>
-                            <!-- ends: .dropdown-wrapper -->
+                                 </div>
+                              </div>
+                              <!-- ends: .dropdown-wrapper -->
                         </div>
-                    </div>
-                </li>
+                     </div>
+                  </li>
                 <!-- ends: .nav-author -->
-               @endauth
+               @endguest
             </ul>
             <!-- ends: .navbar-right__menu -->
             <div class="navbar-right__mobileAction d-md-none">
                <a href="#" class="btn-search">
                   <img src="{{ asset('img/svg/search.svg') }}" alt="search" class="svg feather-search">
-                  <img src="img/svg/x.svg" alt="x" class="svg feather-x"></a>
+                  <img src="{{ asset('img/svg/x.svg') }}" alt="x" class="svg feather-x"></a>
                <a href="#" class="btn-author-action">
-                  <img class="svg" src="img/svg/more-vertical.svg" alt="more-vertical"></a>
+                  <img class="svg" src="{{ asset('img/svg/more-vertical.svg') }}" alt="more-vertical"></a>
             </div>
          </div>
          <!-- ends: .navbar-right -->
@@ -161,7 +160,7 @@
                         @endif
                      </a>
                   </li>
-                  @if(Auth::check() && Auth::user()->hasRole('admin'))
+                  @hasRole('admin')
                      <li>
                         <a href="#" class="">
                            <span class="nav-icon uil uil-create-dashboard"></span>
@@ -201,9 +200,9 @@
                            <span class="menu-text">کاربران</span>
                         </a>
                      </li>
-                  @endif
+                  @endHasRole
                   <li>
-                     <a href="#" class="">
+                     <a href="{{ route('tickets.index') }}" class="">
                         <span class="nav-icon uil uil-headphones"></span>
                         <span class="menu-text">پشتیبانی</span>
                      </a>

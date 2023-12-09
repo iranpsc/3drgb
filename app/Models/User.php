@@ -117,4 +117,14 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->products()->where('product_id', $product->id)->exists();
     }
+
+    /**
+     * Get user's tickets
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
+    }
 }

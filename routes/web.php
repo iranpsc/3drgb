@@ -25,6 +25,10 @@ use App\Livewire\StoreManagement\Products\EditProduct;
 use App\Livewire\StoreManagement\Products\Import;
 use App\Livewire\StoreManagement\Products\Products;
 use App\Livewire\ProductDetails;
+use App\Livewire\Support\CreateTicket;
+use App\Livewire\Support\ShowTicket;
+use App\Livewire\Support\Tickets;
+use App\Livewire\Support\UpdateTicket;
 use App\Livewire\User\Orders;
 use App\Livewire\User\Profile;
 use App\Livewire\User\ChangePassword;
@@ -77,6 +81,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/orders', Orders::class)->name('orders');
         Route::get('/profile', Profile::class)->name('profile');
         Route::get('/change-password', ChangePassword::class)->name('change-password');
+    });
+
+    Route::prefix('tickets')->name('tickets.')->group(function () {
+        Route::get('/', Tickets::class)->name('index');
+        Route::get('/create', CreateTicket::class)->name('create');
+        Route::get('/{ticket}', ShowTicket::class)->name('show');
+        Route::get('/{ticket}/edit', UpdateTicket::class)->name('edit');
     });
 });
 

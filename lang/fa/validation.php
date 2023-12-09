@@ -193,5 +193,6 @@ return [
         'terms' => 'شرایط و قوانین',
         'slug' => 'نامک',
         'current_password' => 'رمز عبور فعلی',
+        'message' => 'پیام',
     ],
 ];

@@ -32,7 +32,7 @@ class Login extends Component
                 return $this->redirectRoute($this->redirect);
             }
 
-            return redirect()->intended('/dashboard');
+            return redirect()->intended('/');
         }
 
         session()->flash('error', __('auth.failed'));

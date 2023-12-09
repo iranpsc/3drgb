@@ -81,7 +81,7 @@
 
     @push('scripts')
         <script>
-            $(document).ready(function() {
+            document.addEventListener('livewire:initialized', () => {
                 let saveBtn = document.getElementById('save-btn');
                 let tags;
                 let attributes = [];
