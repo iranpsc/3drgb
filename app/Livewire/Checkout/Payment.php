@@ -7,7 +7,6 @@ use App\Models\OrderItem;
 use App\Models\Product;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
-use Illuminate\Support\Str;
 
 class Payment extends Component
 {
@@ -28,10 +27,12 @@ class Payment extends Component
 
     public function pay()
     {
+        $amount = $this->products->sum('final_price');
+
         $order = Order::create([
             'user_id' => auth()->id(),
-            'amount' => $this->products->sum('final_price'),
-            'tracking_id' => Str::random(16)
+            'amount' => $amount,
+            'tracking_id' => random_int(10000000000, 99999999999)
         ]);
 
         foreach ($this->products as $product) {
@@ -44,7 +45,7 @@ class Payment extends Component
         OrderItem::insert($orderItems);
 
         $response = zarinpal()
-            ->amount($this->products->sum('final_price'))
+            ->amount($amount)
             ->request()
             ->description('transaction info')
             ->callbackUrl(route('verify'))
@@ -57,7 +58,7 @@ class Payment extends Component
 
         $order->transaction()->create([
             'authority' => $response->authority(),
-            'amount' => $this->products->sum('final_price'),
+            'amount' => $amount,
         ]);
 
         $this->reset('products');

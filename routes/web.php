@@ -53,7 +53,6 @@ Route::get('/store', Store::class)->name('store');
 Route::get('/products/{product:name}', ProductDetails::class)->name('products.show');
 Route::get('/cart', Cart::class)->name('cart');
 Route::get('/checkout', Checkout::class)->name('checkout');
-Route::get('/verify', Verify::class)->name('verify');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware('admin')->prefix('admin')->group(function () {
@@ -75,6 +74,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::get('/attributes', Attributes::class)->name('attributes');
     });
+
+    Route::get('/verify', Verify::class)->name('verify');
 
     Route::as('user.')->group(function () {
         Route::get('/dashboard', Dashboard::class)->name('dashboard');

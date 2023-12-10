@@ -38,7 +38,7 @@
                         </div>
                         <!-- Title -->
                         <!-- Body -->
-                        <div class="card border-0 shadow-none multi-collapse mt-10 collapse show" id="multiCollapseExample2">
+                        <div class="card border-0 shadow-none multi-collapse mt-10 collapse show" id="multiCollapseExample2" wire:ignore>
                            <div class="product-category limit-list-item">
                               <ul>
                                  @forelse ($this->categories as $category)

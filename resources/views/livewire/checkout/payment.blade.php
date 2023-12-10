@@ -9,17 +9,17 @@
                                 <span class="las la-check"></span>
                                 <span>سبد خرید</span>
                             </div>
-                            <div class="current"><img src="img/svg/green.svg" alt="img" class="svg"></div>
+                            <div class="current"><img src="{{ asset('img/svg/green.svg') }}" alt="img" class="svg"></div>
                             <div class="step completed" id="2">
                                 <span class="las la-check"></span>
                                 <span>ایجاد حساب</span>
                             </div>
-                            <div class="current"><img src="img/svg/checkout.svg" alt="img" class="svg"></div>
+                            <div class="current"><img src="{{ asset('img/svg/checkout.svg') }}" alt="img" class="svg"></div>
                             <div class="step current" id="3">
                                 <span>3</span>
                                 <span>پرداخت</span>
                             </div>
-                            <div class="current"><img src="img/svg/checkout.svg" alt="img" class="svg"></div>
+                            <div class="current"><img src="{{ asset('img/svg/checkout.svg') }}" alt="img" class="svg"></div>
                             <div class="step" id="4">
                                 <span>4</span>
                                 <span>جزئیات پرداخت</span>
