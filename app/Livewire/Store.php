@@ -17,6 +17,13 @@ class Store extends Component
 
     private $products;
 
+    public $orderBy = [
+        'newest' => true,
+        'cheepest' => false,
+        'most-expensive' => false,
+        'most-sales' => false,
+    ];
+
     /**
      * Search for products.
      * 
@@ -31,10 +38,50 @@ class Store extends Component
             ->paginate(12);
     }
 
+    public function getPorductsByCategory($id)
+    {
+        $this->resetPage();
+
+        $this->products = Product::published()
+            ->where('category_id', $id)
+            ->paginate(12);
+    }
+
+    public function sortBy(string $orderBy)
+    {
+        $this->resetPage();
+
+        $this->orderBy = [
+            'newest' => false,
+            'cheepest' => false,
+            'most-expensive' => false,
+            'most-sales' => false,
+        ];
+
+        $this->orderBy[$orderBy] = true;
+
+        $this->products = Product::published()
+            ->when($orderBy == 'newest', function ($query) {
+                $query->orderByDesc('created_at');
+            })
+            ->when($orderBy == 'cheepest', function ($query) {
+                $query->orderBy('price');
+            })
+            ->when($orderBy == 'most-expensive', function ($query) {
+                $query->orderByDesc('price');
+            })
+            ->when($orderBy == 'most-sales', function ($query) {
+                $query->withCount('sales')->orderByDesc('sales_count');
+            })
+            ->paginate(12);
+    }
+
     #[Computed(persist: true)]
     public function categories()
     {
-        return Category::select('id', 'name')->withCount('products')->get();
+        return Category::whereHas('products', function ($query) {
+            $query->published();
+        })->select('id', 'name')->withCount('products')->get();
     }
 
     #[Title('فروشگاه')]

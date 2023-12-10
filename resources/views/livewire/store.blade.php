@@ -44,7 +44,7 @@
                                  @forelse ($this->categories as $category)
                                     <li>
                                        <div class="w-100">
-                                          <span class="fs-14 color-gray">{{ $category->name }}<span class="item-numbers">{{ $category->products_count }}</span></span>
+                                          <a href="javascript::void(0)" wire:click="getPorductsByCategory({{ $category->id }})" class="fs-14 color-gray">{{ $category->name }}<span class="item-numbers">{{ $category->products_count }}</span></a>
                                        </div>
                                     </li>
                                  @empty
@@ -72,6 +72,37 @@
                            <div class="d-flex align-items-center user-member__form">
                               <img src="{{ asset('img/svg/search.svg') }}" alt="search" class="svg">
                               <input class="form-control me-sm-2 border-0 box-shadow-none" wire:model.live.debounce.500ms="search" type="search" placeholder="جستجو" aria-label="Search">
+                           </div>
+                        </div>
+                     </div>
+                     <div class="project-top-right d-flex flex-wrap align-items-center">
+                        <div class="project-category flex-wrap d-flex align-items-center">
+                           <p class="fs-14 color-gray text-capitalize">مرتب سازی بر اساس:</p>
+                           <div class="project-tap project-tab__product">
+                              <ul class="nav px-1 " id="ap-tab" role="tablist">
+                                 <li class="nav-item">
+                                    <a class="nav-link @if($orderBy['newest']) active @endif" href="javascript::void(0)" wire:click="sortBy('newest')" role="tab" aria-controls="ap-overview" aria-selected="true">جدید ترین</a>
+                                 </li>
+                                 <li class="nav-item">
+                                    <a class="nav-link @if($orderBy['cheepest']) active @endif" href="javascript::void(0)" wire:click="sortBy('cheepest')" role="tab" aria-controls="timeline" aria-selected="false">ارزان ترین</a>
+                                 </li>
+                                 <li class="nav-item">
+                                    <a class="nav-link @if($orderBy['most-expensive']) active @endif" href="javascript::void(0)" wire:click="sortBy('most-expensive')" role="tab" aria-controls="activity" aria-selected="false">گرانترین</a>
+                                 </li>
+                                 <li class="nav-item">
+                                    <a class="nav-link @if($orderBy['most-sales']) active @endif" href="javascript::void(0)" wire:click="sortBy('most-sales')" role="tab" aria-controls="draft" aria-selected="false">پر فروش ترین</a>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                        <div class="project-icon-selected content-center mt-lg-0 mt-25">
+                           <div class="listing-social-link listing-social-link__products pb-lg-0 pb-xs-2">
+                              <div class="icon-list-social d-flex">
+                                 <a class="icon-list-social__link rounded-circle icon-list-social__style justify-content-center active ms-xl-20" href="#">
+                                    <img class="svg" src="{{ asset('img/svg/grid.svg') }}" alt="grid"></a>
+                                 <a class="icon-list-social__link rounded-circle icon-list-social__style justify-content-center  " href="product-list.html">
+                                    <img class="svg" src="{{ asset('img/svg/list.svg') }}" alt="list"></a>
+                              </div>
                            </div>
                         </div>
                      </div>

@@ -42,10 +42,10 @@
                         دانلود
                         </x-button>
                     @else
-                        <button type="button" @disabled(session('cart') && in_array($product->id, session('cart'))) wire:click="addToCart({{ $product->id }})" class="btn btn-default btn-squared color-light btn-outline-light"><img src="{{ asset('img/svg/shopping-bag.svg') }}" alt="shopping-bag" class="svg">
+                        <button type="button" @disabled(session('cart') && in_array($product->id, session('cart'))) wire:click="addToCart({{ $product->id }})" class="btn btn-default btn-squared color-light btn-outline-light px-2"><img src="{{ asset('img/svg/shopping-bag.svg') }}" alt="shopping-bag" class="svg">
                             افزودن به سبد خرید
                         </button>
-                        <button type="button" wire:click="purchase({{ $product->id }})" class="btn btn-primary btn-default btn-squared border-0">خرید</button>
+                        <button type="button" wire:click="purchase({{ $product->id }})" class="btn btn-primary btn-default btn-squared border-0 mr-auto">خرید</button>
                     @endif
                     </div>
                 </div>

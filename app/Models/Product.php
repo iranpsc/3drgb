@@ -134,4 +134,21 @@ class Product extends Model
     {
         return $this->sale_price ? $this->sale_price : $this->price;
     }
+
+    /**
+     * Get product sales
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
+     */
+    public function sales()
+    {
+        return $this->hasManyThrough(
+            Order::class,
+            OrderItem::class,
+            'product_id',
+            'id',
+            'id',
+            'order_id'
+        )->where('status', 'OK');
+    }
 }
