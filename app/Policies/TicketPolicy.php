@@ -14,7 +14,7 @@ class TicketPolicy
      */
     public function view(User $user, Ticket $ticket): bool
     {
-        return $ticket->user->is($user);
+        return $ticket->user->is($user) || $user->hasRole('admin');
     }
 
     /**
@@ -39,5 +39,13 @@ class TicketPolicy
     public function delete(User $user, Ticket $ticket): bool
     {
         return $user->hasRole('admin');
+    }
+
+    /**
+     * Determine whether user can respond to the ticket.
+     */
+    public function respond(User $user, Ticket $ticket): bool
+    {
+        return $ticket->user->is($user) || $user->hasRole('admin');
     }
 }

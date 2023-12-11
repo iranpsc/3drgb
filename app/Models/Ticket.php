@@ -52,7 +52,7 @@ class Ticket extends Model
 
     public function isNormalPriority()
     {
-        return $this->priority === 'normal';
+        return $this->priority === 'medium';
     }
 
     public function close()
@@ -60,7 +60,7 @@ class Ticket extends Model
         $this->update(['status' => 'closed', 'closed_at' => now()]);
     }
 
-    public function getPriortyAttribute()
+    public function getPriorityAttribute()
     {
         switch ($this->attributes['priority']) {
             case 'high':
@@ -81,8 +81,20 @@ class Ticket extends Model
             case 'pending':
                 return 'درحال بررسی';
                 break;
-            case 'answered':
+            case 'replied':
                 return 'پاسخ داده شده';
+                break;
+        }
+    }
+
+    public function getStatusAttribute()
+    {
+        switch ($this->attributes['status']) {
+            case 'open':
+                return 'باز';
+                break;
+            case 'closed':
+                return 'بسته';
                 break;
         }
     }

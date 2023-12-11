@@ -93,6 +93,10 @@
                               <!-- Start: Product Stock -->
                               <div class="product-details__availability">
                                  <div class="title">
+                                    <p>شناسه:</p>
+                                    <span class="free">{{ $product->sku}}</span>
+                                 </div>
+                                 <div class="title">
                                     <p>موجودی:</p>
                                     <span class="stock">{{ $product->stock_status ? 'در انبار' : 'ناموجود' }}</span>
                                  </div>

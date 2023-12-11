@@ -19,6 +19,10 @@ class ProductItem extends Component
 
         session()->push('cart', $this->product->id);
 
+        $cartProductsCount = count(session()->get('cart', []));
+
+        $this->dispatch('cartUpdated', compact('cartProductsCount'));
+
         session()->flash('message', $this->product->name . ' به سبد خرید اضافه شد.');
     }
 

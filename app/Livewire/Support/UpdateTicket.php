@@ -23,6 +23,8 @@ class UpdateTicket extends Component
 
     public function mount()
     {
+        $this->authorize('update', $this->ticket);
+
         $this->title = $this->ticket->title;
         $this->message = $this->ticket->message;
         $this->priority = $this->ticket->priority;

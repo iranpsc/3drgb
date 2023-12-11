@@ -34,6 +34,7 @@ use App\Livewire\User\Profile;
 use App\Livewire\User\ChangePassword;
 use App\Livewire\User\Dashboard;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -98,7 +99,7 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::post('/logout', function (Request $request) {
-    auth()->logout();
+    Auth::logout();
 
     $request->session()->invalidate();
 

@@ -11,21 +11,19 @@ class Tickets extends Component
 {
     use WithPagination;
 
-    private $ticktes;
-
-    public function mount()
+    public function delete(Ticket $ticket)
     {
-        if (auth()->user()->hasRole('admin')) {
-            $this->ticktes = Ticket::with(['responses.user', 'user'])->latest()->paginate(10);
-        } else {
-            $this->ticktes = auth()->user()->tickets()->latest()->paginate(10);
-        }
+        $this->authorize('delete', $ticket);
+
+        $ticket->delete();
     }
 
     #[Title('پشتیبانی')]
     public function render()
     {
         return view('livewire.support.tickets')
-            ->with(['tickets' => $this->ticktes]);
+            ->with('tickets', Ticket::when(
+                !auth()->user()->hasRole('admin'), fn ($query) => $query->where('user_id', auth()->id())
+                )->with('user')->latest()->paginate(10));
     }
 }

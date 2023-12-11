@@ -51,16 +51,18 @@
                         </td>
                         <td>
                             <div class="userDatatable-content">
-                                <a href="{{ route('tickets.show', $ticket->id) }}" class="btn btn-link">مشاهده</a>
+                                <a href="{{ route('tickets.show', $ticket->id) }}">مشاهده</a>
                              </div>
                         </td>
                         <td>
                             <div class="userDatatable-content">
-                                <a href="{{ route('tickets.edit', $ticket->id) }}" class="btn btn-info btn-sm">ویرایش</a>
-                                {{-- @hasRole('admin') --}}
+                                @if($ticket->user->is(Auth::user()))
+                                    <a href="{{ route('tickets.edit', $ticket->id) }}" class="btn btn-info btn-sm">ویرایش</a>
+                                @endif
+                                @if(Auth::user()->hasRole('admin'))
                                     <x-button color="danger" wire:click="delete({{ $ticket->id }})"
                                         wire:confirm="آیا از حذف این پیام مطمئن هستید؟">حذف</x-button>
-                                {{-- @endhasRole --}}
+                                @endif
                             </div>
                         </td>
                     </tr>

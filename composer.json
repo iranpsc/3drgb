@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "beyondcode/laravel-websockets": "^1.14",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
@@ -15,6 +16,7 @@
         "morilog/jalali": "3.*",
         "pishran/zarinpal": "^4.3",
         "predis/predis": "^2.2",
+        "pusher/pusher-php-server": "^7.2",
         "sadegh19b/laravel-persian-validation": "^1.4",
         "ybazli/faker": "^1.0"
     },

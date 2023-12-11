@@ -15,7 +15,7 @@
                                 <option value="high">زیاد</option>
                             </x-forms.select-input>
                             <x-forms.file-input wire:model="attachment" name="attachment" label="فایل ضمیمه" />
-                            <x-forms.textarea wire:model="message" rows="5" cols="5" name="message" label="متن پیام" placeholder="متن پیام را وارد کنید" />
+                            <x-forms.textarea wire:model="message" name="message" label="متن پیام" placeholder="متن پیام را وارد کنید" />
                             <x-button type="submit">ارسال</x-button>
                         </form>
                     </div>

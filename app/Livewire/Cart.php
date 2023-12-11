@@ -30,6 +30,10 @@ class Cart extends Component
 
         session()->put('cart', $this->cart);
 
+        $cartProductsCount = count(session()->get('cart', []));
+
+        $this->dispatch('cartUpdated', compact('cartProductsCount'));
+
         $this->products = Product::whereIn('id', $this->cart)->get();
 
         session()->flash('message', 'محصول از سبد خرید حذف شد.');

@@ -82,6 +82,70 @@
          <!-- ends: navbar-left -->
          <div class="navbar-right">
             <ul class="navbar-right__menu">
+               <li class="nav-search">
+                  <a href="#" class="search-toggle">
+                     <i class="uil uil-search"></i>
+                     <i class="uil uil-times"></i>
+                  </a>
+                  <form action="/" class="search-form-topMenu">
+                     <span class="search-icon uil uil-search"></span>
+                     <input class="form-control me-sm-2 box-shadow-none" type="search" placeholder="جستجو..." aria-label="Search">
+                  </form>
+               </li>
+               <!-- ends: nav-message -->
+               <li class="nav-notification">
+                  <div class="dropdown-custom">
+                     <a href="javascript:;" class="nav-item-toggle icon-active">
+                        <img class="svg" src="{{ asset('img/svg/alarm.svg') }}" alt="img">
+                     </a>
+                     <div class="dropdown-parent-wrapper">
+                        <div class="dropdown-wrapper">
+                           <h2 class="dropdown-wrapper__title">
+                              نوتیفیکیشن ها 
+                              <span class="badge-circle badge-warning ms-1">
+                                 {{ Auth::check() ? Auth::user()->unreadNotifications->count() : 0 }}
+                              </span>
+                           </h2>
+                           @if (Auth::check())
+                              <ul>
+                                 @foreach (Auth::user()->unreadNotifications as $notification)
+                                    <li class="nav-notification__single nav-notification__single--unread d-flex flex-wrap">
+                                       <div class="nav-notification__type nav-notification__type--primary">
+                                          <img class="svg" src="{{ asset('img/svg/inbox.svg') }}" alt="inbox">
+                                       </div>
+                                       <div class="nav-notification__details">
+                                          <p>
+                                             <a href="{{ $notification->data['url'] }}" class="subject stretched-link text-truncate" style="max-width: 180px;">{{ $notification->data['sender'] }}</a>
+                                             <span>{{ $notification->data['message'] }}</span>
+                                          </p>
+                                          <p>
+                                             <span class="time-posted">
+                                                {{ $notification->created_at->diffForHumans() }}
+                                             </span>
+                                          </p>
+                                       </div>
+                                    </li>
+                                 @endforeach
+                              </ul>
+                           @else
+                               <x-alert type="warning" message="برای مشاهده نوتیفیکیشن ها باید وارد حساب کاربری خود شوید." />
+                           @endif
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               <!-- ends: .nav-notification -->
+               <li class="nav-flag-select">
+                  <div class="dropdown-custom">
+                     <a href="javascript:;" class="nav-item-toggle"><img src="{{ asset('img/iran.png') }}" alt="" class="rounded-circle"></a>
+                     <div class="dropdown-parent-wrapper">
+                        <div class="dropdown-wrapper dropdown-wrapper--small">
+                           <a href=""><img src="{{ asset('img/iran.png') }}" alt=""> Persian</a>
+                           <a href=""><img src="{{ asset('img/eng.png') }}" alt=""> English</a>
+                        </div>
+                     </div>
+                  </div>
+               </li>
                @guest
                   <li><a href="{{ route('login') }}">ورود</a></li>
                   <li><a href="{{ route('register') }}">ثبت نام</a></li>
@@ -155,9 +219,9 @@
                      <a href="{{ route('cart') }}" class="">
                         <span class="nav-icon uil uil-bag"></span>
                         <span class="menu-text">سبد خرید</span>
-                        @if (session()->has('cart'))
-                           <span class="badge badge-success menuItem rounded-circle">{{ count(session()->get('cart')) }}</span>
-                        @endif
+                        <span class="badge badge-success menuItem rounded-circle" id="cart-products-count-indicator">
+                           {{ session()->has('cart') ? count(session()->get('cart')) : 0 }}
+                        </span>
                      </a>
                   </li>
                   @hasRole('admin')
@@ -357,6 +421,16 @@
    <!-- endinject-->
 
    @stack('scripts')
+
+   <script>
+      document.addEventListener('livewire:init', () => {
+          Livewire.on('cartUpdated', (event) => {
+              let cartProductsCountIndicator = document.getElementById('cart-products-count-indicator');
+
+               cartProductsCountIndicator.innerText = event[0]['cartProductsCount'];
+          });
+      });
+  </script>
 </body>
 
 </html>
