@@ -55,7 +55,7 @@
         aria-label="Global">
         <div class="flex flex-row-reverse items-center justify-between ">
           <div class="flex gap-4 items-center lg:hidden">
-            <div><img src="{{ asset('home-page/images/bag-2.png') }}" alt=""></div>
+            <div><a href="{{ route('cart') }}"><img src="{{ asset('home-page/images/bag-2.png') }}" alt=""></a></div>
             <div>
               <img src="{{ asset('home-page/images/profile.png') }}" alt="">
             </div>
@@ -86,51 +86,51 @@
             class="flex flex-col sm:gap-y-5 lg:gap-5 xl:gap-10 mt-5 lg:flex-row sm:items-center sm:justify-end md:justify-center sm:mt-0 sm:pl-5 mx-auto ">
             <a class="font-medium hover:text-blue-700 text-gray-600 duration-300  border-b-2 py-3 md:border-0 md:py-0" href=" {{ route('home') }}"
               aria-current="page">سه بعدی متا</a>
-              <!--  megamenu -->
+            <!--  megamenu -->
             <div
             class="hs-dropdown [--strategy:static] sm:[--strategy:absolute] [--adaptive:none]  hidden md:block  border-b-2 py-3 md:border-0 md:py-0">
-            <button type="button" class="flex items-center w-full text-gray-600 hover:text-blue-700 font-medium ">
-              دسته بندی ها
-              <svg class=" mr-2 w-2.5 h-2.5 text-gray-600" width="16" height="16" viewBox="0 0 16 16"
-              fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-            </svg>
-               
-            </button>
+              <button type="button" class="flex items-center w-full text-gray-600 hover:text-blue-700 font-medium ">
+                دسته بندی ها
+                <svg class=" mr-2 w-2.5 h-2.5 text-gray-600" width="16" height="16" viewBox="0 0 16 16"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                </svg>
+
+              </button>
  
-            <div class="bg-[#F9F9F9] p-0 md:w-[200px] shadow-none md:rounded-[10px] md:border-0 hs-dropdown-menu transition-[opacity,margin] sm:border duration-[0.1ms] sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 top-full   rounded-lg    before:absolute md:top-32 before:-top-5 before:w-full before:h-5">
-              <div class="flex flex-col w-full">
-                <div class="w-full hs-dropdown [--strategy:static] sm:[--strategy:absolute] [--adaptive:none]   flex flex-col  justify-center md:justify-around md:rounded-[10px] items-center  gap-x-40 max-h-[300px] overflow-y-scroll md:max-h-max md:overflow-auto">
-                  <div class="hs-dropdown w-full [--strategy:static] sm:[--strategy:absolute] [--adaptive:none]  ">
-                    @foreach ($categories as $category)
-                      @if(is_null($category->parent))
-                        <button id="hs-mega-menu-basic-dr" type="button"
-                          class="bg-[#F9F9F9] p-2 focus:bg-white flex items-center w-full text-gray-600  hover:text-blue-700 font-medium   gap-5">
-                          <div>
-                            <img src="{{ asset('home-page/images/Frame 234.png') }}" alt="">
-                          </div>
-                          {{ $category->name }}
-                          <svg class="ml-2 w-2.5 h-2.5 text-gray-600 rotate-90" width="16" height="16" viewBox="0 0 16 16"
-                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5"
-                              stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-                          </svg>
-                        </button>
-                      @endif
-                      <div class="absolute space-y-[22.5px] top-0 hs-dropdown-menu md:border-0 transition-[opacity,margin] duration-[0.1ms] sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 sm:w-48 md:w-max hidden px-5 z-10 bg-white border-0 shadow-none rounded-l-[10px] p-2 x before:absolute  sm:border before:top-0 before:left-[-60px] left-0 md:left-[-65px]  before:h-5">
-                        @foreach ($category->children as $child)
-                          <a class="flex items-center gap-x-3.5 py-3  rounded-md text-sm text-gray-500 font-semibold hover:text-blue-700 duration-300 transition-all   "
-                            href="./abutus.html">
-                            {{ $child->name }}
-                          </a>
-                        @endforeach
-                      </div>
-                    @endforeach
- 
+              <div class="bg-[#F9F9F9] p-0 md:w-[200px] shadow-none md:rounded-[10px] md:border-0 hs-dropdown-menu transition-[opacity,margin] sm:border duration-[0.1ms] sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 top-full   rounded-lg    before:absolute md:top-32 before:-top-5 before:w-full before:h-5">
+                <div class="flex flex-col w-full">
+                  <div class="w-full hs-dropdown [--strategy:static] sm:[--strategy:absolute] [--adaptive:none]   flex flex-col  justify-center md:justify-around md:rounded-[10px] items-center  gap-x-40 max-h-[300px] overflow-y-scroll md:max-h-max md:overflow-auto">
+                    <div class="hs-dropdown w-full [--strategy:static] sm:[--strategy:absolute] [--adaptive:none]  ">
+                      @foreach ($categories as $category)
+                        @if(is_null($category->parent))
+                          <button id="hs-mega-menu-basic-dr" type="button"
+                            class="bg-[#F9F9F9] p-2 focus:bg-white flex items-center w-full text-gray-600  hover:text-blue-700 font-medium   gap-5">
+                            <div>
+                              <img src="{{ asset('home-page/images/Frame 234.png') }}" alt="">
+                            </div>
+                            {{ $category->name }}
+                            <svg class="ml-2 w-2.5 h-2.5 text-gray-600 rotate-90" width="16" height="16" viewBox="0 0 16 16"
+                              fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                            </svg>
+                          </button>
+                        @endif
+                        <div class="absolute space-y-[22.5px] top-0 hs-dropdown-menu md:border-0 transition-[opacity,margin] duration-[0.1ms] sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 sm:w-48 md:w-max hidden px-5 z-10 bg-white border-0 shadow-none rounded-l-[10px] p-2 x before:absolute  sm:border before:top-0 before:left-[-60px] left-0 md:left-[-65px]  before:h-5">
+                          @foreach ($category->children as $child)
+                            <a class="flex items-center gap-x-3.5 py-3  rounded-md text-sm text-gray-500 font-semibold hover:text-blue-700 duration-300 transition-all   "
+                              href="./abutus.html">
+                              {{ $child->name }}
+                            </a>
+                          @endforeach
+                        </div>
+                      @endforeach
+
+                    </div>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
           <!--  megamenu end-->
@@ -315,11 +315,10 @@
         <div id="navbar-collapse-basic"
           class=" hidden  lg:flex flex-col lg:flex-row text-base font-bold  mt-3 lg:mt-0 md:flex gap-3 w-max">
           <div class=" items-center gap-3 hidden lg:flex">
-            <div class="bg-[#D8E5FD] p-[11px] rounded-full  w-max">
-              <img src="{{ asset('home-page/images/search-normal.png') }}" alt="">
-            </div>
             <div class="bg-[#D8E5FD] p-[10px] rounded-full w-max">
-              <img src="{{ asset('home-page/images/bag-2.png') }}" alt="">
+              <a href="{{ route('cart') }}">
+                <img src="{{ asset('home-page/images/bag-2.png') }}" alt="">
+              </a>
             </div>
           </div>
           <div class="bg-[#D8E5FD] rounded-3xl  justify-between w-max hidden lg:flex">

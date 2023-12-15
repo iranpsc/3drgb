@@ -7,9 +7,12 @@ use Livewire\Attributes\Rule;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use App\Notifications\TicketResponse;
+use Livewire\WithFileUploads;
 
 class ShowTicket extends Component
 {
+    use WithFileUploads;
+    
     public Ticket $ticket;
 
     #[Rule('required|string|max:500')]
