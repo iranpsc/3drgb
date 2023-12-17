@@ -5,7 +5,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>{{ $title ?? config('app.name') }}</title>
+   <title>{{'سه بعدی متا' . ' | ' .  $title  ?? config('app.name') }}</title>
 
    <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/bootstrap/bootstrap-rtl.css') }}">
 
@@ -206,13 +206,13 @@
                   <li>
                      <a href="{{ route('home') }}" class="">
                         <span class="nav-icon uil uil-home"></span>
-                        <span class="menu-text">خانه</span>
+                        <span class="menu-text">سه بعدی متا</span>
                      </a>
                   </li>
                   <li>
-                     <a href="{{ route('store') }}" class="">
+                     <a href="{{ route('products') }}" class="">
                         <span class="nav-icon uil uil-bag"></span>
-                        <span class="menu-text">فروشگاه</span>
+                        <span class="menu-text">محصولات</span>
                      </a>
                   </li>
                   <li>

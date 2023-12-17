@@ -14,6 +14,7 @@ use App\Livewire\Auth\Register;
 use App\Livewire\Cart;
 use App\Livewire\Checkout\Checkout;
 use App\Livewire\Checkout\Verify;
+use App\Livewire\Home;
 use App\Livewire\Store;
 use App\Livewire\StoreManagement\Attributes;
 use App\Livewire\StoreManagement\Categories\Categories;
@@ -48,9 +49,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', HomeController::class)->name('home');
+Route::get('/', Home::class)->name('home');
 Route::get('/about-us', AboutUs::class)->name('about-us');
-Route::get('/store', Store::class)->name('store');
+Route::get('/products', Store::class)->name('products');
 Route::get('/products/{product:name}', ProductDetails::class)->name('products.show');
 Route::get('/cart', Cart::class)->name('cart');
 Route::get('/checkout', Checkout::class)->name('checkout');

@@ -5,12 +5,12 @@
             <div class="shop-breadcrumb">
 
                <div class="breadcrumb-main">
-                  <h4 class="text-capitalize breadcrumb-title">فروشگاه</h4>
+                  <h4 class="text-capitalize breadcrumb-title">محصولات</h4>
                   <div class="breadcrumb-action justify-content-center flex-wrap">
                      <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                            <li class="breadcrumb-item"><a href="{{ route('home') }}"><i class="uil uil-estate"></i>خانه</a></li>
-                           <li class="breadcrumb-item active" aria-current="page">فروشگاه</li>
+                           <li class="breadcrumb-item active" aria-current="page">محصولات</li>
                         </ol>
                      </nav>
                   </div>
@@ -71,7 +71,7 @@
                         <div class="project-search shop-search  global-shadow ">
                            <div class="d-flex align-items-center user-member__form">
                               <img src="{{ asset('img/svg/search.svg') }}" alt="search" class="svg">
-                              <input class="form-control me-sm-2 border-0 box-shadow-none" wire:model.live.debounce.500ms="search" type="search" placeholder="جستجو" aria-label="Search">
+                              <input class="form-control me-sm-2 border-0 box-shadow-none" wire:model.live.debounce.500ms="search" type="text" placeholder="جستجو" aria-label="Search">
                            </div>
                         </div>
                      </div>
@@ -84,7 +84,7 @@
                                     <a class="nav-link @if($orderBy['newest']) active @endif" href="javascript::void(0)" wire:click="sortBy('newest')" role="tab" aria-controls="ap-overview" aria-selected="true">جدید ترین</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link @if($orderBy['cheepest']) active @endif" href="javascript::void(0)" wire:click="sortBy('cheepest')" role="tab" aria-controls="timeline" aria-selected="false">ارزان ترین</a>
+                                    <a class="nav-link @if($orderBy['cheapest']) active @endif" href="javascript::void(0)" wire:click="sortBy('cheapest')" role="tab" aria-controls="timeline" aria-selected="false">ارزان ترین</a>
                                  </li>
                                  <li class="nav-item">
                                     <a class="nav-link @if($orderBy['most-expensive']) active @endif" href="javascript::void(0)" wire:click="sortBy('most-expensive')" role="tab" aria-controls="activity" aria-selected="false">گرانترین</a>

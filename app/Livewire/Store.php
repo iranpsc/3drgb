@@ -7,11 +7,15 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 use App\Models\Product;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Url;
 use Livewire\WithPagination;
 
 class Store extends Component
 {
     use WithPagination;
+
+    #[Url(as: 'search')]
+    public $q = '';
 
     public $search;
 
@@ -19,10 +23,22 @@ class Store extends Component
 
     public $orderBy = [
         'newest' => true,
-        'cheepest' => false,
+        'cheapest' => false,
         'most-expensive' => false,
         'most-sales' => false,
     ];
+
+    public function mount()
+    {
+        if ($this->q) {
+            $this->products = Product::published()
+                ->where('name', 'like', '%' . $this->q . '%')
+                ->orderByDesc('created_at')
+                ->paginate(16);
+        } else {
+            $this->products = Product::published()->orderByDesc('created_at')->paginate(16);
+        }
+    }
 
     /**
      * Search for products.
@@ -35,7 +51,7 @@ class Store extends Component
 
         $this->products = Product::published()
             ->where('name', 'like', '%' . $this->search . '%')
-            ->paginate(12);
+            ->paginate(16);
     }
 
     public function getPorductsByCategory($id)
@@ -44,7 +60,7 @@ class Store extends Component
 
         $this->products = Product::published()
             ->where('category_id', $id)
-            ->paginate(12);
+            ->paginate(16);
     }
 
     public function sortBy(string $orderBy)
@@ -53,7 +69,7 @@ class Store extends Component
 
         $this->orderBy = [
             'newest' => false,
-            'cheepest' => false,
+            'cheapest' => false,
             'most-expensive' => false,
             'most-sales' => false,
         ];
@@ -64,7 +80,7 @@ class Store extends Component
             ->when($orderBy == 'newest', function ($query) {
                 $query->orderByDesc('created_at');
             })
-            ->when($orderBy == 'cheepest', function ($query) {
+            ->when($orderBy == 'cheapest', function ($query) {
                 $query->orderBy('price');
             })
             ->when($orderBy == 'most-expensive', function ($query) {
@@ -73,7 +89,7 @@ class Store extends Component
             ->when($orderBy == 'most-sales', function ($query) {
                 $query->withCount('sales')->orderByDesc('sales_count');
             })
-            ->paginate(12);
+            ->paginate(16);
     }
 
     #[Computed(persist: true)]
@@ -84,12 +100,21 @@ class Store extends Component
         })->select('id', 'name')->withCount('products')->get();
     }
 
-    #[Title('فروشگاه')]
+    public function updatingPage($page)
+    {
+        // $this->resetPage();
+    }
+
+    public function updatedPage($page)
+    {
+        $this->products = Product::published()->paginate(16, ['*'], 'page', $page);
+    }
+
+    #[Title('محصولات')]
     public function render()
     {
-        return view('livewire.store')
-            ->with([
-                'products' => $this->products ?? Product::published()->orderByDesc('created_at')->paginate(12),
-            ]);
+        return view('livewire.store', [
+            'products' => $this->products,
+        ]);
     }
 }

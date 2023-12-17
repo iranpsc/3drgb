@@ -194,5 +194,7 @@ return [
         'slug' => 'نامک',
         'current_password' => 'رمز عبور فعلی',
         'message' => 'پیام',
+        'subject' => 'موضوع',
+        'searchTerm' => 'جستجو',
     ],
 ];
