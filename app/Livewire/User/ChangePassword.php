@@ -4,6 +4,7 @@ namespace App\Livewire\User;
 
 use Illuminate\Support\Facades\Hash;
 use Livewire\Attributes\Rule;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class ChangePassword extends Component
@@ -34,6 +35,7 @@ class ChangePassword extends Component
         session()->flash('message', 'رمز عبور شما با موفقیت تغییر کرد.');
     }
 
+    #[Title('تغییر رمز عبور')]
     public function render()
     {
         return view('livewire.user.change-password');
