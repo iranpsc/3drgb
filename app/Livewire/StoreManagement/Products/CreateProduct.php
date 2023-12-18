@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Attribute;
 use App\Models\Tag;
 use Livewire\WithFileUploads;
+use App\Models\Product;
 
 class CreateProduct extends Component
 {
