@@ -78,12 +78,12 @@
                                  <span class="stars-rating__review">
                                     <span>0</span> نقد</span>
                               </div>
+                              
                               <!-- End: Product Ratings -->
                               <span class="product-desc-price">{{ $product->price }}<sub>تومان</sub></span>
                               @if ($product->sale_price)
                                   <span class="product-price">{{ $product->sale_price }}<sub>تومان</sub></span>
                                   <span class="product-discount">%{{ $product->discount }} تخفیف</span>
-                                  
                               @endif
                               <!-- End: Product Brand -->
                               <!-- Start: Product Description -->
@@ -184,7 +184,7 @@
                             @endforeach
                        </div>
                        <div class="tab-pane fade" id="tab-v-3" role="tabpanel" aria-labelledby="tab-v-3-tab">
-                            <x-alert type="success" message="نظری ثبت نشده است." />
+                           <livewire:product-review :product="$product" />
                        </div>
                     </div>
                  </div>
@@ -193,4 +193,5 @@
            <!-- End: Card -->
         </div>
      </div>
-</div>
+
+   </div>

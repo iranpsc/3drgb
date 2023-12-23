@@ -196,5 +196,7 @@ return [
         'message' => 'پیام',
         'subject' => 'موضوع',
         'searchTerm' => 'جستجو',
+        'comment' => 'نظر',
+        'rating' => 'امتیاز',
     ],
 ];

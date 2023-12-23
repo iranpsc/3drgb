@@ -36,6 +36,7 @@ class Product extends Model
         'file',
         'tags',
         'attributes',
+        'reviews'
     ];
 
     public function getSlugAttribute()
@@ -150,5 +151,15 @@ class Product extends Model
             'id',
             'order_id'
         )->where('status', 'OK');
+    }
+
+    /**
+     * Get product reviews
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function reviews()
+    {
+        return $this->hasMany(Review::class)->with('user')->approved();
     }
 }

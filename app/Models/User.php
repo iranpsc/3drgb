@@ -127,4 +127,15 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Ticket::class);
     }
+
+    /**
+     * Check if user has already added review for the given product.
+     * 
+     * @param \App\Models\Product $product
+     * @return bool
+     */
+    public function hasReviewed(Product $product)
+    {
+        return Review::where('product_id', $product->id)->where('user_id', $this->id)->exists();
+    }
 }
