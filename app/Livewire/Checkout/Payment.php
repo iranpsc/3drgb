@@ -64,7 +64,7 @@ class Payment extends Component
         $this->reset('products');
         session()->forget('cart');
 
-        $this->redirect('https://www.zarinpal.com/pg/StartPay/' . $response->authority());
+        return redirect()->to($response->url());
     }
 
     public function render()

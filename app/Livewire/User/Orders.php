@@ -12,10 +12,32 @@ class Orders extends Component
 {
     use WithPagination;
 
-    public function download(Product $product)
+    public function pay(Order $order)
     {
-        $this->authorize('download', $product);
-        return response()->download(storage_path('app/' . $product->file->path));
+        $this->authorize('pay', $order);
+
+        $order->update([
+            'status' => 'pending',
+        ]);
+
+        $response = zarinpal()
+            ->amount($order->amount)
+            ->request()
+            ->description('transaction info')
+            ->callbackUrl(route('verify'))
+            ->send();
+
+        if (!$response->success()) {
+            session()->flash('error', $response->error()->message());
+            return;
+        }
+
+        $order->transaction()->update([
+            'authority' => $response->authority(),
+            'status' => 'pending',
+        ]);
+
+        return redirect()->to($response->url());
     }
 
     #[Title('سفارشات')]
@@ -23,7 +45,8 @@ class Orders extends Component
     {
         return view('livewire.user.orders')
             ->with([
-                'orders' => Order::whereBelongsTo(auth()->user())->with('products')
+                'orders' => Order::whereBelongsTo(auth()->user())
+                    ->withSum('products as total_price', 'price')
                     ->orderByDesc('created_at')->paginate(15)
             ]);
     }

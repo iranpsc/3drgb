@@ -34,6 +34,7 @@ use App\Livewire\User\Orders;
 use App\Livewire\User\Profile;
 use App\Livewire\User\ChangePassword;
 use App\Livewire\User\Dashboard;
+use App\Livewire\User\OrderDetails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -82,6 +83,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::as('user.')->group(function () {
         Route::get('/dashboard', Dashboard::class)->name('dashboard');
         Route::get('/orders', Orders::class)->name('orders');
+        Route::get('/orders/{order}', OrderDetails::class)->name('orders.show');
         Route::get('/profile', Profile::class)->name('profile');
         Route::get('/change-password', ChangePassword::class)->name('change-password');
     });

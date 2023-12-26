@@ -19,7 +19,7 @@ class Cart extends Component
     {
         $this->cart = session()->get('cart', []);
 
-        $this->products = Product::whereIn('id', $this->cart)->get();
+        $this->products = Product::whereIn('id', $this->cart)->with('images')->get();
     }
 
     public function removeFromCart($productId)

@@ -40,11 +40,11 @@
                                     <x-forms.text-input wire:model="email" name="email" label="ایمیل"  type="email" />
                                     <x-forms.text-input wire:model="password" name="password" label="رمز عبور" type="password" />
 
-                                    <div class="row justify-content-between">
+                                    <div class="row">
                                        <div class="col-6">
                                           <a href="{{ route('cart') }}" class="btn btn-outline-light btn-sm">بازگشت</a>
                                        </div>
-                                       <div class="col-6">
+                                       <div class="col-6 d-flex justify-content-end">
                                           <x-button type="submit">ورود</x-button>
                                        </div>
                                     </div>
@@ -57,11 +57,11 @@
                                     <x-forms.text-input wire:model="password" name="password" label="رمز عبور" type="password" />
                                     <x-forms.text-input wire:model="password_confirmation" name="password_confirmation" label="تکرار رمز عبور" type="password" />
                                     
-                                    <div class="row justify-content-between">
+                                    <div class="row">
                                        <div class="col-6">
                                           <a href="{{ route('cart') }}" class="btn btn-outline-light btn-sm">بازگشت</a>
                                        </div>
-                                       <div class="col-6">
+                                       <div class="col-6 d-flex justify-content-end">
                                           <x-button type="submit">ثبت نام</x-button>
                                        </div>
                                     </div>

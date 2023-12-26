@@ -84,11 +84,11 @@
                                                   </tfoot>
                                                </table>
                                             </div>
-                                            <div class="row justify-content-between">
+                                            <div class="row">
                                                 <div class="col-6">
-                                                   <x-button wire:click="goBack">بازگشت</x-button>
+                                                   <x-button color="light" wire:click="goBack">بازگشت</x-button>
                                                 </div>
-                                                <div class="col-6">
+                                                <div class="col-6 d-flex justify-content-end">
                                                    <x-button wire:click="pay">پرداخت</x-button>
                                                 </div>
                                              </div>

@@ -1,5 +1,10 @@
 <div>
     <x-page title="سفارشات">
+
+        @session('error')
+            <x-alert type="danger" :message="session('error')" />
+        @endSession
+        
         <div class="container-fluid">
             <div class="row">
                <div class="col-lg-12">
@@ -23,56 +28,46 @@
                                  <th>
                                      <span class="userDatatable-title">مبلغ پرداختی</span>
                                  </th>
-                                 <th>
-                                     <span class="userDatatable-title">تعداد دانلود</span>
-                                </th>
                                 <th>
                                     <span class="userDatatable-title">وضعیت</span>
                                 </th>
                                  <th>
-                                    <span class="userDatatable-title float-end">عملیات</span>
+                                    <span class="userDatatable-title">عملیات</span>
                                  </th>
                               </tr>
                            </thead>
                            <tbody>
                             @foreach ($orders as $order)
-                                @foreach($order->products as $product)
-                                    <tr>
-                                        <td>{{ $loop->parent->iteration }}</td>
-                                        <td>
-                                            <div class="orderDatatable-title">
-                                                {{ $order->tracking_id }}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="orderDatatable-title">
-                                                {{ $product->name }}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="orderDatatable-title">
-                                                {{ $product->price }}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="orderDatatable-title">
-                                                0
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="orderDatatable-title">
-                                                {{ $order->isPaid() ? 'پرداخت شده' : 'پرداخت نشده' }}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            @if($order->isPaid())
-                                                <x-button wire:click="download({{ $product->id }})"><i class="uil uil-download-alt"></i>دانلود</x-button>
-                                            @else
-                                                <x-button wire:click="pay({{ $order->id }})"><i class="uil uil-download-alt"></i>پرداخت</x-button>
-                                            @endif
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                <tr wire:key="{{ $order->id }}">
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>
+                                        <div class="orderDatatable-title">
+                                            {{ $order->tracking_id }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="orderDatatable-title">
+                                            {{ $order->products->pluck('name')->implode(', ') }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="orderDatatable-title">
+                                            {{$order->total_price }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="orderDatatable-title">
+                                            {{ $order->isPaid() ? 'پرداخت شده' : 'پرداخت نشده' }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        @if($order->isPaid())
+                                            <a href="{{ route('user.orders.show', $order->id) }}" class="btn btn-success btn-sm">جزئیات</a>
+                                        @else
+                                            <x-button wire:click="pay({{ $order->id }})">پرداخت</x-button>
+                                        @endif
+                                    </td>
+                                </tr>
                             @endforeach
                               <!-- End: tr -->
                            </tbody>

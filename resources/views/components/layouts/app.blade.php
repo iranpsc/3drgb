@@ -311,9 +311,6 @@
                               <a href="{{ route('user.orders') }}">سفارشات</a>
                            </li>
                            <li class="">
-                              <a href="#">آدرس ها</a>
-                           </li>
-                           <li class="">
                               <a href="{{ route('user.profile') }}">پروفایل</a>
                            </li>
                            <li class="">

@@ -55,7 +55,7 @@ class Checkout extends Component
     #[On('move-to-payment')]
     public function accountCreated()
     {
-        $this->current = 'checkout.payment';
+        $this->current = $this->steps[1];
     }
 
     #[Title('تسویه حساب')]

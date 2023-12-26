@@ -41,8 +41,8 @@ class CreateAccount extends Component
     public function login()
     {
         $this->validate([
-            'email' => 'required|email|max:255',
-            'password' => 'required|string|min:6',
+            'email' => 'required|email',
+            'password' => 'required',
         ]);
 
         $credentials = $this->only(['email', 'password']);
