@@ -31,7 +31,7 @@ class CreateProduct extends Component
     public function render()
     {
         return view('livewire.store-management.products.create-product')
-            ->with('categories', Category::select('id', 'name')->get())
+            ->with('categories', Category::select('id', 'name', 'parent_id')->with('children')->get())
             ->with('tags', Tag::select('id', 'name')->get())
             ->with('attributes', Attribute::select('id', 'name')->get());
     }

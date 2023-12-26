@@ -4,9 +4,8 @@ namespace App\Livewire\Forms;
 
 use App\Models\Product;
 use Closure;
-use Livewire\Attributes\Rule;
 use Livewire\Form;
-use Illuminate\Validation\Rule as ValidationRule;
+use Illuminate\Validation\Rule;
 use Livewire\WithFileUploads;
 
 class CreateProductForm extends Form
@@ -34,7 +33,7 @@ class CreateProductForm extends Form
     public function rules()
     {
         return [
-            'category_id' => ['required', ValidationRule::exists('categories', 'id')],
+            'category_id' => ['required', Rule::exists('categories', 'id')],
             'sku' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'slug' => ['required', 'string', 'max:255'],
@@ -66,9 +65,9 @@ class CreateProductForm extends Form
             'images.*' => ['required', 'image', 'max:2024'],
             'file' => ['required', 'file'],
             'tags' => ['required', 'array', 'min:1'],
-            'tags.*' => ['required', ValidationRule::exists('tags', 'id')],
+            'tags.*' => ['required', Rule::exists('tags', 'id')],
             'attributes' => ['required', 'array', 'min:1'],
-            'attributes.*.id' => ['required', ValidationRule::exists('attributes', 'id')],
+            'attributes.*.id' => ['required', Rule::exists('attributes', 'id')],
         ];
     }
 

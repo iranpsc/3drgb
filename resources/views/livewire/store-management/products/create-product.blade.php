@@ -2,7 +2,7 @@
     <x-page title="ایجاد محصول">
         <div class="row">
             <div class="col-md-6">
-        
+
                 <x-forms.select-input wire:model="form.category_id" name="form.category_id" label="دسته بندی">
                     <option value="">انتخاب دسته بندی</option>
                     @foreach ($categories as $category)
@@ -45,15 +45,18 @@
                 <x-forms.file-input wire:model="form.images" name="form.images" label="تصاویر محصول" multiple />
                 <x-forms.file-input wire:model="form.file" name="form.file" label="فایل محصول" />
 
-                <div class="row form-group" wire:ignore>
+                <div class="row form-group">
                     <label for="tags" class="form-col-label col-sm-4">برچسب ها</label>
                     <div class="col-sm-8">
-                        <select name="tags" id="select-tag" label="برچسب ها" multiple="multiple">
-                            <option value="">انتخاب برچسب ها</option>
-                            @foreach ($tags as $tag)
-                                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
-                            @endforeach
-                        </select>
+                        <div wire:ignore>
+                            <select name="tags" id="select-tag" label="برچسب ها" multiple="multiple">
+                                <option value="">انتخاب برچسب ها</option>
+                                @foreach ($tags as $tag)
+                                    <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('form.tags') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                 </div>
 
