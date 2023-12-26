@@ -36,7 +36,9 @@ class Store extends Component
                 ->orderByDesc('created_at')
                 ->paginate(16);
         } else {
-            $this->products = Product::published()->orderByDesc('created_at')->paginate(16);
+            $this->products = Product::published()->orderByDesc('created_at')
+                ->with('images')
+                ->paginate(16);
         }
     }
 

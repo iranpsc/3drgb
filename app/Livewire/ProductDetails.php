@@ -9,6 +9,17 @@ class ProductDetails extends Component
 {
     public Product $product;
 
+    public function mount()
+    {
+        $this->product = $this->product->load([
+            'images',
+            'reviews.user',
+            'tags',
+            'attributes',
+            'category'
+        ]);
+    }
+
     public function addToCart()
     {
         // check if product is already in cart

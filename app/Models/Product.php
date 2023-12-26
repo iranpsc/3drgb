@@ -25,20 +25,6 @@ class Product extends Model
         'published',
     ];
 
-    /**
-     * The relationships that should always be loaded.
-     * 
-     * @var array
-     */
-    protected $with = [
-        'category',
-        'images',
-        'file',
-        'tags',
-        'attributes',
-        'reviews'
-    ];
-
     public function getSlugAttribute()
     {
         return str_replace(' ', '-', $this->attributes['slug']);
