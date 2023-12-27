@@ -259,7 +259,7 @@
                         </ul>
                      </li>
                      <li>
-                        <a href="#" class="">
+                        <a href="{{ route('users') }}" class="">
                            <span class="nav-icon uil uil-users-alt"></span>
                            <span class="menu-text">کاربران</span>
                         </a>

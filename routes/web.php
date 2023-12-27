@@ -35,6 +35,7 @@ use App\Livewire\User\Profile;
 use App\Livewire\User\ChangePassword;
 use App\Livewire\User\Dashboard;
 use App\Livewire\User\OrderDetails;
+use App\Livewire\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -76,6 +77,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/tags', Tags::class)->name('tags');
 
         Route::get('/attributes', Attributes::class)->name('attributes');
+
+        Route::get('/users', Users::class)->name('users');
     });
 
     Route::get('/verify', Verify::class)->name('verify');
