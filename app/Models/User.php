@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Notifications\SendPasswordResetNotification;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -55,6 +56,19 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $attributes = [
         'role' => 'user'
     ];
+
+    /**
+     * Send the password reset notification.
+     * 
+     * @param string $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $url = url('/reset-password/' . $token . '?email=' . $this->email);
+
+        $this->notify(new SendPasswordResetNotification($url));
+    }
 
     /**
      * Get the user's role.
