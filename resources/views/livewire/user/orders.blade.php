@@ -3,7 +3,7 @@
 
         @session('error')
             <x-alert type="danger" :message="session('error')" />
-        @endSession
+        @endsession
         
         <div class="container-fluid">
             <div class="row">
