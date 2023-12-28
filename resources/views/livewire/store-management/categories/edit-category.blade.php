@@ -8,18 +8,18 @@
         
                 <form wire:submit="save">
         
-                    <x-forms.select-input wire:model="parent_id" name="parent_id" label="دسته بندی والد">
+                    <x-form.select wire:model="parent_id" name="parent_id" label="دسته بندی والد">
                         <option value="">دسته بندی تعریف نشده است</option>
                         @foreach ($categories as $item)
                             @continue($item->id == $category->id)
                             <option value="{{ $item->id }}" @selected($category->parent_id == $item->id)>{{ $item->name }}</option>
                         @endforeach
-                    </x-forms.select-input>
+                    </x-form.select>
         
-                    <x-forms.text-input  wire:model="name" name="name" label="نام" />
-                    <x-forms.text-input  wire:model="slug" name="slug" label="نامک" />
-                    <x-forms.file-input wire:model="image" name="image" label="تصویر" />
-                    <x-forms.textarea  wire:model="description" name="description" label="توضیحات" />
+                    <x-form.text  wire:model="name" name="name" label="نام" />
+                    <x-form.text  wire:model="slug" name="slug" label="نامک" />
+                    <x-form.file wire:model="image" name="image" label="تصویر" />
+                    <x-form.textarea  wire:model="description" name="description" label="توضیحات" />
         
                     <x-button type="submit">بروزرسانی</x-button>
                 </form>

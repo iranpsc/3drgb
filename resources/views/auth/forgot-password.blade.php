@@ -1,12 +1,14 @@
 <x-layouts.auth title="ارسال لینک بازیابی رمز عبور">
-    @if (session()->has('status'))
+    
+    @session('status')
         <x-alert type="success" :message="session('status')" />
-    @endif
+    @endsession
+
     <form method="POST" action="{{ route('password.email') }}">
         @csrf
 
         <div class="mb-3">
-            <x-forms.text-input name="email" label="ایمیل" type="email" :value="old('email')" placeholder="آدرس ایمیل" />
+            <x-form.text name="email" label="ایمیل" type="email" :value="old('email')" placeholder="آدرس ایمیل" />
         </div>
 
         <div class="d-grid">

@@ -7,9 +7,9 @@
 
         <div class="mb-3">
             <input type="hidden" name="token" value="{{ $token }}">
-            <x-forms.text-input name="email" label="ایمیل" type="email" :value="request()->query('email')" placeholder="آدرس ایمیل" />
-            <x-forms.text-input name="password" label="رمز عبور" type="password" :value="old('password')" placeholder="رمز عبور" />
-            <x-forms.text-input name="password_confirmation" label="تکرار رمز عبور" type="password" :value="old('password_confirmation')" placeholder="تکرار رمز عبور" />
+            <x-form.text name="email" label="ایمیل" type="email" :value="request()->query('email')" placeholder="آدرس ایمیل" />
+            <x-form.text name="password" label="رمز عبور" type="password" :value="old('password')" placeholder="رمز عبور" />
+            <x-form.text name="password_confirmation" label="تکرار رمز عبور" type="password" :value="old('password_confirmation')" placeholder="تکرار رمز عبور" />
         </div>
 
         <div class="d-grid">

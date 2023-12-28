@@ -8,44 +8,44 @@
         <div class="row">
             <div class="col-md-6">
 
-                <x-forms.select-input wire:model="form.category_id" name="form.category_id" label="دسته بندی">
+                <x-form.select wire:model="form.category_id" name="form.category_id" label="دسته بندی">
                     <option value="">انتخاب دسته بندی</option>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
-                </x-forms.select-input>
+                </x-form.select>
     
-                <x-forms.text-input  wire:model="form.sku" name="form.sku" label="شناسه محصول" />
-                <x-forms.text-input  wire:model="form.name" name="form.name" label="نام" />
-                <x-forms.text-input  wire:model="form.slug" name="form.slug" label="نامک" />
-                <x-forms.text-input  wire:model="form.price" name="form.price" label="قیمت عادی" />
-                <x-forms.text-input  wire:model="form.sale_price" name="form.sale_price" label="قیمت فروش ویژه" />
+                <x-form.text  wire:model="form.sku" name="form.sku" label="شناسه محصول" />
+                <x-form.text  wire:model="form.name" name="form.name" label="نام" />
+                <x-form.text  wire:model="form.slug" name="form.slug" label="نامک" />
+                <x-form.text  wire:model="form.price" name="form.price" label="قیمت عادی" />
+                <x-form.text  wire:model="form.sale_price" name="form.sale_price" label="قیمت فروش ویژه" />
 
-                <x-forms.select-input wire:model="form.stock_status" name="form.stock_status" label="وضعیت انبار">
+                <x-form.select wire:model="form.stock_status" name="form.stock_status" label="وضعیت انبار">
                     <option value="1" selected>موجود</option>
                     <option value="0">ناموجود</option>
-                </x-forms.select-input>
+                </x-form.select>
 
             </div>
             
             <div class="col-md-6">
 
-                <x-forms.text-input  wire:model="form.quantity" name="form.quantity" label="تعداد موجود در انبار" />
-                <x-forms.text-input  wire:model="form.delivery_time" name="form.delivery_time" label="مدت زمان تحویل" />
+                <x-form.text  wire:model="form.quantity" name="form.quantity" label="تعداد موجود در انبار" />
+                <x-form.text  wire:model="form.delivery_time" name="form.delivery_time" label="مدت زمان تحویل" />
                 
-                <x-forms.select-input wire:model="form.customer_can_add_review" name="form.customer_can_add_review" label="مشتری می تواند دیدگاه بنویسد؟">
+                <x-form.select wire:model="form.customer_can_add_review" name="form.customer_can_add_review" label="مشتری می تواند دیدگاه بنویسد؟">
                     <option value="1" selected>بله</option>
                     <option value="0">خیر</option>
-                </x-forms.select-input>
+                </x-form.select>
 
-                <x-forms.select-input wire:model="form.published" name="form.published" label="محصول انتشار داده شود؟">
+                <x-form.select wire:model="form.published" name="form.published" label="محصول انتشار داده شود؟">
                     <option value="1" selected>بله</option>
                     <option value="0">خیر</option>
-                </x-forms.select-input>
+                </x-form.select>
                 
-                <x-forms.file-input wire:model="form.images" name="form.images" label="تصاویر محصول" multiple />
+                <x-form.file wire:model="form.images" name="form.images" label="تصاویر محصول" multiple />
                 
-                <x-forms.file-input wire:model="form.file" name="form.file" label="فایل محصول" />
+                <x-form.file wire:model="form.file" name="form.file" label="فایل محصول" />
 
                 <div class="row form-group">
                     <label for="tags" class="form-col-label col-sm-4">برچسب ها</label>

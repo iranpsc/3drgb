@@ -7,9 +7,11 @@
     toggle="modal"
     target="#create-attribute">
         @if ($attributes->count() > 0)
-            @if (session()->has('message'))
+
+            @session('message')
                 <x-alert type="success" message="{{ session('message') }}" />
-            @endif
+            @endsession
+
             <x-table>
                 <x-slot:header>
                     <th>ردیف</th>
@@ -58,8 +60,8 @@
     </x-page>
 
     <x-modal id="create-attribute" title="ایجاد ویژگی جدید">
-        <x-forms.text-input type="text" name="name" wire:model="name" label="نام" />
-        <x-forms.text-input type="text" name="slug" wire:model="slug" label="نامک" />
+        <x-form.text type="text" name="name" wire:model="name" label="نام" />
+        <x-form.text type="text" name="slug" wire:model="slug" label="نامک" />
         <x-slot:footer>
             <x-button color="primary" wire:click="save">ایجاد</x-button>
             <x-button color="danger" data-bs-dismiss="modal">بستن</x-button>

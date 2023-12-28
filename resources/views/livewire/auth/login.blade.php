@@ -1,12 +1,12 @@
 <div>
-    @if (session()->has('error'))
-        <x-alert type="danger" :message="session('error')" />
-    @endif
+    @session('error')
+        <x-alert type="success" :message="session('error')" />
+    @endsession
 
     <form wire:submit="login">
-        <x-forms.text-input name="email" label="ایمیل" type="email" wire:model="email" />
+        <x-form.text name="email" label="ایمیل" type="email" wire:model="email" />
 
-        <x-forms.text-input name="password" label="رمز عبور" type="password" wire:model="password" />
+        <x-form.text name="password" label="رمز عبور" type="password" wire:model="password" />
 
         <div class="admin-condition">
             <div class="checkbox-theme-default custom-checkbox ">

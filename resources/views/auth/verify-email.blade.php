@@ -16,9 +16,9 @@
 
                             <div class="mt-4 flex items-center justify-between">
                                 
-                                @if(session()->has('message'))
-                                    <x-alert type="success" message="{{ session('message') }}" />
-                                @endif
+                                @session('message')
+                                    <x-alert type="success" :message="session('message')" />
+                                @endsession
 
                                 <form method="POST" action="{{ route('verification.send') }}">
                                     @csrf
