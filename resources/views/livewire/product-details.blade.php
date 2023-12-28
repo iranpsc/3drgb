@@ -27,6 +27,12 @@
                   <x-alert type="success" message="{{ session('message') }}" />
                @endsession
 
+               @push('meta')
+                   <meta name="title" content="{{ $product->name }}">
+                   <meta name="description" content="{{ $product->meta_description }}">
+                   <meta name="keywords" content="{{ $product->meta_keywords }}">
+               @endpush
+
                <div class="row product-item d-flex p-sm-50 p-20">
                   <div class="col-lg-5">
                      <!-- Start: Product Slider -->
