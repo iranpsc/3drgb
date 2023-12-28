@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Product;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,6 +21,12 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $this->call(ProductSeeder::class);
+        // $this->call(ProductSeeder::class);
+
+        Product::all()->each(function (Product $product) {
+            $product->update([
+                'slug' => str_replace(' ', '-', $product->slug)
+            ]);
+        });
     }
 }

@@ -6,7 +6,7 @@ use App\Models\Product;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 
-class ProductReview extends Component
+class Reviews extends Component
 {
     public Product $product;
 
@@ -31,33 +31,5 @@ class ProductReview extends Component
         $this->reset(['comment', 'rating']);
 
         session()->flash('message', 'نظر شما با موفقیت ثبت شد و پس از تایید نمایش داده خواهد شد.');
-    }
-
-    public function deleteReview($reviewId)
-    {
-        $review = $this->product->reviews()->findOrFail($reviewId);
-
-        $this->authorize('deleteReview', $this->product);
-
-        $review->delete();
-
-        session()->flash('message', 'نظر با موفقیت حذف شد.');
-    }
-
-    public function approveReview($reviewId)
-    {
-        $review = $this->product->reviews()->findOrFail($reviewId);
-
-        $this->authorize('approveReview', $this->product);
-
-        $review->approve(auth()->user()->name);
-
-        session()->flash('message', 'نظر با موفقیت تایید شد.');
-    }
-
-
-    public function render()
-    {
-        return view('livewire.product-review');
     }
 }

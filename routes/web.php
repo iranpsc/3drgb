@@ -26,6 +26,7 @@ use App\Livewire\StoreManagement\Products\EditProduct;
 use App\Livewire\StoreManagement\Products\Import;
 use App\Livewire\StoreManagement\Products\Products;
 use App\Livewire\ProductDetails;
+use App\Livewire\StoreManagement\Products\Reviews;
 use App\Livewire\Support\CreateTicket;
 use App\Livewire\Support\ShowTicket;
 use App\Livewire\Support\Tickets;
@@ -54,7 +55,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', Home::class)->name('home');
 Route::get('/about-us', AboutUs::class)->name('about-us');
 Route::get('/products', Store::class)->name('products');
-Route::get('/products/{product:name}', ProductDetails::class)->name('products.show');
+Route::get('/products/{product:slug}', ProductDetails::class)->name('products.show');
 Route::get('/cart', Cart::class)->name('cart');
 Route::get('/checkout', Checkout::class)->name('checkout');
 
@@ -77,6 +78,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/tags', Tags::class)->name('tags');
 
         Route::get('/attributes', Attributes::class)->name('attributes');
+
+        Route::get('/reviews', Reviews::class)->name('reviews');
 
         Route::get('/users', Users::class)->name('users');
     });

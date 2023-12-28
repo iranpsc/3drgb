@@ -1,5 +1,10 @@
 <div>
     <x-page title="ایجاد محصول">
+
+        @session('success')
+            <x-alert type="success" message="{{ session('success') }}" />
+        @endsession
+        
         <div class="row">
             <div class="col-md-6">
 
@@ -10,7 +15,7 @@
                     @endforeach
                 </x-forms.select-input>
     
-                <x-forms.text-input  wire:model="form.sku" name="form.sku" label="شناسه" />
+                <x-forms.text-input  wire:model="form.sku" name="form.sku" label="شناسه"/>
                 <x-forms.text-input  wire:model="form.name" name="form.name" label="نام" />
                 <x-forms.text-input  wire:model="form.slug" name="form.slug" label="نامک" />
                 <x-forms.text-input  wire:model="form.price" name="form.price" label="قیمت عادی" />
@@ -21,17 +26,13 @@
                     <option value="0">ناموجود</option>
                 </x-forms.select-input>
 
-                <x-forms.text-input  wire:model="form.quantity" name="form.quantity" label="تعداد موجود در انبار" />
-                <x-forms.text-input  wire:model="form.delivery_time" name="form.delivery_time" label="مدت زمان تحویل" />
-
-                <div class="form-group">
-                    <label for="short_desciption">توضیحات</label>
-                    <textarea wire:model="form.short_description" name="form.short_description" class="form-control @error('form.short_description') is-invalid @enderror" id="short_desciption" rows="3"></textarea>
-                    @error('form.short_description') <span class="text-danger">{{ $message }}</span> @enderror
-                </div>
             </div>
 
             <div class="col-md-6">
+                
+                <x-forms.text-input  wire:model="form.quantity" name="form.quantity" label="تعداد موجود در انبار" />
+                <x-forms.text-input  wire:model="form.delivery_time" name="form.delivery_time" label="مدت زمان تحویل" />
+
                 <x-forms.select-input wire:model="form.customer_can_add_review" name="form.customer_can_add_review" label="مشتری می تواند دیدگاه بنویسد؟">
                     <option value="1" selected>بله</option>
                     <option value="0">خیر</option>
@@ -59,22 +60,59 @@
                         @error('form.tags') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                 </div>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <h4 class="mb-5">ویژگی ها</h4>
 
-                @foreach ($attributes as $attribute)
-                    <div id="attribute-box-{{ $attribute->id }}" wire:key="{{ $attribute->id }}">
+        @forelse ($attributes->chunk(2) as $items)
+            <div class="row">
+                @foreach ($items as $item)
+                    <div class="col-md-6">
+                    <div id="attribute-box-{{ $item->id }}" wire:key="{{ $item->id }}">
                         <div class="form-group row">
-                            <label for="attribute-{{ $attribute->id }}" class="col-sm-4 form-col-label">{{ $attribute->name }}</label>
+                            <label for="attribute-{{ $item->id }}" class="col-sm-4 form-col-label">{{ $item->name }}</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control form-control-lg" id="attribute-{{ $attribute->id }}">
+                                <input type="text" class="form-control form-control-lg" id="attribute-{{ $item->id }}">
                             </div>
                         </div>
                     </div>
+                </div>
                 @endforeach
+            </div>
+        @empty
+            <x-alert type="warning" message="ویژگی ای برای این دسته بندی ثبت نشده است." />
+        @endforelse
+
+        <hr>
+
+        <div class="row">
+            <div class="col-12">
+                
+                <div class="form-group">
+                    <label for="short_desciption">توضیحات کوتاه</label>
+                    <textarea wire:model="form.short_description" name="form.short_description" class="form-control @error('form.short_description') is-invalid @enderror" id="short_desciption" rows="3"></textarea>
+                    @error('form.short_description') <span class="text-danger">{{ $message }}</span> @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="meta_desciption">توضیحات متا</label>
+                    <textarea wire:model="form.meta_description" name="form.meta_description" class="form-control @error('form.meta_description') is-invalid @enderror" id="meta_desciption" rows="3"></textarea>
+                    @error('form.meta_description') <span class="text-danger">{{ $message }}</span> @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="meta_keywords">کلمات کلیدی متا</label>
+                    <textarea wire:model="form.meta_keywords" name="form.meta_keywords" class="form-control @error('form.meta_keywords') is-invalid @enderror" id="meta_keywords" rows="3"></textarea>
+                    @error('form.meta_keywords') <span class="text-danger">{{ $message }}</span> @enderror
+                </div>
             </div>
         </div>
 
         <div class="form-group" wire:ignore>
-            <label for="summernote2">توضیحات کامل</label>
+            <label for="summernote2">توضیحات محصول</label>
             <div id="summernote2"></div>
         </div>
 
@@ -82,78 +120,76 @@
 
     </x-page>
 
-    @push('scripts')
-        <script>
-            document.addEventListener('livewire:initialized', () => {
-                let saveBtn = document.getElementById('save-btn');
-                let tags;
-                let attributes = [];
+</div>
 
-                saveBtn.addEventListener('click', function() {
-                    saveBtn.classList.add('disabled');
-                    saveBtn.innerText = 'در حال ذخیره سازی ...';
+@script
+    <script>
+        let saveBtn = document.getElementById('save-btn');
+        let tags;
+        let attributes = [];
 
-                    setTimeout(function() {
-                        saveBtn.classList.remove('disabled');
-                        saveBtn.innerText = 'ذخیره';
-                    }, 3000);
+        saveBtn.addEventListener('click', function() {
+            saveBtn.classList.add('disabled');
+            saveBtn.innerText = 'در حال ذخیره سازی ...';
 
-                    @this.set('form.attributes', attributes);
+            setTimeout(function() {
+                saveBtn.classList.remove('disabled');
+                saveBtn.innerText = 'ذخیره';
+            }, 3000);
 
-                    // Get summer note value
-                    @this.set('form.long_description', $('#summernote2').summernote('code'));
+            $wire.set('form.attributes', attributes);
 
-                    @this.set('form.tags', tags);
+            // Get summer note value
+            $wire.set('form.long_description', $('#summernote2').summernote('code'));
 
-                    let attributeBoxes = document.querySelectorAll('[id^="attribute-box-"]');
+            $wire.set('form.tags', tags);
 
-                    attributeBoxes.forEach(function(box) {
-                        let attributeId = box.id.split('-')[2];
-                        let attributeValue = document.getElementById('attribute-' + attributeId).value;
+            let attributeBoxes = document.querySelectorAll('[id^="attribute-box-"]');
 
-                        if(attributeValue) 
-                        {
-                            // if attrribute with the same id exists replace it
-                            let attributeIndex = attributes.findIndex(attribute => attribute.id == attributeId);
+            attributeBoxes.forEach(function(box) {
+                let attributeId = box.id.split('-')[2];
+                let attributeValue = document.getElementById('attribute-' + attributeId).value;
 
-                            if(attributeIndex != -1) {
-                                attributes[attributeIndex].value = attributeValue;
-                                return;
-                            }
+                if(attributeValue) 
+                {
+                    // if attrribute with the same id exists replace it
+                    let attributeIndex = attributes.findIndex(attribute => attribute.id == attributeId);
 
-                            attributes.push({
-                                id: attributeId,
-                                name: box.querySelector('label').innerText,
-                                value: attributeValue
-                            });
-                        }
+                    if(attributeIndex != -1) {
+                        attributes[attributeIndex].value = attributeValue;
+                        return;
+                    }
+
+                    attributes.push({
+                        id: attributeId,
+                        name: box.querySelector('label').innerText,
+                        value: attributeValue
                     });
-
-                    @this.set('form.attributes', attributes);
-
-                    @this.call('save');
-                });
-                
-                $('#summernote2').summernote({
-                    height: 300,
-                });
-
-                $('#select-tag').select2({
-                    placeholder: 'انتخاب برچسب ها',
-                    allowClear: true
-                });
-    
-                $('#select-tag').on('change', function (e) {
-                    var data = $('#select-tag').select2("val");
-                    tags = data;
-                });
-    
-                $('#select-tag').on('select2:unselect', function (e) {
-                    var data = $('#select-tag').select2("val");
-                    tags = data;
-                });
+                }
             });
 
-        </script>
-    @endpush
-</div>
+            $wire.set('form.attributes', attributes);
+
+            $wire.call('save');
+        });
+        
+        $('#summernote2').summernote({
+            height: 300,
+        });
+
+        $('#select-tag').select2({
+            placeholder: 'انتخاب برچسب ها',
+            allowClear: true
+        });
+
+        $('#select-tag').on('change', function (e) {
+            var data = $('#select-tag').select2("val");
+            tags = data;
+        });
+
+        $('#select-tag').on('select2:unselect', function (e) {
+            var data = $('#select-tag').select2("val");
+            tags = data;
+        });
+    </script>
+@endscript

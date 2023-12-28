@@ -256,6 +256,9 @@
                            <li class="">
                               <a href="{{ route('tags') }}">برچسب ها</a>
                            </li>
+                           <li class="">
+                              <a href="{{ route('reviews') }}">دیدگاه ها</a>
+                           </li>
                         </ul>
                      </li>
                      <li>

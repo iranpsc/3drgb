@@ -11,16 +11,20 @@ class Products extends Component
 {
     use WithPagination;
 
-    public function delete($id)
+    public function delete(Product $product)
     {
-        Product::find($id)->delete();
-        session()->flash('success', 'محصول با موفقیت حذف شد.');
-    }   
-    
+        $this->authorize('delete', $product);
+
+        $product->delete();
+        $product->images()->delete();
+
+        session()->flash('success', __('Product deleted successfully.'));
+    }
+
     #[Title('محصولات')]
     public function render()
     {
         return view('livewire.store-management.products.products')
-        ->with('products', Product::orderByDesc('created_at')->paginate(10));
+            ->with('products', Product::orderByDesc('created_at')->paginate(10));
     }
 }

@@ -47,11 +47,7 @@ class Review extends Model
      */
     public function scopeApproved($query)
     {
-        $query->when(auth()->check() && auth()->user()->hasRole('admin'), function($query) {
-            $query;
-        }, function ($query) {
-            $query->where('approved', 1);
-        });
+        $query->where('approved', 1);
     }
 
     /**
@@ -67,5 +63,4 @@ class Review extends Model
         $this->approved_by = $approved_by;
         $this->save();
     }
-
 }

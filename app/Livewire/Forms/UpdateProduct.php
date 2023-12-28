@@ -3,9 +3,8 @@
 namespace App\Livewire\Forms;
 
 use App\Models\Product;
-use Livewire\Attributes\Rule;
 use Livewire\Form;
-use Illuminate\Validation\Rule as ValidationRule;
+use Illuminate\Validation\Rule;
 use Livewire\WithFileUploads;
 use Closure;
 
@@ -21,22 +20,24 @@ class UpdateProduct extends Form
     public $slug;
     public $short_description;
     public $long_description;
-    public $stock_status = true;
+    public $stock_status;
     public $quantity;
     public $delivery_time;
-    public $customer_can_add_review = true;
+    public $customer_can_add_review;
     public $price;
     public $sale_price;
-    public $published = true;
+    public $published;
     public $images;
     public $file;
     public $tags;
     public $attributes;
+    public $meta_description;
+    public $meta_keywords;
 
     public function rules()
     {
         return [
-            'category_id' => ['required', ValidationRule::exists('categories', 'id')],
+            'category_id' => ['required', Rule::exists('categories', 'id')],
             'sku' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'slug' => ['required', 'string', 'max:255'],
@@ -57,7 +58,8 @@ class UpdateProduct extends Form
             'delivery_time' => ['required', 'numeric', 'min:0'],
             'customer_can_add_review' => ['required', 'boolean'],
             'price' => ['required', 'numeric', 'min:0'],
-            'sale_price' => ['required', 'numeric', 'min:0', 'lte:form.price'],
+            'sale_price' => ['required', 'numeric', 'min:0',
+                /** 'lte:form.price'*/],
             'published' => [
                 'required', 'boolean', function (string $attribute, mixed $value, Closure $fail) {
                     if ((bool)$value == false && (bool)$this->published == true) {
@@ -68,10 +70,13 @@ class UpdateProduct extends Form
             'images' => ['nullable', 'array'],
             'images.*' => ['nullable', 'image', 'max:1024'],
             'file' => ['nullable', 'file', 'max:1024'],
-            'tags' => ['nullable', 'array'],
-            'tags.*' => ['nullable', 'string', 'max:255'],
-            'attributes' => ['nullable', 'array'],
-            'attributes.*.id' => ['nullable', 'string', 'max:255'],
+            'tags' => ['required', 'array'],
+            'tags.*' => ['required', 'string', 'max:255'],
+            'attributes' => ['required', 'array'],
+            'attributes.*.id' => ['required', 'string', 'max:255'],
+            'attributes.*.value' => ['required', 'string', 'max:255'],
+            'meta_description' => ['required', 'string', 'max:255'],
+            'meta_keywords' => ['required', 'string', 'max:255'],
         ];
     }
 
@@ -79,21 +84,25 @@ class UpdateProduct extends Form
     {
         $this->product = $product;
 
-        $this->category_id = $product->category_id;
-        $this->sku = $product->sku;
-        $this->name = $product->name;
-        $this->slug = $product->slug;
-        $this->short_description = $product->short_description;
-        $this->long_description = $product->long_description;
-        $this->stock_status = $product->stock_status;
-        $this->quantity = $product->quantity;
-        $this->delivery_time = $product->delivery_time;
-        $this->customer_can_add_review = $product->customer_can_add_review;
-        $this->price = $product->price;
-        $this->sale_price = $product->sale_price;
-        $this->published = $product->published;
-        $this->tags = $product->tags;
-        $this->attributes = $product->attributes;
+        $this->fill(
+            $this->product->only([
+                'category_id',
+                'sku',
+                'name',
+                'slug',
+                'short_description',
+                'long_description',
+                'stock_status',
+                'quantity',
+                'delivery_time',
+                'customer_can_add_review',
+                'price',
+                'sale_price',
+                'published',
+                'meta_description',
+                'meta_keywords',
+            ])
+        );
     }
 
     public function getProduct(): Product
@@ -105,21 +114,25 @@ class UpdateProduct extends Form
     {
         $this->validate();
 
-        $this->product->update([
-            'category_id' => $this->category_id,
-            'sku' => $this->sku,
-            'name' => $this->name,
-            'slug' => $this->slug,
-            'short_description' => $this->short_description,
-            'long_description' => $this->long_description,
-            'stock_status' => $this->stock_status,
-            'quantity' => $this->quantity,
-            'delivery_time' => $this->delivery_time,
-            'customer_can_add_review' => $this->customer_can_add_review,
-            'price' => $this->price,
-            'sale_price' => $this->sale_price,
-            'published' => $this->published,
-        ]);
+        $this->product->update(
+            $this->only([
+                'category_id',
+                'sku',
+                'name',
+                'slug',
+                'short_description',
+                'long_description',
+                'stock_status',
+                'quantity',
+                'delivery_time',
+                'customer_can_add_review',
+                'price',
+                'sale_price',
+                'published',
+                'meta_description',
+                'meta_keywords',
+            ])
+        );
 
         $this->product->tags()->sync($this->tags);
 
@@ -140,7 +153,7 @@ class UpdateProduct extends Form
         }
 
         if ($this->file) {
-            $this->product->file->create([
+            $this->product->file->update([
                 'name' => $this->file->getClientOriginalName(),
                 'path' => $this->file->storeAs('products', $this->file->getClientOriginalName()),
                 'type' => $this->file->getMimeType(),

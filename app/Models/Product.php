@@ -23,12 +23,9 @@ class Product extends Model
         'price',
         'sale_price',
         'published',
+        'meta_description',
+        'meta_keywords',
     ];
-
-    public function getSlugAttribute()
-    {
-        return str_replace(' ', '-', $this->attributes['slug']);
-    }
 
     /**
      * Get the category that owns the product.
@@ -67,7 +64,7 @@ class Product extends Model
      */
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'tag_product', 'product_id', 'tag_id');
+        return $this->belongsToMany(Tag::class);
     }
 
     /**
@@ -77,8 +74,7 @@ class Product extends Model
      */
     public function attributes()
     {
-        return $this->belongsToMany(Attribute::class, 'attribute_product', 'product_id', 'attribute_id')
-            ->withPivot('value');
+        return $this->belongsToMany(Attribute::class)->withPivot('value');
     }
 
     /**
@@ -147,5 +143,25 @@ class Product extends Model
     public function reviews()
     {
         return $this->hasMany(Review::class)->with('user')->approved();
+    }
+
+    /**
+     * Get product orders
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function orders()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
+    /**
+     * Get product average rating
+     * 
+     * @return float
+     */
+    public function hasOrders()
+    {
+        return $this->orders()->exists();
     }
 }

@@ -1,8 +1,10 @@
 <div>
     <x-page title="محصولات">
-        @if (session()->has('message'))
+
+        @session('message')
             <x-alert type="success" message="{{ session('message') }}" />
-        @endif
+        @endsession
+        
         @if ($products->count() > 0)
             <x-table>
                 <x-slot:header>
@@ -12,6 +14,7 @@
                     <th>قیمت</th>
                     <th>قیمت ویژه</th>
                     <th>دسته بندی</th>
+                    <th>وضعیت</th>
                     <th>تاریخ ایجاد</th>
                     <th>عملیات</th>
                 </x-slot:header>
@@ -50,13 +53,27 @@
                         </td>
                         <td>
                             <div class="userDatatable-content">
+                                {{ $product->published ? 'منتشر شده' : 'منتشر نشده' }}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="userDatatable-content">
                                 {{ jdate($product->created_at)->format('Y/m/d') }}
                             </div>
                         </td>
                         <td>
                             <div class="userDatatable-content">
-                                <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary btn-sm">ویرایش</a>
-                                <x-button color="danger" wire:click="delete({{ $product->id }})" wire:confirm="آیا از حذف این دسته بندی مطمئن هستید؟">حذف</x-button>
+                                <div class="d-flex justify-content-between">
+                                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                                                                    
+                                    @if ($product->published)
+                                        <a href="{{ route('products.show', $product->slug) }}" class="btn btn-primary"><i class="fa fa-eye"></i></a>
+                                    @endif
+    
+                                    @if(!$product->hasOrders())
+                                        <button type="button" class="btn btn-danger" wire:click="delete({{ $product->id }})" wire:confirm="آیا از حذف این محصول مطمئن هستید؟"><i class="fa fa-trash"></i></button>
+                                    @endif
+                                </div>
                             </div>
                         </td>
                     </tr>

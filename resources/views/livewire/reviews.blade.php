@@ -1,8 +1,8 @@
 <div>
 
-    @if(session()->has('message'))
+    @session('message')
         <x-alert type="success" message="{{ session('message') }}" />
-    @endif
+    @endsession
     
     @if (Auth::check() && Auth::user()->hasPurchased($product) && !Auth::user()->hasReviewed($product))
         <div class="row justify-content-right my-2">
@@ -70,18 +70,6 @@
                                 <span class="free">{{ $review->comment }}</span>
                             </div>
                         </div>
-
-                        @if (Auth::check() && Auth::user()->hasRole('admin') && !$review->approved)
-                            <div class="product-details__availability my-2">
-                                <div class="title">
-                                    <p>عملیات</p>
-                                    <div class="free">
-                                        <button type="button" class="btn btn-info btn-default btn-squared border-0 me-10 my-sm-0 d-inline" wire:click="approveReview({{ $review->id }})" wire:confirm="آیا این نظر را تایید می کنید؟">تایید</button>
-                                        <button type="button" class="btn btn-danger btn-default btn-squared border-0 me-10 my-sm-0 d-inline" wire:click="deleteReview({{ $review->id }})" wire:confirm="ایا این نظر را حذف می کنید؟">حذف</button>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
                     </div>
                 </div>
             </div>
@@ -91,8 +79,8 @@
     @endforelse
 </div>
 
-<script>
-    document.addEventListener('livewire:initialized', () => {
+@script
+    <script>
         let starRating = document.getElementById('star-rating');
         let saveReviewBtn = document.getElementById('save-review-btn');
 
@@ -122,11 +110,9 @@
 
             let rating = stars.length;
 
-            @this.set('rating', rating);
+            $wire.set('rating', rating);
 
-            @this.call('saveReview');
+            $wire.call('saveReview');
         });
-
-    });
-
-</script>
+    </script>
+@endscript

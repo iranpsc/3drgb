@@ -20,7 +20,7 @@ class CreateProductForm extends Form
     public $long_description;
     public $stock_status = true;
     public $quantity;
-    public $delivery_time;
+    public $delivery_time = 0;
     public $customer_can_add_review = true;
     public $price;
     public $sale_price;
@@ -29,6 +29,8 @@ class CreateProductForm extends Form
     public $file;
     public $tags = [];
     public $attributes = [];
+    public $meta_description;
+    public $meta_keywords;
 
     public function rules()
     {
@@ -54,7 +56,9 @@ class CreateProductForm extends Form
             'delivery_time' => ['required', 'numeric', 'min:0'],
             'customer_can_add_review' => ['required', 'boolean'],
             'price' => ['required', 'numeric', 'min:0'],
-            'sale_price' => ['required', 'numeric', 'min:0', /** 'lte:form.price'*/],
+            'sale_price' => ['required', 'numeric', 'min:0',
+                /** 'lte:form.price'*/
+            ],
             'published' => [
                 'required', 'boolean', function (string $attribute, mixed $value, Closure $fail) {
                     if ($value && (bool)$this->stock_status == false) {
@@ -68,6 +72,9 @@ class CreateProductForm extends Form
             'tags.*' => ['required', Rule::exists('tags', 'id')],
             'attributes' => ['required', 'array', 'min:1'],
             'attributes.*.id' => ['required', Rule::exists('attributes', 'id')],
+            'attributes.*.value' => ['required', 'string', 'max:255'],
+            'meta_description' => ['required', 'string', 'max:255'],
+            'meta_keywords' => ['required', 'string', 'max:255'],
         ];
     }
 
@@ -75,21 +82,25 @@ class CreateProductForm extends Form
     {
         $this->validate();
 
-        $product = Product::create([
-            'category_id' => $this->category_id,
-            'sku' => $this->sku,
-            'name' => $this->name,
-            'slug' => $this->slug,
-            'short_description' => $this->short_description,
-            'long_description' => $this->long_description,
-            'stock_status' => $this->stock_status,
-            'quantity' => $this->quantity,
-            'delivery_time' => $this->delivery_time,
-            'customer_can_add_review' => $this->customer_can_add_review,
-            'price' => $this->price,
-            'sale_price' => $this->sale_price,
-            'published' => $this->published,
-        ]);
+        $product = Product::create(
+            $this->only([
+                'category_id',
+                'sku',
+                'name',
+                'slug',
+                'short_description',
+                'long_description',
+                'stock_status',
+                'quantity',
+                'delivery_time',
+                'customer_can_add_review',
+                'price',
+                'sale_price',
+                'published',
+                'meta_description',
+                'meta_keywords',
+            ])
+        );
 
         foreach ($this->images as $image) {
             $product->images()->create([
@@ -111,5 +122,7 @@ class CreateProductForm extends Form
                 'value' => $attribute['value'],
             ]);
         }
+
+        $this->reset();
     }
 }

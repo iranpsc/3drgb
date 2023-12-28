@@ -16,7 +16,8 @@ class ProductDetails extends Component
             'reviews.user',
             'tags',
             'attributes',
-            'category'
+            'category',
+            'reviews'
         ]);
     }
 

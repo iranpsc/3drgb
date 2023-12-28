@@ -22,9 +22,11 @@
         <div class="container-fluid">
            <!-- Start: Card -->
            <div class="card product-details h-100 border-0">
-               @if (session()->has('message'))
-                    <x-alert type="success" message="{{ session('message') }}" />
-               @endif
+
+               @session('message')
+                  <x-alert type="success" message="{{ session('message') }}" />
+               @endsession
+
                <div class="row product-item d-flex p-sm-50 p-20">
                   <div class="col-lg-5">
                      <!-- Start: Product Slider -->
@@ -184,7 +186,7 @@
                             @endforeach
                        </div>
                        <div class="tab-pane fade" id="tab-v-3" role="tabpanel" aria-labelledby="tab-v-3-tab">
-                           <livewire:product-review :product="$product" />
+                           <livewire:reviews :product="$product" />
                        </div>
                     </div>
                  </div>
