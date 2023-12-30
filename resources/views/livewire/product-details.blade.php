@@ -77,14 +77,33 @@
                            <div class="product-item__content text-capitalize">
                               <!-- Start: Product Ratings -->
                               <div class="stars-rating d-flex align-items-center">
-                                 <span class="star-icon las la-star active"></span>
-                                 <span class="star-icon las la-star active"></span>
-                                 <span class="star-icon las la-star active"></span>
-                                 <span class="star-icon las la-star active"></span>
-                                 <span class="star-icon las la-star-half-alt active"></span>
-                                 <span class="stars-rating__point">4.9</span>
+                                 @php
+                                    $rating = round($product->rating_avg * 2) / 2; // Round to the nearest 0.5
+                                    $fullStars = floor($rating);
+                                    $halfStar = ($rating - $fullStars) >= 0.5 ? true : false;
+                                    $emptyStars = 5 - $fullStars - ($halfStar ? 1 : 0);
+                                 @endphp
+
+                                 @if($fullStars > 0)
+                                    @foreach(range(1, $fullStars) as $i)
+                                          <span class="star-icon las la-star active"></span>
+                                    @endforeach
+                                 @endif
+
+                                 @if($halfStar)
+                                    <span class="star-icon las la-star-half-alt active"></span>
+                                 @endif
+
+                                 @if($emptyStars > 0)
+                                    @foreach(range(1, $emptyStars) as $i)
+                                          <span class="star-icon las la-star"></span>
+                                    @endforeach
+                                 @endif
+
+                                 <span class="stars-rating__point">{{ number_format($product->rating_avg) }} امتیاز</span>
                                  <span class="stars-rating__review">
-                                    <span>0</span> نقد</span>
+                                    <span>{{ $product->reviews_count }}</span> نقد
+                                 </span>
                               </div>
                               
                               <!-- End: Product Ratings -->

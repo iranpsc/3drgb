@@ -33,11 +33,17 @@ class Store extends Component
         if ($this->q) {
             $this->products = Product::published()
                 ->where('name', 'like', '%' . $this->q . '%')
+                ->withCount('reviews')
+                ->withAvg('reviews as rating_avg', 'rating')
+                ->with('images')
                 ->orderByDesc('created_at')
                 ->paginate(16);
         } else {
-            $this->products = Product::published()->orderByDesc('created_at')
+            $this->products = Product::published()
+                ->withCount('reviews')
+                ->withAvg('reviews as rating_avg', 'rating')
                 ->with('images')
+                ->orderByDesc('created_at')
                 ->paginate(16);
         }
     }

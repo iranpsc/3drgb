@@ -19,7 +19,7 @@ class ProductPolicy
 
     public function delete(User $user, Product $product)
     {
-        return $user->hasRole('admin') && ! $product->hasOrders();
+        return $user->hasRole('admin') && !$product->hasOrders();
     }
 
     public function import(User $user)
@@ -36,7 +36,9 @@ class ProductPolicy
 
     public function addReview(User $user, Product $product): bool
     {
-        return $user->hasPurchased($product) && ! $user->hasReviewed($product);
+        return $user->hasPurchased($product)
+            && !$user->hasReviewed($product)
+            && $product->customer_can_add_review;
     }
 
     public function approveReview(User $user): bool

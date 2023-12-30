@@ -18,7 +18,9 @@ class ProductDetails extends Component
             'attributes',
             'category',
             'reviews'
-        ]);
+        ])
+            ->loadCount('reviews')
+            ->loadAvg('reviews as rating_avg', 'rating');
     }
 
     public function addToCart()
