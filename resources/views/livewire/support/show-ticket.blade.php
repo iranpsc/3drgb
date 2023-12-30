@@ -36,7 +36,7 @@
                     <div class="ticket-details-contact__status">
                         <div class="ticket-details-contact__status-item">
                             <span class="text-dark">اولویت:</span>
-                            <span>{{ $ticket->priority }}</span>
+                            <span>{{ $ticket->priority_title }}</span>
                         </div>
                         <div class="ticket-details-contact__status-item">
                             <span class="text-dark">وضعیت:</span>

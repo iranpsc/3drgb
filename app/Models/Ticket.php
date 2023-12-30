@@ -60,7 +60,7 @@ class Ticket extends Model
         $this->update(['status' => 'closed', 'closed_at' => now()]);
     }
 
-    public function getPriorityAttribute()
+    public function getPriorityTitleAttribute()
     {
         switch ($this->attributes['priority']) {
             case 'high':
