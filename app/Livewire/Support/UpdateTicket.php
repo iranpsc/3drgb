@@ -3,6 +3,7 @@
 namespace App\Livewire\Support;
 
 use App\Models\Ticket;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class UpdateTicket extends Component
@@ -49,6 +50,7 @@ class UpdateTicket extends Component
         session()->flash('message', 'تیکت شما با موفقیت بروزرسانی شد.');
     }
 
+    #[Title('پشتیبانی | بروزرسانی تیکت')]
     public function render()
     {
         return view('livewire.support.update-ticket');
