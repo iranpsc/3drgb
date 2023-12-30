@@ -21,9 +21,9 @@
                               <span>پرداخت</span>
                            </div>
                            <div class="current"><img src="{{ asset('img/svg/checkoutin.svg') }}" alt="img" class="svg"></div>
-                           <div class="step completed" id="4">
-                              <span class="las la-check"></span>
-                              <span>جزئیات پرداخت</span>
+                           <div class="step {{ $Status === 'OK' ? 'completed' : 'not-completed' }}" id="4">
+                              <span class="las {{ $Status === 'OK' ? 'la-check' : 'la-times' }}"></span>
+                              <span>نتیجه پرداخت</span>
                            </div>
                         </div>
                      </div><!-- checkout -->
@@ -32,11 +32,13 @@
                            <div class="card checkout-shipping-form shadow-none border-0 shadow-none">
                               <div class="card-body">
                                  <div class="edit-profile__body">
-                                    @if (session()->has('error'))
+
+                                    @session('error')
                                         <x-alert type="danger" :message="session('error')" />
-                                    @endif
+                                    @endsession
 
                                     @if($order && $order->isPaid())
+                                    
                                         <div class="alert alert-success my-2">
                                             <p>پرداخت شما با موفقیت انجام شد. کد پیگیری پرداخت: {{ $transaction->reference_id }}</p>
                                         </div>

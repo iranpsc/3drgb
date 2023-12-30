@@ -10,9 +10,21 @@
 
                 <x-form.select wire:model="form.category_id" name="form.category_id" label="دسته بندی">
                     <option value="">انتخاب دسته بندی</option>
-                    @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+
+                    @php 
+                        $parentCategories = $categories->reject(function($category) {
+                            return $category->parent_id != null;
+                        });
+                    @endphp
+
+                    @foreach ($parentCategories as $category)
+                        <optgroup label="{{ $category->name }}">
+                            @foreach ($category->children as $child)
+                                <x-partials.category-option :category="$child" :level="1" />
+                            @endforeach
+                        </optgroup>
                     @endforeach
+
                 </x-form.select>
     
                 <x-form.text  wire:model="form.sku" name="form.sku" label="شناسه"/>

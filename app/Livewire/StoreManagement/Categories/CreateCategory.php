@@ -37,7 +37,7 @@ class CreateCategory extends Component
         ]);
 
         if ($this->image) {
-            $category->images()->create([
+            $category->image()->create([
                 'path' => $this->image->store('/categories', 'public'),
             ]);
         }

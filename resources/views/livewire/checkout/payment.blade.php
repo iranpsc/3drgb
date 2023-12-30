@@ -31,12 +31,15 @@
                             <div class="card checkout-shipping-form shadow-none border-0 shadow-none">
                                 <div class="card-body">
                                     <div class="edit-profile__body">
-                                       @if (session()->has('error'))
+
+                                       @session('error')
                                           <x-alert type="danger" :message="session('error')" />
-                                       @endif
-                                       @if (session()->has('success'))
+                                       @endsession
+
+                                       @session('success')
                                           <x-alert type="success" :message="session('success')" />
-                                       @endif
+                                       @endsession
+
                                         <div class="payment-invoice-table">
                                             <div class="table-responsive">
                                                <table id="cart" class="table table-borderless">

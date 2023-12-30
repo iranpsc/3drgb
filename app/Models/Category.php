@@ -48,13 +48,13 @@ class Category extends Model
     }
 
     /**
-     * Get the images for the category.
+     * Get the image for the category.
      * 
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
-    public function images()
+    public function image()
     {
-        return $this->morphMany(Image::class,'imageable')->select('id','url');
+        return $this->morphOne(Image::class,'imageable')->select('id','url');
     }
 
 }
