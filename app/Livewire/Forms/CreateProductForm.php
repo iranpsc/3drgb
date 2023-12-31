@@ -5,7 +5,6 @@ namespace App\Livewire\Forms;
 use App\Models\Product;
 use Closure;
 use Livewire\Form;
-use Illuminate\Validation\Rule;
 use Livewire\WithFileUploads;
 
 class CreateProductForm extends Form
@@ -18,13 +17,13 @@ class CreateProductForm extends Form
     public $slug;
     public $short_description;
     public $long_description;
-    public $stock_status = false;
+    public $stock_status = 0;
     public $quantity = 0;
     public $delivery_time = 0;
-    public $customer_can_add_review = true;
+    public $customer_can_add_review = 0;
     public $price;
     public $sale_price;
-    public $published = true;
+    public $published = 0;
     public $images = [];
     public $file;
     public $tags = [];
@@ -35,13 +34,13 @@ class CreateProductForm extends Form
     public function rules()
     {
         return [
-            'category_id' => ['required', Rule::exists('categories', 'id')],
-            'sku' => ['required', 'string', 'max:255'],
-            'name' => ['required', 'string', 'max:255'],
-            'slug' => ['required', 'string', 'max:255'],
-            'short_description' => ['required', 'string', 'max:500'],
-            'long_description' => ['required', 'string', 'max:5000'],
-            'stock_status' => ['required', 'boolean'],
+            'category_id' => 'required|exists:categories,id',
+            'sku' => 'required|string|max:255|unique:products',
+            'name' => 'required|string|max:255',
+            'slug' => 'required|string|max:255|unique:products',
+            'short_description' => 'required|string|max:255',
+            'long_description' => 'required|string|max:5000',
+            'stock_status' => 'required|boolean',
             'quantity' => [
                 'required', 'numeric', 'min:0', function (string $attribute, mixed $value, Closure $fail) {
                     if ((bool)$this->stock_status == false && $value > 0) {
@@ -53,28 +52,20 @@ class CreateProductForm extends Form
                     }
                 }
             ],
-            'delivery_time' => ['required', 'numeric', 'min:0'],
-            'customer_can_add_review' => ['required', 'boolean'],
-            'price' => ['required', 'numeric', 'min:0'],
-            'sale_price' => ['required', 'numeric', 'min:0',
-                /** 'lte:form.price'*/
-            ],
-            'published' => [
-                'required', 'boolean', function (string $attribute, mixed $value, Closure $fail) {
-                    if ($value && (bool)$this->stock_status == false) {
-                        $fail(__('The stock status must be true if the product is published.'));
-                    }
-                }
-            ],
-            'images.*' => ['required', 'image', 'max:2024'],
-            'file' => ['required', 'file'],
-            'tags' => ['required', 'array', 'min:1'],
-            'tags.*' => ['required', Rule::exists('tags', 'id')],
-            'attributes' => ['required', 'array', 'min:1'],
-            'attributes.*.id' => ['required', Rule::exists('attributes', 'id')],
-            'attributes.*.value' => ['required', 'string', 'max:255'],
-            'meta_description' => ['required', 'string', 'max:255'],
-            'meta_keywords' => ['required', 'string', 'max:255'],
+            'delivery_time' => 'required|numeric|min:0',
+            'customer_can_add_review' => 'required|boolean',
+            'price' => 'required|numeric|min:0',
+            'sale_price' => 'nullable|numeric|min:0|lte:price',
+            'published' => 'required|boolean',
+            'images.*' => 'required|image|max:1024',
+            'file' => 'required|file|max:100024',
+            'tags' => 'required|array|min:1',
+            'tags.*' => 'required|exists:tags,id',
+            'attributes' => 'required|array|min:1',
+            'attributes.*.id' => 'required|exists:attributes,id',
+            'attributes.*.value' => 'required|string|max:255',
+            'meta_description' => 'required|string|max:255',
+            'meta_keywords' => 'required|string|max:255',
         ];
     }
 

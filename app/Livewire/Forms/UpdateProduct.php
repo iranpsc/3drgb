@@ -4,7 +4,6 @@ namespace App\Livewire\Forms;
 
 use App\Models\Product;
 use Livewire\Form;
-use Illuminate\Validation\Rule;
 use Livewire\WithFileUploads;
 use Closure;
 
@@ -37,13 +36,13 @@ class UpdateProduct extends Form
     public function rules()
     {
         return [
-            'category_id' => ['required', Rule::exists('categories', 'id')],
-            'sku' => ['required', 'string', 'max:255'],
-            'name' => ['required', 'string', 'max:255'],
-            'slug' => ['required', 'string', 'max:255'],
-            'short_description' => ['required', 'string', 'max:500'],
-            'long_description' => ['required', 'string', 'max:5000'],
-            'stock_status' => ['required', 'boolean'],
+            'category_id' => 'required|exists:categories,id',
+            'sku' => 'required|string|max:255|unique:products,sku,' . $this->product->id,
+            'name' => 'required|string|max:255',
+            'slug' => 'required|string|max:255|unique:products,slug,' . $this->product->id,
+            'short_description' => 'required|string|max:500',
+            'long_description' => 'required|string|max:5000',
+            'stock_status' => 'required|boolean',
             'quantity' => [
                 'required', 'numeric', 'min:0', function (string $attribute, mixed $value, Closure $fail) {
                     if ((bool)$this->stock_status == false && $value > 0) {
@@ -55,28 +54,21 @@ class UpdateProduct extends Form
                     }
                 }
             ],
-            'delivery_time' => ['required', 'numeric', 'min:0'],
-            'customer_can_add_review' => ['required', 'boolean'],
-            'price' => ['required', 'numeric', 'min:0'],
-            'sale_price' => ['required', 'numeric', 'min:0',
-                /** 'lte:form.price'*/],
-            'published' => [
-                'required', 'boolean', function (string $attribute, mixed $value, Closure $fail) {
-                    if ((bool)$value == false && (bool)$this->published == true) {
-                        $fail(__('The published must be true if the published is true.'));
-                    }
-                }
-            ],
-            'images' => ['nullable', 'array'],
-            'images.*' => ['nullable', 'image', 'max:1024'],
-            'file' => ['nullable', 'file', 'max:1024'],
-            'tags' => ['required', 'array'],
-            'tags.*' => ['required', 'string', 'max:255'],
-            'attributes' => ['required', 'array'],
-            'attributes.*.id' => ['required', 'string', 'max:255'],
-            'attributes.*.value' => ['required', 'string', 'max:255'],
-            'meta_description' => ['required', 'string', 'max:255'],
-            'meta_keywords' => ['required', 'string', 'max:255'],
+            'delivery_time' => 'required|numeric|min:0',
+            'customer_can_add_review' => 'required|boolean',
+            'price' => 'required|numeric|min:0',
+            'sale_price' => 'nullable|numeric|min:0|lte:price',
+            'published' => 'required|boolean',
+            'images' => 'nullable|array|max:3',
+            'images.*' => 'nullable|image|max:1024',
+            'file' => 'nullable|file|max:100024',
+            'tags' => 'required|array|min:1',
+            'tags.*' => 'required|exists:tags,id',
+            'attributes' => 'required|array|min:1',
+            'attributes.*.id' => 'required|exists:attributes,id',
+            'attributes.*.value' => 'required|exists:attributes,id',
+            'meta_description' => 'required|exists:attributes,id',
+            'meta_keywords' => 'required|exists:attributes,id',
         ];
     }
 

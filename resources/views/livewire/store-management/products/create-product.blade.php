@@ -42,7 +42,7 @@
 
                 <div style="display: none;" id="stockInputs">
                     <x-form.select wire:model="form.stock_status" name="form.stock_status" label="وضعیت انبار">
-                        <option value="1" selected>موجود</option>
+                        <option value="1">موجود</option>
                         <option value="0">ناموجود</option>
                     </x-form.select>
 
