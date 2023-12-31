@@ -12,5 +12,6 @@
     "All rights reserved.": "تمامی حقوق محفوظ است.",
     "Hello!": "سلام!",
     "Please click the button below to verify your email address.": "لطفا برای تایید آدرس ایمیل خود بر روی دکمه زیر کلیک کنید.",
-    "Product updated successfully.": "محصول با موفقیت به روز شد."
+    "Product updated successfully.": "محصول با موفقیت به روز شد.",
+    "The :attribute must not contain spaces.": ":attribute نباید شامل فاصله باشد."
 }

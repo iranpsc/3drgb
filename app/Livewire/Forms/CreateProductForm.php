@@ -37,7 +37,13 @@ class CreateProductForm extends Form
             'category_id' => 'required|exists:categories,id',
             'sku' => 'required|string|max:255|unique:products',
             'name' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:products',
+            'slug' => [
+                'required', 'string', 'max:255', function (string $attribute, mixed $value, Closure $fail) {
+                    if (str_contains($value, ' ')) {
+                        $fail(__('The :attribute must not contain spaces.', ['attribute' => $attribute]));
+                    }
+                }
+            ],
             'short_description' => 'required|string|max:255',
             'long_description' => 'required|string|max:5000',
             'stock_status' => 'required|boolean',

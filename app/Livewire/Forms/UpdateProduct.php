@@ -6,6 +6,7 @@ use App\Models\Product;
 use Livewire\Form;
 use Livewire\WithFileUploads;
 use Closure;
+use Illuminate\Validation\Rule;
 
 class UpdateProduct extends Form
 {
@@ -39,7 +40,13 @@ class UpdateProduct extends Form
             'category_id' => 'required|exists:categories,id',
             'sku' => 'required|string|max:255|unique:products,sku,' . $this->product->id,
             'name' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:products,slug,' . $this->product->id,
+            'slug' => [
+                'required', 'string', 'max:255', Rule::unique('products')->ignore($this->product->id), function (string $attribute, mixed $value, Closure $fail) {
+                    if (str_contains($value, ' ')) {
+                        $fail(__('The :attribute must not contain spaces.', ['attribute' => $attribute]));
+                    }
+                }
+            ],
             'short_description' => 'required|string|max:500',
             'long_description' => 'required|string|max:5000',
             'stock_status' => 'required|boolean',
