@@ -55,7 +55,7 @@
 
             {{ $attributes->links() }}
         @else
-            <x-empty />
+            <x-empty-page />
         @endif
     </x-page>
 

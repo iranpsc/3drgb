@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Livewire\AboutUs;
+use App\Livewire\AdminDashboard;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Password;
 use App\Models\User;
@@ -61,6 +62,8 @@ Route::get('/checkout', Checkout::class)->name('checkout');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware('admin')->prefix('admin')->group(function () {
+
+        Route::get('/dashboard', AdminDashboard::class)->name('admin.dashboard');
 
         Route::prefix('products')->name('products.')->group(function () {
             Route::get('/', Products::class)->name('index');

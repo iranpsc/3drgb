@@ -1,9 +1,9 @@
 <div>
     <x-page title="سبد خرید">
 
-        @if(session()->has('message'))
+        @session('message')
             <x-alert type="success" message="{{ session('message') }}" />
-        @endif
+        @endsession
 
         <div class="container-fluid">
             <div class="checkout wizard1 global-shadow border-0 px-sm-50 px-20 pt-sm-50 py-30 mb-30 bg-white radius-xl w-100">
@@ -103,7 +103,7 @@
                                     </div>
                                 </div><!-- End: .global-shadow -->
                             @else
-                                <x-alert type="warning" message="سبد خرید شما خالی است." />
+                                <x-empty-page />
                             @endif
                         </div><!-- ends: col -->
                      </div>

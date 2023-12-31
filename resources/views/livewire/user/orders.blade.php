@@ -9,7 +9,7 @@
             <div class="row">
                <div class="col-lg-12">
                 @if($orders->count() == 0)
-                    <x-alert type="warning" :message="__('سفارشی یافت نشد')" />
+                    <x-empty-page />
                 @else
                   <div class="userDatatable orderDatatable shipped-dataTable global-shadow border-0 p-30 bg-white radius-xl w-100 mb-30">
                      <div class="table-responsive">

@@ -229,7 +229,7 @@
                   </li>
                   @hasRole('admin')
                      <li>
-                        <a href="#" class="">
+                        <a href="{{ route('admin.dashboard') }}" class="">
                            <span class="nav-icon uil uil-create-dashboard"></span>
                            <span class="menu-text">داشبورد مدیریت</span>
                         </a>
