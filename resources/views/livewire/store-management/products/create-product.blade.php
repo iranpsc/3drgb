@@ -33,18 +33,27 @@
                 <x-form.text  wire:model="form.price" name="form.price" label="قیمت عادی" />
                 <x-form.text  wire:model="form.sale_price" name="form.sale_price" label="قیمت فروش ویژه" />
 
-                <x-form.select wire:model="form.stock_status" name="form.stock_status" label="وضعیت انبار">
-                    <option value="1" selected>موجود</option>
-                    <option value="0">ناموجود</option>
-                </x-form.select>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="showStockInputs">
+                    <label class="form-check-label" for="showStockInputs">
+                        این محصول متعلق به متارنگ است؟
+                    </label>
+                </div>
+
+                <div style="display: none;" id="stockInputs">
+                    <x-form.select wire:model="form.stock_status" name="form.stock_status" label="وضعیت انبار">
+                        <option value="1" selected>موجود</option>
+                        <option value="0">ناموجود</option>
+                    </x-form.select>
+
+                    <x-form.text  wire:model="form.quantity" name="form.quantity" label="تعداد موجود در انبار" />
+                    <x-form.text  wire:model="form.delivery_time" name="form.delivery_time" label="مدت زمان تحویل" />
+                </div>
 
             </div>
 
             <div class="col-md-6">
                 
-                <x-form.text  wire:model="form.quantity" name="form.quantity" label="تعداد موجود در انبار" />
-                <x-form.text  wire:model="form.delivery_time" name="form.delivery_time" label="مدت زمان تحویل" />
-
                 <x-form.select wire:model="form.customer_can_add_review" name="form.customer_can_add_review" label="مشتری می تواند دیدگاه بنویسد؟">
                     <option value="1" selected>بله</option>
                     <option value="0">خیر</option>
@@ -203,5 +212,17 @@
             var data = $('#select-tag').select2("val");
             tags = data;
         });
+
+        let showStockInputs = document.getElementById('showStockInputs');
+        let stockInputs = document.getElementById('stockInputs');
+
+        showStockInputs.addEventListener('click', function() {
+            if(showStockInputs.checked) {
+                stockInputs.style.display = 'block';
+            } else {
+                stockInputs.style.display = 'none';
+            }
+        });
+
     </script>
 @endscript

@@ -39,7 +39,7 @@ class SendPasswordResetNotification extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->from('mail@irpsc.com', 'IRPSC')
+            ->from('mail@3d.irpsc.com', '3DRGB')
             ->subject('بازیابی رمز عبور')
             ->view('emails.reset-password', [
                 'url' => $this->url,

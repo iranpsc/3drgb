@@ -18,8 +18,8 @@ class CreateProductForm extends Form
     public $slug;
     public $short_description;
     public $long_description;
-    public $stock_status = true;
-    public $quantity;
+    public $stock_status = false;
+    public $quantity = 0;
     public $delivery_time = 0;
     public $customer_can_add_review = true;
     public $price;

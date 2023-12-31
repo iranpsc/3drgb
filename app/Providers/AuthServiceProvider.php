@@ -26,8 +26,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         VerifyEmail::toMailUsing(function ($notifiable, $url) {
             return (new MailMessage)
-                ->from('mail@irpsc.com', 'IRPSC')
-                ->subject('تایید ایمیل')
+                ->from('mail@3d.irpsc.com', '3DRGB')
+                ->subject('تایید حساب کاربری')
                 ->view('emails.verify-email', [
                     'url' => $url,
                 ]);
