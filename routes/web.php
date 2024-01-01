@@ -160,7 +160,7 @@ Route::post('/reset-password', function (Request $request) {
     $request->validate([
         'token' => 'required',
         'email' => 'required|email',
-        'password' => ['required', 'confirmed', RulesPassword::min(6)->mixedCase()],
+        'password' => ['required', 'confirmed', RulesPassword::min(6)->mixedCase()->symbols()],
     ]);
 
     $status = Password::reset(

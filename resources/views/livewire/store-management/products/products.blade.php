@@ -63,7 +63,7 @@
                         </td>
                         <td>
                             <div class="userDatatable-content">
-                                <div class="d-flex justify-content-between">
+                                <div class="d-flex justify-content-start gap-2">
                                     <a href="{{ route('products.edit', $product->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
                                                                     
                                     @if ($product->published)
