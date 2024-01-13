@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Livewire\AboutUs;
 use App\Livewire\AdminDashboard;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -105,20 +106,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 });
 
-Route::middleware('guest')->group(function () {
-    Route::get('/register', Register::class)->name('register');
-    Route::get('/login', Login::class)->name('login');
+Route::middleware('guest')->prefix('auth')->group(function () {
+    Route::get('/register', RegisterController::class)->name('register');
+    Route::get('/redirect', [LoginController::class, 'redirect'])->name('login');
+    Route::get('/callback', [LoginController::class, 'callback'])->name('callback');
 });
 
-Route::post('/logout', function (Request $request) {
-    Auth::logout();
-
-    $request->session()->invalidate();
-
-    $request->session()->regenerateToken();
-
-    return redirect('/');
-})->middleware('auth')->name('logout');
+Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->name('logout');
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
