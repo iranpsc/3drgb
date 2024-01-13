@@ -20,7 +20,7 @@ class LoginController extends Controller
      */
     public function redirect(Request $request)
     {
-        $request->session()->put('url.intended', redirect()->getIntendedUrl());
+        $request->session()->put('url.intended', redirect()->getIntendedUrl() ?? url()->previous());
 
         $request->session()->put('state', $state = Str::random(40));
 

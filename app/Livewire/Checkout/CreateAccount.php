@@ -23,42 +23,52 @@ class CreateAccount extends Component
 
     public $hasAccount = false;
 
-    public function createAccount()
+    public function register()
     {
-        $this->validate();
-
-        $user = User::create([
-            'name' => $this->name,
-            'email' => $this->email,
-            'password' => Hash::make($this->password),
-        ]);
-
-        Auth::login($user);
-
-        $this->dispatch('move-to-payment')->to(Checkout::class);
+        $this->redirectRoute('register');
     }
 
     public function login()
     {
-        $this->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
-
-        $credentials = $this->only(['email', 'password']);
-
-        if (!Auth::attempt($credentials)) {
-            $this->addError('email', 'اطلاعات وارد شده صحیح نمی باشد.');
-            return;
-        }
-
-        $this->dispatch('move-to-payment')->to(Checkout::class);
+        $this->redirectRoute('login');
     }
 
-    public function toggleHasAccount()
-    {
-        $this->hasAccount = !$this->hasAccount;
-    }
+    // public function createAccount()
+    // {
+    //     $this->validate();
+
+    //     $user = User::create([
+    //         'name' => $this->name,
+    //         'email' => $this->email,
+    //         'password' => Hash::make($this->password),
+    //     ]);
+
+    //     Auth::login($user);
+
+    //     $this->dispatch('move-to-payment')->to(Checkout::class);
+    // }
+
+    // public function login()
+    // {
+    //     $this->validate([
+    //         'email' => 'required|email',
+    //         'password' => 'required',
+    //     ]);
+
+    //     $credentials = $this->only(['email', 'password']);
+
+    //     if (!Auth::attempt($credentials)) {
+    //         $this->addError('email', 'اطلاعات وارد شده صحیح نمی باشد.');
+    //         return;
+    //     }
+
+    //     $this->dispatch('move-to-payment')->to(Checkout::class);
+    // }
+
+    // public function toggleHasAccount()
+    // {
+    //     $this->hasAccount = !$this->hasAccount;
+    // }
 
     public function render()
     {

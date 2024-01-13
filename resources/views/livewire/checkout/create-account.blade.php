@@ -30,12 +30,20 @@
                   <div class="col-xl-7 col-lg-8 col-sm-10">
                      <div class="card checkout-shipping-form shadow-none border-0 shadow-none">
                         <div class="card-body">
-                           <div class="d-flex justify-content-between align-items-center flex-wrap mb-30">
+                           {{-- <div class="d-flex justify-content-between align-items-center flex-wrap mb-30">
                               <h6 class="mb-0">اگر قبلا حساب کاربری ایجاد کرده اید، لطفا وارد شوید</h6>
                               <x-button color="light" size="sm" wire:click="toggleHasAccount">ورود</x-button>
+                           </div> --}}
+                           <div class="d-flex justify-content-between align-items-center flex-wrap mb-30">
+                              <h6 class="mb-0">اگر قبلا حساب کاربری ایجاد کرده اید، لطفا وارد شوید</h6>
+                              <x-button color="light" size="sm" wire:click="login">ورود</x-button>
+                           </div>
+                           <div class="d-flex justify-content-between align-items-center flex-wrap mb-30">
+                              <h6 class="mb-0">اگر قبلا حساب کاربری ایجاد  نکرده اید، ثبت نام کنید</h6>
+                              <x-button color="light" size="sm" wire:click="register">ثبت نام</x-button>
                            </div>
                            <div class="edit-profile__body">
-                              @if ($hasAccount)
+                              {{-- @if ($hasAccount)
                                  <form wire:submit="login">
                                     <x-form.text wire:model="email" name="email" label="ایمیل"  type="email" />
                                     <x-form.text wire:model="password" name="password" label="رمز عبور" type="password" />
@@ -66,7 +74,7 @@
                                        </div>
                                     </div>
                                  </form>
-                              @endif
+                              @endif --}}
                            </div>
                         </div>
                      </div><!-- ends: card -->
