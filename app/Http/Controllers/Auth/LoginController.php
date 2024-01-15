@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Http;
 use GuzzleHttp\Exception\InvalidArgumentException;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\JsonResponse;
 
 class LoginController extends Controller
 {
@@ -64,7 +65,9 @@ class LoginController extends Controller
 
         $user = Http::withHeaders([
             'Authorization' => 'Bearer ' . $response['access_token'],
-        ])->get(config('app.oauth_server_url') . '/api/user');
+        ])
+            ->acceptJson()
+            ->get(config('app.oauth_server_url') . '/api/user');
 
         $user = User::updateOrCreate(
             ['email' => $user['email']],
