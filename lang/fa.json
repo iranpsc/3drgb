@@ -13,5 +13,6 @@
     "Hello!": "سلام!",
     "Please click the button below to verify your email address.": "لطفا برای تایید آدرس ایمیل خود بر روی دکمه زیر کلیک کنید.",
     "Product updated successfully.": "محصول با موفقیت به روز شد.",
-    "The :attribute must not contain spaces.": ":attribute نباید شامل فاصله باشد."
+    "The :attribute must not contain spaces.": ":attribute نباید شامل فاصله باشد.",
+    "Sitemap generated successfully.": "نقشه سایت با موفقیت ایجاد شد."
 }

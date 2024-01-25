@@ -18,6 +18,7 @@
         "predis/predis": "^2.2",
         "pusher/pusher-php-server": "^7.2",
         "sadegh19b/laravel-persian-validation": "^1.4",
+        "spatie/laravel-sitemap": "^7.0",
         "ybazli/faker": "^1.0"
     },
     "require-dev": {

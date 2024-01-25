@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sitemap\Contracts\Sitemapable;
+use Spatie\Sitemap\Tags\Url;
 
-class Product extends Model
+class Product extends Model implements Sitemapable
 {
     use HasFactory;
 
@@ -26,6 +28,30 @@ class Product extends Model
         'meta_description',
         'meta_keywords',
     ];
+
+    protected $casts = [
+        'published' => 'boolean',
+        'customer_can_add_review' => 'boolean',
+    ];
+    
+    protected $appends = [
+        'url',
+        'discount',
+        'final_price',
+    ];
+    
+    public function getUrlAttribute()
+    {
+        return route('products.show', $this);
+    }
+
+    public function toSitemapTag(): Url|string|array
+    {
+        return Url::create($this->url)
+            ->setLastModificationDate($this->updated_at)
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+            ->setPriority(0.8);
+    }
 
     /**
      * Get the category that owns the product.

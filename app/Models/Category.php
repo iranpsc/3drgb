@@ -4,18 +4,45 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sitemap\Contracts\Sitemapable;
+use Spatie\Sitemap\Tags\Url;
 
-class Category extends Model
+class Category extends Model implements Sitemapable
 {
     use HasFactory;
 
-    protected $fillable=[
+    protected $fillable = [
         'name',
         'slug',
         'parent_id',
         'description',
         'image'
     ];
+
+    protected $casts = [
+        'parent_id' => 'integer'
+    ];
+
+    protected $appends = [
+        'url'
+    ];
+
+    public function getUrlAttribute()
+    {
+        if ($this->parent) {
+            return $this->slug . '/' . $this->parent->url;
+        } else {
+            return $this->slug;
+        }
+    }
+
+    public function toSitemapTag(): Url|string|array
+    {
+        return Url::create(url('categories/' . $this->url))
+            ->setLastModificationDate($this->updated_at)
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+            ->setPriority(0.8);
+    }
 
     /**
      * Get the parent category that owns the category.
@@ -24,7 +51,7 @@ class Category extends Model
      */
     public function parent()
     {
-        return $this->belongsTo(Category::class,'parent_id');
+        return $this->belongsTo(Category::class, 'parent_id');
     }
 
     /**
@@ -34,7 +61,7 @@ class Category extends Model
      */
     public function children()
     {
-        return $this->hasMany(Category::class,'parent_id');
+        return $this->hasMany(Category::class, 'parent_id');
     }
 
     /**
@@ -54,7 +81,6 @@ class Category extends Model
      */
     public function image()
     {
-        return $this->morphOne(Image::class,'imageable')->select('id','url');
+        return $this->morphOne(Image::class, 'imageable')->select('id', 'url');
     }
-
 }
