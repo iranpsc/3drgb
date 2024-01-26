@@ -33,13 +33,13 @@ class Product extends Model implements Sitemapable
         'published' => 'boolean',
         'customer_can_add_review' => 'boolean',
     ];
-    
+
     protected $appends = [
         'url',
         'discount',
         'final_price',
     ];
-    
+
     public function getUrlAttribute()
     {
         return route('products.show', $this);
@@ -47,10 +47,18 @@ class Product extends Model implements Sitemapable
 
     public function toSitemapTag(): Url|string|array
     {
-        return Url::create($this->url)
+        $this->load('images');
+
+        $url = Url::create($this->url)
             ->setLastModificationDate($this->updated_at)
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
             ->setPriority(0.8);
+
+        foreach ($this->images as $image) {
+            $url->addImage($image->url);
+        }
+
+        return $url;
     }
 
     /**

@@ -32,11 +32,8 @@ class SitemapGenerator implements ShouldQueue
     {
         $sitemap->create();
 
-        Product::with('images')->chunk(200, function ($products) use ($sitemap) {
-            foreach ($products as $product) {
-                $sitemap->add($product->url);
-                $sitemap->add($product->images);
-            }
+        Product::chunk(200, function ($products) use ($sitemap) {
+            $sitemap->add($products);
         });
 
         $sitemap->add(Tag::all());
