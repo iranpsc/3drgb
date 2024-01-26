@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->job(new SitemapGenerator)->daily();
+        $schedule->job(new SitemapGenerator)->everyThreeHours();
     }
 
     /**

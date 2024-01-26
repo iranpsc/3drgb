@@ -38,10 +38,16 @@ class Category extends Model implements Sitemapable
 
     public function toSitemapTag(): Url|string|array
     {
-        return Url::create(url('categories/' . $this->url))
+        $url = Url::create(url('categories/' . $this->url))
             ->setLastModificationDate($this->updated_at)
-            ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
             ->setPriority(0.8);
+
+        if ($this->image) {
+            $url->addImage($this->image->url);
+        }
+
+        return $url;
     }
 
     /**
@@ -81,6 +87,6 @@ class Category extends Model implements Sitemapable
      */
     public function image()
     {
-        return $this->morphOne(Image::class, 'imageable')->select('id', 'url');
+        return $this->morphOne(Image::class, 'imageable');
     }
 }
