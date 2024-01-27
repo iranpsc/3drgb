@@ -47,8 +47,6 @@ class Product extends Model implements Sitemapable
 
     public function toSitemapTag(): Url|string|array
     {
-        $this->load('images');
-
         $url = Url::create($this->url)
             ->setLastModificationDate($this->updated_at)
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
