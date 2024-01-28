@@ -57,7 +57,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', Home::class)->name('home');
 Route::get('/about-us', AboutUs::class)->name('about-us');
 Route::get('/products', Store::class)->name('products');
-Route::get('/products/{product:slug}', ProductDetails::class)->name('products.show');
+Route::get('/products/3drgb-product-{product}', ProductDetails::class)->name('products.show');
 Route::get('/cart', Cart::class)->name('cart');
 Route::get('/checkout', Checkout::class)->name('checkout');
 
