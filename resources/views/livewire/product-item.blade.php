@@ -8,11 +8,11 @@
                         <i class="lar la-heart icon"></i>
                     </button>
                     </span>
-                    <a href="{{ route('products.show', $product->slug) }}"><img class="card-img-top img-fluid" src="{{ asset('storage/' . $product->images->first()->path) }}" alt="digital-chair"></a>
+                    <a href="{{ $product->url }}"><img class="card-img-top img-fluid" src="{{ $product->images->first()->url }}" alt="digital-chair"></a>
                 </div>
                 <div class="card-body px-20 pb-25 pt-25">
                     <div class="product-item__body text-capitalize">
-                        <a href="{{ route('products.show', $product->slug) }}">
+                        <a href="{{ $product->url }}">
                             <h6 class="card-title">{{ $product->name }}</h6>
                         </a>
                         <div class="stars-rating d-flex align-items-center flex-wrap mb-10">
