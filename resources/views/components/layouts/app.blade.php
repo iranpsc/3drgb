@@ -166,9 +166,6 @@
                                              <a href="{{ route('user.profile') }}">
                                                 <i class="uil uil-user"></i> پروفایل</a>
                                        </li>
-                                       <li>
-                                             <a href="{{ route('user.change-password') }}"><i class="uil uil-setting"></i>تغییر رمز عبور</a>
-                                       </li>
                                     </ul>
                                     <a class="nav-author__signout" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -318,9 +315,6 @@
                            </li>
                            <li class="">
                               <a href="{{ route('user.profile') }}">پروفایل</a>
-                           </li>
-                           <li class="">
-                              <a href="{{ route('user.change-password') }}">تغییر رمز عبور</a>
                            </li>
                         </ul>
                      </li>
