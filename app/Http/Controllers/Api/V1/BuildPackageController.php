@@ -36,7 +36,10 @@ class BuildPackageController extends Controller
                     'name' => $product->name,
                     'sku' => $product->sku,
                     'image' => $product->images->first()->url,
-                    'attributes' => $product->attributes->map(function ($attribute) {
+                    'attributes' => $product->attributes->filter(function ($attribute) {
+                        $allowedAttributes = ['width', 'height', 'length', 'area', 'density', 'karbari'];
+                        return in_array($attribute->slug, $allowedAttributes);
+                    })->map(function ($attribute) {
                         return [
                             'width' => $attribute->slug === 'width' ? $attribute->pivot->value : '',
                             'height' => $attribute->slug === 'height' ? $attribute->pivot->value : '',
