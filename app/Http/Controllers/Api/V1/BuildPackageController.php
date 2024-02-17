@@ -26,6 +26,7 @@ class BuildPackageController extends Controller
                     ->where('value', $request->karbari);
             })
             ->select('id', 'name', 'sku')
+            ->with('attributes')
             ->get();
 
         return response()->json([
@@ -35,6 +36,16 @@ class BuildPackageController extends Controller
                     'name' => $product->name,
                     'sku' => $product->sku,
                     'image' => $product->images->first()->url,
+                    'attributes' => $product->attributes->map(function ($attribute) {
+                        return [
+                            'width' => $attribute->slug === 'width' ? $attribute->pivot->value : '',
+                            'height' => $attribute->slug === 'height' ? $attribute->pivot->value : '',
+                            'length' => $attribute->slug === 'length' ? $attribute->pivot->value : '',
+                            'area' => $attribute->slug === 'area' ? $attribute->pivot->value : '',
+                            'density' => $attribute->slug === 'density' ? $attribute->pivot->value : '',
+                            'karbari' => $attribute->slug === 'karbari' ? $attribute->pivot->value : '',
+                        ];
+                    }),
                 ];
             }),
         ]);
