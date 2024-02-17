@@ -36,19 +36,14 @@ class BuildPackageController extends Controller
                     'name' => $product->name,
                     'sku' => $product->sku,
                     'image' => $product->images->first()->url,
-                    'attributes' => $product->attributes->filter(function ($attribute) {
-                        $allowedAttributes = ['width', 'height', 'length', 'area', 'density', 'karbari'];
-                        return in_array($attribute->slug, $allowedAttributes);
-                    })->map(function ($attribute) {
-                        return [
-                            'width' => $attribute->slug === 'width' ? $attribute->pivot->value : '',
-                            'height' => $attribute->slug === 'height' ? $attribute->pivot->value : '',
-                            'length' => $attribute->slug === 'length' ? $attribute->pivot->value : '',
-                            'area' => $attribute->slug === 'area' ? $attribute->pivot->value : '',
-                            'density' => $attribute->slug === 'density' ? $attribute->pivot->value : '',
-                            'karbari' => $attribute->slug === 'karbari' ? $attribute->pivot->value : '',
-                        ];
-                    }),
+                    'attributes' => [
+                        'length' => $product->attributes->where('slug', 'length')->first()->pivot->value,
+                        'width' => $product->attributes->where('slug', 'width')->first()->pivot->value,
+                        'height' => $product->attributes->where('slug', 'height')->first()->pivot->value,
+                        'area' => $product->attributes->where('slug', 'area')->first()->pivot->value,
+                        'density' => $product->attributes->where('slug', 'density')->first()->pivot->value,
+                        'karbari' => $product->attributes->where('slug', 'karbari')->first()->pivot->value,
+                    ]
                 ];
             }),
         ]);
