@@ -10,9 +10,7 @@ class BuildPackageController extends Controller
 {
     public function getBuildPackage(Request $request)
     {
-        $products = Product::with(['images' => function ($query) {
-            $query->limit(1);
-        }])
+        $products = Product::with('attributes', 'file', 'images')
             ->whereHas('attributes', function ($query) use ($request) {
                 $query->where('slug', 'area')
                     ->whereRaw('CAST(value AS FLOAT) <= ?', [$request->area]);
@@ -26,16 +24,16 @@ class BuildPackageController extends Controller
                     ->where('value', $request->karbari);
             })
             ->select('id', 'name', 'sku')
-            ->with('attributes')
             ->get();
+
 
         return response()->json([
             $products->map(function ($product) {
                 return [
-                    'id' => $product->id,
-                    'name' => $product->name,
-                    'sku' => $product->sku,
-                    'image' => $product->images->first()->url,
+                    'images' => $product->images->map(function ($image) {
+                        return $image->url;
+                    }),
+                    'file' => $product->file->path,
                     'attributes' => [
                         'length' => $product->attributes->where('slug', 'length')->first()->pivot->value,
                         'width' => $product->attributes->where('slug', 'width')->first()->pivot->value,
