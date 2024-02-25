@@ -29,7 +29,7 @@ class BuildPackageController extends Controller
                     ->where('value', 'METARGB');
             })
             ->select('id', 'name', 'sku')
-            ->paginate(9);
+            ->simplePaginate(10);
 
         return BuildPackageResource::collection($models);
     }
