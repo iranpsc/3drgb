@@ -27,13 +27,22 @@ class BuildPackageController extends Controller
             ->get();
 
 
-        return response()->json([
+        return response()->json(
             $products->map(function ($product) {
                 return [
-                    'images' => $product->images->map(function ($image) {
-                        return $image->url;
+                    'id' => $product->id,
+                    'name' => $product->name,
+                    'sku' => $product->sku,
+                    'images' => $product->images->map(function($image) {
+                        return [
+                            'id' => $image->id,
+                            'url' => $image->url
+                        ];
                     }),
-                    'file' => $product->file->path,
+                    'file' => [
+                        'id' => $product->file->id,
+                        'url' => $product->file->url,
+                    ],
                     'attributes' => [
                         'length' => $product->attributes->where('slug', 'length')->first()->pivot->value,
                         'width' => $product->attributes->where('slug', 'width')->first()->pivot->value,
@@ -44,6 +53,6 @@ class BuildPackageController extends Controller
                     ]
                 ];
             }),
-        ]);
+        );
     }
 }

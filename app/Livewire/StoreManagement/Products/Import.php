@@ -7,6 +7,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use  Maatwebsite\Excel\Facades\Excel;
 use App\Imports\ProductImport;
+use App\Models\Product;
 
 class Import extends Component
 {
