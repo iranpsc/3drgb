@@ -43,14 +43,14 @@ class BuildPackageController extends Controller
                         'id' => $product->file->id,
                         'url' => $product->file->url,
                     ],
-                    'attributes' => [
-                        'length' => $product->attributes->where('slug', 'length')->first()->pivot->value,
-                        'width' => $product->attributes->where('slug', 'width')->first()->pivot->value,
-                        'height' => $product->attributes->where('slug', 'height')->first()->pivot->value,
-                        'area' => $product->attributes->where('slug', 'area')->first()->pivot->value,
-                        'density' => $product->attributes->where('slug', 'density')->first()->pivot->value,
-                        'karbari' => $product->attributes->where('slug', 'karbari')->first()->pivot->value,
-                    ]
+                    'attributes' => $product->attributes->map(function($attribute) {
+                        return [
+                            'id' => $attribute->id,
+                            'slug' => $attribute->slug,
+                            'name' => $attribute->name,
+                            'value' => $attribute->pivot->value
+                        ];
+                    })
                 ];
             }),
         );
