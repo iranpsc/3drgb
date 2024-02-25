@@ -21,4 +21,5 @@ Route::prefix('v1')->group(function() {
     });
 
     Route::get('/build-package', [BuildPackageController::class, 'getBuildPackage']);
+    Route::get('/build-package/{product}', [BuildPackageController::class, 'getSingleModel']);
 });
