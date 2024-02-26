@@ -18,7 +18,7 @@ class BuildPackageResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'sku' => $this->sku,
-            'image' => $this->images->map(function ($image) {
+            'images' => $this->images->map(function ($image) {
                 return [
                     'id' => $image->id,
                     'url' => $image->url,
