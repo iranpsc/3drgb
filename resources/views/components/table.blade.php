@@ -1,8 +1,21 @@
-<div class="table4 p-25 mb-30">
-    <div class="table-responsive">
-       <table class="table mb-0 table-bordered">
+<style>
+   table{
+      width: 100%; 
+   }
+   table, th, td {
+  border:1px solid gray;
+  padding: 10px;
+}
+/* tr:nth-child(even) {
+  background-color: #EFEFEF;
+} */
+</style>
+<div class="w-full rounded-[10px] ">
+   
+    <div class="w-full" style="overflow: auto;">
+       <table >
           <thead>
-             <tr class="userDatatable-header">
+             <tr >
                 {{ $header }}
              </tr>
           </thead>

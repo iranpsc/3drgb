@@ -1,3 +1,4 @@
+<main class="main-content-smallNav">
 <div>
     <x-page
      title="برچسب ها"
@@ -59,12 +60,19 @@
         @endif
     </x-page>
 
-    <x-modal id="create-tag" title="ایجاد برچسب جدید">
+    <div class="mx-auto w-[80%] flex flex-col gap-5">
+    <x-modal id="create-tag" title="ایجاد برچسب جدید" >
+        <div class="mx-auto flex flex-col gap-5 md:flex-row w-full">
         <x-form.text type="text" name="name" wire:model="name" label="نام" />
         <x-form.text type="text" name="slug" wire:model="slug" label="نامک" />
+        </div>
         <x-slot:footer>
+            <div  class="mx-auto flex flex-col gap-5 mt-5 md:flex-row">
             <x-button color="primary" wire:click="save">ایجاد</x-button>
             <x-button color="danger" data-bs-dismiss="modal">بستن</x-button>
+            </div>
         </x-slot:footer>
     </x-modal>
+    </div>
 </div>
+</main>

@@ -1,31 +1,35 @@
 <div>
-    <div class="container-fluid">
-        <div class=" checkout wizard1 global-shadow border-0 px-sm-50 px-20 pt-sm-50 py-30 mb-30 bg-white radius-xl w-100">
+    <div  class="">
+        <div>
             <div class="row justify-content-center">
                 <div class="col-xl-10 col-12">
-                    <div class="checkout-progress-indicator content-center">
-                        <div class="checkout-progress">
-                            <div class="step completed" id="1">
-                                <span class="las la-check"></span>
-                                <span>سبد خرید</span>
-                            </div>
-                            <div class="current"><img src="{{ asset('img/svg/green.svg') }}" alt="img" class="svg"></div>
-                            <div class="step completed" id="2">
-                                <span class="las la-check"></span>
-                                <span>ایجاد حساب</span>
-                            </div>
-                            <div class="current"><img src="{{ asset('img/svg/checkout.svg') }}" alt="img" class="svg"></div>
-                            <div class="step current" id="3">
-                                <span>3</span>
-                                <span>پرداخت</span>
-                            </div>
-                            <div class="current"><img src="{{ asset('img/svg/checkout.svg') }}" alt="img" class="svg"></div>
-                            <div class="step" id="4">
-                                <span>4</span>
-                                <span>جزئیات پرداخت</span>
-                            </div>
-                        </div>
-                    </div><!-- checkout -->
+                        <div class="flex justify-center">
+                              <div class=" flex items-center gap-3 text-sm">
+                                 <div class="step current flex flex-col gap-2  items-center mt-5" id="1">
+                                    <span class="bg-[#06CC85] rounded-full text-white flex items-center justify-center w-12 aspect-square p-2">
+                                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 457.57"><path fill="white" storke="white" d="M0,220.57c100.43-1.33,121-5.2,191.79,81.5,54.29-90,114.62-167.9,179.92-235.86C436-.72,436.5-.89,512,.24,383.54,143,278.71,295.74,194.87,457.57,150,361.45,87.33,280.53,0,220.57Z"/></svg>
+                                    </span>
+                                    <span>سبد خرید</span>
+                                 </div>
+                                 <div class="current"><img src="{{ asset('img/svg/green.svg') }}" alt="img" class="svg"></div>
+                                 <div class="step flex flex-col gap-2  items-center mt-5" id="2">
+                                     <span class="bg-[#06CC85] rounded-full text-white flex items-center justify-center w-12 aspect-square p-2">
+                                       <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 457.57"><path fill="white" storke="white" d="M0,220.57c100.43-1.33,121-5.2,191.79,81.5,54.29-90,114.62-167.9,179.92-235.86C436-.72,436.5-.89,512,.24,383.54,143,278.71,295.74,194.87,457.57,150,361.45,87.33,280.53,0,220.57Z"/></svg>
+                                    </span>
+                                    <span>ایجاد حساب</span>
+                                 </div>
+                                 <div class="current"><img src="img/svg/checkout.svg" alt="img" class="svg"></div>
+                                 <div class="step flex flex-col gap-2  items-center mt-5" id="3">
+                                    <span  class="flex justify-center items-center bg-[#EFEFEF] dark:bg-[#4A4E7C] aspect-square rounded-full w-12"> 3</span>
+                                    <span>پرداخت</span>
+                                 </div>
+                                 <div class="current"><img src="img/svg/checkout.svg" alt="img" class="svg"></div>
+                                 <div class="step flex flex-col gap-2  items-center mt-5" id="4">
+                                    <span  class="flex justify-center items-center bg-[#EFEFEF] dark:bg-[#4A4E7C] aspect-square rounded-full w-12">4</span>
+                                    <span>جزئیات پرداخت</span>
+                                 </div>
+                           </div>
+                        </div><!-- checkout -->
                     <div class="row justify-content-center">
                         <div class="col-xl-9 col-lg-10 col-12">
                             <div class="card checkout-shipping-form shadow-none border-0 shadow-none">
@@ -40,40 +44,34 @@
                                           <x-alert type="success" :message="session('success')" />
                                        @endsession
 
-                                        <div class="payment-invoice-table">
-                                            <div class="table-responsive">
-                                               <table id="cart" class="table table-borderless">
-                                                  <thead>
-                                                     <tr class="product-cart__header">
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">محصول</th>
-                                                        <th scope="col" class="text-end">قیمت هر واحد</th>
-                                                        <th scope="col" class="text-end">تعداد</th>
-                                                        <th scope="col" class="text-end">مجموع سفارش</th>
+                                        <div class="w-full mt-10">
+                                            <div class="w-full overflow-x-auto">
+                                               <table id="cart" class="w-max lg:w-full flex flex-col gap-10 text-sm ">
+                                                  <thead class="w-full bg-[#EFEFEF] dark:bg-[#4A4E7C] rounded-[10px] py-3 px-5 ">
+                                                     <tr class="flex  lg:gap-0 w-full justify-between text-right">
+                                                        <th style="width:20%" >#</th>
+                                                        <th style="width:20%">محصول</th>
+                                                        <th style="width:20%">قیمت هر واحد</th>
+                                                        <th  style="width:20%">تعداد</th>
+                                                        <th  style="width:20%">مجموع سفارش</th>
                                                      </tr>
                                                   </thead>
-                                                  <tbody>
+                                                  <tbody class=" px-5 flex flex-col gap-5">
                                                       @foreach ($products as $product)
-                                                         <tr>
-                                                            <th>{{ $loop->iteration }}</th>
-                                                            <td class="Product-cart-title">
-                                                               <div class="media  align-items-center">
-                                                                  <div class="media-body">
-                                                                     <h5 class="mt-0">{{ $product->name }}</h5>
-                                                                  </div>
-                                                               </div>
-                                                            </td>
-                                                            <td class="unit text-end">{{ $product->final_price }}  تومان</td>
-                                                            <td class="invoice-quantity text-end">1</td>
-                                                            <td class="text-end order">{{ $product->final_price }}  تومان</td>
+                                                         <tr class=" w-full justify-between flex items-center gap-10 lg:gap-0 text-right">
+                                                            <th style="width:20%">{{ $loop->iteration }}</th>
+                                                            <td style="width:20%">{{ $product->name }} </td>
+                                                            <td style="width:20%">{{ $product->final_price }}  تومان</td>
+                                                            <td style="width:20%">1</td>
+                                                            <td style="width:20%">{{ $product->final_price }}  تومان</td>
                                                          </tr>
                                                       @endforeach
                                                   </tbody>
                                                   <tfoot>
-                                                     <tr>
+                                                     <tr class="flex gap-10 justify-end items-center my-5 text-xl">
                                                         <td colspan="3"></td>
                                                         <td class="order-summery float-right border-0">
-                                                           <div class="total-money mt-2 text-end">
+                                                           <div >
                                                               <h6>مجموع :</h6>
                                                            </div>
                                                         </td>
@@ -87,12 +85,12 @@
                                                   </tfoot>
                                                </table>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-6">
-                                                   <x-button color="light" wire:click="goBack">بازگشت</x-button>
+                                            <div class="flex gap-5 my-5 justify-center items-center w-full">
+                                                <div class="">
+                                                   <x-button  wire:click="goBack">بازگشت</x-button>
                                                 </div>
-                                                <div class="col-6 d-flex justify-content-end">
-                                                   <x-button wire:click="pay">پرداخت</x-button>
+                                                <div class="">
+                                                   <x-button style="background-color:#C2008C" wire:click="pay" >پرداخت</x-button>
                                                 </div>
                                              </div>
                                          </div><!-- End: .payment-invoice-table -->

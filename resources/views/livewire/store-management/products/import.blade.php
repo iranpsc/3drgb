@@ -8,14 +8,14 @@
         <div class="row justify-content-center">
             <div class="col-sm-8 col-md-6 col-lg-4">
                 <form wire:submit="import">
-                    <div class="form-group row">
-                        <label for="file" class="form-col-label col-sm-4">فایل اکسل</label>
-                        <div class="col-sm-8">
-                            <input type="file" class="form-control" id="file" wire:model="file">
-                            @error('file') <span class="text-danger">{{ $message }}</span> @enderror
+                    <div class="flex flex-col gap-3">
+                        <label for="file" class="">فایل اکسل</label>
+                        <div >
+                            <input type="file" class="w-full bg-[#F8F9FA] dark:bg-[#4A4E7C] rounded-[10px] p-3 border-dashed border-gray-500 dark:border-gray-400 border-2" id="file" wire:model="file">
+                            @error('file') <span    >{{ $message }}</span> @enderror
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="mt-5">
                         <x-button type="submit" size="block">درون ریزی</x-button>
                     </div>
                 </form>

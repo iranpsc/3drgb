@@ -1,457 +1,174 @@
 <div>
-    <header class="z-[100] fixed top-0 w-full">
-        <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm font-mono hidden md:block px-5">
-          <div class="flex items-center justify-between max-w-[85rem] mx-auto">
+    <main class="w-full main-content-smallNav">
+      <section>
+        <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm font-mono hidden lg:block px-5">
+          <div class="flex items-center justify-between max-w-[1500px] mx-auto">
             <div>
               <a href="#" class="px-4">قوانین و مجوزات</a>
               <a href="#" class="px-4 border-x"> سوالات متداول </a>
               <a href="#" class="px-4"> سیاست حفظ حریم خصوصی </a>
             </div>
             <div class="flex gap-4">
-              <div><a href="#"><img src="{{ asset('home-page/images/Union (1).png') }}" alt=""></a></div>
-              <div><a href="#"><img src="{{ asset('home-page/images/Union (2).png') }}" alt=""></a></div>
-              <div><a href="#"><img src="{{ asset('home-page/images/Union (3).png') }}" alt=""></a></div>
-              <div><a href="#"><img src="{{ asset('home-page/images/Union (4).png') }}" alt=""></a></div>
+              <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (1).png" alt=""></a></div>
+              <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (2).png" alt=""></a></div>
+              <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (3).png" alt=""></a></div>
+              <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (4).png" alt=""></a></div>
             </div>
           </div>
         </div>
-        <div dir="rtl" class=" flex flex-wrap lg:justify-start lg:flex-nowrap  w-full bg-white text-sm py-4   ">
-    
-          <nav
-            class="max-w-[85rem] mx-auto w-full text-base px-4 gap-10 lg:flex sm:items-center sm:justify-between lg:items-center "
-            aria-label="Global">
-            <div class="flex flex-row-reverse items-center justify-between ">
-              <div class="flex gap-4 items-center lg:hidden">
-                <div><a href="{{ route('cart') }}"><img src="{{ asset('home-page/images/bag-2.png') }}" alt=""></a></div>
-                <div>
-                  <img src="{{ asset('home-page/images/profile.png') }}" alt="">
-                </div>
-              </div>
-              <a class=" text-xl font-semibold lg:w-44" href="#"><img src="{{ asset('home-page/images/Group 1000002630.png') }}" class="w-full"
-                  alt=""></a>
-              <div class="lg:hidden">
-                <button type="button"
-                  class="hs-collapse-toggle  p-2 m-0 inline-flex justify-center items-center gap-2 rounded-md  font-medium  text-blue-700  align-middle  transition-all text-xl "
-                  data-hs-collapse="#navbar-collapse-basic" aria-controls="navbar-collapse-basic"
-                  aria-label="Toggle navigation">
-                  <svg class="hs-collapse-open:hidden w-7 h-7" width="20" height="20" fill="currentColor"
-                    viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                      d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-                  </svg>
-                  <svg class="hs-collapse-open:block hidden w-7 h-7" width="20" height="20" fill="currentColor"
-                    viewBox="0 0 16 16">
-                    <path
-                      d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-    
-            <div id="navbar-collapse-basic" class="hidden w-full grow lg:flex  mx-auto justify-between">
-              <div
-                class="flex flex-col sm:gap-y-5 lg:gap-5 xl:gap-10 mt-5 lg:flex-row sm:items-center sm:justify-end md:justify-center sm:mt-0 sm:pl-5 mx-auto ">
-                <a class="font-medium hover:text-blue-700 text-gray-600 duration-300  border-b-2 py-3 md:border-0 md:py-0" href=" {{ route('home') }}"
-                  aria-current="page">سه بعدی متا</a>
-                <!--  megamenu -->
-                <div
-                class="hs-dropdown [--strategy:static] sm:[--strategy:absolute] [--adaptive:none]  hidden md:block  border-b-2 py-3 md:border-0 md:py-0">
-                  <button type="button" class="flex items-center w-full text-gray-600 hover:text-blue-700 font-medium ">
-                    دسته بندی ها
-                    <svg class=" mr-2 w-2.5 h-2.5 text-gray-600" width="16" height="16" viewBox="0 0 16 16"
-                      fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-                    </svg>
-    
-                  </button>
-     
-                  <div class="bg-[#F9F9F9] p-0 md:w-[200px] shadow-none md:rounded-[10px] md:border-0 hs-dropdown-menu transition-[opacity,margin] sm:border duration-[0.1ms] sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 top-full   rounded-lg    before:absolute md:top-32 before:-top-5 before:w-full before:h-5">
-                    <div class="flex flex-col w-full">
-                      <div class="w-full hs-dropdown [--strategy:static] sm:[--strategy:absolute] [--adaptive:none]   flex flex-col  justify-center md:justify-around md:rounded-[10px] items-center  gap-x-40 max-h-[300px] overflow-y-scroll md:max-h-max md:overflow-auto">
-                        <div class="hs-dropdown w-full [--strategy:static] sm:[--strategy:absolute] [--adaptive:none]  ">
-                          @foreach ($categories as $category)
-                            @if(is_null($category->parent))
-                              <button id="hs-mega-menu-basic-dr" type="button"
-                                class="bg-[#F9F9F9] p-2 focus:bg-white flex items-center w-full text-gray-600  hover:text-blue-700 font-medium   gap-5">
-                                <div>
-                                  <img src="{{ asset('home-page/images/Frame 234.png') }}" alt="">
-                                </div>
-                                {{ $category->name }}
-                                <svg class="ml-2 w-2.5 h-2.5 text-gray-600 rotate-90" width="16" height="16" viewBox="0 0 16 16"
-                                  fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-                                </svg>
-                              </button>
-                            @endif
-                            <div class="absolute space-y-[22.5px] top-0 hs-dropdown-menu md:border-0 transition-[opacity,margin] duration-[0.1ms] sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 sm:w-48 md:w-max hidden px-5 z-10 bg-white border-0 shadow-none rounded-l-[10px] p-2 x before:absolute  sm:border before:top-0 before:left-[-60px] left-0 md:left-[-65px]  before:h-5">
-                              @foreach ($category->children as $child)
-                                <a class="flex items-center gap-x-3.5 py-3  rounded-md text-sm text-gray-500 font-semibold hover:text-blue-700 duration-300 transition-all   "
-                                  href="./abutus.html">
-                                  {{ $child->name }}
-                                </a>
-                              @endforeach
-                            </div>
-                          @endforeach
-    
-                        </div>
-                      </div>
-                    </div>
-                </div>
-              </div>
-              <!--  megamenu end-->
-              <!-- mobile megamenu -->
-             
-              <div class="hs-accordion-group w-full   overflow-hidden sm:hidden  border-b-2  md:border-0 md:py-0">
-                <div class="hs-accordion active" id="hs-basic-nested-heading-two">
-                  <button
-                    class="text-[#000BEE] active flex justify-between p-2 hs-accordion-toggle hs-accordion-active:text-white hs-accordion-active:bg-[#000BEE] py-3 px-5  items-center gap-x-3 w-full font-bold  "
-                    aria-controls="hs-basic-nested-collapse-two">
-                    بانک مدل سه بعدی
-                    <svg class="rotate-180 hs-accordion-active:hidden hs-accordion-active:text-white  block w-4 h-4 text-[#000BEE]" width="8" height="7" viewBox="0 0 8 7" fill="#000BEE" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M5.73205 6C4.96225 7.33333 3.03775 7.33333 2.26795 6L0.535898 3C-0.233902 1.66667 0.728349 1.43121e-07 2.26795 2.77717e-07L5.73205 5.80558e-07C7.27165 7.15154e-07 8.2339 1.66667 7.4641 3L5.73205 6Z"
-                        fill="#000BEE" />
-                    </svg>
-                    <svg class="hs-accordion-active:block hs-accordion-active:text-white hs-accordion-active:group-hover:text-blue-600 hidden w-4 h-4  text-[#000BEE]" width="8" height="7" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M5.73205 6C4.96225 7.33333 3.03775 7.33333 2.26795 6L0.535898 3C-0.233902 1.66667 0.728349 1.43121e-07 2.26795 2.77717e-07L5.73205 5.80558e-07C7.27165 7.15154e-07 8.2339 1.66667 7.4641 3L5.73205 6Z"
-                        fill="white" />
-                    </svg>
-     
-                  </button>
-                  <div id="hs-basic-nested-collapse-one"
-                    class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 px-3 bg-[#F7F7FE]"
-                    aria-labelledby="hs-basic-nested-heading-one">
-                    <div class="hs-accordion-group space-y-5 py-5">
-                      
-                      <div class="hs-accordion " id="hs-basic-nested-sub-heading-one">
-                       <button class=" hs-accordion-toggle  hs-accordion-active:text-[#000BEE] py-1 flex items-center gap-x-7 w-full font-semibold  text-[#848383] transition " aria-controls="hs-basic-nested-sub-collapse-two">
-                         <div>
-                           <img src="../images/Group 1000002634.png" alt="">
-                         </div>
-                         مدل سه بعدی
-                         
-                         <svg class="hs-accordion-active:hidden hs-accordion-active:text-[#000BEE] hs-accordion-active:group-hover:text-[#000BEE] block w-4 h-4" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                           <path d="M2.62421 7.86L13.6242 7.85999" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                           <path d="M8.12421 13.36V2.35999" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                         </svg>
-                         <svg class="hs-accordion-active:block hs-accordion-active:text-blue-600 hs-accordion-active:group-hover:text-blue-600 hidden w-4 h-4 text-gray-600 group-hover:text-gray-500 " width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                           <path d="M2.62421 7.86L13.6242 7.85999" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                         </svg>
-                       </button>
-                       <div id="hs-basic-nested-sub-collapse-one" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-basic-nested-sub-heading-two">
-                        
-                       <ul class="list-disc pr-20">
-                           <a href="#" class="text-blue-700">
-                             <li>آواتار</li>
-                           </a>
-                           <a href="#" class="text-blue-700">
-                             <li>پکیج آواتار</li>
-                           </a>
-                           <a href="#" class="text-blue-700">
-                             <li>سه بعدی</li>
-                           </a>
-                           <a href="#" class="text-blue-700">
-                             <li>پکیج سه بعدی</li>
-                           </a>
-                         </ul>
-                       </div>
-                     </div>
-                     <div class="hs-accordion " id="hs-basic-nested-sub-heading-one">
-                       <button class=" hs-accordion-toggle  hs-accordion-active:text-[#000BEE] py-1 flex items-center gap-x-7 w-full font-semibold  text-[#848383] transition " aria-controls="hs-basic-nested-sub-collapse-two">
-                         <div>
-                           <img src="../images/Group 1000002634.png" alt="">
-                         </div>
-                         مدل سه بعدی
-                         
-                         <svg class="hs-accordion-active:hidden hs-accordion-active:text-[#000BEE] hs-accordion-active:group-hover:text-[#000BEE] block w-4 h-4" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                           <path d="M2.62421 7.86L13.6242 7.85999" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                           <path d="M8.12421 13.36V2.35999" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                         </svg>
-                         <svg class="hs-accordion-active:block hs-accordion-active:text-blue-600 hs-accordion-active:group-hover:text-blue-600 hidden w-4 h-4 text-gray-600 group-hover:text-gray-500 " width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                           <path d="M2.62421 7.86L13.6242 7.85999" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                         </svg>
-                       </button>
-                       <div id="hs-basic-nested-sub-collapse-one" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-basic-nested-sub-heading-two">
-                        
-                         <ul class="list-disc pr-20">
-                           <a href="#" class="text-blue-700">
-                             <li>آواتار</li>
-                           </a>
-                           <a href="#" class="text-blue-700">
-                             <li>پکیج آواتار</li>
-                           </a>
-                           <a href="#" class="text-blue-700">
-                             <li>سه بعدی</li>
-                           </a>
-                           <a href="#" class="text-blue-700">
-                             <li>پکیج سه بعدی</li>
-                           </a>
-                         </ul>
-                       </div>
-                     </div>
-                     <div class="hs-accordion " id="hs-basic-nested-sub-heading-one">
-                       <button class=" hs-accordion-toggle  hs-accordion-active:text-[#000BEE] py-1 flex items-center gap-x-7 w-full font-semibold  text-[#848383] transition " aria-controls="hs-basic-nested-sub-collapse-two">
-                         <div>
-                           <img src="../images/Group 1000002634.png" alt="">
-                         </div>
-                         مدل سه بعدی
-                         
-                         <svg class="hs-accordion-active:hidden hs-accordion-active:text-[#000BEE] hs-accordion-active:group-hover:text-[#000BEE] block w-4 h-4" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                           <path d="M2.62421 7.86L13.6242 7.85999" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                           <path d="M8.12421 13.36V2.35999" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                         </svg>
-                         <svg class="hs-accordion-active:block hs-accordion-active:text-blue-600 hs-accordion-active:group-hover:text-blue-600 hidden w-4 h-4 text-gray-600 group-hover:text-gray-500 " width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                           <path d="M2.62421 7.86L13.6242 7.85999" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                         </svg>
-                       </button>
-                       <div id="hs-basic-nested-sub-collapse-one" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-basic-nested-sub-heading-two">
-                        
-                         <ul class="list-disc pr-20">
-                           <a href="#" class="text-blue-700">
-                             <li>آواتار</li>
-                           </a>
-                           <a href="#" class="text-blue-700">
-                             <li>پکیج آواتار</li>
-                           </a>
-                           <a href="#" class="text-blue-700">
-                             <li>سه بعدی</li>
-                           </a>
-                           <a href="#" class="text-blue-700">
-                             <li>پکیج سه بعدی</li>
-                           </a>
-                         </ul>
-                       </div>
-                     </div>
-                     <div class="hs-accordion " id="hs-basic-nested-sub-heading-one">
-                       <button class=" hs-accordion-toggle  hs-accordion-active:text-[#000BEE] py-1 flex items-center gap-x-7 w-full font-semibold  text-[#848383] transition " aria-controls="hs-basic-nested-sub-collapse-two">
-                         <div>
-                           <img src="../images/Group 1000002634.png" alt="">
-                         </div>
-                         مدل سه بعدی
-                         
-                         <svg class="hs-accordion-active:hidden hs-accordion-active:text-[#000BEE] hs-accordion-active:group-hover:text-[#000BEE] block w-4 h-4" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                           <path d="M2.62421 7.86L13.6242 7.85999" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                           <path d="M8.12421 13.36V2.35999" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                         </svg>
-                         <svg class="hs-accordion-active:block hs-accordion-active:text-blue-600 hs-accordion-active:group-hover:text-blue-600 hidden w-4 h-4 text-gray-600 group-hover:text-gray-500 " width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                           <path d="M2.62421 7.86L13.6242 7.85999" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                         </svg>
-                       </button>
-                       <div id="hs-basic-nested-sub-collapse-one" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-basic-nested-sub-heading-two">
-                        
-                         <ul class="list-disc pr-20">
-                           <a href="#" class="text-blue-700">
-                             <li>آواتار</li>
-                           </a>
-                           <a href="#" class="text-blue-700">
-                             <li>پکیج آواتار</li>
-                           </a>
-                           <a href="#" class="text-blue-700">
-                             <li>سه بعدی</li>
-                           </a>
-                           <a href="#" class="text-blue-700">
-                             <li>پکیج سه بعدی</li>
-                           </a>
-                         </ul>
-                       </div>
-                     </div>
-                     
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- mobile megamenu end -->
-                <a class="font-medium hover:text-blue-700 text-gray-600 duration-300  border-b-2 py-3 md:border-0 md:py-0"
-                  href="abuotus.html" aria-current="page">
-                  ثبت سفارش</a>
-                <a class="font-medium hover:text-blue-700 text-gray-600 duration-300  border-b-2 py-3 md:border-0 md:py-0"
-                  href="abuotus.html" aria-current="page">
-                  درباره ما</a>
-                <a class="font-medium hover:text-blue-700 text-gray-600 duration-300  border-b-2 py-3 md:border-0 md:py-0"
-                  href="abuotus.html" aria-current="page">
-                  تماس با ما</a>
-                <a class="font-medium hover:text-blue-700 text-gray-600 duration-300  border-b-2 py-3 md:border-0 md:py-0"
-                  href="abuotus.html" aria-current="page">
-                  آموزش</a>
-              </div>
-    
-            </div>
-            <div id="navbar-collapse-basic"
-              class=" hidden  lg:flex flex-col lg:flex-row text-base font-bold  mt-3 lg:mt-0 md:flex gap-3 w-max">
-              <div class=" items-center gap-3 hidden lg:flex">
-                <div class="bg-[#D8E5FD] p-[10px] rounded-full w-max">
-                  <a href="{{ route('cart') }}">
-                    <img src="{{ asset('home-page/images/bag-2.png') }}" alt="">
-                  </a>
-                </div>
-              </div>
-              <div class="bg-[#D8E5FD] rounded-3xl  justify-between w-max hidden lg:flex">
-                @guest
-                    <div class="text-white bg-[#000BEE] rounded-3xl py-[10px] px-7 w-max flex items-center">
-                        <a href="{{ route('login') }}">ورود</a>
-                    </div>
-                    <div class="text-[#000BEE] py-[10px] px-6 flex items-center gap-3">
-                        <img src="{{ asset('home-page/images/profile.png') }}" alt="">
-                        <a href="{{ route('register') }}">ثبت نام</a>
-                    </div>
-                @endguest
-                @auth
-                    <div class="text-white bg-[#000BEE] rounded-3xl py-[10px] px-7 w-max flex items-center">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                        {{ __('خروج') }}
-                        </a>
-    
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </div>
-                @endauth
-              </div>
-            </div>
-          </nav>
-        </div>
-      </header>
-    
+      </section>
       <div>
-        <div class="bg-[#ECF4FE] w-full relative   " style="padding-top: 6rem;">
+        <div class="bg-[#ECF4FE] dark:bg-[#4A4E7C] w-full relative   pt-20 ">
           <div
-            class="max-w-[85rem] mx-auto flex flex-col md:flex-row items-ctener justify-between mt-24 gap-10 px-10 md:px-5 py-5">
-            <div class="w-full md:w-[45%]">
-              <p class="text-[#000BEE] font-extrabold text-4xl">
+            class="w-full mx-auto flex flex-col md:flex-row items-ctener justify-between  gap-10 px-10 md:px-10  py-5 lg:px-20">
+            <div class="w-full md:w-[45%] flex flex-col justify-center">
+              <p class="text-[#000BEE] dark:text-white py-3 font-extrabold text-4xl" style="font-family:rokh ;">
                 مدل سه بعدی و تجربه ای متفاوت
               </p>
-              <p class="text-stone-800 font-bold text-xl lg:text-2xl">
-                ما اینجا هستیم تا روزانه محصولات سه بعدی را در اختیار شما طراحان قرار دهیم . سامانه سه بعدی متا با تعرفه ای
+              <p class="text-stone-800 dark:text-[#ffffff] font-bold text-xl lg:text-2xl mt-5">
+                ما اینجا هستیم تا روزانه محصولات سه بعدی را در اختیار شما طراحان قرار دهیم . سامانه سه بعدی متا با
+                تعرفه ای
                 ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .
               </p>
-              <form class="flex gap-5 relative mt-20" wire:submit="search">
-                  <input type="text" wire:model="searchTerm" placeholder="جستجوی محصولات"
-                    class="relative w-full p-5 text-[#ACB9FA] font-bold bg-[#D8E5FD] rounded-[32px] focus:outline-none pr-12 md:px-20">
-                    <br>
+              <div class="flex gap-5 relative mt-20">
+                <input type="text"
+                  class="relative w-full p-5 text-[#ACB9FA] font-bold bg-[#D8E5FD] dark:bg-[#001448c9] rounded-[32px] focus:outline-none pr-12 md:px-20">
+               
                 
-                  <img src="{{ asset('home-page/images/search-normal.png') }}" alt="" class="absolute right-5 top-5">
-                  <button type="submit" class="bg-[#000BEE] font-bold md:text-xl py-5 px-5 md:px-14 w-max rounded-[32px] text-white text-center">جستجو</button>
-              </form>
-              @error('searchTerm')
-                <span class="text-red-500 text-sm" style="color: tomato">{{ $message }}</span>
-              @enderror
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute right-5 top-5">
+                        <path class="dark:stroke-white" d="M11.4582 21.7501C17.1421 21.7501 21.7498 17.1423 21.7498 11.4584C21.7498 5.77448 17.1421 1.16675 11.4582 1.16675C5.77424 1.16675 1.1665 5.77448 1.1665 11.4584C1.1665 17.1423 5.77424 21.7501 11.4582 21.7501Z" stroke="#000BEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path class="dark:stroke-white" d="M22.8332 22.8334L20.6665 20.6667" stroke="#000BEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                <button
+                  class="bg-[#000BEE] dark:bg-[#C2008C] text-white font-bold md:text-xl pb-5 pt-[18px] px-5 md:px-14 w-max rounded-[32px]  text-center">جستجو</button>
+              </div>
             </div>
             <div class="w-full flex items-center justify-end md:w-[55%]">
               <img src="{{ asset('home-page/images/Asset 2@300x 1.png') }}" alt="">
             </div>
           </div>
         </div>
-        <img src="{{ asset('home-page/images/IMG_1967.PNG') }}" alt="" class="  w-full  overflow-hidden mb-36" style="margin-top:-230px ;">
+        <img src="{{ asset('home-page/images/IMG_1967.png') }}" alt="" class=" dark:hidden w-full  overflow-hidden mb-36 2xl:mt-[-185px]">
+        <img src="{{ asset('home-page/images/output-onlinepngtools.png') }}" alt="" class=" hidden dark:block  w-full  overflow-hidden mb-36 2xl:mt-[-185px]">
+        
       </div>
-    
-      <section class="max-w-[85rem] mx-auto px-5">
-        <div class="">
-          <div class="w-full flex justify-center flex-col items-center gap-4">
-            <p class="text-stone-800 font-bold text-xl">
+
+      <section class="w-full mx-auto max-w-[1500px] lg:mt-[-85px]">
+        <div class="space-y-10">
+          <div class="w-full flex justify-center flex-col items-center gap-4 space-y-5 py-10">
+            <p class="text-stone-800 dark:text-[#ffffff] font-bold text-2xl">
               محصولات ما
             </p>
-            <p class="text-[#000BEE] font-extrabold text-5xl">
+            <p class="text-[#000BEE] dark:text-[#E8E9FF] font-extrabold text-5xl" style="font-family:rokh;">
               هزاران فایل بینظیر
             </p>
           </div>
           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-7 px-10 sm:px-2">
             <a href="#"
-              class="bg-white flex flex-col overflow-hidden rounded-[32px] justify-between items-center text-center py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
+              class="bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
               <div>
                 <img src="{{ asset('home-page/images/Design 1.png') }}" alt="">
               </div>
               <div class="flex flex-col justify-end ">
-                <p class="text-[#000BEE] text-3xl font-bold p-0 m-0">
+                <p class="text-gray-500 text-sm font-serif " style="font-family:rokh ;">
+                  3D models
+                </p>
+                <p class="text-[#000BEE]  dark:text-[#E8E9FF] text-3xl font-bold p-0 m-0" style="font-family:rokh ;">
                   مدل‌های سه بعدی
                 </p>
-    
               </div>
-    
             </a>
             <a href="#"
-              class="bg-white flex flex-col overflow-hidden rounded-[32px] justify-between items-center text-center py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
+              class="bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
               <div>
                 <img src="{{ asset('home-page/images/Group (3).png') }}" alt="">
               </div>
               <div class="flex flex-col justify-end ">
-                <p class="text-[#000BEE] text-3xl font-bold p-0 m-0">
+                <p class="text-gray-500 text-sm font-serif ">
+                  Icons
+                </p>
+                <p class="text-[#000BEE] dark:text-[#E8E9FF] text-3xl font-bold p-0 m-0">
                   ایکون ها
                 </p>
-    
+
               </div>
-    
+
             </a>
             <a href="#"
-              class="bg-white flex flex-col overflow-hidden rounded-[32px] justify-between items-center text-center py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
+              class="bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
               <div>
                 <img src="{{ asset('home-page/images/Group@2x.png') }}" alt="">
               </div>
               <div class="flex flex-col justify-end ">
-                <p class="text-[#000BEE] text-3xl font-bold p-0 m-0">
+                <p class="text-gray-500 text-sm font-serif " style="font-family:rokh ;">
+                  Vector and Illustrator
+                </p>
+                <p class="text-[#000BEE] dark:text-[#E8E9FF] text-3xl font-bold p-0 m-0">
                   وکتور و ایلوستریتور
                 </p>
-    
+
               </div>
-    
+
             </a>
             <a href="#"
-              class="bg-white flex flex-col overflow-hidden rounded-[32px] justify-between items-center text-center py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
+              class="bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
               <div>
                 <img src="{{ asset('home-page/images/Group.png') }}" alt="">
               </div>
               <div class="flex flex-col justify-end ">
-                <p class="text-[#000BEE] text-3xl font-bold p-0 m-0">
+                <p class="text-gray-500 text-sm font-serif ">
+                  Lotties animation
+                </p>
+                <p class="text-[#000BEE] dark:text-[#E8E9FF] text-3xl font-bold p-0 m-0" style="font-family:rokh ;">
                   انیمیشن Lotties
                 </p>
-    
+
               </div>
-    
+
             </a>
-    
+
           </div>
         </div>
-        <div class="flex flex-col md:flex-row items-center gap-y-5 gap-x-20 w-full px-5 md:px-10 mt-28 py-32">
+        <div class="flex flex-col md:flex-row items-center gap-y-5 gap-x-20 w-full px-5 mt-28 py-32">
           <div class="w-full md:w-1/2 flex justify-center items-center">
             <img src="{{ asset('home-page/images/Image 2.png') }}" alt="">
           </div>
-          <div class="flex flex-col gap-5 w-full md:w-1/2 items-center md:items-start justify-center">
-            <p class="text-[#000BEE] font-extrabold text-3xl m-0 p-0">
+          <div class="flex flex-col gap-10 w-full md:w-1/2 items-center md:items-start justify-center">
+            <p class="text-[#000BEE] dark:text-[#E8E9FF] font-extrabold text-4xl m-0 p-0" style="font-family:rokh ;">
               مدل های سه بعدی
             </p>
-            <p class="text-stone-800 font-bold">
-              کیفیت طراحی ههای خود را با استاده از مدل های سه یعدی افزایش دهید .
+            <p class="text-stone-800 dark:text-[#D1D1D1] font-bold text-xl">
+              کیفیت طراحی های خود را با استفاده از مدل های سه بعدی افزایش دهید .
             </p>
-            <a href="{{ route('products') }}"
-              class="text-[#000BEE] bg-[#CDD6FC] px-5 py-3 rounded-3xl font-bold text-xl w-max flex items-center justify-center gap-6 md:gap-10">
+            <a href="#"
+              class="text-[#000BEE] text-xl dark:text-[#E8E9FF] bg-[#CDD6FC] dark:bg-[#C2008C] px-5 py-3 rounded-3xl font-bold text-xl w-max flex items-center justify-center gap-6 md:gap-10">
               <p class="m-0 p-0">
                 لیست مدل های سه بعدی
               </p>
-              <img src="{{ asset('home-page/images/Union.png') }}" alt="">
+              <img src="../images/Union.png" alt="">
             </a>
           </div>
         </div>
       </section>
-      <section class="max-w-[85rem] mx-auto md:px-5">
+      <section class="w-full mx-auto  max-w-[1500px] ">
         <!-- start slyder -->
-        <div class="flex flex-col  mt-32 md:px-5">
+        <div class="flex flex-col  mt-32  w-full">
           <div class="w-full flex-col relative  ">
             <div class="flex flex-col justify-start items-start gap-3 px-5">
-              <p class="text-2xl md:text-4xl text-[#000BEE] font-extrabold text-center p-0 m-0 "> دسته بندی های پر طرفدار
+              <p class="text-2xl md:text-4xl text-[#000BEE] dark:text-[#E8E9FF] font-extrabold text-center p-0 m-0 " style="font-family:rokh ;">
+                دسته بندی های پر طرفدار
               </p>
-              <p class="text-sm text-stone-800 ">لیستی ار محصولات سه بعدی ، انیمیشن آیکون و فایل های ایلیسترتور</p>
+              <p class="text-sm text-stone-800 dark:text-[#ffffff] ">لیستی ار محصولات سه بعدی ، انیمیشن آیکون و فایل
+                های ایلیسترتور</p>
             </div>
-    
+
             <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden py-5 my-5 pl-5 md:pl-0" dir="ltr">
               <div id="slider"
-                class="h-full flex lg:gap-6 gap-5 items-center justify-start transition ease-out duration-700 ">
+                class="h-full flex lg:gap-7 gap-5 items-center justify-start transition ease-out duration-700 ">
                 <div class="flex flex-shrink-0 relative  ">
                   <a href="#"
-                    class="bg-white p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
+                    class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
                     <div class="w-full p-1 md:p-5">
                       <img src="{{ asset('home-page/images/طراحی داخلی 1.png') }}" alt="" class="w-full">
                     </div>
@@ -459,7 +176,7 @@
                       <p class="text-gray-500 text-sm font-serif mb-[-6px]">
                         Icons
                       </p>
-                      <p class="text-[#000BEE] text-xl md:text-3xl font-bold">
+                      <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
                         ایکون ها
                       </p>
                     </div>
@@ -467,7 +184,7 @@
                 </div>
                 <div class="flex flex-shrink-0 relative  ">
                   <a href="#"
-                    class="bg-white p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
+                    class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
                     <div class="w-full p-1 md:p-5">
                       <img src="{{ asset('home-page/images/طراحی داخلی 1.png') }}" alt="" class="w-full">
                     </div>
@@ -475,7 +192,7 @@
                       <p class="text-gray-500 text-sm font-serif mb-[-6px]">
                         Icons
                       </p>
-                      <p class="text-[#000BEE] text-xl md:text-3xl font-bold">
+                      <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
                         ایکون ها
                       </p>
                     </div>
@@ -483,7 +200,7 @@
                 </div>
                 <div class="flex flex-shrink-0 relative  ">
                   <a href="#"
-                    class="bg-white p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
+                    class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
                     <div class="w-full p-1 md:p-5">
                       <img src="{{ asset('home-page/images/طراحی داخلی 1.png') }}" alt="" class="w-full">
                     </div>
@@ -491,7 +208,7 @@
                       <p class="text-gray-500 text-sm font-serif mb-[-6px]">
                         Icons
                       </p>
-                      <p class="text-[#000BEE] text-xl md:text-3xl font-bold">
+                      <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
                         ایکون ها
                       </p>
                     </div>
@@ -499,7 +216,7 @@
                 </div>
                 <div class="flex flex-shrink-0 relative  ">
                   <a href="#"
-                    class="bg-white p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
+                    class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
                     <div class="w-full p-1 md:p-5">
                       <img src="{{ asset('home-page/images/طراحی داخلی 1.png') }}" alt="" class="w-full">
                     </div>
@@ -507,7 +224,7 @@
                       <p class="text-gray-500 text-sm font-serif mb-[-6px]">
                         Icons
                       </p>
-                      <p class="text-[#000BEE] text-xl md:text-3xl font-bold">
+                      <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
                         ایکون ها
                       </p>
                     </div>
@@ -515,7 +232,7 @@
                 </div>
                 <div class="flex flex-shrink-0 relative  ">
                   <a href="#"
-                    class="bg-white p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
+                    class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
                     <div class="w-full p-1 md:p-5">
                       <img src="{{ asset('home-page/images/طراحی داخلی 1.png') }}" alt="" class="w-full">
                     </div>
@@ -523,7 +240,7 @@
                       <p class="text-gray-500 text-sm font-serif mb-[-6px]">
                         Icons
                       </p>
-                      <p class="text-[#000BEE] text-xl md:text-3xl font-bold">
+                      <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
                         ایکون ها
                       </p>
                     </div>
@@ -531,7 +248,7 @@
                 </div>
                 <div class="flex flex-shrink-0 relative  ">
                   <a href="#"
-                    class="bg-white p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
+                    class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
                     <div class="w-full p-1 md:p-5">
                       <img src="{{ asset('home-page/images/طراحی داخلی 1.png') }}" alt="" class="w-full">
                     </div>
@@ -539,7 +256,7 @@
                       <p class="text-gray-500 text-sm font-serif mb-[-6px]">
                         Icons
                       </p>
-                      <p class="text-[#000BEE] text-xl md:text-3xl font-bold">
+                      <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
                         ایکون ها
                       </p>
                     </div>
@@ -547,7 +264,7 @@
                 </div>
                 <div class="flex flex-shrink-0 relative  ">
                   <a href="#"
-                    class="bg-white p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
+                    class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
                     <div class="w-full p-1 md:p-5">
                       <img src="{{ asset('home-page/images/طراحی داخلی 1.png') }}" alt="" class="w-full">
                     </div>
@@ -555,7 +272,7 @@
                       <p class="text-gray-500 text-sm font-serif mb-[-6px]">
                         Icons
                       </p>
-                      <p class="text-[#000BEE] text-xl md:text-3xl font-bold">
+                      <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
                         ایکون ها
                       </p>
                     </div>
@@ -563,7 +280,7 @@
                 </div>
                 <div class="flex flex-shrink-0 relative  ">
                   <a href="#"
-                    class="bg-white p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
+                    class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
                     <div class="w-full p-1 md:p-5">
                       <img src="{{ asset('home-page/images/طراحی داخلی 1.png') }}" alt="" class="w-full">
                     </div>
@@ -571,7 +288,7 @@
                       <p class="text-gray-500 text-sm font-serif mb-[-6px]">
                         Icons
                       </p>
-                      <p class="text-[#000BEE] text-xl md:text-3xl font-bold">
+                      <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
                         ایکون ها
                       </p>
                     </div>
@@ -579,7 +296,7 @@
                 </div>
                 <div class="flex flex-shrink-0 relative  ">
                   <a href="#"
-                    class="bg-white p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
+                    class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
                     <div class="w-full p-1 md:p-5">
                       <img src="{{ asset('home-page/images/طراحی داخلی 1.png') }}" alt="" class="w-full">
                     </div>
@@ -587,7 +304,7 @@
                       <p class="text-gray-500 text-sm font-serif mb-[-6px]">
                         Icons
                       </p>
-                      <p class="text-[#000BEE] text-xl md:text-3xl font-bold">
+                      <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
                         ایکون ها
                       </p>
                     </div>
@@ -595,7 +312,7 @@
                 </div>
                 <div class="flex flex-shrink-0 relative  ">
                   <a href="#"
-                    class="bg-white p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
+                    class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
                     <div class="w-full p-1 md:p-5">
                       <img src="{{ asset('home-page/images/طراحی داخلی 1.png') }}" alt="" class="w-full">
                     </div>
@@ -603,18 +320,21 @@
                       <p class="text-gray-500 text-sm font-serif mb-[-6px]">
                         Icons
                       </p>
-                      <p class="text-[#000BEE] text-xl md:text-3xl font-bold">
+                      <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
                         ایکون ها
                       </p>
                     </div>
                   </a>
                 </div>
+
+
+
+
               </div>
             </div>
             <div class="absolute  md:top-7 flex w-full justify-center md:w-max md:left-0 gap-5 items-center">
-    
               <button aria-label="slide forward"
-                class=" aspect-square  focus:outline-none focus:bg-[#000BEE] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full"
+                class=" aspect-square  focus:outline-none focus:bg-[#000BEE] dark:bg-[#c2008b36] dark:focus:bg-[#C2008C] dark:focus:ring-[#C2008C] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full"
                 id="next">
                 <svg class="text-white" width="14" height="14" viewBox="0 0 8 14" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
@@ -623,7 +343,7 @@
                 </svg>
               </button>
               <button aria-label="slide backward"
-                class=" aspect-square  focus:outline-none focus:bg-[#000BEE] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full"
+                class=" aspect-square  focus:outline-none focus:bg-[#000BEE] dark:bg-[#c2008b36] dark:focus:bg-[#C2008C] dark:focus:ring-[#C2008C] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full"
                 id="prev">
                 <svg class="text-white" width="14" height="14" viewBox="0 0 8 14" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
@@ -633,7 +353,7 @@
               </button>
               <div>
                 <a href="#"
-                  class="text-[#000BEE] bg-[#CDD6FC] px-3 md:px-5 py-3 rounded-3xl font-bold text-lg md:text-xl">مشاهده
+                  class="text-[#000BEE] dark:bg-[#c2008b36] dark:text-[#E8E9FF] bg-[#CDD6FC] px-3 md:px-5 py-3 rounded-3xl font-bold text-lg md:text-xl">مشاهده
                   همه</a>
               </div>
             </div>
@@ -641,259 +361,1250 @@
         </div>
         <!-- end slyder -->
       </section>
-      <section class="w-full mt-32">
-        <div id="content" role="main" class="content-area">
-          <section class="section has-parallax" id="section_719570122">
-            <div class="bg section-bg fill bg-fill   " data-parallax-container=".section" data-parallax-background
-              data-parallax="-7">
-    
-            </div>
-    
-            <div class="section-content relative">
-    
-              <div id="gap-658953857" class="gap-element clearfix" style="display:block; height:auto;">
-    
-                <style>
-                  #gap-658953857 {
-                    padding-top: 40px;
-                  }
-                </style>
-              </div>
-    
-    
-              <div class="row" style="max-width:1200px" id="row-2117521907">
-    
-    
-                <div id="col-10208202" class="col small-12 large-12 px-5">
-                  <div class="col-inner text-center flex flex-col gap-5 py-10 rounded-3xl "
-                    style="background-color:#000ceec2;">
-                    <div id="text-3122729349" class="text ">
-                      <h2 style="color: white;">“خدمات طراحی محیط های سه بعدی به صورت Low-Poly و High-Poly”</h2>
-                      <style>
-                        #text-3122729349 {
-                          font-size: 1.4rem;
-                          text-align: center;
-                        }
-                      </style>
-                    </div>
-                    <a href="#"
-                      class="bg-white text-[#000BEE] font-bold md:text-xl rounded-3xl px-5 md:px-10 py-[10px] w-max mx-auto flex items-center gap-6 md:gap-10">
-                      <p class="m-0 p-0">
-                        نمونه کار و ثبت سفارش
-                      </p>
-                      <img src="{{ asset('home-page/images/Union.png') }}" alt="">
-                    </a>
-    
-                  </div>
-    
-                  <style>
-                    #col-10208202>.col-inner {
-                      padding: 50px 20px 50px 20px;
-                    }
-    
-                    @media (min-width:550px) {
-                      #col-10208202>.col-inner {
-                        padding: 50px 70px 50px 70px;
-                      }
-                    }
-                  </style>
-                </div>
-    
-    
-    
-              </div>
-    
-            </div>
-    
-    
-            <style>
-              #section_719570122 {
-                padding-top: 55px;
-                padding-bottom: 55px;
-                min-height: 300px;
-              }
-    
-              #section_719570122 .section-bg.bg-loaded {
-                background-image: url(https://3d.irpsc.com/wp-content/uploads/2023/03/3d-irpsc-model-order.jpg);
-              }
-    
-              #section_719570122 .section-bg {
-                background-position: 0% 4%;
-              }
-    
-              #section_719570122 .ux-shape-divider--top svg {
-                height: 150px;
-                --divider-top-width: 100%;
-              }
-    
-              #section_719570122 .ux-shape-divider--bottom svg {
-                height: 150px;
-                --divider-width: 100%;
-              }
-            </style>
-          </section>
+      <section class="w-full mt-32 mx-auto flex justify-center items-center max-w-[1500px] ">
+        <div
+          class="w-full text-center flex flex-col justify-center items-center xl:flex-row gap-5 gap-y-10 py-12 xl:py-16 px-7 rounded-3xl bg-[#000ceec2] dark:bg-[#001448] ">
+          <div class="lg:w-[70%]">
+            <h2 class="text-white text-3xl 2xl:text-5xl !leading-[70px]  text-right" style="font-family:rokh ;">“خدمات طراحی محیط های سه بعدی به صورت Low-Poly و High-Poly”
+            </h2>
+          </div>
+          <a href="#"
+            class="lg:w-max h-max bg-white dark:bg-[#4A4E7C] text-[#000BEE] dark:text-white font-bold md:text-xl rounded-full px-5 md:px-10 py-6 w-max mx-auto flex items-center gap-6 md:gap-10">
+            <p class="m-0 p-0 ">
+              نمونه کار و ثبت سفارش
+            </p>
+            <img src="../images/Union.png" alt="">
+          </a>
         </div>
       </section>
-      <section>
+      <section class="w-full max-w-[1500px] mx-auto">
         <div>
-          <p class="text-4xl font-bold text-[#000BEE] mt-32 text-center">محصولات ما</p>
+          <p class="text-4xl font-bold text-[#000BEE] dark:text-[#E8E9FF] mt-32 text-center py-3" style="font-family:rokh ;">محصولات ما</p>
         </div>
-        <div class="mx-auto max-w-[85rem]">
-          <div class="border-b ">
-            <nav class="flex justify-center  lg:text-2xl font-bold" aria-label="Tabs" role="tablist">
+        <div class="mx-auto  w-full ">
+          <div class="py-4">
+            <nav class="flex justify-center gap-2  lg:text-2xl font-bold py-5" aria-label="Tabs" role="tablist" style="font-family:rokh ;">
               <button type="button"
-                class="px-5 hs-tab-active:text-black  items-center gap-2 whitespace-nowrap text-black/30 hover:text-black active"
-                id="tabs-with-underline-item-1" data-hs-tab="#tabs-with-underline-1" aria-controls="tabs-with-underline-1"
-                role="tab">
+                class="px-3 hs-tab-active:text-black dark:hs-tab-active:text-white items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1] dark:hover:text-white hover:text-black active"
+                id="tabs-with-underline-item-1" data-hs-tab="#tabs-with-underline-1" onclick="topProductBtn()"
+                aria-controls="tabs-with-underline-1" role="tab">
                 بالاترین امتیاز
               </button>
               <button type="button"
-                class="hs-tab-active:text-black  items-center gap-2 whitespace-nowrap text-black/30 hover:text-black border-x border-black/30 px-5"
-                id="tabs-with-underline-item-2" data-hs-tab="#tabs-with-underline-2" aria-controls="tabs-with-underline-2"
-                role="tab">
+                class="px-4 border-x-2 border-gray-400 hs-tab-active:text-black dark:hs-tab-active:text-white items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1] dark:hover:text-white hover:text-black"
+                id="tabs-with-underline-item-2" data-hs-tab="#tabs-with-underline-2" onclick="newProductBtn()"
+                aria-controls="tabs-with-underline-2" role="tab">
                 جدید ترین
               </button>
               <button type="button"
-                class="px-5 hs-tab-active:text-black  items-center gap-2 whitespace-nowrap text-black/30 hover:text-black"
-                id="tabs-with-underline-item-3" data-hs-tab="#tabs-with-underline-3" aria-controls="tabs-with-underline-3"
-                role="tab">
+                class="px-3 hs-tab-active:text-black dark:hs-tab-active:text-white items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1] dark:hover:text-white hover:text-black"
+                id="tabs-with-underline-item-3" data-hs-tab="#tabs-with-underline-3" onclick="successProductBtn()"
+                aria-controls="tabs-with-underline-3" role="tab">
                 پرفروش ترین
               </button>
             </nav>
           </div>
-    
+
           <div class="mt-3 flex flex-col items-center ">
             <div id="tabs-with-underline-1" role="tabpanel" aria-labelledby="tabs-with-underline-item-1 ">
-              <div class="flex justify-between text-sm duration-500 transition-all w-full ">
-                <div class="flex gap-7 overflow-x-scroll w-screen px-3 md:w-auto scrollbar  duration-500 transition-all">
-                  <div>
-                    <a href="#"
-                      class="bg-transparent border border-gray-300 hover:border-white hover:bg-white w-[180px]  md:w-[270px] flex flex-col overflow-hidden rounded-[20px] justify-between items-center text-center p-5 gap-5  duration-500 transition-all">
-                      <div class="p-6">
-                        <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+              <div id="tabs-with-underline-4" class="" role="tabpanel"aria-labelledby="tabs-with-underline-item-4">
+                <div class="flex justify-between text-sm">
+                  <div class="flex justify-between text-sm duration-500 transition-all w-full ">
+                    <div
+                      class="flex gap-4 xl:gap-5 overflow-x-scroll w-screen lg:w-[92vw]  px-3 xl:w-auto scrollbar  duration-500 transition-all">
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
                       </div>
-                      <div class="flex flex-col justify-center items-center gap-3">
-    
-                        <p class="text-[#000BEE] text-3xl font-bold p-0 m-0">
-                          ایکون ها
-                        </p>
-                        <button class="rounded-lg w-max px-5 py-3 bg-[#D8E5FD] text-[#000BEE] m-0 text-sm">
-                          Icons
-                        </button>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
                       </div>
-                    </a>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                    </div>
                   </div>
-                  <div>
-                    <a href="#"
-                      class="bg-transparent border border-gray-300 hover:border-white hover:bg-white w-[180px]  md:w-[270px] flex flex-col overflow-hidden rounded-[20px] justify-between items-center text-center p-5 gap-5  duration-500 transition-all">
-                      <div class="p-6">
-                        <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                </div>
+              </div>
+              <div id="tabs-with-underline-5" class="hidden" role="tabpanel"
+                aria-labelledby="tabs-with-underline-item-5">
+                <div class="flex justify-between text-sm">
+                  <div class="flex justify-between text-sm duration-500 transition-all w-full ">
+                    <div
+                      class="flex gap-4 xl:gap-5 overflow-x-scroll w-screen lg:w-[92vw]  px-3 xl:w-auto scrollbar  duration-500 transition-all">
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">2مدل سه بعدی غذا همبرگر</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
                       </div>
-                      <div class="flex flex-col justify-center items-center gap-3">
-    
-                        <p class="text-[#000BEE] text-3xl font-bold p-0 m-0">
-                          ایکون ها
-                        </p>
-                        <button class="rounded-lg w-max px-5 py-3 bg-[#D8E5FD] text-[#000BEE] m-0 text-sm">
-                          Icons
-                        </button>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر2</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
                       </div>
-                    </a>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر2</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر2</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                    </div>
                   </div>
-                  <div>
-                    <a href="#"
-                      class="bg-transparent border border-gray-300 hover:border-white hover:bg-white w-[180px]  md:w-[270px] flex flex-col overflow-hidden rounded-[20px] justify-between items-center text-center p-5 gap-5  duration-500 transition-all">
-                      <div class="p-6">
-                        <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                </div>
+              </div>
+              <div id="tabs-with-underline-6" class="hidden" role="tabpanel"
+                aria-labelledby="tabs-with-underline-item-6">
+                <div class="flex justify-between text-sm">
+                  <div class="flex justify-between text-sm duration-500 transition-all w-full ">
+                    <div
+                      class="flex gap-4 xl:gap-5 overflow-x-scroll w-screen lg:w-[92vw]  px-3 xl:w-auto scrollbar  duration-500 transition-all">
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر3</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
                       </div>
-                      <div class="flex flex-col justify-center items-center gap-3">
-    
-                        <p class="text-[#000BEE] text-3xl font-bold p-0 m-0">
-                          ایکون ها
-                        </p>
-                        <button class="rounded-lg w-max px-5 py-3 bg-[#D8E5FD] text-[#000BEE] m-0 text-sm">
-                          Icons
-                        </button>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر3</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
                       </div>
-                    </a>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر3</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر3</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                    </div>
                   </div>
-                  <div>
-                    <a href="#"
-                      class="bg-transparent border border-gray-300 hover:border-white hover:bg-white w-[180px]  md:w-[270px] flex flex-col overflow-hidden rounded-[20px] justify-between items-center text-center p-5 gap-5  duration-500 transition-all">
-                      <div class="p-6">
-                        <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                </div>
+              </div>
+              
+            </div>
+            <div id="tabs-with-underline-2" class="hidden" role="tabpanel"
+              aria-labelledby="tabs-with-underline-item-2">
+
+              <div id="tabs-with-underline-2-1" class="" role="tabpanel"aria-labelledby="tabs-with-underline-item-2-1">
+                <div class="flex justify-between text-sm">
+                  <div class="flex justify-between text-sm duration-500 transition-all w-full ">
+                    <div
+                      class="flex gap-4 xl:gap-5 overflow-x-scroll w-screen lg:w-[92vw]  px-3 xl:w-auto scrollbar  duration-500 transition-all">
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
                       </div>
-                      <div class="flex flex-col justify-center items-center gap-3">
-    
-                        <p class="text-[#000BEE] text-3xl font-bold p-0 m-0">
-                          ایکون ها
-                        </p>
-                        <button class="rounded-lg w-max px-5 py-3 bg-[#D8E5FD] text-[#000BEE] m-0 text-sm">
-                          Icons
-                        </button>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
                       </div>
-                    </a>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="tabs-with-underline-2-2" class="hidden" role="tabpanel"
+                aria-labelledby="tabs-with-underline-item-2-2">
+                <div class="flex justify-between text-sm">
+                  <div class="flex justify-between text-sm duration-500 transition-all w-full ">
+                    <div
+                      class="flex gap-4 xl:gap-5 overflow-x-scroll w-screen lg:w-[92vw]  px-3 xl:w-auto scrollbar  duration-500 transition-all">
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">2مدل سه بعدی غذا همبرگر</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر2</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر2</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر2</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="tabs-with-underline-2-3" class="hidden" role="tabpanel"
+                aria-labelledby="tabs-with-underline-item-2-3">
+                <div class="flex justify-between text-sm">
+                  <div class="flex justify-between text-sm duration-500 transition-all w-full ">
+                    <div
+                      class="flex gap-4 xl:gap-5 overflow-x-scroll w-screen lg:w-[92vw]  px-3 xl:w-auto scrollbar  duration-500 transition-all">
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر3</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر3</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر3</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر3</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div id="tabs-with-underline-2" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-2">
-              <div class="flex justify-between text-sm">
-                <p class="text-pink-600 font-bold">item item 2</p>
-                <p class="text-pink-600 font-bold">item item 2</p>
-    
+            <div id="tabs-with-underline-3" class="hidden" role="tabpanel"
+              aria-labelledby="tabs-with-underline-item-3">
+              <div id="tabs-with-underline-3-1" class="" role="tabpanel"aria-labelledby="tabs-with-underline-item-3-1">
+                <div class="flex justify-between text-sm">
+                  <div class="flex justify-between text-sm duration-500 transition-all w-full ">
+                    <div
+                      class="flex gap-4 xl:gap-5 overflow-x-scroll w-screen lg:w-[92vw]  px-3 xl:w-auto scrollbar  duration-500 transition-all">
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر11</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div id="tabs-with-underline-3" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-3">
-              <div class="flex justify-between text-sm">
-                <p class="text-pink-600 font-bold">item item 3</p>
-                <p class="text-pink-600 font-bold">item item 3 </p>
-                <p class="text-pink-600 font-bold">item item 3</p>
-                <p class="text-pink-600 font-bold">item item 3 </p>
+              <div id="tabs-with-underline-3-2" class="hidden" role="tabpanel"
+                aria-labelledby="tabs-with-underline-item-3-2">
+                <div class="flex justify-between text-sm">
+                  <div class="flex justify-between text-sm duration-500 transition-all w-full ">
+                    <div
+                      class="flex gap-4 xl:gap-5 overflow-x-scroll w-screen lg:w-[92vw]  px-3 xl:w-auto scrollbar  duration-500 transition-all">
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">31مدل سه بعدی غذا همبرگر</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر32</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر32</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر32</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div id="tabs-with-underline-4" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-4">
-              <div class="flex justify-between text-sm">
-                <p class="text-pink-600 font-bold">item item 4</p>
-                <p class="text-pink-600 font-bold">item item 4 </p>
-    
-              </div>
-            </div>
-            <div id="tabs-with-underline-5" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-5">
-              <div class="flex justify-between text-sm">
-                <p class="text-pink-600 font-bold">item item 5</p>
-                <p class="text-pink-600 font-bold">item item 5 </p>
-    
-              </div>
-            </div>
-            <div id="tabs-with-underline-6" class="hidden" role="tabpanel" aria-labelledby="tabs-with-underline-item-6">
-              <div class="flex justify-between text-sm">
-                <p class="text-pink-600 font-bold">item item 6</p>
-                <p class="text-pink-600 font-bold">item item 6 </p>
-    
+              <div id="tabs-with-underline-3-3" class="hidden" role="tabpanel"
+                aria-labelledby="tabs-with-underline-item-3-3">
+                <div class="flex justify-between text-sm">
+                  <div class="flex justify-between text-sm duration-500 transition-all w-full ">
+                    <div
+                      class="flex gap-4 xl:gap-5 overflow-x-scroll w-screen lg:w-[92vw]  px-3 xl:w-auto scrollbar  duration-500 transition-all">
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر31</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر3</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر3</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                      <!-- start card -->
+                      <div>
+                        <a href="#"
+                          class="bg-white dark:bg-[#001448] w-[195px]  md:w-[270px] 2xl:w-[285px] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                          <div class="p-3 w-[80%] " >
+                            <img src="{{ asset('home-page/images/3D-rgb-10000.png') }}" alt="">
+                          </div>
+                          <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                              سه بعدی/غذا
+                            </p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">مدل سه بعدی غذا همبرگر3</p>
+                            <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">    9000 تومان</p>
+                            
+                            <div class="w-full flex justify-between gap-2 ">
+                              <button
+                              class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                              افزودن به سبد خرید
+                            </button>
+                            <button
+                              class="rounded-lg w-[40%]  px-2 py-3 bg-[#D8E5FD] dark:bg-[#4A4E7C]  text-[#000BEE] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
+                                 مشاهده سریع
+                            </button>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- end card -->
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-    
-          <div class="flex justify-center gap-3 lg:text-2xl font-bold mt-10" aria-label="Tabs" role="tablist">
+          <!-- show more products -->
+          <div id="top-product-btn" class="flex justify-center gap-3 lg:text-2xl font-bold mt-10" aria-label="Tabs" role="tablist">
             <button type="button"
-              class="bg-[#CDD6FC] p-2 rounded-full duration-500 transition-all  hs-tab-active:w-10 hs-tab-active:bg-[#000BEE] slyder-but "
-              id="tabs-with-underline-item-4" data-hs-tab="#tabs-with-underline-4" aria-controls="tabs-with-underline-4"
-              role="tab">
-    
+              class="bg-[#CDD6FC] p-2 rounded-full duration-500 transition-all  hs-tab-active:w-10 hs-tab-active:bg-[#000BEE] dark:hs-tab-active:bg-[#C2008C] slyder-but active "
+              id="tabs-with-underline-item-4" data-hs-tab="#tabs-with-underline-4"
+              aria-controls="tabs-with-underline-4" role="tab">
+
             </button>
             <button type="button"
-              class="bg-[#CDD6FC] p-2 rounded-full duration-500 transition-all  hs-tab-active:w-10 hs-tab-active:bg-[#000BEE] slyder-but "
-              id="tabs-with-underline-item-5" data-hs-tab="#tabs-with-underline-5" aria-controls="tabs-with-underline-5"
-              role="tab">
-    
+              class="bg-[#CDD6FC] p-2 rounded-full duration-500 transition-all  hs-tab-active:w-10 hs-tab-active:bg-[#000BEE] dark:hs-tab-active:bg-[#C2008C] slyder-but "
+              id="tabs-with-underline-item-5" data-hs-tab="#tabs-with-underline-5"
+              aria-controls="tabs-with-underline-5" role="tab">
+
             </button>
             <button type="button"
-              class="bg-[#CDD6FC] p-2 rounded-full duration-500 transition-all  hs-tab-active:w-10 hs-tab-active:bg-[#000BEE] slyder-but "
-              id="tabs-with-underline-item-6" data-hs-tab="#tabs-with-underline-6" aria-controls="tabs-with-underline-6"
-              role="tab">
+              class="bg-[#CDD6FC] p-2 rounded-full duration-500 transition-all  hs-tab-active:w-10 hs-tab-active:bg-[#000BEE] dark:hs-tab-active:bg-[#C2008C] slyder-but "
+              id="tabs-with-underline-item-6" data-hs-tab="#tabs-with-underline-6"
+              aria-controls="tabs-with-underline-6" role="tab">
+
+            </button>
+          </div>
+          <div id="new-product-btn" class="justify-center gap-3 lg:text-2xl font-bold mt-10 hidden" aria-label="Tabs" role="tablist" >
+            <button type="button"
+              class="bg-[#CDD6FC] p-2 rounded-full duration-500 transition-all  hs-tab-active:w-10 hs-tab-active:bg-[#000BEE] dark:hs-tab-active:bg-[#C2008C] slyder-but active "
+              id="tabs-with-underline-item-2-1" data-hs-tab="#tabs-with-underline-2-1"
+              aria-controls="tabs-with-underline-2-1" role="tab">
+
+            </button>
+            <button type="button"
+              class="bg-[#CDD6FC] p-2 rounded-full duration-500 transition-all  hs-tab-active:w-10 hs-tab-active:bg-[#000BEE] dark:hs-tab-active:bg-[#C2008C] slyder-but "
+              id="tabs-with-underline-item-2-2" data-hs-tab="#tabs-with-underline-2-2"
+              aria-controls="tabs-with-underline-2-2" role="tab">
+
+            </button>
+            <button type="button"
+              class="bg-[#CDD6FC] p-2 rounded-full duration-500 transition-all  hs-tab-active:w-10 hs-tab-active:bg-[#000BEE] dark:hs-tab-active:bg-[#C2008C] slyder-but "
+              id="tabs-with-underline-item-2-3" data-hs-tab="#tabs-with-underline-2-3"
+              aria-controls="tabs-with-underline-2-3" role="tab">
+
+            </button>
+          </div>
+          <div id="success-product-btn" class="justify-center gap-3 lg:text-2xl font-bold mt-10 hidden" aria-label="Tabs" role="tablist" >
+            <button type="button"
+              class="bg-[#CDD6FC] p-2 rounded-full duration-500 transition-all  hs-tab-active:w-10 hs-tab-active:bg-[#000BEE] dark:hs-tab-active:bg-[#C2008C] slyder-but active "
+              id="tabs-with-underline-item-3-1" data-hs-tab="#tabs-with-underline-3-1"
+              aria-controls="tabs-with-underline-3-1" role="tab">
+
+            </button>
+            <button type="button"
+              class="bg-[#CDD6FC] p-2 rounded-full duration-500 transition-all  hs-tab-active:w-10 hs-tab-active:bg-[#000BEE] dark:hs-tab-active:bg-[#C2008C] slyder-but "
+              id="tabs-with-underline-item-3-2" data-hs-tab="#tabs-with-underline-3-2"
+              aria-controls="tabs-with-underline-3-2" role="tab">
+
+            </button>
+            <button type="button"
+              class="bg-[#CDD6FC] p-2 rounded-full duration-500 transition-all  hs-tab-active:w-10 hs-tab-active:bg-[#000BEE] dark:hs-tab-active:bg-[#C2008C] slyder-but "
+              id="tabs-with-underline-item-3-3" data-hs-tab="#tabs-with-underline-3-3"
+              aria-controls="tabs-with-underline-3-3" role="tab">
+
             </button>
           </div>
         </div>
+        <!-- end show more products -->
+
       </section>
+     
+    </main>
 </div>

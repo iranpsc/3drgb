@@ -22,56 +22,56 @@
                 @foreach ($products as $product)
                     <tr wire:key="{{ $product->id }}">
                         <td>
-                            <div class="userDatatable-content">
+                            <div>
                                 {{ $loop->iteration }}
                             </div>
                         </td>
                         <td>
-                            <div class="userDatatable-content">
+                            <div>
                                 {{ $product->name }}
                             </div>
                         </td>
                         <td>
-                            <div class="userDatatable-content">
+                            <div>
                                 {{ $product->slug }}
                             </div>
                         </td>
                         <td>
-                            <div class="userDatatable-content">
+                            <div>
                                 {{ $product->price }}
                             </div>
                         </td>
                         <td>
-                            <div class="userDatatable-content">
+                            <div>
                                 {{ $product->sale_price }}
                             </div>
                         </td>
                         <td>
-                            <div class="userDatatable-content">
+                            <div>
                                 {{ $product->category->name }}
                             </div>
                         </td>
                         <td>
-                            <div class="userDatatable-content">
+                            <div>
                                 {{ $product->published ? 'منتشر شده' : 'منتشر نشده' }}
                             </div>
                         </td>
                         <td>
-                            <div class="userDatatable-content">
+                            <div>
                                 {{ jdate($product->created_at)->format('Y/m/d') }}
                             </div>
                         </td>
                         <td>
-                            <div class="userDatatable-content">
+                            <div class="userDatatable-content flex items-center ">
                                 <div class="d-flex justify-content-start gap-2">
-                                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                                    <a href="{{ route('products.edit', $product->id) }}" class="px-2 py-1 rounded-[10px] text-white font-bold text-sm" style="background-color:#0EBDE2;">ویرایش</a>
                                                                     
                                     @if ($product->published)
-                                        <a href="{{ route('products.show', $product->slug) }}" class="btn btn-primary"><i class="fa fa-eye"></i></a>
+                                        <a href="{{ route('products.show', $product->slug) }}" class="px-2 py-1 rounded-[10px] text-white font-bold text-sm" style="background-color:blue">انتشار</a>
                                     @endif
     
                                     @if(!$product->hasOrders())
-                                        <button type="button" class="btn btn-danger" wire:click="delete({{ $product->id }})" wire:confirm="آیا از حذف این محصول مطمئن هستید؟"><i class="fa fa-trash"></i></button>
+                                        <button type="button" class="px-2 py-1 rounded-[10px] text-white font-bold text-sm" wire:click="delete({{ $product->id }})" wire:confirm="آیا از حذف این محصول مطمئن هستید؟" style="background-color:red;">حذف</button>
                                     @endif
                                 </div>
                             </div>

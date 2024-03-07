@@ -1,10 +1,10 @@
 <div>
     <div class="demo5 mt-30 mb-25">
-        <div class="container-fluid">
+        <div  class="flex flex-col justify-center items-center">
            <div class="row">
               <div class="col-xxl-12 mb-25">
                  <div class="card banner-feature--18 d-flex">
-                    <div class="container-fluid">
+                    <div  class="flex flex-col justify-center items-center">
                        <div class="row">
                           <div class="col-xl-6">
                              <div class="card-body px-25">
