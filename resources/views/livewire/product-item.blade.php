@@ -16,7 +16,7 @@
                     
                   
                     @if (Auth::check() && Auth::user()->hasPurchased($product))
-                        <x-button wire:click="download({{ $product->id }})" color="light" style="display: flex;justify-content: center; align-items: center" size="block"><img src="{{ asset('img/svg/download.svg') }}" alt="download" class="svg">
+                        <x-button wire:click="download({{ $product->id }})" color="light" style="display: flex;justify-content: space-betweeng; align-items: center" size="block"><img src="{{ asset('img/svg/download.svg') }}" alt="download" class="svg">
                         دانلود
                         </x-button>
                     @else

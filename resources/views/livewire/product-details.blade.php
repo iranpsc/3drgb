@@ -181,7 +181,7 @@
           </div>
           <div class="w-[75%] md:w-[30%] lg:w-[40%]">
           @if(Auth::check() && Auth::user()->hasPurchased($product))
-          <x-button wire:click="download" color="info" size="block"><img src="{{ asset('img/svg/download.svg') }}" alt="download" class="svg">
+          <x-button wire:click="download" color="info" size="block" style="display: flex; justify-content: space-between; align-items: center"><img src="{{ asset('img/svg/download.svg') }}" alt="download" class="svg">
                                             دانلود
          </x-button>
          @else
