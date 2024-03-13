@@ -26,10 +26,11 @@ use App\Livewire\Support\Tickets;
 use App\Livewire\Support\UpdateTicket;
 use App\Livewire\User\Orders;
 use App\Livewire\User\Profile;
-use App\Livewire\User\ChangePassword;
 use App\Livewire\User\Dashboard;
 use App\Livewire\User\OrderDetails;
 use App\Livewire\Users;
+use App\Models\File;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -101,3 +102,7 @@ Route::middleware('guest')->prefix('auth')->group(function () {
 });
 
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->name('logout');
+
+Route::get('/download/{file}', function(Request $request, File $file) {
+    return response()->download(storage_path("app/{$file->path}"), $file->name);
+})->middleware('signed')->name('files.download');

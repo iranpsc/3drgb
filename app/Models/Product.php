@@ -61,7 +61,7 @@ class Product extends Model implements Sitemapable
 
     /**
      * Get the category that owns the product.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function category()
@@ -71,7 +71,7 @@ class Product extends Model implements Sitemapable
 
     /**
      * Get the images for the product.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
     public function images()
@@ -81,7 +81,7 @@ class Product extends Model implements Sitemapable
 
     /**
      * Get the file for the product.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function file()
@@ -91,7 +91,7 @@ class Product extends Model implements Sitemapable
 
     /**
      * Get the tags for the product.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function tags()
@@ -101,7 +101,7 @@ class Product extends Model implements Sitemapable
 
     /**
      * Get the attributes for the product.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function attributes()
@@ -111,7 +111,7 @@ class Product extends Model implements Sitemapable
 
     /**
      * Get user's that own the product.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function users()
@@ -121,7 +121,7 @@ class Product extends Model implements Sitemapable
 
     /**
      * Get published products.
-     * 
+     *
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
@@ -132,7 +132,7 @@ class Product extends Model implements Sitemapable
 
     /**
      * Get product discount
-     * 
+     *
      * @return float
      */
     public function getDiscountAttribute()
@@ -142,7 +142,7 @@ class Product extends Model implements Sitemapable
 
     /**
      * Get product final price
-     * 
+     *
      * @return float
      */
     public function getFinalPriceAttribute()
@@ -152,7 +152,7 @@ class Product extends Model implements Sitemapable
 
     /**
      * Get product sales
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
      */
     public function sales()
@@ -169,7 +169,7 @@ class Product extends Model implements Sitemapable
 
     /**
      * Get product reviews
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function reviews()
@@ -179,7 +179,7 @@ class Product extends Model implements Sitemapable
 
     /**
      * Get product orders
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function orders()
@@ -189,7 +189,7 @@ class Product extends Model implements Sitemapable
 
     /**
      * Get product average rating
-     * 
+     *
      * @return float
      */
     public function hasOrders()

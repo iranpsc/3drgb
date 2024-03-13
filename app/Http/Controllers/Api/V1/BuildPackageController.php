@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\BuildPackageResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -10,9 +11,7 @@ class BuildPackageController extends Controller
 {
     public function getBuildPackage(Request $request)
     {
-        $products = Product::with(['images' => function ($query) {
-            $query->limit(1);
-        }])
+        $models = Product::with('attributes', 'images', 'file')
             ->whereHas('attributes', function ($query) use ($request) {
                 $query->where('slug', 'area')
                     ->whereRaw('CAST(value AS FLOAT) <= ?', [$request->area]);
@@ -25,18 +24,13 @@ class BuildPackageController extends Controller
                 $query->where('slug', 'karbari')
                     ->where('value', $request->karbari);
             })
+            ->whereHas('attributes', function ($query) use ($request) {
+                $query->where('slug', 'used_in')
+                    ->where('value', 'METARGB');
+            })
             ->select('id', 'name', 'sku')
-            ->get();
+            ->simplePaginate(10);
 
-        return response()->json([
-            $products->map(function ($product) {
-                return [
-                    'id' => $product->id,
-                    'name' => $product->name,
-                    'sku' => $product->sku,
-                    'image' => $product->images->first()->url,
-                ];
-            }),
-        ]);
+        return BuildPackageResource::collection($models);
     }
 }

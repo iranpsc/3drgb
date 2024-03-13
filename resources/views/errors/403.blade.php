@@ -18,7 +18,11 @@
                           <path class="dark:stroke-white" d="M22.8332 22.8334L20.6665 20.6667" stroke="#000BEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                           </svg>
   
+<<<<<<< HEAD
                   <button type="button" wire:click="search"
+=======
+                  <button
+>>>>>>> a4348bb2d469f50aef382f53ec40a970b0d5829d
                     class="bg-[#000BEE] dark:bg-[#C2008C] text-white font-bold md:text-xl pb-4 pt-[15px]  px-5 w-[30%] lg:w-[20%] rounded-[32px]  text-center absolute left-[6px] top-[6px] min-w-max">جستجو</button>
 
                     

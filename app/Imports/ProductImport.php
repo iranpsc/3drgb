@@ -104,6 +104,6 @@ class ProductImport implements ToArray, WithChunkReading, ShouldQueue
 
     public function chunkSize(): int
     {
-        return 1000;
+        return 50;
     }
 }
