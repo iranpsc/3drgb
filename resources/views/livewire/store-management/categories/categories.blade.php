@@ -3,12 +3,12 @@
         title="دسته بندی ها"
         actionBtn="true"
         :actionBtnLink="route('categories.create')"
-        actionBtnText="ایجاد دسته بندی">
+        actionBtnText=" ایجاد دسته بندی  +  ">
         @if ($categories->count() > 0)
             @if (session()->has('message'))
                 <x-alert type="success" message="{{ session('message') }}" />
             @endif
-            <x-table>
+            <x-table >
                 <x-slot:header>
                     <th>ردیف</th>
                     <th>نام</th>
@@ -52,9 +52,9 @@
                              </div>
                         </td>
                         <td>
-                            <div class="userDatatable-content">
-                                <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-primary btn-sm">ویرایش</a>
-                                <x-button color="danger" wire:click="delete({{ $category->id }})"
+                            <div class="flex flex flex-col gap-1">
+                                <a href="{{ route('categories.edit', $category->id) }}" class="flex justify-center items-center" style="background-color:orange;padding:5px;border-radius:8px ;">ویرایش</a>
+                                <x-button style="background-color:red; padding:5px" wire:click="delete({{ $category->id }})"
                                     wire:confirm="آیا از حذف این دسته بندی مطمئن هستید؟">حذف</x-button>
                             </div>
                         </td>

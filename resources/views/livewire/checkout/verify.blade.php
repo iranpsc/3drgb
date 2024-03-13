@@ -1,6 +1,6 @@
 <div>
     <x-page title="نتیجه پرداخت">
-        <div class="container-fluid">
+        <div  class="flex flex-col justify-center items-center">
             <div class=" checkout wizard1 global-shadow border-0 px-sm-50 px-20 pt-sm-50 py-30 mb-30 bg-white radius-xl w-100">
                <div class="row justify-content-center">
                   <div class="col-xl-8 col-12">

@@ -5,8 +5,8 @@
             <x-alert type="success" message="{{ session('success') }}" />
         @endsession
         
-        <div class="row">
-            <div class="col-md-6">
+        <div class="flex flex-col gap-10">
+            <div class="grid lg:grid-cols-2 gap-7">
 
                 <x-form.select wire:model="form.category_id" name="form.category_id" label="دسته بندی">
                     <option value="">انتخاب دسته بندی</option>
@@ -33,14 +33,9 @@
                 <x-form.text  wire:model="form.price" name="form.price" label="قیمت عادی" />
                 <x-form.text  wire:model="form.sale_price" name="form.sale_price" label="قیمت فروش ویژه" />
 
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="showStockInputs">
-                    <label class="form-check-label" for="showStockInputs">
-                        این محصول متعلق به متارنگ است؟
-                    </label>
-                </div>
+                
 
-                <div style="display: none;" id="stockInputs">
+                <div class="flex flex-col gap-5" id="stockInputs">
                     <x-form.select wire:model="form.stock_status" name="form.stock_status" label="وضعیت انبار">
                         <option value="1">موجود</option>
                         <option value="0">ناموجود</option>
@@ -52,51 +47,51 @@
 
             </div>
 
-            <div class="col-md-6">
-                
+            <div class="grid lg:grid-cols-2 gap-7">
+                <x-form.file wire:model="form.images" name="form.images" label="تصاویر محصول" multiple />
+                <x-form.file wire:model="form.file" name="form.file" label="فایل محصول" />
                 <x-form.select wire:model="form.customer_can_add_review" name="form.customer_can_add_review" label="مشتری می تواند دیدگاه بنویسد؟">
                     <option value="1" selected>بله</option>
                     <option value="0">خیر</option>
                 </x-form.select>
-
                 <x-form.select wire:model="form.published" name="form.published" label="محصول انتشار داده شود؟">
                     <option value="1" selected>بله</option>
                     <option value="0">خیر</option>
                 </x-form.select>
                 
-                <x-form.file wire:model="form.images" name="form.images" label="تصاویر محصول" multiple />
-                <x-form.file wire:model="form.file" name="form.file" label="فایل محصول" />
+                
 
-                <div class="row form-group">
-                    <label for="tags" class="form-col-label col-sm-4">برچسب ها</label>
-                    <div class="col-sm-8">
+                <div class="mt-10 mb-10 flex flex-col gap-4">
+                    <label for="tags" class="flex flex-col gap-5">برچسب ها</label>
+                    <div class="flex flex-col gap-5">
                         <div wire:ignore>
-                            <select name="tags" id="select-tag" label="برچسب ها" multiple="multiple">
+                            <select name="tags" id="select-tag" class="bg-[#F8F9FA] dark:bg-[#4A4E7C] rounded-[10px] p-4 space-y-2 " label="برچسب ها" multiple="multiple" style="height:150px">
                                 <option value="">انتخاب برچسب ها</option>
                                 @foreach ($tags as $tag)
                                     <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                                 @endforeach
                             </select>
                         </div>
-                        @error('form.tags') <span class="text-danger">{{ $message }}</span> @enderror
+                        @error('form.tags') <span  style="color:red;padding:14px;background-color:rgba(207, 117, 117, 0.47);border-radius:10px">{{ $message }}</span> @enderror
                     </div>
                 </div>
+               
             </div>
         </div>
         
         <hr>
         
-        <h4 class="mb-5">ویژگی ها</h4>
+        <h4 class="mb-5 mt-5">ویژگی ها</h4>
 
         @forelse ($attributes->chunk(2) as $items)
-            <div class="row">
+            <div class="grid lg:grid-cols-2  gap-7 mt-5  " id="stockInputs">
                 @foreach ($items as $item)
-                    <div class="col-md-6">
+                    <div class="w-full flex flex-col gap-7">
                     <div id="attribute-box-{{ $item->id }}" wire:key="{{ $item->id }}">
-                        <div class="form-group row">
-                            <label for="attribute-{{ $item->id }}" class="col-sm-4 form-col-label">{{ $item->name }}</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control form-control-lg" id="attribute-{{ $item->id }}">
+                        <div class="flex flex-col gap-5">
+                            <label for="attribute-{{ $item->id }}" >{{ $item->name }}</label>
+                            <div class="w-full">
+                                <input type="text" class="w-full bg-[#F8F9FA] dark:bg-[#4A4E7C] rounded-[10px] p-4 " id="attribute-{{ $item->id }}">
                             </div>
                         </div>
                     </div>
@@ -107,37 +102,37 @@
             <x-alert type="warning" message="ویژگی ای برای این دسته بندی ثبت نشده است." />
         @endforelse
 
-        <hr>
+        <hr class="mt-5 mb-5" style="margin-bottom:20px">
 
-        <div class="row">
-            <div class="col-12">
+        <div>
+            <div class="flex flex-col gap-5 mt-5">
                 
-                <div class="form-group">
+                <div class="flex flex-col gap-5">
                     <label for="short_desciption">توضیحات کوتاه</label>
-                    <textarea wire:model="form.short_description" name="form.short_description" class="form-control @error('form.short_description') is-invalid @enderror" id="short_desciption" rows="3"></textarea>
-                    @error('form.short_description') <span class="text-danger">{{ $message }}</span> @enderror
+                    <textarea wire:model="form.short_description" name="form.short_description" class="form-control @error('form.short_description') is-invalid @enderror  w-full text-gray-400 py-3 rounded-[10px] border-2 border-gray-300 ring-offset-0 focus:ring-offset-0 ring-0 !focus:ring-0 bg-transparent" id="short_desciption" rows="3"></textarea>
+                    @error('form.short_description') <span <span style="color:red;padding:14px;background-color:rgba(207, 117, 117, 0.47);border-radius:10px">{{ $message }}</span> @enderror
                 </div>
 
-                <div class="form-group">
+                <div class="flex flex-col gap-5">
                     <label for="meta_desciption">توضیحات متا</label>
-                    <textarea wire:model="form.meta_description" name="form.meta_description" class="form-control @error('form.meta_description') is-invalid @enderror" id="meta_desciption" rows="3"></textarea>
-                    @error('form.meta_description') <span class="text-danger">{{ $message }}</span> @enderror
+                    <textarea wire:model="form.meta_description" name="form.meta_description" class="form-control @error('form.meta_description') is-invalid @enderror w-full text-gray-400 py-3 rounded-[10px] border-2 border-gray-300 ring-offset-0 focus:ring-offset-0 ring-0 !focus:ring-0 bg-transparent" id="meta_desciption" rows="3"></textarea>
+                    @error('form.meta_description') <span <span style="color:red;padding:14px;background-color:rgba(207, 117, 117, 0.47);border-radius:10px">{{ $message }}</span> @enderror
                 </div>
 
-                <div class="form-group">
+                <div class="flex flex-col gap-5">
                     <label for="meta_keywords">کلمات کلیدی متا</label>
-                    <textarea wire:model="form.meta_keywords" name="form.meta_keywords" class="form-control @error('form.meta_keywords') is-invalid @enderror" id="meta_keywords" rows="3"></textarea>
-                    @error('form.meta_keywords') <span class="text-danger">{{ $message }}</span> @enderror
+                    <textarea wire:model="form.meta_keywords" name="form.meta_keywords" class="form-control @error('form.meta_keywords') is-invalid @enderror  w-full text-gray-400 py-3 rounded-[10px] border-2 border-gray-300 ring-offset-0 focus:ring-offset-0 ring-0 !focus:ring-0 bg-transparent" id="meta_keywords" rows="3"></textarea>
+                    @error('form.meta_keywords') <span style="color:red;padding:14px;background-color:rgba(207, 117, 117, 0.47);border-radius:10px">{{ $message }}</span> @enderror
                 </div>
             </div>
         </div>
 
-        <div class="form-group" wire:ignore>
+        <div class="mt-5" wire:ignore>
             <label for="summernote2">توضیحات محصول</label>
-            <div id="summernote2"></div>
+            <div id="summernote2" class="dark:text-gray-300"></div>
         </div>
 
-        <x-button type="submit" id="save-btn">ذخیره</x-button>
+        <x-button style="margin-top:50px" type="submit" id="save-btn">ذخیره</x-button>
 
     </x-page>
 
@@ -145,6 +140,8 @@
 
 @script
     <script>
+        
+
         let saveBtn = document.getElementById('save-btn');
         let tags;
         let attributes = [];
@@ -213,7 +210,10 @@
             tags = data;
         });
 
-        let showStockInputs = document.getElementById('showStockInputs');
+    
+    </script>
+    <script>
+         let showStockInputs = document.getElementById('showStockInputs');
         let stockInputs = document.getElementById('stockInputs');
 
         showStockInputs.addEventListener('click', function() {
@@ -223,6 +223,5 @@
                 stockInputs.style.display = 'none';
             }
         });
-
     </script>
 @endscript

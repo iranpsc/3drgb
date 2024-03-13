@@ -1,148 +1,298 @@
-<div>
-   <div class="container-fluid">
-      <div class="row">
-         <div class="col-lg-12">
-            <div class="shop-breadcrumb">
-
-               <div class="breadcrumb-main">
-                  <h4 class="text-capitalize breadcrumb-title">محصولات</h4>
-                  <div class="breadcrumb-action justify-content-center flex-wrap">
-                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                           <li class="breadcrumb-item"><a href="{{ route('home') }}"><i class="uil uil-estate"></i>خانه</a></li>
-                           <li class="breadcrumb-item active" aria-current="page">محصولات</li>
-                        </ol>
-                     </nav>
-                  </div>
-               </div>
+<main class="main-content-smallNav ">
+    <section>
+      <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm font-mono hidden lg:block px-5">
+        <div class="flex items-center justify-between max-w-[1500px] mx-auto">
+          <div>
+            <a href="#" class="px-4">قوانین و مجوزات</a>
+            <a href="#" class="px-4 border-x"> سوالات متداول </a>
+            <a href="#" class="px-4"> سیاست حفظ حریم خصوصی </a>
+          </div>
+          <div class="flex gap-4">
+            <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (1).png" alt=""></a></div>
+            <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (2).png" alt=""></a></div>
+            <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (3).png" alt=""></a></div>
+            <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (4).png" alt=""></a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="max-w-[1500px] mx-auto p-4 lg:p-9 lg:pt-0 mt-24 lg:mt-4">
+      <div class="lg:flex gap-5 hidden">
+        <div class="flex gap-1 text-[#828282] p-3 items-center lg:w-[70%] xl:w-[80%] bg-white dark:bg-[#001448] rounded-[10px]">
+          <a href="{{ route('home') }}" class="text-[#828282] !font-medium">خانه</a>
+          <span>/</span>
+          <a href="#" class="text-[#828282] font-bold">فروشگاه</a>
+        </div>
+        <div
+          class="flex items-center justify-center lg:w-[30%] xl:w-[20%] bg-white dark:bg-[#001448] rounded-[10px] gap-1 text-[#828282] p-3">
+          <span>دسته بندی : </span>
+          <a href="#">آیکون ها</a>
+        </div>
+      </div>
+      <div class="w-full relative" >
+        <div class="absolute top-[29%] lg:top-[40%] bottom-auto  flex flex-row z-10 w-full justify-between gap-5 items-center">
+          <button aria-label="slide forward"
+            class="mr-[-15px] lg:-mr-7 aspect-square  focus:outline-none focus:bg-[#000BEE] dark:bg-[#c2008b36] dark:focus:bg-[#C2008C] dark:focus:ring-[#C2008C] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full"
+            id="next">
+            <svg class="text-white" width="14" height="14" viewBox="0 0 8 14" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button aria-label="slide backward"
+            class=" ml-[-15px] lg:-ml-7 aspect-square  focus:outline-none focus:bg-[#000BEE] dark:bg-[#c2008b36] dark:focus:bg-[#C2008C] dark:focus:ring-[#C2008C] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full"
+            id="prev">
+            <svg class="text-white" width="14" height="14" viewBox="0 0 8 14" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+        <div class="w-full   mx-auto overflow-x-hidden overflow-y-hidden py-5 my-5 " dir="ltr">
+          <div id="slider" class="h-full  lg:gap-6 gap-8 flex items-center  transition ease-out duration-700 ">
+            <div class="lg:w-1/4 ">
+              <a href="#"
+                class="w-[92vw] lg:w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
+                <div class="hidden lg:block w-[60%] aspect-square  ">
+                  <img src="{{ asset('home-page/images/Design 1.png') }}" alt="" class="w-full">
+                </div>
+                <div class="flex flex-col justify-end ">
+                  <p class="text-gray-500 text-sm font-serif mb-[-8px]">
+                    3D models
+                  </p>
+                  <p class="text-[#000BEE]  dark:text-[#E8E9FF] text-3xl font-bold p-0 mt-2" style="font-family:rokh ;">
+                    مدل‌های سه بعدی
+                  </p>
+                </div>
+              </a>
             </div>
-         </div>
+            <div class="lg:w-1/4 ">
+              <a href="#"
+                class="w-[92vw] lg:w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
+                <div class="hidden lg:block w-[60%] aspect-square">
+                  <img src="{{ asset('home-page/images/Group (3).png') }}" alt="" class="w-full h-full">
+                </div>
+                <div class="flex flex-col justify-end ">
+                  <p class="text-gray-500 text-sm font-serif mb-[-8px]">
+                    Icons
+                  </p>
+                  <p class="text-[#000BEE] dark:text-[#E8E9FF] text-3xl font-bold p-0 mt-2" style="font-family:rokh ;">
+                    ایکون ها
+                  </p>
+                </div>
+              </a>
+            </div>
+            <div class="lg:w-1/4 ">
+              <a href="#"
+                class="w-[92vw] lg:w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
+                <div class="hidden lg:block w-[60%] aspect-square">
+                  <img src="{{ asset('home-page/images/Group@2x.png') }}" alt="" class="w-full h-full">
+                </div>
+                <div class="flex flex-col justify-end ">
+                  <p class="text-gray-500 text-sm font-serif mb-[-8px]">
+                    Vector and Illustrator
+                  </p>
+                  <p class="text-[#000BEE] dark:text-[#E8E9FF] text-3xl font-bold p-0 mt-2"  style="font-family:rokh ;">
+                    وکتور و ایلوستریتور
+                  </p>
+                </div>
+              </a>
+            </div>
+            <div class="lg:w-1/4 ">
+              <a href="#"
+                class="w-[92vw] lg:w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
+                <div class="hidden lg:block w-[60%] aspect-square">
+                  <img src="{{ asset('home-page/images/Group.png') }}" alt="" class="w-full">
+                </div>
+                <div class="flex flex-col justify-end ">
+                  <p class="text-gray-500 text-sm font-serif mb-[-8px]">
+                    Lotties animation
+                  </p>
+                  <p class="text-[#000BEE] dark:text-[#E8E9FF] text-3xl font-bold p-0 mt-2" style="font-family:rokh ;">
+                    انیمیشن Lotties
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-   </div>
-   <div class="products_page product_page--grid mb-30">
-      <div class="container-fluid">
-         <div class="row justify-content-center">
-            <div class="columns-1 col-lg-8 col-sm-10 mb-lg-0 mb-30">
-               <div class="widget mb-lg-30">
-                  <div class="widget-header-title px-20 py-15">
-                     <h6 class="d-flex align-content-center fw-500">
-                        <img src="img/svg/sliders.svg" alt="sliders" class="svg"> فیلترها
-                     </h6>
-                  </div>
-                  <div class="category_sidebar">
-                     <!-- Start: Aside -->
-                     <aside class="product-sidebar-widget mb-30">
-                        <!-- Title -->
-                        <div class="widget_title" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" role="button" aria-expanded="true">
-                           <h6>دسته</h6>
-                        </div>
-                        <!-- Title -->
-                        <!-- Body -->
-                        <div class="card border-0 shadow-none multi-collapse mt-10 collapse show" id="multiCollapseExample2" wire:ignore>
-                           <div class="product-category limit-list-item">
-                              <ul>
-                                 @forelse ($this->categories as $category)
-                                    <li>
-                                       <div class="w-100">
-                                          <a href="javascript::void(0)" wire:click="getPorductsByCategory({{ $category->id }})" class="fs-14 color-gray">{{ $category->name }}<span class="item-numbers">{{ $category->products_count }}</span></a>
-                                       </div>
-                                    </li>
-                                 @empty
-                                    <li>
-                                       <div class="w-100">
-                                          <span class="fs-14 color-gray">دسته ای وجود ندارد</span>
-                                       </div>
-                                    </li>
-                                 @endforelse
-                              </ul>
-                           </div>
-                        </div>
-                        <!-- Body -->
-                     </aside>
-                     <!-- End: Aside -->
-                  </div>
-               </div><!-- End: .widget -->
-            </div><!-- End: .columns-1 -->
-            <div class="columns-2 col-lg-12">
-               <!-- Start: Top Bar -->
-               <div class="shop_products_top_filter">
-                  <div class="project-top-wrapper d-flex flex-wrap align-items-center">
-                     <div class="project-top-left d-flex flex-wrap align-items-center">
-                        <div class="project-search shop-search  global-shadow ">
-                           <div class="d-flex align-items-center user-member__form">
-                              <img src="{{ asset('img/svg/search.svg') }}" alt="search" class="svg">
-                              <input class="form-control me-sm-2 border-0 box-shadow-none" wire:model.live.debounce.500ms="search" type="text" placeholder="جستجو" aria-label="Search">
-                           </div>
-                        </div>
-                     </div>
-                     <div class="project-top-right d-flex flex-wrap align-items-center">
-                        <div class="project-category flex-wrap d-flex align-items-center">
-                           <p class="fs-14 color-gray text-capitalize">مرتب سازی بر اساس:</p>
-                           <div class="project-tap project-tab__product">
-                              <ul class="nav px-1 " id="ap-tab" role="tablist">
-                                 <li class="nav-item">
-                                    <a class="nav-link @if($orderBy['newest']) active @endif" href="javascript::void(0)" wire:click="sortBy('newest')" role="tab" aria-controls="ap-overview" aria-selected="true">جدید ترین</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link @if($orderBy['cheapest']) active @endif" href="javascript::void(0)" wire:click="sortBy('cheapest')" role="tab" aria-controls="timeline" aria-selected="false">ارزان ترین</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link @if($orderBy['most-expensive']) active @endif" href="javascript::void(0)" wire:click="sortBy('most-expensive')" role="tab" aria-controls="activity" aria-selected="false">گرانترین</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link @if($orderBy['most-sales']) active @endif" href="javascript::void(0)" wire:click="sortBy('most-sales')" role="tab" aria-controls="draft" aria-selected="false">پر فروش ترین</a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                        <div class="project-icon-selected content-center mt-lg-0 mt-25">
-                           <div class="listing-social-link listing-social-link__products pb-lg-0 pb-xs-2">
-                              <div class="icon-list-social d-flex">
-                                 <a class="icon-list-social__link rounded-circle icon-list-social__style justify-content-center active ms-xl-20" href="#">
-                                    <img class="svg" src="{{ asset('img/svg/grid.svg') }}" alt="grid"></a>
-                                 <a class="icon-list-social__link rounded-circle icon-list-social__style justify-content-center  " href="product-list.html">
-                                    <img class="svg" src="{{ asset('img/svg/list.svg') }}" alt="list"></a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- End: Top Bar -->
-               <!-- Start: Shop Item -->
-               <div class="tab-content mt-25" id="ap-tabContent">
-                  <div class="tab-pane fade show active" id="ap-overview" role="tabpanel" aria-labelledby="ap-overview-tab">
-                     <!-- Start: Shop Item -->
-                     <div class="row product-page-list justify-content-center">
-                        <!-- Add a hidden loading spinner to your HTML -->
-                        <div id="loading" style="display: none;">
-                           <img src="path_to_your_spinner.gif" alt="Loading..." />
-                        </div>
-
-                        @forelse ($products as $product)
-                           <livewire:product-item :$product :key="'product' . $product->id" />
-                        @empty
-                           <x-empty-page />
-                        @endforelse
-
-                     </div>
-                     <!-- End: Shop Item -->
-                  </div>
-               </div>
-               <!-- End: Shop Item -->
-               <div class="row">
-                  <div class="col-12">
-                     <div class="user-pagination">
-                        <div class="d-flex justify-content-lg-end justify-content-center mt-1 mb-30">
-                           {{ $products->links() }}
-                        </div>
-                        <!-- End of Pagination-->
-                     </div>
-                  </div>
-               </div>
-            </div><!-- End: .columns-2 -->
-         </div>
+    </section>
+    <section class="max-w-[1500px] mx-auto  lg:p-9 mt-24 lg:mt-14 flex flex-col lg:flex-row gap-5 ">
+      <div id="fillterContainer"
+        class="hidden h-min absolute top-0 lg:top-0 rounded-[10px] z-[1100]  lg:relative lg:block w-full lg:w-1/4 lg:p-5 space-y-6 bg-white dark:bg-[#001448] lg:bg-transparent ">
+        <div class="w-full bg-white dark:bg-[#001448] lg:rounded-[10px] p-5 ">
+          <div class="flex justify-between items-center px-4 py-3">
+            <p class="text-[#FAB62F]  text-xl">همه</p>
+            <button onclick="closeFillterContainerMobile()"
+              class="rounded-full bg-[#EFEFEF] rotate-45 lg:hidden w-10 h-10 text-3xl">+</button>
+          </div>
+          <div class="space-y-2">
+          @forelse ($this->categories as $category)
+            <div >
+                <div class="w-full px-2 py-1 dark:text-gray-300 inline-flex justify-between items-center gap-x-3 w-full font-semibold text-start text-[#848383] disabled:opacity-50 disabled:pointer-events-none">
+                <a href="javascript::void(0)" wire:click="getPorductsByCategory({{ $category->id }})" class="w-full">{{ $category->name }}
+                  </a>
+                  <span class="text-xs text-right">{{ $category->products_count }}</span>
+                </div>
+              </div>
+            @empty
+            <div class="w-full">
+               <span class="dark:text-gray-300 p-2 text-[#848383]">دسته ای وجود ندارد</span>
+            </div>
+            @endforelse
+           
+           
+            
+          </div>
+        </div>
+        <div
+          class="w-full  bg-white dark:bg-[#001448] lg:rounded-[10px] p-5 text-[#848383] dark:text-[#F8F8F8] space-y-5">
+          <div>
+            <p>
+              فیلتر براساس قیمت ( تومان )
+            </p>
+          </div>
+          <div>
+            <input id="rangePrice" type="range" value="12000" min="9000" max="9999999" class="w-full ">
+          </div>
+          <div class="flex items-center gap-3">
+            <p>9000</p>
+            <hr class="border w-10">
+            <p id="priceFillter"></p>
+          </div>
+        </div>
+        <div
+          class="w-full bg-white dark:bg-[#001448] lg:rounded-[10px] p-5 text-[#848383] dark:text-[#F8F8F8] text-sm  space-y-5">
+          <div>
+            <p class="text-xl font-bold text-[#515151] dark:text-white py-2">برچسب ها</p>
+          </div>
+          <div class="grid grid-cols-2 gap-5">
+            <div class="flex items-center gap-5">
+              <input type="checkbox" name="lorm" class="w-[22px] h-[22px] rounded-lg">
+              <label for="lorm">لورم اپبسوم</label>
+            </div>
+            <div class="flex items-center gap-5">
+              <input type="checkbox" name="lorm" class="w-[22px] h-[22px] rounded-lg">
+              <label for="lorm">لورم اپبسوم</label>
+            </div>
+            <div class="flex items-center gap-5">
+              <input type="checkbox" name="lorm" class="w-[22px] h-[22px] rounded-lg">
+              <label for="lorm">لورم اپبسوم</label>
+            </div>
+            <div class="flex items-center gap-5">
+              <input type="checkbox" name="lorm" class="w-[22px] h-[22px] rounded-lg">
+              <label for="lorm">لورم اپبسوم</label>
+            </div>
+            <div class="flex items-center gap-5">
+              <input type="checkbox" name="lorm" class="w-[22px] h-[22px] rounded-lg">
+              <label for="lorm">لورم اپبسوم</label>
+            </div>
+            <div class="flex items-center gap-5">
+              <input type="checkbox" name="lorm" class="w-[22px] h-[22px] rounded-lg">
+              <label for="lorm">لورم اپبسوم</label>
+            </div>
+            <div class="flex items-center gap-5">
+              <input type="checkbox" name="lorm" class="w-[22px] h-[22px] rounded-lg">
+              <label for="lorm">لورم اپبسوم</label>
+            </div>
+            <div class="flex items-center gap-5">
+              <input type="checkbox" name="lorm" class="w-[22px] h-[22px] rounded-lg">
+              <label for="lorm">لورم اپبسوم</label>
+            </div>
+          </div>
+        </div>
       </div>
-   </div>
-   <!-- End: .products -->
-</div>
+      <div class="w-full lg:w-3/4 space-y-5 p-5">
+        <div class="flex flex-col-reverse lg:flex-row gap-6">
+          <div class="flex items-center gap-6 w-[100%] lg:w-[70%] scrollbar overflow-auto">
+            <div class="font-bold dark:text-white w-max">
+              <p class="w-max hidden lg:block">مرتب سازی :</p>
+            </div>
+            <button onclick="fillterContainerMobile()"
+              class=" lg:hidden px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383]   items-center  whitespace-nowrap  dark:text-white dark:bg-[#001448]  bg-white flex  gap-3">
+              <p>فیلتر</p>
+              <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 4.5H4" class="dark:stroke-white" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M1 14.5H7" class="dark:stroke-white" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16 14.5H19" class="dark:stroke-white" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13 4.5H19" class="dark:stroke-white" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path class="dark:stroke-white"  d="M4 4.5C4 3.56812 4 3.10218 4.15224 2.73463C4.35523 2.24458 4.74458 1.85523 5.23463 1.65224C5.60218 1.5 6.06812 1.5 7 1.5C7.93188 1.5 8.3978 1.5 8.7654 1.65224C9.2554 1.85523 9.6448 2.24458 9.8478 2.73463C10 3.10218 10 3.56812 10 4.5C10 5.43188 10 5.89782 9.8478 6.26537C9.6448 6.75542 9.2554 7.14477 8.7654 7.34776C8.3978 7.5 7.93188 7.5 7 7.5C6.06812 7.5 5.60218 7.5 5.23463 7.34776C4.74458 7.14477 4.35523 6.75542 4.15224 6.26537C4 5.89782 4 5.43188 4 4.5Z" stroke="#141B34" stroke-width="1.5"/>
+                <path class="dark:stroke-white" d="M10 14.5C10 13.5681 10 13.1022 10.1522 12.7346C10.3552 12.2446 10.7446 11.8552 11.2346 11.6522C11.6022 11.5 12.0681 11.5 13 11.5C13.9319 11.5 14.3978 11.5 14.7654 11.6522C15.2554 11.8552 15.6448 12.2446 15.8478 12.7346C16 13.1022 16 13.5681 16 14.5C16 15.4319 16 15.8978 15.8478 16.2654C15.6448 16.7554 15.2554 17.1448 14.7654 17.3478C14.3978 17.5 13.9319 17.5 13 17.5C12.0681 17.5 11.6022 17.5 11.2346 17.3478C10.7446 17.1448 10.3552 16.7554 10.1522 16.2654C10 15.8978 10 15.4319 10 14.5Z" stroke="#141B34" stroke-width="1.5"/>
+               </svg>
+            </button>
+            <div 
+              
+              role="tab">
+              <a class="nav-link @if($orderBy['most-sales']) active @endif   px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383] hs-tab-active:text-black hs-tab-active:bg-white dark:hs-tab-active:bg-[#001448] dark:hs-tab-active:text-white items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  active" href="javascript::void(0)" wire:click="sortBy('most-sales')" role="tab" aria-controls="draft" aria-selected="false">پر فروش ترین</a>
+            </div>
+            <div
+              role="tab" >
+              <a class="nav-link @if($orderBy['most-expensive']) active @endif   px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383] hs-tab-active:text-black hs-tab-active:bg-white dark:hs-tab-active:bg-[#001448] dark:hs-tab-active:text-white items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  " href="javascript::void(0)" wire:click="sortBy('most-expensive')" role="tab" aria-controls="activity" aria-selected="false">گرانترین</a> 
+            </div>
+            <div 
+              role="tab">
+              <a class="nav-link @if($orderBy['cheapest']) active @endif   px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383] hs-tab-active:text-black hs-tab-active:bg-white dark:hs-tab-active:bg-[#001448] dark:hs-tab-active:text-white items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  " href="javascript::void(0)" wire:click="sortBy('cheapest')" role="tab" aria-controls="timeline" aria-selected="false">ارزان ترین</a> 
+            </div>
+            <div 
+              role="tab">
+              <a class="nav-link @if($orderBy['newest']) active @endif  px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383] hs-tab-active:text-black hs-tab-active:bg-white dark:hs-tab-active:bg-[#001448] dark:hs-tab-active:text-white items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  " href="javascript::void(0)" wire:click="sortBy('newest')" role="tab" aria-controls="ap-overview" aria-selected="true">جدید ترین</a>
+            </div>
+
+          </div>
+          
+          <div class="flex gap-5 relative w-full lg:w-[30%]">
+            <input type="text" wire:model.live.debounce.500ms="search"
+              placeholder="جست و جو کنید" class="relative w-full py-3 text-[#000cee57] dark:text-[#ACB9FA] font-bold bg-[#c4d8ff] dark:bg-[#001448c9] rounded-[32px] focus:outline-none pl-11 px-5 border-0">
+            <svg  width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+              class="absolute left-5 top-3">
+              <path class="dark:stroke-white"
+                d="M11.4582 21.7501C17.1421 21.7501 21.7498 17.1423 21.7498 11.4584C21.7498 5.77448 17.1421 1.16675 11.4582 1.16675C5.77424 1.16675 1.1665 5.77448 1.1665 11.4584C1.1665 17.1423 5.77424 21.7501 11.4582 21.7501Z"
+                stroke="#000BEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path class="dark:stroke-white" d="M22.8332 22.8334L20.6665 20.6667" stroke="#000BEE" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+
+          </div>
+        </div>
+        <div>
+          <div id="tabs-with-underline-popular" role="tabpanel" aria-labelledby="tabs-with-underline-item-popular"
+            class="flex flex-col gap-10 transition-[5s] duration-500 process">
+           <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-5 transition-[5s] duration-500 ">
+              <!-- start card -->
+              @forelse ($products as $product)
+                  <livewire:product-item :$product :key="'product' . $product->id" />
+                      @empty
+                     <x-empty-page />
+                  @endforelse
+            
+           </div>
+           <a href="" class="load-more rounded-[10px] bg-white dark:bg-[#001448] dark:text-white text-gray-800 flex items-center justify-center w-max py-3 px-5 mx-auto mt-2">بیشتر ببینید</a>
+          </div>
+     
+         
+
+        </div>
+      </div>
+    
+      
+      
+    </section>
+<script>
+   $(function moreitem () {
+		$(".more-items").slice(0, 6).show();
+		$("body").on('click touchstart', '.load-more', function (e) {
+			e.preventDefault();
+			$(".more-items:hidden").slice(0, 6).slideDown();
+			if ($(".more-items:hidden").length == 0) {
+				$(".load-more").css('visibility', 'hidden');
+			}
+			$('html,body').animate({
+				scrollTop: $(this).offset().top
+			}, 1000);
+		});
+	});
+</script>
+  </main>

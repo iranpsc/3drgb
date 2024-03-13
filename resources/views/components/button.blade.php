@@ -4,6 +4,6 @@
     'size' => 'sm',
 ])
 
-<button type="{{ $type }}" class="btn btn-{{ $color }} btn-{{ $size }} radius-xs px-15" {{ $attributes }}>
+<button type="{{ $type }}" class=" bg-[#06CC85] w-full text-white font-bold text-center p-4 rounded-[10px] active:scale-105" {{ $attributes }}>
     {{ $slot }}
 </button>

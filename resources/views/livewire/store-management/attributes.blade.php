@@ -3,7 +3,7 @@
      title="ویژگی ها"
     actionBtn="true"
     actionBtnLink="#"
-    actionBtnText="ایجاد ویژگی جدید"
+    actionBtnText="ایجاد ویژگی جدید + "
     toggle="modal"
     target="#create-attribute">
         @if ($attributes->count() > 0)
@@ -22,6 +22,7 @@
                 </x-slot:header>
     
                 @foreach ($attributes as $attribute)
+                
                     <tr wire:key="{{ $attribute->id }}">
                         <td>
                             <div class="userDatatable-content">
@@ -45,7 +46,7 @@
                         </td>
                         <td>
                             <div class="userDatatable-content">
-                                <x-button color="danger" wire:click="delete({{ $attribute->id }})"
+                                <x-button style="background-color:red ;padding:5px" wire:click="delete({{ $attribute->id }})"
                                     wire:confirm="آیا از حذف این دسته بندی مطمئن هستید؟">حذف</x-button>
                             </div>
                         </td>

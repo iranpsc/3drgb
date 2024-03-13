@@ -1,3 +1,4 @@
+<main class="w-full main-content-smallNav ">
 <div>
     <x-page title="پروفایل من">
 
@@ -10,11 +11,11 @@
         @endsession
 
 
-        <div class="row justify-content-center">
-            <div class="col-sm-8 col-md-6 col-lg-4">
-                <div class="card">
-                    <div class="card-body">
-                        <form wire:submit="updateProfileInformation">
+        <div >
+            <div >
+                <div class="mt-5">
+                    <div class="">
+                        <form wire:submit="updateProfileInformation" class="grid lg:grid-cols-2 gap-7 ">
                             <x-form.text wire:model="name" name="name" label="نام" placeholder="نام" />
                             <x-form.text wire:model="email" name="email" type="email" label="ایمیل" placeholder="ایمیل" />
                             <x-form.text wire:model="phone" name="phone" label="تلفن همراه" placeholder="تلفن همراه" />
@@ -27,3 +28,4 @@
         </div>
     </x-page>
 </div>
+</main>    

@@ -5,7 +5,7 @@
             <x-alert type="danger" :message="session('error')" />
         @endsession
         
-        <div class="container-fluid">
+        <div  class="flex flex-col justify-center items-center">
             <div class="row">
                <div class="col-lg-12">
                 @if($orders->count() == 0)
