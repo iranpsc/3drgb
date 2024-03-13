@@ -73,9 +73,8 @@ class UpdateProduct extends Form
             'tags.*' => 'required|exists:tags,id',
             'attributes' => 'required|array|min:1',
             'attributes.*.id' => 'required|exists:attributes,id',
-            'attributes.*.value' => 'required|exists:attributes,id',
-            'meta_description' => 'required|exists:attributes,id',
-            'meta_keywords' => 'required|exists:attributes,id',
+            'meta_description' => 'required|string|max:500',
+            'meta_keywords' => 'required|string|max:255',
         ];
     }
 
@@ -102,6 +101,7 @@ class UpdateProduct extends Form
                 'meta_keywords',
             ])
         );
+
     }
 
     public function getProduct(): Product

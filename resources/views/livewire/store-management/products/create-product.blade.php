@@ -65,13 +65,15 @@
                     <label for="tags" class="flex flex-col gap-5">برچسب ها</label>
                     <div class="flex flex-col gap-5">
                         <div wire:ignore>
-                            <select name="tags" id="select-tag" class="bg-[#F8F9FA] dark:bg-[#4A4E7C] rounded-[10px] p-4 space-y-2 " label="برچسب ها" multiple="multiple" style="height:150px">
+                            <select name="tags" id="select-tag" class="bg-[#F8F9FA] dark:bg-[#4A4E7C] rounded-[10px] p-4 space-y-2  w-full" label="برچسب ها" multiple="multiple" style="height:150px">
                                 <option value="">انتخاب برچسب ها</option>
                                 @foreach ($tags as $tag)
                                     <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                                 @endforeach
                             </select>
                         </div>
+                                  
+
                         @error('form.tags') <span  style="color:red;padding:14px;background-color:rgba(207, 117, 117, 0.47);border-radius:10px">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -224,4 +226,5 @@
             }
         });
     </script>
+    
 @endscript

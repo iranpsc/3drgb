@@ -108,21 +108,6 @@ function openNav2(){
   };
  
   
-  //s show more product btn 
-  function topProductBtn() {
-    document.getElementById('top-product-btn').style.display = "flex";
-    document.getElementById('success-product-btn').style.display = "none";
-    document.getElementById('new-product-btn').style.display = "none";
-  }
-  function newProductBtn() {
-    document.getElementById('top-product-btn').style.display = "none";
-    document.getElementById('success-product-btn').style.display = "none";
-    document.getElementById('new-product-btn').style.display = "flex";
-  }
-  function successProductBtn() {
-    document.getElementById('top-product-btn').style.display = "none";
-    document.getElementById('success-product-btn').style.display = "flex";
-    document.getElementById('new-product-btn').style.display = "none";
-  };
+
 
   

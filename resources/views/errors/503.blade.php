@@ -1,5 +1,5 @@
 <x-layouts.app title="سایت در دست تعمیر است">
-<main class="w-full main-content-smallNav ">
+  <main class="w-full main-content-smallNav ">
     <div class="w-[85%] 2xl:w-[70%] mx-auto bg-white dark:bg-[#001448] rounded-2xl overflow-hidden mt-24 lg:mt-10">
           <div class="flex flex-col lg:flex-row justify-between w-full">
             <div class="text-[#000BEE] flex flex-col justify-between gap-8 w-full lg:w-[50%] dark:text-white mt-7 lg:mt-12">
@@ -9,7 +9,7 @@
                   صفحه ای که دنبال آن هستید وجود ندارد . از جستجو کردن کمک بگیرید یا به صفحه اصلی بروید .
                 </p>
                 <div class="flex gap-5 relative mt-5">
-                  <input type="text"
+                  <input type="text"  wire:model.live.debounce.500ms="searchTerm" 
                     class="relative w-full p-5 text-[#ACB9FA] font-bold bg-[#D8E5FD] dark:bg-[#001448c9] rounded-full focus:outline-none pr-12 md:px-20 lg:py-[23px]">
                  
                   
@@ -18,7 +18,7 @@
                           <path class="dark:stroke-white" d="M22.8332 22.8334L20.6665 20.6667" stroke="#000BEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                           </svg>
   
-                  <button
+                  <button type="button" wire:click="search"
                     class="bg-[#000BEE] dark:bg-[#C2008C] text-white font-bold md:text-xl pb-4 pt-[15px]  px-5 w-[30%] lg:w-[20%] rounded-[32px]  text-center absolute left-[6px] top-[6px] min-w-max">جستجو</button>
 
                     

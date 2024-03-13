@@ -48,13 +48,13 @@
             <div class="grid lg:grid-cols-2 gap-7">
                 
                 <x-form.select wire:model="form.customer_can_add_review" name="form.customer_can_add_review" label="مشتری می تواند دیدگاه بنویسد؟">
-                    <option value="1" selected>بله</option>
+                    <option value="1">بله</option>
                     <option value="0">خیر</option>
                 </x-form.select>
 
                 <x-form.select wire:model="form.published" name="form.published" label="محصول انتشار داده شود؟">
-                    <option value="1" selected>بله</option>
                     <option value="0">خیر</option>
+                    <option value="1">بله</option>
                 </x-form.select>
                 
                 <x-form.file wire:model="form.images" name="form.images" label="تصاویر محصول" multiple />
@@ -72,7 +72,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        @error('form.tags') <span <span style="color:red;padding:14px;background-color:rgba(207, 117, 117, 0.47);border-radius:10px">{{ $message }}</span> @enderror
+                        @error('form.tags') <span style="color:red;padding:14px;background-color:rgba(207, 117, 117, 0.47);border-radius:10px">{{ $message }}</span> @enderror
                     </div>
                 </div>
 

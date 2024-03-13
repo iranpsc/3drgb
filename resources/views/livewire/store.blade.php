@@ -34,20 +34,16 @@
           <button aria-label="slide forward"
             class="mr-[-15px] lg:-mr-7 aspect-square  focus:outline-none focus:bg-[#000BEE] dark:bg-[#c2008b36] dark:focus:bg-[#C2008C] dark:focus:ring-[#C2008C] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full"
             id="next">
-            <svg class="text-white" width="14" height="14" viewBox="0 0 8 14" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
+            <svg style="width:20px; height:20px" class="dark:fill-white rotate-180" width="29" height="22" viewBox="0 0 29 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" class="dark:fill-white " clip-rule="evenodd" d="M10 0C9.44772 0 9 0.447715 9 1C9 3.84609 7.67935 5.92053 5.97199 7.39265C4.25137 8.87621 2.17172 9.71149 0.803669 10.0192C0.791773 10.0216 0.779936 10.0242 0.768166 10.027C0.696033 10.0441 0.626926 10.0691 0.561789 10.1009C0.46092 10.1499 0.370703 10.2149 0.293615 10.292C0.193146 10.392 0.113024 10.5144 0.061842 10.6534C0.0213566 10.7627 -0.000339508 10.8799 -0.000213623 11.0001C-0.00028038 11.0787 0.0089798 11.156 0.0267162 11.2306C0.0613613 11.3774 0.128351 11.5117 0.219749 11.6255C0.330452 11.7638 0.478315 11.8735 0.652571 11.9378C0.701506 11.956 0.75202 11.9704 0.803688 11.9808C2.17174 12.2885 4.25138 13.1238 5.97199 14.6074C7.67935 16.0795 9 18.1539 9 21C9 21.5523 9.44772 22 10 22C10.5523 22 11 21.5523 11 21C11 17.4461 9.32065 14.8539 7.27801 13.0926C6.80751 12.687 6.31601 12.3235 5.81819 12H28C28.5523 12 29 11.5523 29 11C29 10.4477 28.5523 10 28 10H5.81819C6.31601 9.6765 6.80751 9.31303 7.27801 8.90735C9.32065 7.14614 11 4.55391 11 1C11 0.447715 10.5523 0 10 0Z" fill="#000BEE"/>
+                </svg>
           </button>
           <button aria-label="slide backward"
             class=" ml-[-15px] lg:-ml-7 aspect-square  focus:outline-none focus:bg-[#000BEE] dark:bg-[#c2008b36] dark:focus:bg-[#C2008C] dark:focus:ring-[#C2008C] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full"
             id="prev">
-            <svg class="text-white" width="14" height="14" viewBox="0 0 8 14" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
+            <svg style="width:20px; height:20px"  width="29" height="22" viewBox="0 0 29 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" class="dark:fill-white " clip-rule="evenodd" d="M10 0C9.44772 0 9 0.447715 9 1C9 3.84609 7.67935 5.92053 5.97199 7.39265C4.25137 8.87621 2.17172 9.71149 0.803669 10.0192C0.791773 10.0216 0.779936 10.0242 0.768166 10.027C0.696033 10.0441 0.626926 10.0691 0.561789 10.1009C0.46092 10.1499 0.370703 10.2149 0.293615 10.292C0.193146 10.392 0.113024 10.5144 0.061842 10.6534C0.0213566 10.7627 -0.000339508 10.8799 -0.000213623 11.0001C-0.00028038 11.0787 0.0089798 11.156 0.0267162 11.2306C0.0613613 11.3774 0.128351 11.5117 0.219749 11.6255C0.330452 11.7638 0.478315 11.8735 0.652571 11.9378C0.701506 11.956 0.75202 11.9704 0.803688 11.9808C2.17174 12.2885 4.25138 13.1238 5.97199 14.6074C7.67935 16.0795 9 18.1539 9 21C9 21.5523 9.44772 22 10 22C10.5523 22 11 21.5523 11 21C11 17.4461 9.32065 14.8539 7.27801 13.0926C6.80751 12.687 6.31601 12.3235 5.81819 12H28C28.5523 12 29 11.5523 29 11C29 10.4477 28.5523 10 28 10H5.81819C6.31601 9.6765 6.80751 9.31303 7.27801 8.90735C9.32065 7.14614 11 4.55391 11 1C11 0.447715 10.5523 0 10 0Z" fill="#000BEE"/>
+                </svg>
           </button>
         </div>
         <div class="w-full   mx-auto overflow-x-hidden overflow-y-hidden py-5 my-5 " dir="ltr">
@@ -244,8 +240,9 @@
           </div>
           
           <div class="flex gap-5 relative w-full lg:w-[30%]">
-            <input type="text" wire:model.live.debounce.500ms="search"
-              placeholder="جست و جو کنید" class="relative w-full py-3 text-[#000cee57] dark:text-[#ACB9FA] font-bold bg-[#c4d8ff] dark:bg-[#001448c9] rounded-[32px] focus:outline-none pl-11 px-5 border-0">
+
+            <input type="text" id="input2"  wire:model.live.debounce.500ms="search" placeholder="جستوجو"  
+              class="relative w-full py-3 text-[#000cee57] dark:text-[#ACB9FA] font-bold bg-[#c4d8ff] dark:bg-[#001448c9] rounded-[32px] focus:outline-none pl-11 px-5 border-0">
             <svg  width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
               class="absolute left-5 top-3">
               <path class="dark:stroke-white"
@@ -269,7 +266,8 @@
                   @endforelse
             
            </div>
-           <a href="" class="load-more rounded-[10px] bg-white dark:bg-[#001448] dark:text-white text-gray-800 flex items-center justify-center w-max py-3 px-5 mx-auto mt-2">بیشتر ببینید</a>
+           
+           {{ $products->links() }}
           </div>
      
          
@@ -282,7 +280,7 @@
     </section>
 <script>
    $(function moreitem () {
-		$(".more-items").slice(0, 6).show();
+		$(".more-items").slice(0, 9).show();
 		$("body").on('click touchstart', '.load-more', function (e) {
 			e.preventDefault();
 			$(".more-items:hidden").slice(0, 6).slideDown();
@@ -295,4 +293,5 @@
 		});
 	});
 </script>
+
   </main>

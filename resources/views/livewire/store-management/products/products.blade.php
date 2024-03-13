@@ -28,7 +28,7 @@
                         </td>
                         <td>
                             <div>
-                                {{ $product->name }}
+                                {{ $product->name }} <br> {{ $product->sku}}
                             </div>
                         </td>
                         <td>

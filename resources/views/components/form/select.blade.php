@@ -1,5 +1,4 @@
 @props(['name', 'label'])
-
 <div class="flex flex-col gap-3">
     <label for="{{ $name }}" >{{$label}}</label>
     <div class="flex flex-col gap-5">
