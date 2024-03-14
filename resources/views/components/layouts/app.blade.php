@@ -814,7 +814,7 @@
                 </div>
                 <div class="flex flex-wrap justify-center gap-5 mx-auto ">
                     <div>
-                        <a href="#">
+                        <a href="https://www.youtube.com/channel/UCG9jK8hoh9X5YoTs6Z1zlIQ">
                             <img src="{{ asset('home-page/images/youtub.png') }}" alt="">
                         </a>
                     </div>
@@ -824,14 +824,14 @@
                         </a>
                     </div>
                     <div>
-                        <a href="https://discord.gg/GnwvaDB7"
+                        <a href="https://discord.gg/xqBe3h9hnN"
                             class="bg-gray-200 w-[38px] h-[38px] rounded-full flex justify-center items-center">
                             <img src="{{ asset('home-page/images/discord-icon-svgrepo-com.png') }}" alt=""
                                 class="w-6 h-6  mt-1">
                         </a>
                     </div>
                     <div>
-                        <a href="https://www.instagram.com/3dmeta.irpsc?igsh=ZzRhNXVndXZldXYy">
+                        <a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy">
                             <img src="{{ asset('home-page/images/istagram.png') }}" alt="">
                         </a>
                     </div>
