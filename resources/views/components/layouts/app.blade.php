@@ -7,15 +7,11 @@
     <link href="{{ asset('home-page/style/main.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/fontawesome.css') }}">
-
     <link rel="stylesheet" href="{{ asset('assets/css/style-rtl.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/line-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/star-rating-svg.css') }}">
-
-
-
-
-    <title>{{ 'سه بعدی متا' . ' | ' . $title ?? config('app.name') }}</title>
+    {{-- <title>{{'سه بعدی متا' . ' | ' .  $title  ?? config('app.name') }}</title> --}}
+    
 </head>
 
 <body
@@ -64,9 +60,7 @@
                             </svg>
                         </a>
                     </div>
-
                 </div>
-
             </div>
         </nav>
         <!-- end head mobile nav -->

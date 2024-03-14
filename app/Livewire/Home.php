@@ -19,7 +19,7 @@ class Home extends Component
         $this->redirect('/products?search=' . $this->searchTerm);
     }
 
-    #[Layout('components.layouts.main', ['title' => 'خانه'])]
+    #[Title('Home')]
     public function render()
     {
         return view('livewire.home')

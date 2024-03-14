@@ -67,13 +67,13 @@
                         </div>
                     </td>
                     <td>
-                        <div class="userDatatable-content">
+                        <div class="flex flex-warp gap-2">
                             @if(!$review->approved)
-                                <button class="btn btn-sm btn-success" wire:click="approve({{ $review->id }})">تایید</button>
-                                <button class="btn btn-sm btn-danger" wire:click="delete({{ $review->id }})"
+                                <button class="rounded-[10px] text-white px-2" style="background-color: green"  wire:click="approve({{ $review->id }})">تایید</button>
+                                <button class="rounded-[10px] text-white px-2" style="background-color: red" class="btn btn-sm btn-danger" wire:click="delete({{ $review->id }})"
                                     wire:confirm="آیا می خواهید این دیدگاه را حذف کنید؟">حذف</button>
                             @else
-                                <button class="btn btn-sm btn-danger" wire:click="delete({{ $review->id }})"
+                                <button class="rounded-[10px] text-white px-2" style="background-color: red" class="btn btn-sm btn-danger" wire:click="delete({{ $review->id }})"
                                     wire:confirm="آیا می خواهید این دیدگاه را حذف کنید?">حذف</button>
                             @endif
                         </div>

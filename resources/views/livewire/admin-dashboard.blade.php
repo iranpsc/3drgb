@@ -33,11 +33,6 @@
                   <div class="col-xxl-6 col-sm-6 mb-25">
                      <!-- Card 2 -->
                      <div class="ap-po-details ap-po-details--2 p-25 radius-xl d-flex justify-content-between">
-
-
-
-
-
                         <div class="overview-content w-100">
                            <div class=" ap-po-details-content d-flex flex-wrap justify-content-between">
                               <div class="ap-po-details__titlebar">
