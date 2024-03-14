@@ -176,18 +176,18 @@
                     <div class="flex flex-col gap-3">
                         <div>
                             <label for="minprice">حداقل قیمت</label>
-                            <input name="minpeice"  type="number" class="w-full rounded-[10px] px-5 py-1 bg-[#F8F9FA] dark:bg-[#4A4E7C]">  
+                            <input id="minPrice" name="minpeice"  type="number" class="w-full rounded-[10px] px-5 py-1 bg-[#F8F9FA] dark:bg-[#4A4E7C]">  
                         </div>
                         <div>
                             <label for="maxprice">حداکثر قیمت</label>
-                            <input name="maxprice"  type="number" class="w-full rounded-[10px] px-5 py-1 bg-[#F8F9FA] dark:bg-[#4A4E7C]">
+                            <input id="maxPrice" name="maxprice"  type="number" class="w-full rounded-[10px] px-5 py-1 bg-[#F8F9FA] dark:bg-[#4A4E7C]">
                         </div>
                     </div>
-                    {{-- <div class="flex items-center gap-3">
-                        <p>9000</p>
+                    <div class="flex items-center gap-3">
+                        <p id="priceFillterMin"></p>
                         <hr class="border w-10">
-                        <p id="priceFillter"></p>
-                    </div> --}}
+                        <p id="priceFillterMax"></p>
+                    </div>
                 </div>
                 <div
                     class="w-full bg-white dark:bg-[#001448] lg:rounded-[10px] p-5 text-[#848383] dark:text-[#F8F8F8] text-sm  space-y-5">
@@ -288,4 +288,6 @@
             </div>
         </section>
     </main>
+
+
 </div>
