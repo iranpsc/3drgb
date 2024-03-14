@@ -174,14 +174,11 @@
                         </p>
                     </div>
                     <div class="flex flex-col gap-3">
-                        <div>
-                            <label for="minprice">حداقل قیمت</label>
-                            <input id="minPrice" name="minpeice"  type="number" class="w-full rounded-[10px] px-5 py-1 bg-[#F8F9FA] dark:bg-[#4A4E7C]">  
-                        </div>
-                        <div>
-                            <label for="maxprice">حداکثر قیمت</label>
-                            <input id="maxPrice" name="maxprice"  type="number" class="w-full rounded-[10px] px-5 py-1 bg-[#F8F9FA] dark:bg-[#4A4E7C]">
-                        </div>
+
+                        <span class="multi-range">
+                            <input type="range" min="0" max="50" value="5" id="minPrice">
+                            <input type="range" min="0" max="50" value="45" id="maxPrice">
+                        </span>
                     </div>
                     <div class="flex items-center gap-3">
                         <p id="priceFillterMin"></p>
@@ -197,7 +194,8 @@
                     <div class="grid grid-cols-2 gap-5">
                         @foreach ($tags as $tag)
                             <div class="flex items-center gap-5">
-                                <input type="checkbox" name="{{ $tag->name }}" class="w-[22px] h-[22px] rounded-lg">
+                                <input type="checkbox" name="{{ $tag->name }}"
+                                    class="w-[22px] h-[22px] rounded-lg">
                                 <label for="{{ $tag->name }}">{{ $tag->name }}</label>
                             </div>
                         @endforeach
@@ -288,6 +286,4 @@
             </div>
         </section>
     </main>
-
-
 </div>

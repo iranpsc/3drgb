@@ -127,6 +127,9 @@ function openNav2(){
     outputMax.innerHTML = this.value;
     displayMinMaxValues(); // Call the function to display min and max values
   }
+
+
+
  
   
 

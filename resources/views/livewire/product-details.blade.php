@@ -324,7 +324,10 @@
                 </div>
                 <div id="horizontal-right-alignment-2" class="hidden" role="tabpanel"
                     aria-labelledby="horizontal-right-alignment-item-2">
-                    <livewire:reviews :product="$product" />
+                    <div class="w-full lg:w-[60%] space-y-10">
+                        <livewire:reviews :product="$product" />
+                    </div>
+                    
                 </div>
             </div>
         </section>

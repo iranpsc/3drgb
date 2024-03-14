@@ -26,9 +26,6 @@
                 </div>
             </div>
             <div class="space-y-5 w-full lg:w-[60%]">
-                <p>عنوان</p>
-                <input type="text"
-                    class="w-full text-gray-400 py-3 rounded-[10px] border-2 border-gray-300 ring-offset-0 focus:ring-offset-0 ring-0 !focus:ring-0 bg-transparent">
                 <p class="mt-5">نظر شما در باره این محصول چیست؟</p>
                 <textarea wire:model="comment" name="" id="" cols="30" rows="10"
                     class="w-full text-gray-400 py-3 rounded-[10px] border-2 border-gray-300 ring-offset-0 focus:ring-offset-0 ring-0 !focus:ring-0 bg-transparent"></textarea>
@@ -45,42 +42,37 @@
     @endif
     @forelse ($product->reviews as $review)
         <div class="w-full" wire:key="{{ $review->id }}">
-            <div class="w-full lg:w-[60%] space-y-10">
-                <div class="w-full">
-                    <div class="space-y-5 ">
-                        <div class="flex gap-5 ">
-                            <div
-                                class="w-12 h-12 rounded-full bg-[#164C96] text-gray-200 flex items-center justify-center">
-                                <img src="" class="w-12 h-12 rounded-full">
+            <div class="w-full">
+                <div class="space-y-5 ">
+                    <div class="flex gap-5 ">
+                        <div
+                            class="w-12 h-12 rounded-full bg-[#164C96] text-gray-200 flex items-center justify-center">
+                            <img src="" class="w-12 h-12 rounded-full">
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex items-center gap-3 text-[#1D2939] dark:text-gray-200">
+                                <p class="font-bold">{{ $review->user->name }}</p>
+                                <p class="text-xs">3 روز پیش</p>
                             </div>
-                            <div class="space-y-1">
-                                <div class="flex items-center gap-3 text-[#1D2939] dark:text-gray-200">
-                                    <p class="font-bold">{{ $review->user->name }}</p>
-                                    <p class="text-xs">3 روز پیش</p>
-                                </div>
-                                <div class="product-details__availability my-2">
-                                    <div class="free">
-                                        <div class="stars-rating flex gap-3 items-center">
-                                            @for ($i = 0; $i < 5; $i++)
-                                                <span
-                                                    class="star-icon las la-star @if ($i < $review->rating) active @endif"></span>
-                                            @endfor
-                                        </div>
+                            <div class="product-details__availability my-2">
+                                <div class="free">
+                                    <div class="stars-rating flex gap-3 items-center">
+                                        @for ($i = 0; $i < 5; $i++)
+                                            <span
+                                                class="star-icon las la-star @if ($i < $review->rating) active @endif"></span>
+                                        @endfor
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="space-y-5">
-                            <p class="text-[#1D2939] dark:text-gray-200">
-                                بهترین محصول در بازار
-                            </p>
-                            <div class="text-[#1d29399d] dark:text-gray-200 text-sm">
-                                <p>{{ $review->comment }}</p>
-                                <div class="flex gap-4 items-center justify-end">
-                                    <button class="text-xs text-red-600">Replay</button>
-                                    <button class="text-xs ">Like</button>
-                                </div>
+                    <div class="space-y-5">
+                        <div class="text-[#1d29399d] dark:text-gray-200 text-sm">
+                            <p>{{ $review->comment }}</p>
+                            <div class="flex gap-4 items-center justify-end">
+                                <button class="text-xs text-red-600">Replay</button>
+                                <button class="text-xs ">Like</button>
                             </div>
                         </div>
                     </div>
