@@ -10,8 +10,18 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style-rtl.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/line-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/star-rating-svg.css') }}">
-    <title>{{'سه بعدی متا' . ' | ' .  $title  ?? config('app.name') }}</title>
-    
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <title>{{ 'سه بعدی متا' . ' | ' . $title ?? config('app.name') }}</title>
+
+    <style>
+        #style-1::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            background-color: #dee2e6;
+        }
+    </style>
+
 </head>
 
 <body
@@ -862,40 +872,7 @@
     <script src="{{ asset('home-page/script/product-img.js') }}"></script>
     <script src="{{ asset('home-page/script/main.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script>
-        $(function moreitem() {
-            $(".more-items").slice(0, 6).show();
-            $("body").on('click touchstart', '.load-more', function(e) {
-                e.preventDefault();
-                $(".more-items:hidden").slice(0, 6).slideDown();
-                if ($(".more-items:hidden").length == 0) {
-                    $(".load-more").css('visibility', 'hidden');
-                }
-                $('html,body').animate({
-                    scrollTop: $(this).offset().top
-                }, 1000);
-            });
-        });
-    </script>
-    <script>
-        $('#summernote').summernote({
-            placeholder: 'Hello stand alone ui',
-            tabsize: 2,
-            height: 120,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'underline', 'clear']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['table', ['table']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']]
-            ]
-        });
-    </script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <script src="{{ asset('assets/vendor_assets/js/jquery/jquery-3.5.1.min.js') }}"></script>
     <script src="{{ asset('assets/vendor_assets/js/jquery/jquery-ui.js') }}"></script>
@@ -945,8 +922,7 @@
                 $('.wrapper').html('<p>Sorry! Non webkit users. :(</p>');
             }
         });
-    </script>
-    <script>
+
         document.addEventListener('livewire:init', () => {
             Livewire.on('cartUpdated', (event) => {
                 let cartProductsCountIndicator = document.getElementById('cart-products-count-indicator');
@@ -954,21 +930,37 @@
                 cartProductsCountIndicator.innerText = event[0]['cartProductsCount'];
             });
         });
+
+        $(function moreitem() {
+            $(".more-items").slice(0, 6).show();
+            $("body").on('click touchstart', '.load-more', function(e) {
+                e.preventDefault();
+                $(".more-items:hidden").slice(0, 6).slideDown();
+                if ($(".more-items:hidden").length == 0) {
+                    $(".load-more").css('visibility', 'hidden');
+                }
+                $('html,body').animate({
+                    scrollTop: $(this).offset().top
+                }, 1000);
+            });
+        });
+
+        $('#summernote').summernote({
+            placeholder: 'Hello stand alone ui',
+            tabsize: 2,
+            height: 120,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
     </script>
-    <style>
-        #style-1::-webkit-scrollbar-thumb {
-            border-radius: 10px;
-            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-            background-color: #dee2e6;
-        }
-    </style>
 
 </body>
 
-
-
-
-  
-
-</body>
 </html>

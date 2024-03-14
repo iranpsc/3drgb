@@ -6,6 +6,7 @@ use App\Models\Category;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use App\Models\Product;
+use App\Models\Tag;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Url;
 use Livewire\WithPagination;
@@ -17,7 +18,12 @@ class Store extends Component
     #[Url(as: 'search')]
     public $q = '';
 
-    public $search;
+    public $price_filter = [
+        'min' => 0,
+        'max' => 1000,
+    ];
+
+    public $search, $tags;
 
     private $products;
 
@@ -38,19 +44,14 @@ class Store extends Component
                 ->with('images')
                 ->orderByDesc('created_at')
                 ->paginate(16);
-        } else {
-            $this->products = Product::published()
-                ->withCount('reviews')
-                ->withAvg('reviews as rating_avg', 'rating')
-                ->with('images')
-                ->orderByDesc('created_at')
-                ->paginate(16);
         }
+
+        $this->tags = Tag::take(10)->get();
     }
 
     /**
      * Search for products.
-     * 
+     *
      * @return void
      */
     public function updatedSearch()
@@ -59,6 +60,20 @@ class Store extends Component
 
         $this->products = Product::published()
             ->where('name', 'like', '%' . $this->search . '%')
+            ->paginate(16);
+    }
+
+    /**
+     * Filter products by price.
+     *
+     * @return void
+     */
+    public function updatedPriceFilter()
+    {
+        $this->resetPage();
+
+        $this->products = Product::published()
+            ->whereBetween('price', [$this->price_filter['min'], $this->price_filter['max']])
             ->paginate(16);
     }
 
@@ -105,7 +120,8 @@ class Store extends Component
     {
         return Category::whereHas('products', function ($query) {
             $query->published();
-        })->select('id', 'name')->withCount('products')->get();
+        })->select('id', 'name')->withCount('products')
+            ->orderByDesc('products_count')->get();
     }
 
     public function updatingPage($page)
@@ -115,14 +131,19 @@ class Store extends Component
 
     public function updatedPage($page)
     {
-        $this->products = Product::published()->paginate(16, ['*'], 'page', $page);
+        $this->products = Product::published()->paginate(16);
     }
 
     #[Title('محصولات')]
     public function render()
     {
         return view('livewire.store', [
-            'products' => $this->products,
+            'products' => $this->products ?? Product::published()
+                ->withCount('reviews')
+                ->withAvg('reviews as rating_avg', 'rating')
+                ->with('images')
+                ->orderByDesc('created_at')
+                ->paginate(16)
         ]);
     }
 }

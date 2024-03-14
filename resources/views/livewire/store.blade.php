@@ -189,42 +189,16 @@
                         <p class="text-xl font-bold text-[#515151] dark:text-white py-2">برچسب ها</p>
                     </div>
                     <div class="grid grid-cols-2 gap-5">
-                        <div class="flex items-center gap-5">
-                            <input type="checkbox" name="lorm" class="w-[22px] h-[22px] rounded-lg">
-                            <label for="lorm">لورم اپبسوم</label>
-                        </div>
-                        <div class="flex items-center gap-5">
-                            <input type="checkbox" name="lorm" class="w-[22px] h-[22px] rounded-lg">
-                            <label for="lorm">لورم اپبسوم</label>
-                        </div>
-                        <div class="flex items-center gap-5">
-                            <input type="checkbox" name="lorm" class="w-[22px] h-[22px] rounded-lg">
-                            <label for="lorm">لورم اپبسوم</label>
-                        </div>
-                        <div class="flex items-center gap-5">
-                            <input type="checkbox" name="lorm" class="w-[22px] h-[22px] rounded-lg">
-                            <label for="lorm">لورم اپبسوم</label>
-                        </div>
-                        <div class="flex items-center gap-5">
-                            <input type="checkbox" name="lorm" class="w-[22px] h-[22px] rounded-lg">
-                            <label for="lorm">لورم اپبسوم</label>
-                        </div>
-                        <div class="flex items-center gap-5">
-                            <input type="checkbox" name="lorm" class="w-[22px] h-[22px] rounded-lg">
-                            <label for="lorm">لورم اپبسوم</label>
-                        </div>
-                        <div class="flex items-center gap-5">
-                            <input type="checkbox" name="lorm" class="w-[22px] h-[22px] rounded-lg">
-                            <label for="lorm">لورم اپبسوم</label>
-                        </div>
-                        <div class="flex items-center gap-5">
-                            <input type="checkbox" name="lorm" class="w-[22px] h-[22px] rounded-lg">
-                            <label for="lorm">لورم اپبسوم</label>
-                        </div>
+                        @foreach ($tags as $tag)
+                            <div class="flex items-center gap-5">
+                                <input type="checkbox" name="{{ $tag->name }}" class="w-[22px] h-[22px] rounded-lg">
+                                <label for="{{ $tag->name }}">{{ $tag->name }}</label>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
-            <div class="w-full lg:w-3/4 space-y-5 p-5">
+            <div class="w-full lg:w-3/4 space-y-5 p-5" id="products-list">
                 <div class="flex flex-col-reverse lg:flex-row gap-6">
                     <div class="flex items-center gap-6 w-[100%] lg:w-[70%] scrollbar overflow-auto">
                         <div class="font-bold dark:text-white w-max">
@@ -302,7 +276,7 @@
                                 <x-empty-page />
                             @endforelse
                         </div>
-                        {{ $products->links() }}
+                        {{ $products->links(data: ['scrollTo' => '#products-list']) }}
                     </div>
                 </div>
             </div>
