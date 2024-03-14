@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use App\Models\Category;
 use Livewire\Attributes\Rule;
@@ -19,7 +19,7 @@ class Home extends Component
         $this->redirect('/products?search=' . $this->searchTerm);
     }
 
-    #[Title('Home')]
+    #[Title('سه بعری متا')]
     public function render()
     {
         return view('livewire.home')
