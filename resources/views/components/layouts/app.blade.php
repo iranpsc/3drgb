@@ -237,7 +237,7 @@
                                                         <div
                                                             class="flex flex-col text-sm text-[#000BEE] font-bold gap-5 p-3 pr-[20PX] dark:text-[#868B90]">
                                                             @foreach ($category->children as $child)
-                                                                <a href="/products?category={{ $child->id }}"
+                                                                <a href="{{ route('product-categories', ['categories' => $category->slug . '/' . $child->slug]) }}"
                                                                     class="text-[#868B90]">{{ $child->name }}</a>
                                                             @endforeach
                                                         </div>

@@ -8,6 +8,7 @@ use App\Livewire\Cart;
 use App\Livewire\Checkout\Checkout;
 use App\Livewire\Checkout\Verify;
 use App\Livewire\Home;
+use App\Livewire\ProductCategory;
 use App\Livewire\Store;
 use App\Livewire\StoreManagement\Attributes;
 use App\Livewire\StoreManagement\Categories\Categories;
@@ -48,6 +49,9 @@ Route::get('/', Home::class)->name('home');
 Route::get('/about-us', AboutUs::class)->name('about-us');
 Route::get('/products', Store::class)->name('products');
 Route::get('/products/3drgb-product-{product}', ProductDetails::class)->name('products.show');
+Route::get('/product-category/{categories}', ProductCategory::class)
+    ->where('categories', '.*')
+    ->name('product-categories');
 Route::get('/cart', Cart::class)->name('cart');
 Route::get('/checkout', Checkout::class)->name('checkout');
 
@@ -103,6 +107,6 @@ Route::middleware('guest')->prefix('auth')->group(function () {
 
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->name('logout');
 
-Route::get('/download/{file}', function(Request $request, File $file) {
+Route::get('/download/{file}', function (Request $request, File $file) {
     return response()->download(storage_path("app/{$file->path}"), $file->name);
 })->middleware('signed')->name('files.download');
