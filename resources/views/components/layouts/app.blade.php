@@ -222,71 +222,28 @@
                                         </div>
                                     </label>
                                     <ul>
+                                        @php
+                                            $categories = \App\Models\Category::with('parent', 'children')->get();
+                                        @endphp
                                         <li class="">
                                             <input type="checkbox" id="c3" class="peer" />
-                                            <label for="c3"
-                                                class="tree_label w-full text-[#868B90] peer-checked:text-[#000BEE] dark:peer-checked:text-white peer-checked:bg-[#ECF4FE] dark:peer-checked:bg-[#C2008C]/30">
-                                                مدل سه بعدی</label>
-                                            <ul>
-                                                <div
-                                                    class="flex flex-col text-sm text-[#000BEE] font-bold gap-5 p-3 pr-[20PX] dark:text-[#868B90]">
-                                                    <a href="#">آواتار</a>
-                                                    <a href="#">پکیج آواتار
-                                                    </a>
-                                                    <a href="#">سه بعدی
-                                                    </a>
-                                                    <a href="#">پکیج سه بعدی</a>
-                                                </div>
-
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <input type="checkbox" id="c4" class="peer" />
-                                            <label for="c4"
-                                                class="tree_label w-full text-[#868B90] peer-checked:text-[#000BEE] dark:peer-checked:text-white peer-checked:bg-[#ECF4FE] dark:peer-checked:bg-[#C2008C]/30">آیکون
-                                                ها </label>
-                                            <ul>
-                                                <div
-                                                    class="flex flex-col text-sm text-[#000BEE] font-bold gap-5 p-3 pr-[20PX] dark:text-[#868B90]">
-                                                    <a href="#">لورم</a>
-                                                    <a href="#">لورم</a>
-                                                    <a href="#">لورم</a>
-                                                    <a href="#">لورم</a>
-                                                </div>
-                                            </ul>
-
-                                        </li>
-                                        <li>
-                                            <input type="checkbox" id="c5" class="peer" />
-                                            <label for="c5"
-                                                class="tree_label w-full text-[#868B90] peer-checked:text-[#000BEE] dark:peer-checked:text-white peer-checked:bg-[#ECF4FE] dark:peer-checked:bg-[#C2008C]/30">
-                                                وکتور و ایلوستریتور </label>
-                                            <ul>
-                                                <div
-                                                    class="flex flex-col text-sm text-[#000BEE] font-bold gap-5 p-3 pr-[20PX] dark:text-[#868B90]">
-                                                    <a href="#">لورم</a>
-                                                    <a href="#">لورم</a>
-                                                    <a href="#">لورم</a>
-                                                    <a href="#">لورم</a>
-                                                </div>
-                                            </ul>
-
-                                        </li>
-                                        <li>
-                                            <input type="checkbox" id="c6" class="peer" />
-                                            <label for="c6"
-                                                class="tree_label w-full text-[#868B90] peer-checked:text-[#000BEE] dark:peer-checked:text-white peer-checked:bg-[#ECF4FE] dark:peer-checked:bg-[#C2008C]/30">
-                                                انیمیشن Lotties </label>
-                                            <ul>
-                                                <div
-                                                    class="flex flex-col text-sm text-[#000BEE] font-bold gap-5 p-3 pr-[20PX] dark:text-[#868B90]  ">
-                                                    <a href="#">لورم</a>
-                                                    <a href="#">لورم</a>
-                                                    <a href="#">لورم</a>
-                                                    <a href="#">لورم</a>
-                                                </div>
-                                            </ul>
-
+                                            @foreach ($categories as $category)
+                                                @empty($category->parent_id)
+                                                    <label for="c3"
+                                                        class="tree_label w-full text-[#868B90] peer-checked:text-[#000BEE] dark:peer-checked:text-white peer-checked:bg-[#ECF4FE] dark:peer-checked:bg-[#C2008C]/30">
+                                                        {{ $category->name }}
+                                                    </label>
+                                                    <ul>
+                                                        <div
+                                                            class="flex flex-col text-sm text-[#000BEE] font-bold gap-5 p-3 pr-[20PX] dark:text-[#868B90]">
+                                                            @foreach ($category->children as $child)
+                                                                <a href="/products?category={{ $child->id }}"
+                                                                    class="text-[#868B90]">{{ $child->name }}</a>
+                                                            @endforeach
+                                                        </div>
+                                                    </ul>
+                                                @endempty
+                                            @endforeach
                                         </li>
                                     </ul>
                                 </li>

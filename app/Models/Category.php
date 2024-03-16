@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sitemap\Contracts\Sitemapable;
 use Spatie\Sitemap\Tags\Url;
+use Staudenmeir\EloquentHasManyDeep\HasRelationships;
 
 class Category extends Model implements Sitemapable
 {
-    use HasFactory;
+    use HasFactory, HasRelationships;
 
     protected $fillable = [
         'name',
@@ -52,7 +53,7 @@ class Category extends Model implements Sitemapable
 
     /**
      * Get the parent category that owns the category.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function parent()
@@ -62,7 +63,7 @@ class Category extends Model implements Sitemapable
 
     /**
      * Get the children categories for the category.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function children()
@@ -72,7 +73,7 @@ class Category extends Model implements Sitemapable
 
     /**
      * Get the products for the category.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function products()
@@ -82,7 +83,7 @@ class Category extends Model implements Sitemapable
 
     /**
      * Get the image for the category.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
     public function image()

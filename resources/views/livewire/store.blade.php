@@ -174,16 +174,17 @@
                         </p>
                     </div>
                     <div class="flex flex-col gap-3">
-
                         <span class="multi-range">
-                            <input type="range" min="0" max="50" value="5" id="minPrice">
-                            <input type="range" min="0" max="50" value="45" id="maxPrice">
+                            <input type="range" min="0" max="200000" value="8000" step="1"
+                                id="minPrice" wire:model.live.debounce.500ms="price_filter.min">
+                            <input type="range" min="0" max="200000" value="479900" step="1"
+                                id="maxPrice" wire:model.live.debounce.500ms="price_filter.max">
                         </span>
                     </div>
                     <div class="flex items-center gap-3">
-                        <p id="priceFillterMin"></p>
+                        <p id="priceFillterMin">{{ $price_filter['min'] }}</p>
                         <hr class="border w-10">
-                        <p id="priceFillterMax"></p>
+                        <p id="priceFillterMax">{{ $price_filter['max'] }}</p>
                     </div>
                 </div>
                 <div
@@ -194,9 +195,9 @@
                     <div class="grid grid-cols-2 gap-5">
                         @foreach ($tags as $tag)
                             <div class="flex items-center gap-5">
-                                <input type="checkbox" name="{{ $tag->name }}"
-                                    class="w-[22px] h-[22px] rounded-lg">
-                                <label for="{{ $tag->name }}">{{ $tag->name }}</label>
+                                <input type="checkbox" id="{{ 'tag-' . $tag->id }}" value="{{ $tag->id }}"
+                                    class="w-[22px] h-[22px] rounded-lg" wire:model.live="tag_filter">
+                                <label for="{{ 'tag-' . $tag->id }}">{{ $tag->name }}</label>
                             </div>
                         @endforeach
                     </div>
@@ -255,7 +256,7 @@
                     <div class="flex gap-5 relative w-full lg:w-[30%]">
 
                         <input type="text" id="input2" wire:model.live.debounce.500ms="search"
-                            placeholder="جستوجو"
+                            placeholder="جستجو"
                             class="relative w-full py-3 text-[#000cee57] dark:text-[#ACB9FA] font-bold bg-[#c4d8ff] dark:bg-[#001448c9] rounded-[32px] focus:outline-none pl-11 px-5 border-0">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg" class="absolute left-5 top-3">
@@ -275,9 +276,9 @@
                         <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-5 transition-[5s] duration-500 ">
                             <!-- start card -->
                             @forelse ($products as $product)
-                                <livewire:product-item :$product :key="'product' . $product->id" />
+                                <livewire:product-item :$product :key="'product-' . $product->id" />
                             @empty
-                                <x-empty-page />
+                                <x-alert type="warning" message="محصولی یافت نشد" />
                             @endforelse
                         </div>
                         {{ $products->links(data: ['scrollTo' => '#products-list']) }}

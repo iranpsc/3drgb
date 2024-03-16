@@ -64,21 +64,8 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     /**
-     * Send the password reset notification.
-     * 
-     * @param string $token
-     * @return void
-     */
-    public function sendPasswordResetNotification($token)
-    {
-        $url = url('/reset-password/' . $token . '?email=' . $this->email);
-
-        $this->notify(new SendPasswordResetNotification($url));
-    }
-
-    /**
      * Get the user's role.
-     * 
+     *
      * @return string
      */
     public function role()
@@ -88,7 +75,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Determine if the user has the given role
-     * 
+     *
      * @param string $role
      * @return bool
      */
@@ -99,7 +86,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Get the orders for the user.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function orders()
@@ -109,7 +96,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Get the transactions for the user.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
      */
     public function transactions()
@@ -119,7 +106,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Get the products for the user.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function products()
@@ -129,7 +116,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Check if user has purchased the given product.
-     * 
+     *
      * @param \App\Models\Product $product
      * @return bool
      */
@@ -140,7 +127,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Get user's tickets
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function tickets()
@@ -150,7 +137,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Check if user has already added review for the given product.
-     * 
+     *
      * @param \App\Models\Product $product
      * @return bool
      */

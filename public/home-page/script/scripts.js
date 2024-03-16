@@ -89,7 +89,7 @@ function openNav2(){
    document.getElementById("open-nav-btn").style.display = 'flex';
   };
 
-  
+
   function fillterContainerMobile() {
     document.getElementById("fillterContainer").style.display = "block";
   }
@@ -99,38 +99,6 @@ function openNav2(){
 
 
 
-  // Update the current slider value (each time you drag the slider handle)
-  slider.oninput = function () {
-    output.innerHTML = this.value;
-  };
-
-  var sliderMin = document.getElementById("minPrice");
-  var outputMin = document.getElementById("priceFillterMin");
-  outputMin.innerHTML = sliderMin.value; // Display the default slider value
-  
-  var sliderMax = document.getElementById("maxPrice");
-  var outputMax = document.getElementById("priceFillterMax");
-  outputMax.innerHTML = sliderMax.value; // Display the default slider value
-  
-  // Function to display min and max values in console
-  function displayMinMaxValues() {
-    console.log("Minimum value:", sliderMin.value);
-    console.log("Maximum value:", sliderMax.value);
-  }
-  
-  sliderMin.oninput = function() {
-    outputMin.innerHTML = this.value;
-    displayMinMaxValues(); // Call the function to display min and max values
-  }
-  
-  sliderMax.oninput = function() {
-    outputMax.innerHTML = this.value;
-    displayMinMaxValues(); // Call the function to display min and max values
-  }
 
 
 
- 
-  
-
-  

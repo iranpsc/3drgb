@@ -18,10 +18,15 @@ class Store extends Component
     #[Url(as: 'search')]
     public $q = '';
 
+    #[Url(as: 'category')]
+    public $category;
+
     public $price_filter = [
-        'min' => 0,
-        'max' => 1000,
+        'min' => 7000,
+        'max' => 95000,
     ];
+
+    public $tag_filter = [];
 
     public $search, $tags;
 
@@ -46,6 +51,10 @@ class Store extends Component
                 ->paginate(16);
         }
 
+        if ($this->category) {
+            //
+        }
+
         $this->tags = Tag::take(10)->get();
     }
 
@@ -60,6 +69,11 @@ class Store extends Component
 
         $this->products = Product::published()
             ->where('name', 'like', '%' . $this->search . '%')
+            ->where('name', 'like', '%' . $this->q . '%')
+            ->withCount('reviews')
+            ->withAvg('reviews as rating_avg', 'rating')
+            ->with('images')
+            ->orderByDesc('created_at')
             ->paginate(16);
     }
 
@@ -74,6 +88,10 @@ class Store extends Component
 
         $this->products = Product::published()
             ->whereBetween('price', [$this->price_filter['min'], $this->price_filter['max']])
+            ->withCount('reviews')
+            ->withAvg('reviews as rating_avg', 'rating')
+            ->with('images')
+            ->orderByDesc('created_at')
             ->paginate(16);
     }
 
@@ -83,6 +101,28 @@ class Store extends Component
 
         $this->products = Product::published()
             ->where('category_id', $id)
+            ->withCount('reviews')
+            ->withAvg('reviews as rating_avg', 'rating')
+            ->with('images')
+            ->orderByDesc('created_at')
+            ->paginate(16);
+    }
+
+    public function updatedTagFilter()
+    {
+        $this->resetPage();
+
+        $this->products = Product::published()
+            ->when(!empty($this->tag_filter), function ($query) {
+                $query->whereHas('tags', function ($query) {
+                    $query->whereIn('tags.id', $this->tag_filter);
+                });
+            })
+            ->where('name', 'like', '%' . $this->q . '%')
+            ->withCount('reviews')
+            ->withAvg('reviews as rating_avg', 'rating')
+            ->with('images')
+            ->orderByDesc('created_at')
             ->paginate(16);
     }
 
@@ -112,6 +152,11 @@ class Store extends Component
             ->when($orderBy == 'most-sales', function ($query) {
                 $query->withCount('sales')->orderByDesc('sales_count');
             })
+            ->where('name', 'like', '%' . $this->q . '%')
+            ->withCount('reviews')
+            ->withAvg('reviews as rating_avg', 'rating')
+            ->with('images')
+            ->orderByDesc('created_at')
             ->paginate(16);
     }
 
@@ -131,7 +176,13 @@ class Store extends Component
 
     public function updatedPage($page)
     {
-        $this->products = Product::published()->paginate(16);
+        $this->products = Product::published()
+            ->where('name', 'like', '%' . $this->q . '%')
+            ->withCount('reviews')
+            ->withAvg('reviews as rating_avg', 'rating')
+            ->with('images')
+            ->orderByDesc('created_at')
+            ->paginate(16);
     }
 
     #[Title('محصولات')]
