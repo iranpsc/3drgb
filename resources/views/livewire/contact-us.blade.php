@@ -32,23 +32,29 @@
                                 شروع یک مکالمه سازنده باشد.</p>
                         </div>
 
-                        <div class="grid lg:grid-cols-2 gap-7">
-                            <input type="text" placeholder="نام و نام خانوادگی"
-                                class="w-full  bg-[#F8F9FA] dark:bg-[#4A4E7C] rounded-[10px] p-4 ">
-                            <input type="text" placeholder="شماره تلفن"
-                                class="w-full  bg-[#F8F9FA] dark:bg-[#4A4E7C] rounded-[10px] p-4 ">
-                            <input type="text" placeholder="پست الکترونیک"
-                                class="w-full  bg-[#F8F9FA] dark:bg-[#4A4E7C] rounded-[10px] p-4 ">
-                            <input type="text" placeholder=" موضوع پیام  "
-                                class="w-full bg-[#F8F9FA] dark:bg-[#4A4E7C] rounded-[10px] p-4 ">
-                        </div>
-                        <div class="flex flex-col gap-7 w-full ">
-                            <textarea cols="30" rows="10" placeholder="پیام خود را اینجا بنویسید..."
-                                class="bg-[#F8F9FA] dark:bg-[#4A4E7C] w-full p-4 rounded-[10px]"></textarea>
-                            <button
-                                class="bg-[#06CC85] w-full text-white font-bold text-center p-4 rounded-[10px]">ارسال
-                                پیام</button>
-                        </div>
+                        @session('message')
+                            <div class="bg-green-500 text-white p-3 rounded-lg text-center">
+                                {{ session('message') }}
+                            </div>
+                        @endsession
+
+                        <form wire:submit="submit">
+                            <div class="grid lg:grid-cols-2 gap-7">
+                                <x-form.text name="name" label="نام و نام خانوادگی" wire:model="name"/>
+
+                                <x-form.text name="phone" label="شماره تلفن" wire:model="phone"/>
+
+                                <x-form.text name="email" label="پست الکترونیک" wire:model="email"/>
+
+                                <x-form.text name="subject" label="موضوع پیام" wire:model="subject"/>
+
+                            </div>
+                            <div class="flex flex-col gap-7 w-full ">
+                                <x-form.textarea name="message" label="پیام خود را اینجا بنویسید..." wire:model="message"/>
+
+                                <x-button type="submit">ارسال پیام</x-button>
+                            </div>
+                        </form>
                     </div>
                     <div class="flex flex-col gap-7 w-full lg:w-1/2 justify-center lg:justify-start">
                         <div class="flex flex-col lg:flex-row items-center justify-end gap-6">

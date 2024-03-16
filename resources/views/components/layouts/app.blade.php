@@ -282,7 +282,7 @@
                                 <path d="M21 8C21 4.13 17.87 1 14 1" stroke="#868B90" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <a href="./contactus.html" class="text-[#868B90]"> تماس با ما</a>
+                            <a href="{{ route('contact-us') }}" class="text-[#868B90]"> تماس با ما</a>
                         </div>
                         <div class="pr-[20PX] p-[14px] flex items-center gap-4">
                             <svg class="w-7 h-7" width="23" height="24" viewBox="0 0 23 24" fill="none"
