@@ -49,7 +49,7 @@
                     <div
                         class="flex w-1/2 flex-col justify-center items-center rounded-[30px] bg-white dark:bg-[#4A4E7C] text-[#157EFB] dark:text-white gap-5 px-3 py-7">
                         <div class="rounded-full overflow-hidden w-[80%] border-2 border-[#157EFB]">
-                            <img src="{{ asset('home-page/images/alizadeh.jpeg') }}" alt=""
+                            <img src="{{ asset('home-page/images/alizadeh.JPEG') }}" alt=""
                                 class="w-full h-full ">
                         </div>
                         <div class="flex flex-col justify-center items-center gap-4 text-center">
