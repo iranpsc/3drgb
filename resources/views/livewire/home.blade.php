@@ -50,8 +50,8 @@
             </div>
           </div>
         </div>
-        <img src="{{ asset('home-page/images/IMG_1967.png') }}" alt="" class=" dark:hidden w-full  overflow-hidden mb-36 2xl:mt-[-185px]">
         <img src="{{ asset('home-page/images/output-onlinepngtools.png') }}" alt="" class=" hidden dark:block  w-full  overflow-hidden mb-36 2xl:mt-[-185px]">
+        <img src="{{ asset('home-page/images/helal.png') }}" alt="" class=" dark:hidden w-full  overflow-hidden mb-36 2xl:mt-[-185px]">
 
       </div>
 

@@ -555,7 +555,7 @@
                             </a>
                         </div>
                         <div class="w-7 h-7">
-                            <a href="./contactus.html" class="w-full">
+                            <a href="{{ route('contact-us') }}" class="w-full">
                                 <svg class="w-7 h-7" width="22" height="22" viewBox="0 0 22 22"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path

@@ -86,7 +86,7 @@
                             </div>
                         </div>
                         <div>
-                            <img src="../images/map.jpg" alt="" class="w-full rounded-[10px]">
+                            <img src="{{ asset('home-page/images/map.jpg') }}" alt="" class="w-full rounded-[10px]">
                         </div>
                     </div>
                 </div>
