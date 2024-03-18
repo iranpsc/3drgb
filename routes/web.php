@@ -11,6 +11,9 @@ use App\Livewire\Home;
 use App\Livewire\ProductCategory;
 use App\Livewire\Store;
 use App\Livewire\ContactUs;
+use App\Livewire\SubmitOrder;
+use App\Livewire\StoreManagement\SubmitedOrders\Listing as SubmitedOrdersListing;
+use App\Livewire\StoreManagement\SubmitedOrders\Show as SubmitedOrdersShow;
 use App\Livewire\StoreManagement\Attributes;
 use App\Livewire\StoreManagement\Categories\Categories;
 use App\Livewire\StoreManagement\Categories\CreateCategory;
@@ -56,6 +59,7 @@ Route::get('/product-category/{category_link}', ProductCategory::class)
     ->name('product-categories');
 Route::get('/cart', Cart::class)->name('cart');
 Route::get('/checkout', Checkout::class)->name('checkout');
+Route::get('/submit-order', SubmitOrder::class)->name('submit-order');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware('admin')->prefix('admin')->group(function () {
@@ -82,6 +86,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/reviews', Reviews::class)->name('reviews');
 
         Route::get('/users', Users::class)->name('users');
+
+        Route::get('/submited-orders', SubmitedOrdersListing::class)->name('submited-orders-index');
+        Route::get('/submited-orders/{order}', SubmitedOrdersShow::class)->name('submited-orders-show');
     });
 
     Route::get('/verify', Verify::class)->name('verify');
@@ -99,6 +106,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/{ticket}', ShowTicket::class)->name('show');
         Route::get('/{ticket}/edit', UpdateTicket::class)->name('edit');
     });
+
+
 });
 
 Route::middleware('guest')->prefix('auth')->group(function () {

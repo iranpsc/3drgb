@@ -268,7 +268,7 @@
                                 <path d="M5.98047 16.0156H13.9805" stroke="#868B90" stroke-width="1.5"
                                     stroke-linecap="round" />
                             </svg>
-                            <a href="./sabt-sefaresh.html" class="text-[#868B90]">ثبت سفارش</a>
+                            <a href="{{ route('submit-order') }}" class="text-[#868B90]">ثبت سفارش</a>
                         </div>
                         <div class="pr-[20PX] p-[14px] flex items-center gap-4">
                             <svg class="w-7 h-7" width="22" height="22" viewBox="0 0 22 22" fill="none"
@@ -331,6 +331,7 @@
                                                 <a href="{{ route('attributes') }}">ویژگی ها</a>
                                                 <a href="{{ route('tags') }}">برچسب ها</a>
                                                 <a href="{{ route('reviews') }}">دیدگاه ها</a>
+                                                <a href="{{ route('submited-orders-index') }}">سفارشات ثبت شده</a>
                                             </div>
                                         </ul>
                                     </li>
