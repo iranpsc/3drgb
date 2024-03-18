@@ -17,7 +17,6 @@ class Category extends Model implements Sitemapable
         'slug',
         'parent_id',
         'description',
-        'image'
     ];
 
     protected $casts = [
@@ -31,7 +30,7 @@ class Category extends Model implements Sitemapable
     public function getUrlAttribute()
     {
         if ($this->parent) {
-            return $this->slug . '/' . $this->parent->url;
+            return $this->parent->url . '/' . $this->slug;
         } else {
             return $this->slug;
         }
@@ -39,7 +38,7 @@ class Category extends Model implements Sitemapable
 
     public function toSitemapTag(): Url|string|array
     {
-        $url = Url::create(url('categories/' . $this->url))
+        $url = Url::create(url('product-categories/' . $this->url))
             ->setLastModificationDate($this->updated_at)
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
             ->setPriority(0.8);

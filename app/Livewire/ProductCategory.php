@@ -7,15 +7,14 @@ use Livewire\Component;
 
 class ProductCategory extends Component
 {
-    public $category;
+    public $category_link, $category;
 
-    public function mount(string $categories = null)
+    public function mount(string $category_link = null)
     {
-        $categories = explode('/', $categories);
-        $category = $categories[count($categories) - 1];
+        $this->category_link = explode('/', $category_link);
+        $category = $this->category_link[count($this->category_link) - 1];
 
-        $this->category = Category::where('slug', $category)
-            ->with('parent', 'children', 'image')->first();
+        $this->category = Category::where('slug', $category)->with('children', 'image')->first();
     }
 
     public function render()

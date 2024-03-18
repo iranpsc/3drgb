@@ -36,12 +36,12 @@ class SitemapGenerator implements ShouldQueue
             $sitemap->add($products);
         });
 
-        $sitemap->writeToFile(public_path('sitemap/products-sitemap.xml'));
+        $sitemap->writeToFile(public_path('sitemap/products.xml'));
 
         $sitemap->create()->add(Tag::all())
-            ->writeToFile(public_path('sitemap/tags-sitemap.xml'));
+            ->writeToFile(public_path('sitemap/tags.xml'));
 
         $sitemap->create()->add(Category::with('image')->get())
-            ->writeToFile(public_path('sitemap/categories-sitemap.xml'));
+            ->writeToFile(public_path('sitemap/categories.xml'));
     }
 }

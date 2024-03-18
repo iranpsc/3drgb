@@ -223,7 +223,7 @@
                                     </label>
                                     <ul>
                                         @php
-                                            $categories = \App\Models\Category::with('parent', 'children')->get();
+                                            $categories = \App\Models\Category::with('children')->get();
                                         @endphp
                                         <li class="">
                                             <input type="checkbox" id="c3" class="peer" />
@@ -237,7 +237,7 @@
                                                         <div
                                                             class="flex flex-col text-sm text-[#000BEE] font-bold gap-5 p-3 pr-[20PX] dark:text-[#868B90]">
                                                             @foreach ($category->children as $child)
-                                                                <a href="{{ route('product-categories', ['categories' => $category->slug . '/' . $child->slug]) }}"
+                                                                <a href="{{ route('product-categories', ['category_link' => $child->url]) }}"
                                                                     class="text-[#868B90]">{{ $child->name }}</a>
                                                             @endforeach
                                                         </div>

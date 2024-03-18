@@ -15,7 +15,7 @@ class Image extends Model
 
     /**
      * Get the parent imageable model (product or category).
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function imageable()
