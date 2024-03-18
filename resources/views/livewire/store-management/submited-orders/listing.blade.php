@@ -14,33 +14,33 @@
                 @foreach ($orders as $order)
                     <tr wire:key="{{ $order->id }}">
                         <td>
-                            <div class="userDatatable-content">
+                            <div class="text-center">
                                 {{ $loop->iteration }}
                         </td>
                         </td>
                         <td>
-                            <div class="userDatatable-content">
+                            <div class="text-center">
                                 {{ $order->name }}
                             </div>
                         </td>
                         <td>
-                            <div class="userDatatable-content">
+                            <div class="text-center">
                                 {{ $order->email }}
                             </div>
                         </td>
                         <td>
-                            <div class="userDatatable-content">
+                            <div class="text-center">
                                 {{ $order->phone }}
                             </div>
                         </td>
                         <td>
-                            <div class="userDatatable-content">
+                            <div class="text-center">
                                 {{ jdate($order->created_at)->format('Y/m/d') }}
                             </div>
                         </td>
                         <td>
-                            <div class="userDatatable-content">
-                                <a href="{{ route('submited-orders-show', $order->id) }}"
+                            <div class="text-center">
+                                <a class="px-2 text-white" style="background-color: rgba(38, 38, 156, 0.808);border-radius: 8px;" href="{{ route('submited-orders-show', $order->id) }}"
                                     class="btn btn-sm btn-primary">مشاهده</a>
                             </div>
                         </td>

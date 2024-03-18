@@ -1,5 +1,5 @@
 <div>
-    <main class="w-full main-content-smallNav ">
+    <main>
         <section class="max-w-[1500px] mx-auto p-4 lg:p-9 mt-20 lg:mt-0">
             <div class="flex flex-col items-center justify-center  ">
                 <div id="hs-slide-up-animation-modal"
@@ -186,9 +186,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex  gap-3   justify-between ">
+                    <div class="flex  gap-2   justify-between ">
                         <div
-                            class="flex flex-col md:flex-row items-center gap-4 text-[#3A4980] dark:text-gray-300 text-xs w-[25%] ">
+                            class="flex flex-col md:flex-row items-center gap-4 text-[#3A4980] dark:text-gray-300 text-xs w-[25%] " style="margin-right: 10px">
                             <div class="flex flex-row   rounded-lg relative bg-transparent ">
                                 <button data-action="decrement"
                                     class=" bg-white text-[#3A4980]  h-12 w-10 rounded-r-full cursor-pointer outline-none">
@@ -207,7 +207,7 @@
                                 <p>{{ $product->quantity }}</p>
                             </div>
                         </div>
-                        <div class="w-[75%] md:w-[30%] lg:w-[40%]">
+                        <div class="w-[60%] md:w-[30%] lg:w-[40%]">
                             @if (Auth::check() && Auth::user()->hasPurchased($product))
                                 <x-button wire:click="download" color="info" size="block"
                                     style="display: flex; justify-content: space-between; align-items: center;border-radius: 900px"><img

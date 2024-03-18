@@ -343,12 +343,12 @@
                             <div>
                                 <ul class="tree">
                                     <li class="flex flex-col gap-3">
-                                        <input type="checkbox" id="c111" class="peer" />
+                                        <input type="checkbox" id="c112" class="peer" />
                                         <label
                                             class="px-[20px] py-4 w-full rounded-[10px] text-[#868B90]  peer-checked:text-white head_label peer-checked:bg-[#000BEE] dark:peer-checked:bg-[#C2008C] peer-checked:[&>div>svg]:rotate-180 peer-checked:[&>div>svg>path]:stroke-white"
-                                            for="c111">
+                                            for="c112">
                                             <div class="flex w-full justify-between items-center select-none"
-                                                for="c111">
+                                                for="c112">
                                                 <div class="flex items-center gap-4">
                                                     <svg class="w-7 h-7" width="22" height="22"
                                                         viewBox="0 0 1024 1024" version="1.1"
@@ -369,7 +369,7 @@
                                         <ul>
                                             <div
                                                 class="flex flex-col text-sm text-[#000BEE] font-bold gap-5 p-3 pr-[20PX] dark:text-[#868B90]">
-                                                <a href="{{ route('user.dashboard') }}">داشبورد</a>
+                                                {{-- <a href="{{ route('user.dashboard') }}">داشبورد</a> --}}
                                                 <a href="{{ route('user.orders') }}">خریدها</a>
                                                 <a href="{{ route('user.profile') }}">پروفایل</a>
                                             </div>
@@ -712,7 +712,9 @@
         <!-- End nsvigation -->
     </header>
     <!-- end nav -->
-    {{ $slot }}
+    <div class="w-full main-content-smallNav "> 
+        {{ $slot }}
+    </div>
 
     <div class="w-full main-content-smallNav2">
         <footer class="px-5 lg:px-0 w-full max-w-[1500px] mx-auto mt-32">

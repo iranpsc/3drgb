@@ -1,5 +1,5 @@
 <div>
-    <main class="main-content-smallNav ">
+    <main>
         <section>
             <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm font-mono hidden lg:block px-5">
                 <div class="flex items-center justify-between max-w-[1500px] mx-auto">
@@ -205,7 +205,7 @@
             </div>
             <div class="w-full lg:w-3/4 space-y-5 p-5" id="products-list">
                 <div class="flex flex-col-reverse lg:flex-row gap-6">
-                    <div class="flex items-center gap-6 w-[100%] lg:w-[70%] scrollbar overflow-auto">
+                    <div class="flex items-center gap-6 w-[100%] lg:w-[70%] scrollbar overflow-x-auto">
                         <div class="font-bold dark:text-white w-max">
                             <p class="w-max hidden lg:block">مرتب سازی :</p>
                         </div>
