@@ -1,10 +1,10 @@
 <div>
-    <x-page title="سفارشات">
+    <x-page title="خریدها">
 
         @session('error')
             <x-alert type="danger" :message="session('error')" />
         @endsession
-        
+
         <div  class="flex flex-col justify-center items-center">
             <div class="row">
                <div class="col-lg-12">
