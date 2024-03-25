@@ -97,6 +97,10 @@ function openNav2(){
     document.getElementById("fillterContainer").style.display = "none";
   }
 
+  function cartAlert() {
+  alert("محصول به سبد خرید اضافه شد");
+}
+
 
 
 

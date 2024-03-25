@@ -15,10 +15,31 @@
     <title>{{ 'سه بعدی متا' . ' | ' . $title ?? config('app.name') }}</title>
 
     <style>
-        #style-1::-webkit-scrollbar-thumb {
+        #style1::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background-color: #ECECEC;
+            overflow-x: auto;
+        }
+
+        #style1::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+            background-color: #ECECEC;
+            overflow-x: auto;
+            border-radius: 10px;
+        }
+
+        #style1::-webkit-scrollbar-thumb {
             border-radius: 10px;
             -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-            background-color: #dee2e6;
+            background-color: #000BEE;
+            overflow-x: auto;
+        }
+
+        /* Dark mode scrollbar styles */
+
+        .dark #style1::-webkit-scrollbar-thumb {
+            background-color: #C2008C;
         }
     </style>
 
@@ -168,7 +189,7 @@
                         </a>
                     </div>
                     <div class=" h-auto  lg:h-[30vh] xl:h-[35vh] 2xl:h-[45vh] 3xl:h-[53vh] overflow-auto  space-y-3 scrollbar "
-                        id="style-1" style="padding-left:5px">
+                        id="style1" style="padding-left:5px">
                         <div class="pr-[20PX] p-[14px] flex items-center gap-4">
                             <svg class="w-7 h-7" width="24" height="23" viewBox="0 0 24 23" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -712,7 +733,7 @@
         <!-- End nsvigation -->
     </header>
     <!-- end nav -->
-    <div class="w-full main-content-smallNav "> 
+    <div class="w-full main-content-smallNav ">
         {{ $slot }}
     </div>
 
@@ -796,7 +817,7 @@
                         </p>
                     </div>
                     <div class="font-bold ">
-                        <a href="#"
+                        <a href="{{ route('submit-order') }}"
                             class="rounded-3xl bg-white dark:bg-[#DAE5FF]/75 py-3 px-5 text-[#2667FF]">ثبت سفارش و
                             نمونه
                             کار ها</a>
@@ -813,7 +834,7 @@
                         </p>
                     </div>
                     <div class="font-bold">
-                        <a href="#"
+                        <a href="whatsapp://send?text=http://+98 933 785 0424"
                             class="rounded-3xl bg-white dark:bg-[#DCFFE8]/75 py-3 px-5 text-[#20D05C] dark:text-[#02501D]">09028689789</a>
                     </div>
                 </div>
@@ -960,6 +981,42 @@
                 ['insert', ['link', 'picture', 'video']],
                 ['view', ['fullscreen', 'codeview', 'help']]
             ]
+        });
+    </script>
+    <script>
+        jQuery(document).ready(function() {
+            var $this = $(".items");
+            if ($this.find("div").length > 2) {
+                $(".items").append(
+                    '<div><a href="javascript:;" class="showMore"></a></div>'
+                );
+            }
+
+            // If more than 2 Education items, hide the remaining
+            $(".items .item").slice(0, 15).addClass("shown");
+            $(".items .item").not(".shown").hide();
+            $(".items .showMore").on("click", function() {
+                $(".items .item").not(".shown").toggle(300);
+                $(this).toggleClass("showLess");
+            });
+        });
+    </script>
+    <script>
+                jQuery(document).ready(function() {
+            var $this = $(".items2");
+            if ($this.find("div").length > 2) {
+                $(".items2").append(
+                    '<div><a href="javascript:;" class="showMore2"></a></div>'
+                );
+            }
+
+            // If more than 2 Education items, hide the remaining
+            $(".items2 .item2").slice(0, 6).addClass("shown2");
+            $(".items2 .item2").not(".shown2").hide();
+            $(".items2 .showMore2").on("click", function() {
+                $(".items2 .item2").not(".shown2").toggle(300);
+                $(this).toggleClass("showLess2");
+            });
         });
     </script>
 

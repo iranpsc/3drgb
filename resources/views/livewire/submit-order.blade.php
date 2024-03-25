@@ -11,11 +11,11 @@
                     <div class="flex gap-4">
                         <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (1).png"
                                     alt=""></a></div>
-                        <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (2).png"
+                        <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy"><img src="https://3d.irpsc.com/home-page/images/Union (2).png"
                                     alt=""></a></div>
-                        <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (3).png"
+                        <div><a href="whatsapp://send?text=http://+98 933 785 0424"><img src="https://3d.irpsc.com/home-page/images/Union (3).png"
                                     alt=""></a></div>
-                        <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (4).png"
+                        <div><a href="mailto:dmeta.irpsc@gmail.com"><img src="https://3d.irpsc.com/home-page/images/Union (4).png"
                                     alt=""></a></div>
                     </div>
                 </div>
@@ -23,14 +23,11 @@
         </section>
         <section class="max-w-[1500px] mx-auto p-4 lg:p-9 mt-24 lg:mt-14">
             <div class="w-full bg-white dark:bg-[#001448] rounded-xl dark:text-white p-5 lg:p-7">
-                <h1 class="text-3xl dark:text-white font-bold py-5 text-center lg:text-right"> ثبت سفارش</h1>
+                <h1 class="text-2xl dark:text-white font-bold py-5 text-center "> جهت ثبت سفارش طراحی، فرم زیرا پر کنید.</h1>
 
                 <div class="flex-col flex gap-7 justify-center w-full">
                     <div class="flex flex-col gap-7 w-full 2xl:w-1/2 justify-center ">
-                        <div>
-                            <p class="text-black/50 dark:text-gray-300 py-1 text-center lg:text-right">     
-                                جهت ثبت سفارش طراحی، فرم زیرا پر کنید.</p>
-                        </div>
+
 
                         @session('message')
                             <div class="bg-green-500 text-white p-3 rounded-lg text-center">
@@ -41,20 +38,21 @@
                         <form wire:submit="submit">
                             <div class="grid lg:grid-cols-2 gap-7">
                                 @guest
-                                    <x-form.text name="name" label="نام و نام خانوادگی" wire:model="name" />
+                                    <x-form.text name="name" placeholder=" نام و نام خانوادگی" label="" wire:model="name" />
 
-                                    <x-form.text name="phone" label="شماره تلفن" wire:model="phone" />
+                                    <x-form.text name="phone" placeholder="شماره تلفن" label="" wire:model="phone" />
 
-                                    <x-form.text name="email" label="پست الکترونیک" wire:model="email" />
+                                    <x-form.text name="email" placeholder="پست الکترونیک" label="" wire:model="email" />
                                 @endguest
 
-                                <x-form.text name="subject" label="موضوع پیام" wire:model="subject" />
+                                <x-form.text name="subject" placeholder="موضوع پیام" label="" wire:model="subject" />
 
-                                <x-form.file name="attachment" label="فایل ضمیمه" wire:model="attachment" style="width: 100%"/>
 
                             </div>
+                            <x-form.file name="attachment" label="" wire:model="attachment"  style="width: 100% ; margin-top: 30px"/>
+
                             <div class="flex flex-col gap-7 w-full mt-5">
-                                <x-form.textarea name="message" label="پیام خود را اینجا بنویسید..."
+                                <x-form.textarea name="message" placeholder="پیام خود را اینجا بنویسید..." label=""
                                     wire:model="message" />
 
                                 <x-button type="submit">ارسال پیام</x-button>

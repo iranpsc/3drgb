@@ -18,12 +18,12 @@
                 <div class="w-full flex justify-between gap-2 ">
                     @if (Auth::check() && Auth::user()->hasPurchased($product))
                         <x-button wire:click="download({{ $product->id }})" color="light"
-                            style="display: flex; justify-content: space-between; align-items: center;border-radius: 10px; padding:10px 20px"
+                            style="display: flex; justify-content: center; align-items: center;border-radius: 10px; padding:10px 20px; gap:20px"
                             size="block"><img src="{{ asset('img/svg/download.svg') }}" alt="download" class="svg">
                             دانلود
                         </x-button>
                     @else
-                        <button type="button" @disabled(session('cart') && in_array($product->id, session('cart'))) wire:click="addToCart({{ $product->id }})"
+                        <button type="button" @disabled(session('cart') && in_array($product->id, session('cart'))) wire:click="addToCart({{ $product->id }})" onclick="cartAlert()"
                             class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
                             افزودن به سبد خرید
                         </button>

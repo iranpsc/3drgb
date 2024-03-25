@@ -11,11 +11,11 @@
                     <div class="flex gap-4">
                         <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (1).png"
                                     alt=""></a></div>
-                        <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (2).png"
+                        <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy"><img src="https://3d.irpsc.com/home-page/images/Union (2).png"
                                     alt=""></a></div>
-                        <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (3).png"
+                        <div><a href="whatsapp://send?text=http://+98 933 785 0424"><img src="https://3d.irpsc.com/home-page/images/Union (3).png"
                                     alt=""></a></div>
-                        <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (4).png"
+                        <div><a href="mailto:dmeta.irpsc@gmail.com"><img src="https://3d.irpsc.com/home-page/images/Union (4).png"
                                     alt=""></a></div>
                     </div>
                 </div>
@@ -40,24 +40,24 @@
 
                         <form wire:submit="submit">
                             <div class="grid lg:grid-cols-2 gap-7">
-                                <x-form.text name="name" label="نام و نام خانوادگی" wire:model="name"/>
+                                <x-form.text name="name" label="" placeholder="نام و نام خانوادگی" wire:model="name"/>
 
-                                <x-form.text name="phone" label="شماره تلفن" wire:model="phone"/>
+                                <x-form.text name="phone" label="" placeholder="شماره تلفن" wire:model="phone"/>
 
-                                <x-form.text name="email" label="پست الکترونیک" wire:model="email"/>
+                                <x-form.text name="email" label="" placeholder="پست الکترونیک" wire:model="email"/>
 
-                                <x-form.text name="subject" label="موضوع پیام" wire:model="subject"/>
+                                <x-form.text name="subject" label="" placeholder="موضوع پیام" wire:model="subject"/>
 
                             </div>
-                            <div class="flex flex-col gap-7 w-full ">
-                                <x-form.textarea name="message" label="پیام خود را اینجا بنویسید..." wire:model="message"/>
+                            <div class="flex flex-col gap-7 w-full mt-5">
+                                <x-form.textarea  name="message" label="" placeholder="پیام خود را اینجا بنویسید..." wire:model="message"/>
 
-                                <x-button type="submit">ارسال پیام</x-button>
+                                <x-button style="margin-top:4px " type="submit">ارسال پیام</x-button>
                             </div>
                         </form>
                     </div>
                     <div class="flex flex-col gap-7 w-full lg:w-1/2 justify-center lg:justify-start">
-                        <div class="flex flex-col lg:flex-row items-center justify-end gap-6">
+                        <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
                             <div class="flex gap-3 items-center ">
                                 <a class="font-bold text-2xl text-black/50 dark:text-gray-300"
                                     href="tel:۰۹۳۳۷۸۵۰۴۲۴">۰۹۳۳۷۸۵۰۴۲۴</a>
