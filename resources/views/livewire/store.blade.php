@@ -1,5 +1,37 @@
 <div>
-    <main class="main-content-smallNav ">
+    <style>
+a.showMore {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 20px;
+  color: #0077C8;
+  text-decoration: none;
+}
+a.showMore::after {
+  content: "+ مشاهده همه ";
+}
+a.showMore.showLess::after {
+  content: "- مشاهده کمتر ";
+}
+a.showMore2 {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 20px;
+  color: #0077C8;
+  text-decoration: none;
+}
+a.showMore2::after {
+  content: "+ مشاهده همه ";
+}
+a.showMore2.showLess2::after {
+  content: "- مشاهده کمتر ";
+}
+    </style>
+    <main>
         <section>
             <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm font-mono hidden lg:block px-5">
                 <div class="flex items-center justify-between max-w-[1500px] mx-auto">
@@ -11,12 +43,12 @@
                     <div class="flex gap-4">
                         <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (1).png"
                                     alt=""></a></div>
-                        <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (2).png"
-                                    alt=""></a></div>
-                        <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (3).png"
-                                    alt=""></a></div>
-                        <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (4).png"
-                                    alt=""></a></div>
+                        <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy"><img
+                                    src="https://3d.irpsc.com/home-page/images/Union (2).png" alt=""></a></div>
+                        <div><a href="whatsapp://send?text=http://+98 933 785 0424"><img
+                                    src="https://3d.irpsc.com/home-page/images/Union (3).png" alt=""></a></div>
+                        <div><a href="mailto:dmeta.irpsc@gmail.com"><img
+                                    src="https://3d.irpsc.com/home-page/images/Union (4).png" alt=""></a></div>
                     </div>
                 </div>
             </div>
@@ -147,11 +179,11 @@
                         <button onclick="closeFillterContainerMobile()"
                             class="rounded-full bg-[#EFEFEF] rotate-45 lg:hidden w-10 h-10 text-3xl">+</button>
                     </div>
-                    <div class="space-y-2">
+                    <div class="space-y-2 items">
                         @forelse ($this->categories as $category)
-                            <div>
+                            <div class="item ">
                                 <div
-                                    class="w-full px-2 py-1 dark:text-gray-300 inline-flex justify-between items-center gap-x-3 w-full font-semibold text-start text-[#848383] disabled:opacity-50 disabled:pointer-events-none">
+                                    class=" w-full px-2 py-1 dark:text-gray-300 inline-flex justify-between items-center gap-x-3 w-full font-semibold text-start text-[#848383] disabled:opacity-50 disabled:pointer-events-none">
                                     <a href="javascript::void(0)"
                                         wire:click="getPorductsByCategory({{ $category->id }})"
                                         class="w-full">{{ $category->name }}
@@ -164,6 +196,7 @@
                                 <span class="dark:text-gray-300 p-2 text-[#848383]">دسته ای وجود ندارد</span>
                             </div>
                         @endforelse
+                        
                     </div>
                 </div>
                 <div
@@ -192,9 +225,9 @@
                     <div>
                         <p class="text-xl font-bold text-[#515151] dark:text-white py-2">برچسب ها</p>
                     </div>
-                    <div class="grid grid-cols-2 gap-5">
+                    <div class="grid grid-cols-2 gap-5 items2">
                         @foreach ($tags as $tag)
-                            <div class="flex items-center gap-5">
+                            <div class="flex items-center gap-5 item2">
                                 <input type="checkbox" id="{{ 'tag-' . $tag->id }}" value="{{ $tag->id }}"
                                     class="w-[22px] h-[22px] rounded-lg" wire:model.live="tag_filter">
                                 <label for="{{ 'tag-' . $tag->id }}">{{ $tag->name }}</label>
@@ -205,7 +238,7 @@
             </div>
             <div class="w-full lg:w-3/4 space-y-5 p-5" id="products-list">
                 <div class="flex flex-col-reverse lg:flex-row gap-6">
-                    <div class="flex items-center gap-6 w-[100%] lg:w-[70%] scrollbar overflow-auto">
+                    <div class="flex items-center gap-6 w-[100%] lg:w-[70%] scrollbar overflow-x-auto">
                         <div class="font-bold dark:text-white w-max">
                             <p class="w-max hidden lg:block">مرتب سازی :</p>
                         </div>
@@ -287,4 +320,5 @@
             </div>
         </section>
     </main>
+
 </div>

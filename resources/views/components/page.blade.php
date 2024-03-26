@@ -9,7 +9,7 @@
 
 <div class="w-full main-content-smallNav px-5 lg:px-0">
          <div class="flex flex-col justify-between px-5 gap-6 mb-10  mx-auto mt-14" style="width:90%">
-             <div class="breadcrumb-action justify-content-center flex-wrap">
+             <div class="breadcrumb-action justify-content-center flex-wrap mt-10 lg:mt-0">
                 <nav aria-label="breadcrumb" >
                    <ol class="flex gap-1 text-[#828282] p-3 items-center lg:w-[70%] xl:w-[80%] bg-white dark:bg-[#001448] rounded-[10px] margin: right 100px; ">
                       <li ><a href="{{ route('home') }}"><i></i>خانه &nbsp /</a> &nbsp </li>

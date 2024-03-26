@@ -45,8 +45,7 @@
             <div class="w-full">
                 <div class="space-y-5 ">
                     <div class="flex gap-5 ">
-                        <div
-                            class="w-12 h-12 rounded-full bg-[#164C96] text-gray-200 flex items-center justify-center">
+                        <div class="w-12 h-12 rounded-full bg-[#164C96] text-gray-200 flex items-center justify-center">
                             <img src="" class="w-12 h-12 rounded-full">
                         </div>
                         <div class="space-y-1">
@@ -56,7 +55,7 @@
                             </div>
                             <div class="product-details__availability my-2">
                                 <div class="free">
-                                    <div class="stars-rating flex gap-3 items-center">
+                                    <div class="stars-rating flex gap-1 items-center">
                                         @for ($i = 0; $i < 5; $i++)
                                             <span
                                                 class="star-icon las la-star @if ($i < $review->rating) active @endif"></span>
@@ -70,7 +69,7 @@
                     <div class="space-y-5">
                         <div class="text-[#1d29399d] dark:text-gray-200 text-sm">
                             <p>{{ $review->comment }}</p>
-                            <div class="flex gap-4 items-center justify-end">
+                            <div class="flex gap-4 items-center justify-end mt-5">
                                 <button class="text-xs text-red-600">Replay</button>
                                 <button class="text-xs ">Like</button>
                             </div>

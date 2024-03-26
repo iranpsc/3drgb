@@ -4247,3 +4247,10 @@ input[type="range"]::-webkit-slider-thumb::before {
 .multi-range input[type="range"]:nth-child(2)::-webkit-slider-thumb::before {
   background-color: grey;
 }
+:disabled{
+  opacity:40%;
+}
+button:active{
+  scale: 1.04;
+  transition-duration: 300ms;
+}

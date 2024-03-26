@@ -1,5 +1,5 @@
 <div>
-    <main class="w-full main-content-smallNav ">
+    <main>
         <section>
             <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm font-mono hidden lg:block px-5">
                 <div class="flex items-center justify-between max-w-[1500px] mx-auto">
@@ -11,11 +11,11 @@
                     <div class="flex gap-4">
                         <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (1).png"
                                     alt=""></a></div>
-                        <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (2).png"
+                        <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy"><img src="https://3d.irpsc.com/home-page/images/Union (2).png"
                                     alt=""></a></div>
-                        <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (3).png"
+                        <div><a href="whatsapp://send?text=http://+98 933 785 0424"><img src="https://3d.irpsc.com/home-page/images/Union (3).png"
                                     alt=""></a></div>
-                        <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (4).png"
+                        <div><a href="mailto:dmeta.irpsc@gmail.com"><img src="https://3d.irpsc.com/home-page/images/Union (4).png"
                                     alt=""></a></div>
                     </div>
                 </div>

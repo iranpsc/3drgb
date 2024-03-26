@@ -1,5 +1,5 @@
 <div>
-    <main class="w-full main-content-smallNav ">
+    <main>
         <section class="max-w-[1500px] mx-auto p-4 lg:p-9 mt-20 lg:mt-0">
             <div class="flex flex-col items-center justify-center  ">
                 <div id="hs-slide-up-animation-modal"
@@ -186,9 +186,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex  gap-3   justify-between ">
+                    <div class="flex  gap-2   justify-between ">
                         <div
-                            class="flex flex-col md:flex-row items-center gap-4 text-[#3A4980] dark:text-gray-300 text-xs w-[25%] ">
+                            class="flex flex-col md:flex-row items-center gap-4 text-[#3A4980] dark:text-gray-300 text-xs w-[25%] " style="margin-right: 10px">
                             <div class="flex flex-row   rounded-lg relative bg-transparent ">
                                 <button data-action="decrement"
                                     class=" bg-white text-[#3A4980]  h-12 w-10 rounded-r-full cursor-pointer outline-none">
@@ -207,15 +207,15 @@
                                 <p>{{ $product->quantity }}</p>
                             </div>
                         </div>
-                        <div class="w-[75%] md:w-[30%] lg:w-[40%]">
+                        <div class="w-[60%] md:w-[30%] lg:w-[40%]">
                             @if (Auth::check() && Auth::user()->hasPurchased($product))
                                 <x-button wire:click="download" color="info" size="block"
-                                    style="display: flex; justify-content: space-between; align-items: center;border-radius: 900px"><img
+                                    style="display: flex; justify-content: center; align-items: center;border-radius: 900px ; gap:20px"><img
                                         src="{{ asset('img/svg/download.svg') }}" alt="download" class="svg">
                                     دانلود
                                 </x-button>
                             @else
-                                <button type="button" @disabled(session('cart') && in_array($product->id, session('cart'))) wire:click="addToCart"
+                                <button type="button" @disabled(session('cart') && in_array($product->id, session('cart'))) wire:click="addToCart" id="cartBtn" onclick="cartAlert()"
                                     class="bg-[#E3000F] text-white text-sm font-bold text-center w-full h-12  rounded-full flex items-center gap-3 flex-row-reverse justify-center">
                                     <p>افزودن به سبد خرید</p>
                                     <svg width="21" height="22" viewBox="0 0 21 22" fill="none"
