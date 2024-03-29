@@ -21,7 +21,7 @@ class Review extends Model
 
     /**
      * Get the product that owns the review.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function product()
@@ -31,7 +31,7 @@ class Review extends Model
 
     /**
      * Get the user that owns the review.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
@@ -41,7 +41,7 @@ class Review extends Model
 
     /**
      * Scope a query to only include approved reviews.
-     * 
+     *
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
@@ -52,7 +52,7 @@ class Review extends Model
 
     /**
      * Set the approved_at and approved_by attributes.
-     * 
+     *
      * @param string $approved_by
      * @return void
      */

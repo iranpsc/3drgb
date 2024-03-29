@@ -190,7 +190,6 @@ class Store extends Component
     {
         return view('livewire.store', [
             'products' => $this->products ?? Product::published()
-                ->withCount('reviews')
                 ->withAvg('reviews as rating_avg', 'rating')
                 ->with('images')
                 ->orderByDesc('created_at')
