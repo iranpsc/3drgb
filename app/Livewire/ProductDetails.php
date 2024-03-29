@@ -17,7 +17,6 @@ class ProductDetails extends Component
             'tags',
             'attributes',
             'category',
-            'reviews'
         ])
             ->loadCount('reviews')
             ->loadAvg('reviews as rating_avg', 'rating');

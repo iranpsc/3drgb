@@ -79,7 +79,7 @@ class Profile extends Component
         $this->user->avatar = $avatar ?? $this->user->avatar;
 
         $this->user->save();
-        
+
         if($this->user->wasChanged('email')) {
             $this->user->email_verified_at = null;
             $this->user->sendEmailVerificationNotification();
@@ -88,10 +88,10 @@ class Profile extends Component
             session()->flash('info', 'ایمیل تایید حساب کاربری برای شما ارسال شد.');
         }
 
-        
+
         session()->flash('message', 'اطلاعات کاربری شما با موفقیت بروزرسانی شدند.');
     }
-    
+
     #[Title('ویرایش اطلاعات کاربری')]
     public function render()
     {

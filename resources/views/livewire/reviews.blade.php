@@ -46,12 +46,13 @@
                 <div class="space-y-5 ">
                     <div class="flex gap-5 ">
                         <div class="w-12 h-12 rounded-full bg-[#164C96] text-gray-200 flex items-center justify-center">
-                            <img src="" class="w-12 h-12 rounded-full">
+                            <img src="{{ asset('storage/' . $review->user->avatar) }}" class="w-12 h-12 rounded-full">
                         </div>
                         <div class="space-y-1">
                             <div class="flex items-center gap-3 text-[#1D2939] dark:text-gray-200">
                                 <p class="font-bold">{{ $review->user->name }}</p>
-                                <p class="text-xs">3 روز پیش</p>
+                                <p class="text-xs">
+                                    {{ \Morilog\Jalali\Jalalian::fromDateTime($review->created_at)->ago() }}</p>
                             </div>
                             <div class="product-details__availability my-2">
                                 <div class="free">

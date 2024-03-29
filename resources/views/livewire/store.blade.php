@@ -1,35 +1,40 @@
 <div>
     <style>
-a.showMore {
-  display: block;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-top: 20px;
-  color: #0077C8;
-  text-decoration: none;
-}
-a.showMore::after {
-  content: "+ مشاهده همه ";
-}
-a.showMore.showLess::after {
-  content: "- مشاهده کمتر ";
-}
-a.showMore2 {
-  display: block;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-top: 20px;
-  color: #0077C8;
-  text-decoration: none;
-}
-a.showMore2::after {
-  content: "+ مشاهده همه ";
-}
-a.showMore2.showLess2::after {
-  content: "- مشاهده کمتر ";
-}
+        a.showMore {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 20px;
+            color: #0077C8;
+            text-decoration: none;
+        }
+
+        a.showMore::after {
+            content: "+ مشاهده همه ";
+        }
+
+        a.showMore.showLess::after {
+            content: "- مشاهده کمتر ";
+        }
+
+        a.showMore2 {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 20px;
+            color: #0077C8;
+            text-decoration: none;
+        }
+
+        a.showMore2::after {
+            content: "+ مشاهده همه ";
+        }
+
+        a.showMore2.showLess2::after {
+            content: "- مشاهده کمتر ";
+        }
     </style>
     <main>
         <section>
@@ -196,7 +201,7 @@ a.showMore2.showLess2::after {
                                 <span class="dark:text-gray-300 p-2 text-[#848383]">دسته ای وجود ندارد</span>
                             </div>
                         @endforelse
-                        
+
                     </div>
                 </div>
                 <div
