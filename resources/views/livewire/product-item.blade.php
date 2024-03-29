@@ -10,20 +10,29 @@
                 <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
                     سه بعدی/غذا
                 </p>
+                <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
+                    {{ $product->sku }}
+                </p>
                 <a href="{{ $product->url }}"
                     class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">{{ $product->name }}</a>
                 <p class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white ">
-                    {{ number_format($product->final_price, 0) }} تومان</p>
+                    @if ($product->is_free)
+                        رایگان
+                    @else
+                        {{ number_format($product->final_price, 0) }} تومان
+                    @endif
+                </p>
 
                 <div class="w-full flex justify-between gap-2 ">
-                    @if (Auth::check() && Auth::user()->hasPurchased($product))
+                    @if ((Auth::check() && Auth::user()->hasPurchased($product)) || $product->is_free)
                         <x-button wire:click="download({{ $product->id }})" color="light"
                             style="display: flex; justify-content: center; align-items: center;border-radius: 10px; padding:10px 20px; gap:20px"
                             size="block"><img src="{{ asset('img/svg/download.svg') }}" alt="download" class="svg">
                             دانلود
                         </x-button>
                     @else
-                        <button type="button" @disabled(session('cart') && in_array($product->id, session('cart'))) wire:click="addToCart({{ $product->id }})" onclick="cartAlert()"
+                        <button type="button" @disabled(session('cart') && in_array($product->id, session('cart'))) wire:click="addToCart({{ $product->id }})"
+                            onclick="cartAlert()"
                             class="rounded-lg w-[60%] px-2 py-3 bg-[#FFE3E3] dark:bg-[#C2008C]  text-[#FF0000] dark:text-[#E8E9FF] m-0 text-xs lg:text-sm font-bold">
                             افزودن به سبد خرید
                         </button>

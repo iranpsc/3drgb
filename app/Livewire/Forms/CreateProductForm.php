@@ -35,7 +35,7 @@ class CreateProductForm extends Form
     {
         return [
             'category_id' => 'required|exists:categories,id',
-            'sku' => 'required|string|max:255|unique:products',
+            'sku' => 'required|string|max:255|unique:products,sku',
             'name' => 'required|string|max:255',
             'slug' => [
                 'required', 'string', 'max:255', function (string $attribute, mixed $value, Closure $fail) {

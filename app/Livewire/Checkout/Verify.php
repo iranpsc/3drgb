@@ -68,7 +68,7 @@ class Verify extends Component
 
             $user = $this->order->user;
 
-            $user->products()->attach($this->order->orderItems->pluck('product_id'));
+            $user->purchases()->attach($this->order->orderItems->pluck('product_id'));
         }
     }
 

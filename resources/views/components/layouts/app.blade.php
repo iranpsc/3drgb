@@ -247,7 +247,7 @@
                                     </label>
                                     <ul>
                                         @php
-                                            $categories = \App\Models\Category::with('children')->get();
+                                            $categories = \App\Models\Category::with('children', 'parent')->get();
                                         @endphp
                                         <li class="">
                                             <input type="checkbox" id="c3" class="peer" />

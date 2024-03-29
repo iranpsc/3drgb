@@ -188,182 +188,25 @@
 
                     <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden py-5 my-5 pl-5 md:pl-0"
                         dir="ltr">
-                        <div id="slider"
-                            class="h-full flex lg:gap-7 gap-5 items-center justify-start transition ease-out duration-700 ">
-                            <div class="flex flex-shrink-0 relative  ">
-                                <a href="#"
-                                    class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
-                                    <div class="w-full p-1 md:p-5">
-                                        <img src="{{ asset('home-page/images/طراحی داخلی 1.png') }}" alt=""
-                                            class="w-full">
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-sm font-serif mb-[-6px]">
-                                            Icons
-                                        </p>
-                                        <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
-                                            ایکون ها
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="flex flex-shrink-0 relative  ">
-                                <a href="#"
-                                    class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
-                                    <div class="w-full p-1 md:p-5">
-                                        <img src="{{ asset('home-page/images/طراحی داخلی 1.png') }}" alt=""
-                                            class="w-full">
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-sm font-serif mb-[-6px]">
-                                            Icons
-                                        </p>
-                                        <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
-                                            ایکون ها
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="flex flex-shrink-0 relative  ">
-                                <a href="#"
-                                    class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
-                                    <div class="w-full p-1 md:p-5">
-                                        <img src="{{ asset('home-page/images/طراحی داخلی 1.png') }}" alt=""
-                                            class="w-full">
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-sm font-serif mb-[-6px]">
-                                            Icons
-                                        </p>
-                                        <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
-                                            ایکون ها
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="flex flex-shrink-0 relative  ">
-                                <a href="#"
-                                    class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
-                                    <div class="w-full p-1 md:p-5">
-                                        <img src="{{ asset('home-page/images/طراحی داخلی 1.png') }}" alt=""
-                                            class="w-full">
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-sm font-serif mb-[-6px]">
-                                            Icons
-                                        </p>
-                                        <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
-                                            ایکون ها
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="flex flex-shrink-0 relative  ">
-                                <a href="#"
-                                    class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
-                                    <div class="w-full p-1 md:p-5">
-                                        <img src="{{ asset('home-page/images/طراحی داخلی 1.png') }}" alt=""
-                                            class="w-full">
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-sm font-serif mb-[-6px]">
-                                            Icons
-                                        </p>
-                                        <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
-                                            ایکون ها
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="flex flex-shrink-0 relative  ">
-                                <a href="#"
-                                    class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
-                                    <div class="w-full p-1 md:p-5">
-                                        <img src="{{ asset('home-page/images/طراحی داخلی 1.png') }}" alt=""
-                                            class="w-full">
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-sm font-serif mb-[-6px]">
-                                            Icons
-                                        </p>
-                                        <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
-                                            ایکون ها
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="flex flex-shrink-0 relative  ">
-                                <a href="#"
-                                    class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
-                                    <div class="w-full p-1 md:p-5">
-                                        <img src="{{ asset('home-page/images/طراحی داخلی 1.png') }}" alt=""
-                                            class="w-full">
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-sm font-serif mb-[-6px]">
-                                            Icons
-                                        </p>
-                                        <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
-                                            ایکون ها
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="flex flex-shrink-0 relative  ">
-                                <a href="#"
-                                    class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
-                                    <div class="w-full p-1 md:p-5">
-                                        <img src="{{ asset('home-page/images/طراحی داخلی 1.png') }}" alt=""
-                                            class="w-full">
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-sm font-serif mb-[-6px]">
-                                            Icons
-                                        </p>
-                                        <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
-                                            ایکون ها
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="flex flex-shrink-0 relative  ">
-                                <a href="#"
-                                    class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
-                                    <div class="w-full p-1 md:p-5">
-                                        <img src="{{ asset('home-page/images/طراحی داخلی 1.png') }}" alt=""
-                                            class="w-full">
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-sm font-serif mb-[-6px]">
-                                            Icons
-                                        </p>
-                                        <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
-                                            ایکون ها
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="flex flex-shrink-0 relative  ">
-                                <a href="#"
-                                    class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
-                                    <div class="w-full p-1 md:p-5">
-                                        <img src="{{ asset('home-page/images/طراحی داخلی 1.png') }}" alt=""
-                                            class="w-full">
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-500 text-sm font-serif mb-[-6px]">
-                                            Icons
-                                        </p>
-                                        <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
-                                            ایکون ها
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-
-
-
-
+                        <div id="slider" class="h-full flex lg:gap-7 gap-5 items-center justify-start transition ease-out duration-700 ">
+                            @forelse ($popular_categories as $category)
+                                <div class="flex flex-shrink-0 relative  ">
+                                    <a href="{{ route('product-categories', ['category_link' => $category->url]) }}"
+                                        class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
+                                        <div class="w-full p-1 md:p-5">
+                                            <img src="{{ asset($category->image->url) }}" alt=""
+                                                class="w-full">
+                                        </div>
+                                        <div>
+                                            <p class="text-[#000BEE] dark:text-[#E8E9FF] text-xl md:text-3xl font-bold">
+                                                {{ $category->name }}
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            @empty
+                                <x-alert type="warning" message="دسته بندی یافت نشد" />
+                            @endforelse
                         </div>
                     </div>
                     <div class="absolute  md:top-7 flex w-full justify-center md:w-max md:left-0 gap-5 items-center">
