@@ -8,7 +8,7 @@
         <div class="flex flex-col gap-10">
             <div class="grid lg:grid-cols-2 gap-7">
 
-                <x-form.select wire:model="form.category_id" name="form.category_id" label="دسته بندی">
+                <x-form.select wire:model="form.category" name="form.category" label="دسته بندی">
                     <option value="">انتخاب دسته بندی</option>
 
                     @php
@@ -33,9 +33,12 @@
                 <x-form.text wire:model="form.price" name="form.price" label="قیمت عادی" />
                 <x-form.text wire:model="form.sale_price" name="form.sale_price" label="قیمت فروش ویژه" />
 
+                <div class="flex flex-col gap-5">
+                    <label for="showStockInputs">محصول برای متارنگ است؟</label>
+                    <input type="checkbox" id="showStockInputs">
+                </div>
 
-
-                <div class="flex flex-col gap-5" id="stockInputs">
+                <div class="flex flex-col gap-5 hidden" id="stockInputs">
                     <x-form.select wire:model="form.stock_status" name="form.stock_status" label="وضعیت انبار">
                         <option value="1">موجود</option>
                         <option value="0">ناموجود</option>
@@ -50,11 +53,13 @@
             <div class="grid lg:grid-cols-2 gap-7">
                 <x-form.file wire:model="form.images" name="form.images" label="تصاویر محصول" multiple />
                 <x-form.file wire:model="form.file" name="form.file" label="فایل محصول" />
+
                 <x-form.select wire:model="form.customer_can_add_review" name="form.customer_can_add_review"
                     label="مشتری می تواند دیدگاه بنویسد؟">
                     <option value="1" selected>بله</option>
                     <option value="0">خیر</option>
                 </x-form.select>
+
                 <x-form.select wire:model="form.published" name="form.published" label="محصول انتشار داده شود؟">
                     <option value="1" selected>بله</option>
                     <option value="0">خیر</option>
@@ -233,9 +238,9 @@
 
         showStockInputs.addEventListener('click', function() {
             if (showStockInputs.checked) {
-                stockInputs.style.display = 'block';
+                stockInputs.classList.remove('hidden');
             } else {
-                stockInputs.style.display = 'none';
+                stockInputs.classList.add('hidden');
             }
         });
     </script>
