@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/star-rating-svg.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <title>{{ 'سه بعدی متا' . ' | ' . $title ?? config('app.name') }}</title>
 
     <style>
@@ -939,6 +942,7 @@
     <script src="{{ asset('assets/theme_assets/js/jvectormap-init.js') }}"></script>
     <script src="{{ asset('assets/theme_assets/js/main.js') }}"></script>
     <script src="{{ asset('assets/summernote/summernote-lite.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script>
         $(document).ready(function() {
             if (!$.browser.webkit) {
@@ -1002,7 +1006,7 @@
         });
     </script>
     <script>
-                jQuery(document).ready(function() {
+        jQuery(document).ready(function() {
             var $this = $(".items2");
             if ($this.find("div").length > 2) {
                 $(".items2").append(
@@ -1017,6 +1021,33 @@
                 $(".items2 .item2").not(".shown2").toggle(300);
                 $(this).toggleClass("showLess2");
             });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+
+            $("#owl-demo").owlCarousel({
+                margin: 20,
+                loop: true,
+                items: 3,
+                rtl:true,
+                responsive: {
+                    0: {
+                        items: 2 // در اندازه‌های کوچکتر، فقط یک آیتم نمایش داده شود
+                    },
+                    600: {
+                        items: 3 // در اندازه‌های بزرگتر از 600 پیکسل، دو آیتم نمایش داده شود
+                    },
+                    1300: {
+                        items: 4 // در اندازه‌های بزرگتر از 1300 پیکسل، سه آیتم نمایش داده شود
+                    },
+                    1800: {
+                        items: 5 // در اندازه‌های بزرگتر از 1800 پیکسل، سه آیتم نمایش داده شود
+                    },
+                
+                }
+            });
+
         });
     </script>
 

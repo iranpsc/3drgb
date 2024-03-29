@@ -1,4 +1,9 @@
 <div>
+    <style>
+        #owl-demo .item {
+            margin: 10px;
+        }
+    </style>
     <main>
         <section>
             <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm font-mono hidden lg:block px-5">
@@ -439,31 +444,20 @@
                     </nav>
                 </div>
 
-                <div class="mt-3 flex flex-col items-center ">
-                    <div id="tabs-with-underline-1" role="tabpanel" aria-labelledby="order-by-score ">
-                        <div id="tabs-with-underline-4" class=""
-                            role="tabpanel"aria-labelledby="tabs-with-underline-item-4">
-                            <div class="flex justify-between text-sm">
-                                <div class="flex justify-between text-sm duration-500 transition-all w-full ">
-                                    <div
-                                        class="flex gap-4 xl:gap-5 overflow-x-scroll w-screen lg:w-[92vw]  px-3 xl:w-auto scrollbar  duration-500 transition-all">
-                                        <!-- start card -->
-                                        @forelse ($products as $product)
-                                            <livewire:product-item :product="$product" :key="$product->id" />
-                                        @empty
-                                            <x-alert type="warning" message="محصولی یافت نشد" />
-                                        @endforelse
-                                        <!-- end card -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div id="owl-demo" class="owl-carousel owl-theme ">
+                <!-- start card -->
+                @forelse ($products as $product)
+                    <livewire:product-item :product="$product" :key="$product->id" />
+                @empty
+                    <x-alert type="warning" message="محصولی یافت نشد" />
+                @endforelse
+                <!-- end card -->
             </div>
             <!-- end show more products -->
 
         </section>
+
 
     </main>
 </div>
