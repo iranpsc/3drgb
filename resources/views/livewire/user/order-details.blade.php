@@ -85,12 +85,12 @@
                                 </td>
                                 <td>
                                     <div class="orderDatatable-title">
-                                        0
+                                        {{ $product->users()->find(Auth::id())->pivot->download_count }}
                                     </div>
                                 </td>
                                 <td>
                                     <div class="orderDatatable-title">
-                                        --
+                                        {{ jdate($product->users()->find(Auth::id())->pivot->downloaded_at)->format('Y/m/d H:i:s') }}
                                     </div>
                                 </td>
                                 <td>

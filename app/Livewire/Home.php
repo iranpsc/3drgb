@@ -55,14 +55,9 @@ class Home extends Component
     {
         return view('livewire.home')
             ->with([
-                // 'categories' => Category::with(['parent', 'children'])->get(),
-                // 'categories' => Category::whereHas('products', function ($query) {
-                //     $query->where('rating_avg', '>', 0);
-                // })
-                //     ->withAvg('products as rating_avg', 'rating')
-                //     ->orderByDesc('rating_avg')
-                //     ->take(10)
-                //     ->get(),
+                'popular_categories' => Category::with('parent')->whereHas('products', function ($query) {
+                    $query->published();
+                })->withCount('products')->orderByDesc('products_count')->take(12)->get(),
                 'products' => $this->products ?? Product::published()
                     ->withAvg('reviews as rating_avg', 'rating')
                     ->with('images')

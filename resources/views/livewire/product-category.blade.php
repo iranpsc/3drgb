@@ -11,12 +11,12 @@
                     <div class="flex gap-4">
                         <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (1).png"
                                     alt=""></a></div>
-                        <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy"><img src="https://3d.irpsc.com/home-page/images/Union (2).png"
-                                    alt=""></a></div>
-                        <div><a href="whatsapp://send?text=http://+98 933 785 0424"><img src="https://3d.irpsc.com/home-page/images/Union (3).png"
-                                    alt=""></a></div>
-                        <div><a href="mailto:dmeta.irpsc@gmail.com"><img src="https://3d.irpsc.com/home-page/images/Union (4).png"
-                                    alt=""></a></div>
+                        <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy"><img
+                                    src="https://3d.irpsc.com/home-page/images/Union (2).png" alt=""></a></div>
+                        <div><a href="whatsapp://send?text=http://+98 933 785 0424"><img
+                                    src="https://3d.irpsc.com/home-page/images/Union (3).png" alt=""></a></div>
+                        <div><a href="mailto:dmeta.irpsc@gmail.com"><img
+                                    src="https://3d.irpsc.com/home-page/images/Union (4).png" alt=""></a></div>
                     </div>
                 </div>
             </div>
@@ -163,7 +163,13 @@
                             </div>
                         @empty
                             <div class="w-full flex justify-center items-center">
-                                <p class="text-2xl font-bold text-stone-800 dark:text-white">No Products Found</p>
+                                <!-- start card -->
+                                @forelse ($products as $product)
+                                    <livewire:product-item :$product :key="'product-' . $product->id" />
+                                @empty
+                                    <x-alert type="warning" message="محصولی یافت نشد" />
+                                @endforelse
+                                {{ $products->links() }}
                             </div>
                         @endforelse
                     </div>
@@ -172,4 +178,3 @@
         </section>
     </main>
 </div>
-

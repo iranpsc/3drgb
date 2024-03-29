@@ -31,7 +31,7 @@ class ProductPolicy
     {
         return $user->orders()->whereHas('products', function ($query) use ($product) {
             $query->where('product_id', $product->id);
-        })->exists();
+        })->exists() || $product->is_free;
     }
 
     public function addReview(User $user, Product $product): bool

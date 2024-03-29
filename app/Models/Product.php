@@ -38,7 +38,13 @@ class Product extends Model implements Sitemapable
         'url',
         'discount',
         'final_price',
+        'is_free'
     ];
+
+    public function getIsFreeAttribute()
+    {
+        return $this->price == 0;
+    }
 
     public function getUrlAttribute()
     {
@@ -116,7 +122,7 @@ class Product extends Model implements Sitemapable
      */
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withPivot('download_count', 'downloaded_at');
     }
 
     /**
@@ -147,7 +153,7 @@ class Product extends Model implements Sitemapable
      */
     public function getFinalPriceAttribute()
     {
-        return $this->sale_price ? $this->sale_price : $this->price;
+        return $this->sale_price > 0 ? $this->sale_price : $this->price;
     }
 
     /**
