@@ -11,7 +11,7 @@ class CreateProductForm extends Form
 {
     use WithFileUploads;
 
-    public $category_id;
+    public $category;
     public $sku;
     public $name;
     public $slug;
@@ -34,7 +34,7 @@ class CreateProductForm extends Form
     public function rules()
     {
         return [
-            'category_id' => 'required|exists:categories,id',
+            'category' => 'required|exists:categories,id',
             'sku' => 'required|string|max:255|unique:products,sku',
             'name' => 'required|string|max:255',
             'slug' => [
@@ -46,9 +46,9 @@ class CreateProductForm extends Form
             ],
             'short_description' => 'required|string|max:255',
             'long_description' => 'required|string|max:5000',
-            'stock_status' => 'required|boolean',
+            'stock_status' => 'nullable|boolean',
             'quantity' => [
-                'required', 'numeric', 'min:0', function (string $attribute, mixed $value, Closure $fail) {
+                'nullable', 'numeric', 'min:0', function (string $attribute, mixed $value, Closure $fail) {
                     if ((bool)$this->stock_status == false && $value > 0) {
                         $fail(__('The quantity must not be greater than 0 if the stock status is false.'));
                     }
@@ -58,7 +58,7 @@ class CreateProductForm extends Form
                     }
                 }
             ],
-            'delivery_time' => 'required|numeric|min:0',
+            'delivery_time' => 'nullable|numeric|min:0',
             'customer_can_add_review' => 'required|boolean',
             'price' => 'required|numeric|min:0',
             'sale_price' => 'nullable|numeric|min:0|lte:price',
@@ -81,7 +81,7 @@ class CreateProductForm extends Form
 
         $product = Product::create(
             $this->only([
-                'category_id',
+                'category',
                 'sku',
                 'name',
                 'slug',
