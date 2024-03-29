@@ -33,11 +33,11 @@
 
 
                 <div class="flex flex-col gap-5">
-                    <label for="showStockInputs" class="flex flex-col gap-5">محصول برای متارنگ است؟</label>
-                    <div class="col-sm-8">
+                    <div class="flex gap-5 items-center">
                         <input type="checkbox" class="w-5 h-5" id="showStockInputs">
+                        <label for="showStockInputs" class="flex flex-col gap-5">محصول برای متارنگ است؟</label>
                     </div>
-                </div>
+
 
                 <div id="stockInputs" class="flex flex-col gap-5 hidden">
                     <x-form.select wire:model="form.stock_status" name="form.stock_status" label="وضعیت انبار">
@@ -48,6 +48,7 @@
                     <x-form.text wire:model="form.quantity" name="form.quantity" label="تعداد موجود در انبار" />
                     <x-form.text wire:model="form.delivery_time" name="form.delivery_time" label="مدت زمان تحویل" />
                 </div>
+            </div>
 
             </div>
 

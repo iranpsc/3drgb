@@ -194,7 +194,7 @@
                                     <a href="{{ route('product-categories', ['category_link' => $category->url]) }}"
                                         class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
                                         <div class="w-full p-1 md:p-5">
-                                            <img src="{{ asset($category->image->url) }}" alt=""
+                                            <img src="{{ asset($category->image?->url) }}" alt=""
                                                 class="w-full">
                                         </div>
                                         <div>

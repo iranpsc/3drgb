@@ -34,9 +34,10 @@
                 <x-form.text wire:model="form.sale_price" name="form.sale_price" label="قیمت فروش ویژه" />
 
                 <div class="flex flex-col gap-5">
-                    <label for="showStockInputs">محصول برای متارنگ است؟</label>
-                    <input type="checkbox" id="showStockInputs">
-                </div>
+                    <div class="flex items-center gap-5">
+                        <input type="checkbox" id="showStockInputs">
+                        <label for="showStockInputs">محصول برای متارنگ است؟</label>
+                    </div>
 
                 <div class="flex flex-col gap-5 hidden" id="stockInputs">
                     <x-form.select wire:model="form.stock_status" name="form.stock_status" label="وضعیت انبار">
@@ -47,6 +48,7 @@
                     <x-form.text wire:model="form.quantity" name="form.quantity" label="تعداد موجود در انبار" />
                     <x-form.text wire:model="form.delivery_time" name="form.delivery_time" label="مدت زمان تحویل" />
                 </div>
+            </div>
 
             </div>
 
