@@ -16,7 +16,10 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <title>{{ 'سه بعدی متا' . ' | ' . $title ?? config('app.name') }}</title>
-
+    <script>document.documentElement.className
+        = document.documentElement.className
+          .replace(/\bno-js\b/g, '') + ' js ';
+    </script>
     <style>
         #style1::-webkit-scrollbar-track {
             border-radius: 10px;
@@ -1030,7 +1033,7 @@
                 margin: 20,
                 loop: true,
                 items: 3,
-                rtl:true,
+                rtl: true,
                 responsive: {
                     0: {
                         items: 2 // در اندازه‌های کوچکتر، فقط یک آیتم نمایش داده شود
@@ -1044,12 +1047,62 @@
                     1800: {
                         items: 5 // در اندازه‌های بزرگتر از 1800 پیکسل، سه آیتم نمایش داده شود
                     },
-                
+
                 }
             });
 
         });
     </script>
+    <script>
+        $(document).ready(function() {
+            var $owl = $(".owl-carousel");
+
+            // Initialize Owl Carousel with center alignment and without dots
+            $owl.owlCarousel({
+                dots: false, // Hide navigation dots
+                margin: 20,
+                onInitialized: checkButtons, // Check initial number of items
+                onResized: checkButtons, // Check on resize
+                responsive: {
+                    0: {
+                        items: 1 // در اندازه‌های کوچکتر، فقط یک آیتم نمایش داده شود
+                    },
+                    600: {
+                        items: 2 // در اندازه‌های بزرگتر از 600 پیکسل، دو آیتم نمایش داده شود
+                    },
+                    1300: {
+                        items: 3 // در اندازه‌های بزرگتر از 1300 پیکسل، سه آیتم نمایش داده شود
+                    },
+                    1650: {
+                        items: 4 // در اندازه‌های بزرگتر از 1800 پیکسل، سه آیتم نمایش داده شود
+                    },
+
+                }
+            });
+
+            // Function to check the number of items and show/hide buttons accordingly
+            function checkButtons(event) {
+                var itemCount = event.item.count;
+                var visibleItems = event.page.size;
+
+                if (itemCount <= visibleItems) {
+                    $(".owl-prev, .owl-next").hide();
+                } else {
+                    $(".owl-prev, .owl-next").show();
+                }
+            }
+
+            // Handle click events for navigation buttons
+            $(".owl-next").click(function() {
+                $owl.trigger('next.owl.carousel');
+            });
+
+            $(".owl-prev").click(function() {
+                $owl.trigger('prev.owl.carousel');
+            });
+        });
+    </script>
+
 
 </body>
 

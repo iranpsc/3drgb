@@ -4254,3 +4254,11 @@ button:active{
   scale: 1.04;
   transition-duration: 300ms;
 }
+.nav-link.active{
+  background-color: white;
+  color: #000BEE;
+}
+.dark .nav-link.active{
+  background-color: #001448;
+  color: #C2008C;
+}
