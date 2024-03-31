@@ -51,7 +51,7 @@
                                         class="flex justify-center items-center bg-[#EFEFEF] dark:bg-[#4A4E7C] aspect-square rounded-full w-12 las {{ $Status === 'OK' ? 'la-check' : 'la-times' }}"
                                         style="display: flex"> </span>
 
-                                    <span>جزئیات پرداخت</span>
+                                    <p>جزئیات پرداخت</p>
                                 </div>
                             </div>
                         </div><!-- checkout -->

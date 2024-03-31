@@ -106,78 +106,29 @@
                     </div>
                     <div class="w-full  mt-10 px-5" dir="ltr">
                         <div  id="owl-demo2" class="owl-carousel owl-theme ">
-                            <div class="w-full">
-                                <a href="#"
-                                    class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16">
-                                    <div class="hidden lg:block w-[60%] aspect-square  ">
-                                        <img src="{{ asset('home-page/images/Design 1.png') }}" alt=""
-                                            class="w-full">
-                                    </div>
-                                    <div class="flex flex-col justify-end ">
-                                        <p class="text-gray-500 text-sm font-serif mb-[-8px]">
-                                            3D models
-                                        </p>
-                                        <p class="text-[#000BEE]  dark:text-[#E8E9FF] text-3xl font-bold p-0 mt-2"
-                                            style="font-family:rokh ;">
-                                            مدل‌های سه بعدی
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="w-full">
-                                <a href="#"
-                                    class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16 ">
-                                    <div class="hidden lg:block w-[60%] aspect-square">
-                                        <img src="{{ asset('home-page/images/Group (3).png') }}" alt=""
-                                            class="w-full h-full">
-                                    </div>
-                                    <div class="flex flex-col justify-end ">
-                                        <p class="text-gray-500 text-sm font-serif mb-[-8px]">
-                                            Icons
-                                        </p>
-                                        <p class="text-[#000BEE] dark:text-[#E8E9FF] text-3xl font-bold p-0 mt-2"
-                                            style="font-family:rokh ;">
-                                            ایکون ها
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="w-full">
-                                <a href="#"
-                                    class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16 ">
-                                    <div class="hidden lg:block w-[60%] aspect-square">
-                                        <img src="{{ asset('home-page/images/Group@2x.png') }}" alt=""
-                                            class="w-full h-full">
-                                    </div>
-                                    <div class="flex flex-col justify-end ">
-                                        <p class="text-gray-500 text-sm font-serif mb-[-8px]">
-                                            Vector and Illustrator
-                                        </p>
-                                        <p class="text-[#000BEE] dark:text-[#E8E9FF] text-3xl font-bold p-0 mt-2"
-                                            style="font-family:rokh ;">
-                                            وکتور و ایلوستریتور
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="w-full">
-                                <a href="#"
-                                    class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16 ">
-                                    <div class="hidden lg:block w-[60%] aspect-square">
-                                        <img src="{{ asset('home-page/images/Group.png') }}" alt=""
-                                            class="w-full">
-                                    </div>
-                                    <div class="flex flex-col justify-end ">
-                                        <p class="text-gray-500 text-sm font-serif mb-[-8px]">
-                                            Lotties animation
-                                        </p>
-                                        <p class="text-[#000BEE] dark:text-[#E8E9FF] text-3xl font-bold p-0 mt-2"
-                                            style="font-family:rokh ;">
-                                            انیمیشن Lotties
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
+
+                            @forelse ($popular_categories as $category)
+                                <div class="w-full">
+                                    <a href="{{ route('product-categories', ['category_link' => $category->url]) }}"
+                                        class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16">
+                                        <div class="hidden lg:block w-[60%] aspect-square  ">
+                                            <img src="{{ asset($category->image?->url) }}" alt=""
+                                                class="w-full">
+                                        </div>
+                                        <div class="flex flex-col justify-end ">
+                                            {{-- <p class="text-gray-500 text-sm font-serif mb-[-8px]">
+                                                3D models
+                                            </p> --}}
+                                            <p class="text-[#000BEE]  dark:text-[#E8E9FF] text-3xl font-bold p-0 mt-2"
+                                                style="font-family:rokh ;">
+                                                {{ $category->name }}
+                                            </p>
+                                        </div>  
+                                    </a>
+                                </div>
+                            @empty
+                                <x-alert type="warning" message="دسته بندی یافت نشد" />
+                            @endforelse
                             
                         </div>
                     </div>

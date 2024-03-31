@@ -4262,3 +4262,9 @@ button:active{
   background-color: #001448;
   color: #C2008C;
 }
+.step.completed{
+  background-color: greenyellow;
+}
+.step.not-completed span{
+  background-color: red;
+}
