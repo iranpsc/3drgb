@@ -227,12 +227,12 @@
             </div>
             <!-- end slyder -->
         </section>
-        <section class="w-full mt-32 mx-auto flex justify-center items-center max-w-[1500px] ">
+        <section class="w-full mt-32 mx-auto flex justify-center items-center max-w-[1500px] px-5 lg:px-0">
             <div
                 class="w-full text-center flex flex-col justify-center items-center xl:flex-row gap-5 gap-y-10 py-12 xl:py-16 px-7 rounded-3xl bg-[#000ceec2] dark:bg-[#001448] ">
                 <div class="lg:w-[70%]">
                     <h2 class="text-white text-3xl 2xl:text-5xl !leading-[70px]  text-right"
-                        style="font-family:rokh ;">“خدمات طراحی محیط های سه بعدی به صورت Low-Poly و High-Poly”
+                        style="font-family:rokh ;">“خدمات طراحی محیط های سه بعدی <br>به صورت Low-Poly و High-Poly”
                     </h2>
                 </div>
                 <a href="{{ route('submit-order') }}"

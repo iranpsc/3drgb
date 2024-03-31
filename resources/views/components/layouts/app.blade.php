@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="سامانه سه بعدی متا با تعرفه ای ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .">
+    <meta name="keywords" content="3d,3dmeta,3drgb,سبعدی,سه بعدی,محصولات سه بعدی,فایل سه بعدی,خرید فایل سبعدی,icon,آیکون,آیکون سه بعدی,خرید آیکون سه بعدی,انیمیشن,">
+    <meta http-equiv="content-language" content="farsi">
+    <meta name="robots" content="index,follow" >
+    <link rel="icon" type="image/x-icon" href="{{ asset('home-page/images/3ddmetaa143.png') }}">
     <link href="{{ asset('home-page/style/main.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/fontawesome.css') }}">
@@ -603,7 +608,7 @@
                             </a>
                         </div>
                         <div class="w-7 h-7">
-                            <a href="./sabt-sefaresh.html" class="w-full">
+                            <a href="{{ route('submit-order') }}" class="w-full">
                                 <svg class="w-7 h-7" width="22" height="22" viewBox="0 0 22 22"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -900,49 +905,16 @@
     <script src="{{ asset('home-page/script/scripts.js') }}"></script>
     <script src="{{ asset('home-page/script/product-img.js') }}"></script>
     <script src="{{ asset('home-page/script/main.js') }}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <script src="{{ asset('assets/vendor_assets/js/jquery/jquery-3.5.1.min.js') }}"></script>
     <script src="{{ asset('assets/vendor_assets/js/jquery/jquery-ui.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/bootstrap/popper.js') }}"></script>
     <script src="{{ asset('assets/vendor_assets/js/bootstrap/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/accordion.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/autoComplete.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/Chart.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/daterangepicker.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/drawer.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/dynamicBadge.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/dynamicCheckbox.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/footable.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/fullcalendar@5.2.0.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/google-chart.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/jquery-jvectormap-2.0.5.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/jquery-jvectormap-world-mill-en.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/jquery.countdown.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/jquery.filterizr.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/jquery.peity.min.js') }}"></script>
     <script src="{{ asset('assets/vendor_assets/js/jquery.star-rating-svg.min.js') }}"></script>
     <script src="{{ asset('assets/vendor_assets/js/loader.js') }}"></script>
     <script src="{{ asset('assets/vendor_assets/js/message.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/moment.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/muuri.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/notification.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/popover.js') }}"></script>
     <script src="{{ asset('assets/vendor_assets/js/select2.full.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/slick.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/trumbowyg.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/wickedpicker.min.js') }}"></script>
-    <script src="{{ asset('assets/theme_assets/js/apexmain.js') }}"></script>
-    <script src="{{ asset('assets/theme_assets/js/charts.js') }}"></script>
     <script src="{{ asset('assets/theme_assets/js/drag-drop.js') }}"></script>
-    <script src="{{ asset('assets/theme_assets/js/footable.js') }}"></script>
-    <script src="{{ asset('assets/theme_assets/js/full-calendar.js') }}"></script>
-    <script src="{{ asset('assets/theme_assets/js/icon-loader.js') }}"></script>
-    <script src="{{ asset('assets/theme_assets/js/jvectormap-init.js') }}"></script>
     <script src="{{ asset('assets/theme_assets/js/main.js') }}"></script>
     <script src="{{ asset('assets/summernote/summernote-lite.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
