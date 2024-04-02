@@ -1,4 +1,9 @@
 <div>
+    <style>
+        #owl-demo .item {
+            margin: 10px;
+        }
+    </style>
     <main>
         <section>
             <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm font-mono hidden lg:block px-5">
@@ -77,72 +82,56 @@
                         هزاران فایل بینظیر
                     </p>
                 </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-7 px-10 sm:px-2">
-                    <a href="http://3drgb.test/product-category/%D9%85%D8%AF%D9%84-%D8%B3%D9%87-%D8%A8%D8%B9%D8%AF%DB%8C/%D8%B3%D9%87-%D8%A8%D8%B9%D8%AF%DB%8C"
-                        class="bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
-                        <div>
-                            <img src="{{ asset('home-page/images/Design 1.png') }}" alt="">
-                        </div>
-                        <div class="flex flex-col justify-end ">
-                            <p class="text-gray-500 text-sm font-serif " style="font-family:rokh ;">
-                                3D models
-                            </p>
-                            <p class="text-[#000BEE]  dark:text-[#E8E9FF] text-3xl font-bold p-0 m-0"
-                                style="font-family:rokh ;">
-                                مدل‌های سه بعدی
-                            </p>
-                        </div>
-                    </a>
-                    <a href="#"
-                        class="bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
-                        <div>
-                            <img src="{{ asset('home-page/images/Group (3).png') }}" alt="">
-                        </div>
-                        <div class="flex flex-col justify-end ">
-                            <p class="text-gray-500 text-sm font-serif ">
-                                Icons
-                            </p>
-                            <p class="text-[#000BEE] dark:text-[#E8E9FF] text-3xl font-bold p-0 m-0">
-                                ایکون ها
-                            </p>
+                <div class="w-full relative">
+                    <div
+                        class="absolute top-[29%] lg:top-[40%] bottom-auto  flex flex-row z-10 w-full justify-between gap-5 items-center">
+                        <button aria-label="slide forward"
+                            class="owl-next  aspect-square  focus:outline-none  dark:bg-[#c2008b36] dark:focus:bg-[#C2008C] dark:focus:ring-[#C2008C] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full">
+                            <svg style="width:20px; height:20px" class="dark:fill-white rotate-180" width="29"
+                                height="22" viewBox="0 0 29 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" class="dark:fill-white " clip-rule="evenodd"
+                                    d="M10 0C9.44772 0 9 0.447715 9 1C9 3.84609 7.67935 5.92053 5.97199 7.39265C4.25137 8.87621 2.17172 9.71149 0.803669 10.0192C0.791773 10.0216 0.779936 10.0242 0.768166 10.027C0.696033 10.0441 0.626926 10.0691 0.561789 10.1009C0.46092 10.1499 0.370703 10.2149 0.293615 10.292C0.193146 10.392 0.113024 10.5144 0.061842 10.6534C0.0213566 10.7627 -0.000339508 10.8799 -0.000213623 11.0001C-0.00028038 11.0787 0.0089798 11.156 0.0267162 11.2306C0.0613613 11.3774 0.128351 11.5117 0.219749 11.6255C0.330452 11.7638 0.478315 11.8735 0.652571 11.9378C0.701506 11.956 0.75202 11.9704 0.803688 11.9808C2.17174 12.2885 4.25138 13.1238 5.97199 14.6074C7.67935 16.0795 9 18.1539 9 21C9 21.5523 9.44772 22 10 22C10.5523 22 11 21.5523 11 21C11 17.4461 9.32065 14.8539 7.27801 13.0926C6.80751 12.687 6.31601 12.3235 5.81819 12H28C28.5523 12 29 11.5523 29 11C29 10.4477 28.5523 10 28 10H5.81819C6.31601 9.6765 6.80751 9.31303 7.27801 8.90735C9.32065 7.14614 11 4.55391 11 1C11 0.447715 10.5523 0 10 0Z"
+                                    fill="#000BEE" />
+                            </svg>
+                        </button>
+                        <button aria-label="slide backward" 
+                            class="owl-prev  aspect-square  focus:outline-none dark:bg-[#c2008b36] dark:focus:bg-[#C2008C] dark:focus:ring-[#C2008C] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full">
+                            <svg style="width:20px; height:20px" width="29" height="22" viewBox="0 0 29 22"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path  fill-rule="evenodd" class="dark:fill-white focus:fill-white" clip-rule="evenodd"
+                                    d="M10 0C9.44772 0 9 0.447715 9 1C9 3.84609 7.67935 5.92053 5.97199 7.39265C4.25137 8.87621 2.17172 9.71149 0.803669 10.0192C0.791773 10.0216 0.779936 10.0242 0.768166 10.027C0.696033 10.0441 0.626926 10.0691 0.561789 10.1009C0.46092 10.1499 0.370703 10.2149 0.293615 10.292C0.193146 10.392 0.113024 10.5144 0.061842 10.6534C0.0213566 10.7627 -0.000339508 10.8799 -0.000213623 11.0001C-0.00028038 11.0787 0.0089798 11.156 0.0267162 11.2306C0.0613613 11.3774 0.128351 11.5117 0.219749 11.6255C0.330452 11.7638 0.478315 11.8735 0.652571 11.9378C0.701506 11.956 0.75202 11.9704 0.803688 11.9808C2.17174 12.2885 4.25138 13.1238 5.97199 14.6074C7.67935 16.0795 9 18.1539 9 21C9 21.5523 9.44772 22 10 22C10.5523 22 11 21.5523 11 21C11 17.4461 9.32065 14.8539 7.27801 13.0926C6.80751 12.687 6.31601 12.3235 5.81819 12H28C28.5523 12 29 11.5523 29 11C29 10.4477 28.5523 10 28 10H5.81819C6.31601 9.6765 6.80751 9.31303 7.27801 8.90735C9.32065 7.14614 11 4.55391 11 1C11 0.447715 10.5523 0 10 0Z"
+                                    fill="#000BEE" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="w-full  mt-10 px-5" dir="ltr">
+                        <div  id="owl-demo2" class="owl-carousel owl-theme ">
 
+                            @forelse ($popular_categories as $category)
+                                <div class="w-full">
+                                    <a href="{{ route('product-categories', ['category_link' => $category->url]) }}"
+                                        class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16">
+                                        <div class="hidden lg:block w-[60%] aspect-square  ">
+                                            <img src="{{ asset($category->image?->url) }}" alt=""
+                                                class="w-full">
+                                        </div>
+                                        <div class="flex flex-col justify-end ">
+                                            {{-- <p class="text-gray-500 text-sm font-serif mb-[-8px]">
+                                                3D models
+                                            </p> --}}
+                                            <p class="text-[#000BEE]  dark:text-[#E8E9FF] text-3xl font-bold p-0 mt-2"
+                                                style="font-family:rokh ;">
+                                                {{ $category->name }}
+                                            </p>
+                                        </div>  
+                                    </a>
+                                </div>
+                            @empty
+                                <x-alert type="warning" message="دسته بندی یافت نشد" />
+                            @endforelse
+                            
                         </div>
-
-                    </a>
-                    <a href="#"
-                        class="bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
-                        <div>
-                            <img src="{{ asset('home-page/images/Group@2x.png') }}" alt="">
-                        </div>
-                        <div class="flex flex-col justify-end ">
-                            <p class="text-gray-500 text-sm font-serif " style="font-family:rokh ;">
-                                Vector and Illustrator
-                            </p>
-                            <p class="text-[#000BEE] dark:text-[#E8E9FF] text-3xl font-bold p-0 m-0">
-                                وکتور و ایلوستریتور
-                            </p>
-
-                        </div>
-
-                    </a>
-                    <a href="#"
-                        class="bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
-                        <div>
-                            <img src="{{ asset('home-page/images/Group.png') }}" alt="">
-                        </div>
-                        <div class="flex flex-col justify-end ">
-                            <p class="text-gray-500 text-sm font-serif ">
-                                Lotties animation
-                            </p>
-                            <p class="text-[#000BEE] dark:text-[#E8E9FF] text-3xl font-bold p-0 m-0"
-                                style="font-family:rokh ;">
-                                انیمیشن Lotties
-                            </p>
-
-                        </div>
-
-                    </a>
-
+                    </div>
                 </div>
             </div>
             <div class="flex flex-col md:flex-row items-center gap-y-5 gap-x-20 w-full px-5 mt-28 py-32">
@@ -189,7 +178,7 @@
                                     <a href="{{ route('product-categories', ['category_link' => $category->url]) }}"
                                         class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
                                         <div class="w-full p-1 md:p-5">
-                                            <img src="{{ asset($category->image->url) }}" alt=""
+                                            <img src="{{ asset($category->image?->url) }}" alt=""
                                                 class="w-full">
                                         </div>
                                         <div>
@@ -238,12 +227,12 @@
             </div>
             <!-- end slyder -->
         </section>
-        <section class="w-full mt-32 mx-auto flex justify-center items-center max-w-[1500px] ">
+        <section class="w-full mt-32 mx-auto flex justify-center items-center max-w-[1500px] px-5 lg:px-0">
             <div
                 class="w-full text-center flex flex-col justify-center items-center xl:flex-row gap-5 gap-y-10 py-12 xl:py-16 px-7 rounded-3xl bg-[#000ceec2] dark:bg-[#001448] ">
                 <div class="lg:w-[70%]">
                     <h2 class="text-white text-3xl 2xl:text-5xl !leading-[70px]  text-right"
-                        style="font-family:rokh ;">“خدمات طراحی محیط های سه بعدی به صورت Low-Poly و High-Poly”
+                        style="font-family:rokh ;">“خدمات طراحی محیط های سه بعدی <br>به صورت Low-Poly و High-Poly”
                     </h2>
                 </div>
                 <a href="{{ route('submit-order') }}"
@@ -251,7 +240,7 @@
                     <p class="m-0 p-0 ">
                         نمونه کار و ثبت سفارش
                     </p>
-                    <img src="../images/Union.png" alt="">
+                    <img src="{{ asset('home-page/images/Union.png') }}" alt="">
                 </a>
             </div>
         </section>
@@ -282,31 +271,20 @@
                     </nav>
                 </div>
 
-                <div class="mt-3 flex flex-col items-center ">
-                    <div id="tabs-with-underline-1" role="tabpanel" aria-labelledby="order-by-score ">
-                        <div id="tabs-with-underline-4" class=""
-                            role="tabpanel"aria-labelledby="tabs-with-underline-item-4">
-                            <div class="flex justify-between text-sm">
-                                <div class="flex justify-between text-sm duration-500 transition-all w-full ">
-                                    <div
-                                        class="flex gap-4 xl:gap-5 overflow-x-scroll w-screen lg:w-[92vw]  px-3 xl:w-auto scrollbar  duration-500 transition-all">
-                                        <!-- start card -->
-                                        @forelse ($products as $product)
-                                            <livewire:product-item :product="$product" :key="$product->id" />
-                                        @empty
-                                            <x-alert type="warning" message="محصولی یافت نشد" />
-                                        @endforelse
-                                        <!-- end card -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div id="owl-demo" class="owl-carousel owl-theme ">
+                <!-- start card -->
+                @forelse ($products as $product)
+                    <livewire:product-item :product="$product" :key="$product->id" />
+                @empty
+                    <x-alert type="warning" message="محصولی یافت نشد" />
+                @endforelse
+                <!-- end card -->
             </div>
             <!-- end show more products -->
 
         </section>
+
 
     </main>
 </div>

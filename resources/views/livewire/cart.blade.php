@@ -1,4 +1,20 @@
 <div>
+    <style>
+        table {
+         
+          width: 100%;
+        
+        }
+        
+        th, td {
+          text-align: right;
+          padding: 8px;
+          padding-right: 50px
+
+        }
+
+        </style>
+
     <x-page title="سبد خرید">
 
         @session('message')
@@ -6,12 +22,12 @@
         @endsession
 
         <div class="container-fluid">
-            <div class="checkout wizard1 global-shadow border-0 px-sm-50 xl:px-20 pt-sm-50 py-30 mb-30  radius-xl w-100">
+            <div class="checkout wizard1 global-shadow border-0 px-sm-50pt-sm-50 py-30 mb-30  radius-xl w-100">
                 <div class="row justify-content-center">
                     <div class="col-xl-10 col-12">
                         @if (count($cart) > 0)
                             <div>
-                                <div class=" flex items-center gap-3">
+                                <div class=" flex items-center justify-between gap-3 ">
                                     <div class="step current flex flex-col gap-2  items-center mt-5" id="1">
                                         <span
                                             class="bg-[#06CC85] rounded-full text-white flex items-center justify-center w-12 aspect-square p-2">
@@ -23,14 +39,14 @@
                                         </span>
                                         <span>سبد خرید</span>
                                     </div>
-                                    <div class="current"><img src="img/svg/checkout.svg" alt="img" class="svg">
+                                    <div class="current hidden lg:block w-full"><img src="img/svg/checkout.svg" alt="img" class="w-full">
                                     </div>
                                     <div class="step flex flex-col gap-2  items-center mt-5" id="2">
                                         <span
                                             class="flex justify-center items-center bg-[#EFEFEF] dark:bg-[#4A4E7C] aspect-square rounded-full w-12">2</span>
                                         <span>ایجاد حساب</span>
                                     </div>
-                                    <div class="current"><img src="img/svg/checkout.svg" alt="img" class="svg">
+                                    <div class="current hidden lg:block w-full"><img src="img/svg/checkout.svg" alt="img" class="w-full">
                                     </div>
                                     <div class="step flex flex-col gap-2  items-center mt-5" id="3">
                                         <span
@@ -38,7 +54,7 @@
                                             3</span>
                                         <span>پرداخت</span>
                                     </div>
-                                    <div class="current"><img src="img/svg/checkout.svg" alt="img" class="svg">
+                                    <div class="current hidden lg:block w-full"><img src="img/svg/checkout.svg" alt="img" class="w-full">
                                     </div>
                                     <div class="step flex flex-col gap-2  items-center mt-5" id="4">
                                         <span
@@ -53,30 +69,30 @@
                                 @if (count($cart) > 0)
                                     <div class="">
                                         <div class="flex flex-col lg:flex-row w-full gap-10">
-                                            <div class="w-full lg:w-[70%] overflow-x-auto">
-                                                <table id="cart" class=" lg:w-full flex flex-col gap-10">
-                                                    <thead
-                                                        class="w-max lg:w-full bg-[#EFEFEF] dark:bg-[#4A4E7C] rounded-[10px] py-3 px-5">
-                                                        <tr
-                                                            class="flex  w-full space-x-10 lg:space-x-0 justify-between">
-                                                            <th class="lg:w-[40%] w-[160px] text-right">محصول</th>
+                                            <div class=" overflow-x-auto w-full lg:w-[70%]">
+                                                <table id="cart" >
+                                                    
+                                                       
+                                                    <thead>
+                                                        <tr style="height: 60px;" class="bg-[#EFEFEF] dark:bg-[#4A4E7C] rounded-[10px] " >
+                                                            <th style="padding-right: 8px">محصول</th>
                                                             <th>قیمت</th>
                                                             <th>مجموع</th>
                                                             <th>عملیات</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody class=" lg:px-5 flex flex-col gap-5">
+                                                  
+                                                    
                                                         @foreach ($products as $product)
-                                                            <tr
-                                                                class=" w-full justify-between flex items-center gap-10 lg:gap-0">
-                                                                <td class="lg:w-[40%]">
-                                                                    <div class="flex gap-3 items-center w-full">
+                                                            <tr>
+                                                                <td style="padding-right: 8px">
+                                                                    <div class="flex gap-3 items-center">
                                                                         <img class=" aspect-square w-[80px] h-[80px] rounded-[10px]"
                                                                             src="{{ asset('storage/' . $product->images->first()->path) }}"
                                                                             alt="Generic placeholder image">
-                                                                        <div class="media-body">
-                                                                            <h5 class="mt-0">{{ $product->name }}</h5>
-                                                                        </div>
+                                                                        
+                                                                            <h5 class="mt-0 w-max pl-5">{{ $product->name }}</h5>
+                                                                        
                                                                     </div>
                                                                 </td>
                                                                 <td>{{ number_format($product->final_price, 0) }} تومان
@@ -97,12 +113,12 @@
                                                                 </td>
                                                             </tr>
                                                         @endforeach
-                                                    </tbody>
+                                                    
                                                 </table><!-- End: table -->
                                             </div>
 
                                             <div
-                                                class="w-full lg:w-[30%] bg-[#EFEFEF] dark:bg-[#4A4E7C] rounded-[10px] p-5   ">
+                                                class="w-full lg:w-[30%] bg-[#EFEFEF] dark:bg-[#4A4E7C] rounded-[10px] p-5   " style="min-width: 236px">
                                                 <div class="flex flex-col gap-10  mt-20">
                                                     <div class="card-header border-bottom-0 p-0 pb-25">
                                                         <h5 class="fw-500">خلاصه سفارش</h5>

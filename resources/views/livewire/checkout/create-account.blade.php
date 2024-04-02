@@ -1,10 +1,10 @@
 <div>
     <div class="flex flex-col justify-center items-center">
-        <div class=" px-5 ">
+        <div class=" xl:px-20 ">
             <div class="row justify-content-center">
                 <div>
                     <div>
-                        <div class=" flex items-center gap-3">
+                        <div class=" flex items-center justify-between gap-3 ">
                             <div class="step current flex flex-col gap-2  items-center mt-5" id="1">
                                 <span
                                     class="bg-[#06CC85] rounded-full text-white flex items-center justify-center w-12 aspect-square p-2">
@@ -16,23 +16,23 @@
                                 </span>
                                 <span>سبد خرید</span>
                             </div>
-                            <div class="current"><img src="{{ asset('img/svg/checkout.svg') }}" alt="img"
-                                    class="svg"></div>
+                            <div class="current hidden lg:block w-full"><img src="{{ asset('img/svg/checkout.svg') }}" alt="img"
+                                    class="w-full"></div>
                             <div class="step flex flex-col gap-2  items-center mt-5" id="2">
                                 <span
                                     class="flex justify-center items-center bg-[#EFEFEF] dark:bg-[#4A4E7C] aspect-square rounded-full w-12">2</span>
                                 <span>ایجاد حساب</span>
                             </div>
-                            <div class="current"><img src="{{ asset('img/svg/checkout.svg') }}" alt="img"
-                                    class="svg"></div>
+                            <div class="current hidden lg:block w-full"><img src="{{ asset('img/svg/checkout.svg') }}" alt="img"
+                                    class="w-full"></div>
                             <div class="step flex flex-col gap-2  items-center mt-5" id="3">
                                 <span
                                     class="flex justify-center items-center bg-[#EFEFEF] dark:bg-[#4A4E7C] aspect-square rounded-full w-12">
                                     3</span>
                                 <span>پرداخت</span>
                             </div>
-                            <div class="current"><img src="{{ asset('img/svg/checkout.svg') }}" alt="img"
-                                    class="svg"></div>
+                            <div class="current hidden lg:block w-full"><img src="{{ asset('img/svg/checkout.svg') }}" alt="img"
+                                    class="w-full"></div>
                             <div class="step flex flex-col gap-2  items-center mt-5" id="4">
                                 <span
                                     class="flex justify-center items-center bg-[#EFEFEF] dark:bg-[#4A4E7C] aspect-square rounded-full w-12">4</span>

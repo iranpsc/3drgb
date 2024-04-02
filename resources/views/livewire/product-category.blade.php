@@ -162,15 +162,14 @@
                                 </div>
                             </div>
                         @empty
-                            <div class="w-full flex justify-center items-center">
-                                <!-- start card -->
-                                @forelse ($products as $product)
-                                    <livewire:product-item :$product :key="'product-' . $product->id" />
-                                @empty
-                                    <x-alert type="warning" message="محصولی یافت نشد" />
-                                @endforelse
-                                {{ $products->links() }}
-                            </div>
+                            <!-- start card -->
+                            @forelse ($products as $product)
+                                <livewire:product-item :$product :key="'product-' . $product->id" />
+                            @empty
+                                <x-alert type="warning" message="محصولی یافت نشد" />
+                            @endforelse
+                            {{ $products->links() }}
+
                         @endforelse
                     </div>
                 </div>

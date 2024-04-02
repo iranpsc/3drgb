@@ -36,6 +36,7 @@
             content: "- مشاهده کمتر ";
         }
     </style>
+    
     <main>
         <section>
             <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm font-mono hidden lg:block px-5">
@@ -76,8 +77,7 @@
                 <div
                     class="absolute top-[29%] lg:top-[40%] bottom-auto  flex flex-row z-10 w-full justify-between gap-5 items-center">
                     <button aria-label="slide forward"
-                        class="mr-[-15px] lg:-mr-7 aspect-square  focus:outline-none focus:bg-[#000BEE] dark:bg-[#c2008b36] dark:focus:bg-[#C2008C] dark:focus:ring-[#C2008C] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full"
-                        id="next">
+                        class="owl-next mr-[-15px] lg:-mr-7 aspect-square  focus:outline-none  dark:bg-[#c2008b36] dark:focus:bg-[#C2008C] dark:focus:ring-[#C2008C] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full">
                         <svg style="width:20px; height:20px" class="dark:fill-white rotate-180" width="29"
                             height="22" viewBox="0 0 29 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" class="dark:fill-white " clip-rule="evenodd"
@@ -86,22 +86,21 @@
                         </svg>
                     </button>
                     <button aria-label="slide backward"
-                        class=" ml-[-15px] lg:-ml-7 aspect-square  focus:outline-none focus:bg-[#000BEE] dark:bg-[#c2008b36] dark:focus:bg-[#C2008C] dark:focus:ring-[#C2008C] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full"
-                        id="prev">
+                        class="owl-prev ml-[-15px] lg:-ml-7 aspect-square  focus:outline-none dark:bg-[#c2008b36] dark:focus:bg-[#C2008C] dark:focus:ring-[#C2008C] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full">
                         <svg style="width:20px; height:20px" width="29" height="22" viewBox="0 0 29 22"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" class="dark:fill-white " clip-rule="evenodd"
+                            <path  fill-rule="evenodd" class="dark:fill-white focus:fill-white" clip-rule="evenodd"
                                 d="M10 0C9.44772 0 9 0.447715 9 1C9 3.84609 7.67935 5.92053 5.97199 7.39265C4.25137 8.87621 2.17172 9.71149 0.803669 10.0192C0.791773 10.0216 0.779936 10.0242 0.768166 10.027C0.696033 10.0441 0.626926 10.0691 0.561789 10.1009C0.46092 10.1499 0.370703 10.2149 0.293615 10.292C0.193146 10.392 0.113024 10.5144 0.061842 10.6534C0.0213566 10.7627 -0.000339508 10.8799 -0.000213623 11.0001C-0.00028038 11.0787 0.0089798 11.156 0.0267162 11.2306C0.0613613 11.3774 0.128351 11.5117 0.219749 11.6255C0.330452 11.7638 0.478315 11.8735 0.652571 11.9378C0.701506 11.956 0.75202 11.9704 0.803688 11.9808C2.17174 12.2885 4.25138 13.1238 5.97199 14.6074C7.67935 16.0795 9 18.1539 9 21C9 21.5523 9.44772 22 10 22C10.5523 22 11 21.5523 11 21C11 17.4461 9.32065 14.8539 7.27801 13.0926C6.80751 12.687 6.31601 12.3235 5.81819 12H28C28.5523 12 29 11.5523 29 11C29 10.4477 28.5523 10 28 10H5.81819C6.31601 9.6765 6.80751 9.31303 7.27801 8.90735C9.32065 7.14614 11 4.55391 11 1C11 0.447715 10.5523 0 10 0Z"
                                 fill="#000BEE" />
                         </svg>
                     </button>
                 </div>
-                <div class="w-full   mx-auto overflow-x-hidden overflow-y-hidden py-5 my-5 " dir="ltr">
-                    <div id="slider"
+                <div class="w-full  mt-10 px-5" dir="ltr">
+                    <div  id="myCarousel" class="owl-carousel owl-theme  "
                         class="h-full  lg:gap-6 gap-8 flex items-center  transition ease-out duration-700 ">
-                        <div class="lg:w-1/4 ">
+                        <div class="w-full">
                             <a href="#"
-                                class="w-[92vw] lg:w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
+                                class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16">
                                 <div class="hidden lg:block w-[60%] aspect-square  ">
                                     <img src="{{ asset('home-page/images/Design 1.png') }}" alt=""
                                         class="w-full">
@@ -117,9 +116,9 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="lg:w-1/4 ">
+                        <div class="w-full">
                             <a href="#"
-                                class="w-[92vw] lg:w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
+                                class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16 ">
                                 <div class="hidden lg:block w-[60%] aspect-square">
                                     <img src="{{ asset('home-page/images/Group (3).png') }}" alt=""
                                         class="w-full h-full">
@@ -135,9 +134,9 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="lg:w-1/4 ">
+                        <div class="w-full">
                             <a href="#"
-                                class="w-[92vw] lg:w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
+                                class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16 ">
                                 <div class="hidden lg:block w-[60%] aspect-square">
                                     <img src="{{ asset('home-page/images/Group@2x.png') }}" alt=""
                                         class="w-full h-full">
@@ -153,9 +152,9 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="lg:w-1/4 ">
+                        <div class="w-full">
                             <a href="#"
-                                class="w-[92vw] lg:w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
+                                class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16 ">
                                 <div class="hidden lg:block w-[60%] aspect-square">
                                     <img src="{{ asset('home-page/images/Group.png') }}" alt=""
                                         class="w-full">
@@ -171,6 +170,7 @@
                                 </div>
                             </a>
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -243,7 +243,7 @@
             </div>
             <div class="w-full lg:w-3/4 space-y-5 p-5" id="products-list">
                 <div class="flex flex-col-reverse lg:flex-row gap-6">
-                    <div class="flex items-center gap-6 w-[100%] lg:w-[70%] scrollbar overflow-x-auto">
+                    <div class="flex items-center gap-6 w-[100%] lg:w-[70%] scrollbar overflow-y-hidenn overflow-x-auto " style="height: 55px;">
                         <div class="font-bold dark:text-white w-max">
                             <p class="w-max hidden lg:block">مرتب سازی :</p>
                         </div>
@@ -269,26 +269,25 @@
                             </svg>
                         </button>
                         <div role="tab">
-                            <a class="nav-link @if ($orderBy['most-sales']) active @endif   px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383] hs-tab-active:text-black hs-tab-active:bg-white dark:hs-tab-active:bg-[#001448] dark:hs-tab-active:text-white items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  active"
+                            <a class="nav-link @if ($orderBy['newest']) active @endif  px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383]  items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  "
+                                href="javascript::void(0)" wire:click="sortBy('newest')" role="tab"
+                                aria-controls="ap-overview" aria-selected="false">جدید ترین</a>
+                        </div>
+                        <div role="tab">
+                            <a class="nav-link @if ($orderBy['most-sales']) active @endif   px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383]  items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  "
                                 href="javascript::void(0)" wire:click="sortBy('most-sales')" role="tab"
                                 aria-controls="draft" aria-selected="false">پر فروش ترین</a>
                         </div>
                         <div role="tab">
-                            <a class="nav-link @if ($orderBy['most-expensive']) active @endif   px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383] hs-tab-active:text-black hs-tab-active:bg-white dark:hs-tab-active:bg-[#001448] dark:hs-tab-active:text-white items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  "
+                            <a class="nav-link @if ($orderBy['most-expensive']) active @endif   px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383]  items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  "
                                 href="javascript::void(0)" wire:click="sortBy('most-expensive')" role="tab"
                                 aria-controls="activity" aria-selected="false">گرانترین</a>
                         </div>
                         <div role="tab">
-                            <a class="nav-link @if ($orderBy['cheapest']) active @endif   px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383] hs-tab-active:text-black hs-tab-active:bg-white dark:hs-tab-active:bg-[#001448] dark:hs-tab-active:text-white items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  "
+                            <a class="nav-link @if ($orderBy['cheapest']) active @endif   px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383]  items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  "
                                 href="javascript::void(0)" wire:click="sortBy('cheapest')" role="tab"
                                 aria-controls="timeline" aria-selected="false">ارزان ترین</a>
                         </div>
-                        <div role="tab">
-                            <a class="nav-link @if ($orderBy['newest']) active @endif  px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383] hs-tab-active:text-black hs-tab-active:bg-white dark:hs-tab-active:bg-[#001448] dark:hs-tab-active:text-white items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  "
-                                href="javascript::void(0)" wire:click="sortBy('newest')" role="tab"
-                                aria-controls="ap-overview" aria-selected="true">جدید ترین</a>
-                        </div>
-
                     </div>
 
                     <div class="flex gap-5 relative w-full lg:w-[30%]">
