@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\ContactUsMessage;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -27,7 +28,15 @@ class ContactUs extends Component
     {
         $this->validate();
 
-        // Send email
+        ContactUsMessage::create([
+            'name' => $this->name,
+            'email' => $this->email,
+            'phone' => $this->phone,
+            'subject' => $this->subject,
+            'message' => $this->message,
+        ]);
+
+        session()->flash('message', 'پیام شما با موفقیت ارسال شد.');
 
         $this->reset();
     }

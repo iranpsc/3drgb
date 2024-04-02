@@ -37,6 +37,10 @@ class ProductItem extends Component
 
     public function download()
     {
+        if(!auth()->check()) {
+            return $this->redirectRoute('login');
+        }
+
         $this->authorize('download', $this->product);
         return response()->download(storage_path('app/' . $this->product->file->path));
     }

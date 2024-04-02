@@ -353,6 +353,7 @@
                                                 <a href="{{ route('tags') }}">برچسب ها</a>
                                                 <a href="{{ route('reviews') }}">دیدگاه ها</a>
                                                 <a href="{{ route('submited-orders-index') }}">سفارشات ثبت شده</a>
+                                                <a href="{{ route('contact-us-messages') }}">پیام های دریافتی</a>
                                             </div>
                                         </ul>
                                     </li>

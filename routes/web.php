@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Livewire\AboutUs;
+use App\Livewire\ContactUsMessages;
 use App\Livewire\AdminDashboard;
 use App\Livewire\Cart;
 use App\Livewire\Checkout\Checkout;
@@ -54,9 +55,7 @@ Route::get('/about-us', AboutUs::class)->name('about-us');
 Route::get('/contact-us', ContactUs::class)->name('contact-us');
 Route::get('/products', Store::class)->name('products');
 Route::get('/products/3drgb-product-{product}', ProductDetails::class)->name('products.show');
-Route::get('/product-category/{category_link}', ProductCategory::class)
-    ->where('category_link', '.*')
-    ->name('product-categories');
+Route::get('/product-category/{category_link}', ProductCategory::class)->where('category_link', '.*')->name('product-categories');
 Route::get('/cart', Cart::class)->name('cart');
 Route::get('/checkout', Checkout::class)->name('checkout');
 Route::get('/submit-order', SubmitOrder::class)->name('submit-order');
@@ -89,6 +88,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::get('/submited-orders', SubmitedOrdersListing::class)->name('submited-orders-index');
         Route::get('/submited-orders/{order}', SubmitedOrdersShow::class)->name('submited-orders-show');
+        Route::get('/contact-us-messages', ContactUsMessages::class)->name('contact-us-messages');
     });
 
     Route::get('/verify', Verify::class)->name('verify');
@@ -106,8 +106,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/{ticket}', ShowTicket::class)->name('show');
         Route::get('/{ticket}/edit', UpdateTicket::class)->name('edit');
     });
-
-
 });
 
 Route::middleware('guest')->prefix('auth')->group(function () {
