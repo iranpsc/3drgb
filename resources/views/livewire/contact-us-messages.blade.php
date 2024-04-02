@@ -42,6 +42,11 @@
                             <div class="text-center">
                                 <a class="px-2 text-white" style="background-color: rgba(38, 38, 156, 0.808);border-radius: 8px;" href="#"
                                     class="btn btn-sm btn-primary">مشاهده پیام</a>
+                                <x-modal id="message-{{ $message->id }}" title="مشاهده پیام">
+                                    <div class="text-center">
+                                        <p>{{ $message->message }}</p>
+                                    </div>
+                                </x-modal>
                             </div>
                         </td>
                     </tr>

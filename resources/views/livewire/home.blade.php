@@ -1,9 +1,4 @@
 <div>
-    <style>
-        #owl-demo .item {
-            margin: 10px;
-        }
-    </style>
     <main>
         <section>
             <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm font-mono hidden lg:block px-5">
@@ -42,7 +37,7 @@
                             ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .
                         </p>
                         <div class="flex gap-5 relative mt-20">
-                            <input type="text" wire:model.live.debounce.500ms="searchTerm"
+                            <input type="text" wire:model="searchTerm"
                                 class="relative w-full p-5 text-[#ACB9FA] font-bold bg-[#D8E5FD] dark:bg-[#001448c9] rounded-[32px] focus:outline-none pr-12 md:px-20">
 
 
@@ -94,7 +89,7 @@
                                     fill="#000BEE" />
                             </svg>
                         </button>
-                        <button aria-label="slide backward" 
+                        <button aria-label="slide backward"
                             class="owl-prev  aspect-square  focus:outline-none dark:bg-[#c2008b36] dark:focus:bg-[#C2008C] dark:focus:ring-[#C2008C] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full">
                             <svg style="width:20px; height:20px" width="29" height="22" viewBox="0 0 29 22"
                                 fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -108,7 +103,7 @@
                         <div  id="owl-demo2" class="owl-carousel owl-theme ">
 
                             @forelse ($popular_categories as $category)
-                                <div class="w-full">
+                                <div class="w-full" wire:key="popular-category-{{ $category->id }}">
                                     <a href="{{ route('product-categories', ['category_link' => $category->url]) }}"
                                         class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16">
                                         <div class="hidden lg:block w-[60%] aspect-square  ">
@@ -123,13 +118,13 @@
                                                 style="font-family:rokh ;">
                                                 {{ $category->name }}
                                             </p>
-                                        </div>  
+                                        </div>
                                     </a>
                                 </div>
                             @empty
                                 <x-alert type="warning" message="دسته بندی یافت نشد" />
                             @endforelse
-                            
+
                         </div>
                     </div>
                 </div>
@@ -272,22 +267,27 @@
                 </div>
 
             </div>
-            <div id="owl-demo" class="owl-carousel owl-theme ">
+            <div id="owl-demo" class="owl-carousel owl-theme">
                 <!-- start card -->
                 @forelse ($products as $product)
-                    <livewire:product-item :product="$product" :key="$product->id" />
+                    <livewire:product-item :$product :key="'product-'.$product->id" />
                 @empty
                     <x-alert type="warning" message="محصولی یافت نشد" />
                 @endforelse
                 <!-- end card -->
             </div>
             <!-- end show more products -->
-
         </section>
-
-
     </main>
 </div>
+
+@push('styles')
+<style>
+    #owl-demo .item {
+        margin: 10px;
+    }
+</style>
+@endpush
 
 @script
     <script>
@@ -296,7 +296,7 @@
 
         buttons.forEach(button => {
             button.addEventListener("click", () => {
-                @this.call('changeTab', button.id);
+                $wire.call('changeTab', button.id);
                 buttons.forEach(btn => btn.classList.remove("active"));
                 button.classList.add("active");
             });

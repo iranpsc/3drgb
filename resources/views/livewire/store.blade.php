@@ -1,42 +1,4 @@
 <div>
-    <style>
-        a.showMore {
-            display: block;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-top: 20px;
-            color: #0077C8;
-            text-decoration: none;
-        }
-
-        a.showMore::after {
-            content: "+ مشاهده همه ";
-        }
-
-        a.showMore.showLess::after {
-            content: "- مشاهده کمتر ";
-        }
-
-        a.showMore2 {
-            display: block;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-top: 20px;
-            color: #0077C8;
-            text-decoration: none;
-        }
-
-        a.showMore2::after {
-            content: "+ مشاهده همه ";
-        }
-
-        a.showMore2.showLess2::after {
-            content: "- مشاهده کمتر ";
-        }
-    </style>
-    
     <main>
         <section>
             <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm font-mono hidden lg:block px-5">
@@ -170,7 +132,7 @@
                                 </div>
                             </a>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -313,7 +275,9 @@
                         <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-5 transition-[5s] duration-500 ">
                             <!-- start card -->
                             @forelse ($products as $product)
-                                <livewire:product-item :$product :key="'product-' . $product->id" />
+                                <div wire:key="{{ $product->id }}">
+                                    <livewire:product-item :$product :key="'product-' . $product->id" />
+                                </div>
                             @empty
                                 <x-alert type="warning" message="محصولی یافت نشد" />
                             @endforelse
@@ -326,3 +290,43 @@
     </main>
 
 </div>
+
+@push('styles')
+<style>
+    a.showMore {
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: 20px;
+        color: #0077C8;
+        text-decoration: none;
+    }
+
+    a.showMore::after {
+        content: "+ مشاهده همه ";
+    }
+
+    a.showMore.showLess::after {
+        content: "- مشاهده کمتر ";
+    }
+
+    a.showMore2 {
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: 20px;
+        color: #0077C8;
+        text-decoration: none;
+    }
+
+    a.showMore2::after {
+        content: "+ مشاهده همه ";
+    }
+
+    a.showMore2.showLess2::after {
+        content: "- مشاهده کمتر ";
+    }
+</style>
+@endpush
