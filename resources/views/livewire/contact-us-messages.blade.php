@@ -40,7 +40,7 @@
                         </td>
                         <td>
                             <div class="text-center">
-                                <a class="px-2 text-white" style="background-color: rgba(38, 38, 156, 0.808);border-radius: 8px;" href="#"
+                                <a class="px-2 text-white" style="background-color: rgba(38, 38, 156, 0.808);border-radius: 8px;" href="#" data-hs-overlay="#hs-slide-up-animation-modal-02"
                                     class="btn btn-sm btn-primary">مشاهده پیام</a>
                                 <x-modal id="message-{{ $message->id }}" title="مشاهده پیام">
                                     <div class="text-center">

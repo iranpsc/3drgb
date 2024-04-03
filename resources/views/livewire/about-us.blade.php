@@ -53,7 +53,7 @@
                                 class="w-full h-full ">
                         </div>
                         <div class="flex flex-col justify-center items-center gap-4 text-center">
-                            <a href="#">مرضیه ثاقب علیزاده</a>
+                            <a href="https://uni.irpsc.com/member/sagheb-alizadeh/">مرضیه ثاقب علیزاده</a>
                             <p class="text-sm">مدیر سایت</p>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                                 class="w-full h-full">
                         </div>
                         <div class="flex flex-col justify-center items-center gap-4 text-center">
-                            <a href="#">هدلینگ زنجیره تامین بهشت</a>
+                            <a href="https://uni.irpsc.com/member/paradise-supply-chain/">هدلینگ زنجیره تامین بهشت</a>
                             <p class="text-sm">مدیر سایت</p>
                         </div>
                     </div>

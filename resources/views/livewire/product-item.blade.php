@@ -1,6 +1,6 @@
 <div>
     <!-- start card -->
-    <div class=" product">
+    <div class=" product ">
         <div
             class="bg-white dark:bg-[#001448] w-full flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
             <a href="{{ $product->url }}" class="p-3 w-[80%] ">
@@ -26,8 +26,7 @@
                 <div class="w-full flex justify-between gap-2 ">
                     @if ((Auth::check() && Auth::user()->hasPurchased($product)) || $product->is_free)
                         <x-button wire:click="download({{ $product->id }})" color="light"
-                            style="display: flex; justify-content: center; align-items: center;border-radius: 10px; padding:10px 20px; gap:20px"
-                            size="block"><img src="{{ asset('img/svg/download.svg') }}" alt="download" class="svg">
+                            style="display: flex; justify-content: center; align-items: center;border-radius: 10px; padding:10px 20px; gap:20px;color:white"><img src="{{ asset('img/svg/download.svg') }}" alt="download" class="w-6 svg">
                             دانلود
                         </x-button>
                     @else
