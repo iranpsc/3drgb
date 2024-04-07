@@ -75,7 +75,7 @@
                                                               <h6>مجموع :</h6>
                                                            </div>
                                                         </td>
-                 
+
                                                         <td>
                                                            <div class="total-order float-right text-end fs-14 fw-500">
                                                               <h5 class="text-primary">{{ $products->sum('final_price') }} تومان</h5>

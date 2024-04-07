@@ -63,29 +63,29 @@
                     <div class="swiper-wrapper ">
 
                         @forelse ($this->categories as $category)
-                        <div class="swiper-slide flex w-full" wire:key="popular-category-{{ $category->id }}">
-                            <a href=""
-                                class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16">
-                                <div class="hidden lg:block w-[60%] aspect-square  ">
-                                    <img src="{{ asset($category->image?->url) }}" alt=""
-                                        class="w-full">
-                                </div>
-                                <div class="flex flex-col justify-end ">
-                                    {{-- <p class="text-gray-500 text-sm font-serif mb-[-8px]">
-                                        3D models
-                                    </p> --}}
-                                    <p class="text-[#000BEE]  dark:text-[#E8E9FF] text-3xl font-bold p-0 mt-2"
-                                        style="font-family:rokh ;">
-                                        {{ $category->name }}
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    @empty
-                        <div class="w-full">
-                            <span class="dark:text-gray-300 p-2 text-[#848383]">دسته ای وجود ندارد</span>
-                        </div>
-                    @endforelse
+                            <div class="swiper-slide flex w-full" wire:key="popular-category-{{ $category->id }}">
+                                <a href=""
+                                    class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16">
+                                    <div class="hidden lg:block w-[60%] aspect-square  ">
+                                        <img src="{{ asset($category->image?->url) }}" alt=""
+                                            class="w-full">
+                                    </div>
+                                    <div class="flex flex-col justify-end ">
+                                        {{-- <p class="text-gray-500 text-sm font-serif mb-[-8px]">
+                                            3D models
+                                        </p> --}}
+                                        <p class="text-[#000BEE]  dark:text-[#E8E9FF] text-3xl font-bold p-0 mt-2"
+                                            style="font-family:rokh ;">
+                                            {{ $category->name }}
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        @empty
+                            <div class="w-full">
+                                <span class="dark:text-gray-300 p-2 text-[#848383]">دسته ای وجود ندارد</span>
+                            </div>
+                        @endforelse
 
                     </div>
                     <!-- Add Pagination -->

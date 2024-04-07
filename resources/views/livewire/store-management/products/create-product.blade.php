@@ -8,7 +8,7 @@
         <div class="flex flex-col gap-10">
             <div class="grid lg:grid-cols-2 gap-7">
 
-                <x-form.select wire:model="form.category" name="form.category" label="دسته بندی">
+                <x-form.select wire:model="form.category_id" name="form.category_id" label="دسته بندی">
                     <option value="">انتخاب دسته بندی</option>
 
                     @php

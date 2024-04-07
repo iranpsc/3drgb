@@ -191,26 +191,32 @@
                         </div>
                     </div>
                     <div class="flex  gap-2   justify-between ">
-                        <div class="flex flex-col md:flex-row items-center gap-4 text-[#3A4980] dark:text-gray-300 text-xs w-[25%] "
-                            style="margin-right: 10px">
-                            <div class="flex flex-row   rounded-lg relative bg-transparent ">
-                                <button data-action="decrement"
-                                    class=" bg-white text-[#3A4980]  h-12 w-10 rounded-r-full cursor-pointer outline-none">
-                                    <span class="m-auto text-2xl font-thin">−</span>
-                                </button>
-                                <input type="number"
-                                    class="focus:border-0  focus:ring-0 border-0 text-center w-10 h-12 bg-white font-semibold text-md   flex items-center text-[#3A4980] "
-                                    name="custom-input-number" value="0">
-                                <button data-action="increment"
-                                    class="bg-white text-[#3A4980]  h-12 w-10 rounded-l-full cursor-pointer">
-                                    <span class="m-auto text-2xl font-thin">+</span>
-                                </button>
+                        @if($product->stock_status && $product->quantity > 0)
+                            <div class="flex flex-col md:flex-row items-center gap-4 text-[#3A4980] dark:text-gray-300 text-xs w-[25%] "
+                                style="margin-right: 10px">
+                                <div class="flex flex-row   rounded-lg relative bg-transparent ">
+                                    <button data-action="decrement"
+                                        class=" bg-white text-[#3A4980]  h-12 w-10 rounded-r-full cursor-pointer outline-none">
+                                        <span class="m-auto text-2xl font-thin">−</span>
+                                    </button>
+                                    <input type="number"
+                                        class="focus:border-0  focus:ring-0 border-0 text-center w-10 h-12 bg-white font-semibold text-md   flex items-center text-[#3A4980] "
+                                        name="custom-input-number" value="0">
+                                    <button data-action="increment"
+                                        class="bg-white text-[#3A4980]  h-12 w-10 rounded-l-full cursor-pointer">
+                                        <span class="m-auto text-2xl font-thin">+</span>
+                                    </button>
+                                </div>
+                                <div class="flex gap-2">
+                                    <span>{{ $product->stock_status ? 'در انبار' : 'ناموجود' }}</span>
+                                    <p>{{ $product->quantity }}</p>
+                                </div>
                             </div>
-                            <div class="flex gap-2">
-                                <span>{{ $product->stock_status ? 'در انبار' : 'ناموجود' }}</span>
-                                <p>{{ $product->quantity }}</p>
+                        @else
+                            <div class="flex flex-col md:flex-row items-center gap-4 text-[#3A4980] dark:text-gray-300 text-xs w-[25%] "
+                                style="margin-right: 10px">
                             </div>
-                        </div>
+                        @endif
                         <div class="w-[60%] md:w-[30%] lg:w-[40%]">
                             @if ((Auth::check() && Auth::user()->hasPurchased($product)) || $product->is_free)
                                 <x-button wire:click="download" color="info" size="block"

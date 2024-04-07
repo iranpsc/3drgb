@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sitemap\Contracts\Sitemapable;
 use Spatie\Sitemap\Tags\Url;
+use Illuminate\Support\Str;
 
 class Product extends Model implements Sitemapable
 {
@@ -41,6 +42,11 @@ class Product extends Model implements Sitemapable
         'is_free'
     ];
 
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = Str::slug($value);
+    }
+
     public function getIsFreeAttribute()
     {
         return $this->price == 0;
@@ -57,6 +63,8 @@ class Product extends Model implements Sitemapable
             ->setLastModificationDate($this->updated_at)
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
             ->setPriority(0.8);
+
+        $this->loadMissing('images'); // eager load images (if not loaded yet)
 
         foreach ($this->images as $image) {
             $url->addImage($image->url);

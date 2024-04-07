@@ -1,19 +1,18 @@
 <div>
     <style>
         table {
-         
-          width: 100%;
-        
-        }
-        
-        th, td {
-          text-align: right;
-          padding: 8px;
-          padding-right: 50px
+
+            width: 100%;
 
         }
 
-        </style>
+        th,
+        td {
+            text-align: right;
+            padding: 8px;
+            padding-right: 50px
+        }
+    </style>
 
     <x-page title="سبد خرید">
 
@@ -39,14 +38,16 @@
                                         </span>
                                         <span>سبد خرید</span>
                                     </div>
-                                    <div class="current hidden lg:block w-full"><img src="img/svg/checkout.svg" alt="img" class="w-full">
+                                    <div class="current hidden lg:block w-full"><img src="img/svg/checkout.svg"
+                                            alt="img" class="w-full">
                                     </div>
                                     <div class="step flex flex-col gap-2  items-center mt-5" id="2">
                                         <span
                                             class="flex justify-center items-center bg-[#EFEFEF] dark:bg-[#4A4E7C] aspect-square rounded-full w-12">2</span>
                                         <span>ایجاد حساب</span>
                                     </div>
-                                    <div class="current hidden lg:block w-full"><img src="img/svg/checkout.svg" alt="img" class="w-full">
+                                    <div class="current hidden lg:block w-full"><img src="img/svg/checkout.svg"
+                                            alt="img" class="w-full">
                                     </div>
                                     <div class="step flex flex-col gap-2  items-center mt-5" id="3">
                                         <span
@@ -54,7 +55,8 @@
                                             3</span>
                                         <span>پرداخت</span>
                                     </div>
-                                    <div class="current hidden lg:block w-full"><img src="img/svg/checkout.svg" alt="img" class="w-full">
+                                    <div class="current hidden lg:block w-full"><img src="img/svg/checkout.svg"
+                                            alt="img" class="w-full">
                                     </div>
                                     <div class="step flex flex-col gap-2  items-center mt-5" id="4">
                                         <span
@@ -70,55 +72,57 @@
                                     <div class="">
                                         <div class="flex flex-col lg:flex-row w-full gap-10">
                                             <div class=" overflow-x-auto w-full lg:w-[70%]">
-                                                <table id="cart" >
-                                                    
-                                                       
+                                                <table id="cart">
+
+
                                                     <thead>
-                                                        <tr style="height: 60px;" class="bg-[#EFEFEF] dark:bg-[#4A4E7C] rounded-[10px] " >
+                                                        <tr style="height: 60px;"
+                                                            class="bg-[#EFEFEF] dark:bg-[#4A4E7C] rounded-[10px] ">
                                                             <th style="padding-right: 8px">محصول</th>
                                                             <th>قیمت</th>
                                                             <th>مجموع</th>
                                                             <th>عملیات</th>
                                                         </tr>
                                                     </thead>
-                                                  
-                                                    
-                                                        @foreach ($products as $product)
-                                                            <tr>
-                                                                <td style="padding-right: 8px">
-                                                                    <div class="flex gap-3 items-center">
-                                                                        <img class=" aspect-square w-[80px] h-[80px] rounded-[10px]"
-                                                                            src="{{ asset('storage/' . $product->images->first()->path) }}"
-                                                                            alt="Generic placeholder image">
-                                                                        
-                                                                            <h5 class="mt-0 w-max pl-5">{{ $product->name }}</h5>
-                                                                        
-                                                                    </div>
-                                                                </td>
-                                                                <td>{{ number_format($product->final_price, 0) }} تومان
-                                                                </td>
-                                                                <td>{{ number_format($product->final_price, 0) }} تومان
-                                                                </td>
-                                                                <td>
-                                                                    <button type="button"
-                                                                        class="action-btn float-end rounded-full p-2"
-                                                                        wire:click="removeFromCart({{ $product->id }})">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                                                            viewBox="0 0 64 64" width="35px"
-                                                                            height="35px">
-                                                                            <path class="dark:fill-white"
-                                                                                d="M 28 6 C 25.791 6 24 7.791 24 10 L 24 12 L 23.599609 12 L 10 14 L 10 17 L 54 17 L 54 14 L 40.400391 12 L 40 12 L 40 10 C 40 7.791 38.209 6 36 6 L 28 6 z M 28 10 L 36 10 L 36 12 L 28 12 L 28 10 z M 12 19 L 14.701172 52.322266 C 14.869172 54.399266 16.605453 56 18.689453 56 L 45.3125 56 C 47.3965 56 49.129828 54.401219 49.298828 52.324219 L 51.923828 20 L 12 19 z M 20 26 C 21.105 26 22 26.895 22 28 L 22 51 L 19 51 L 18 28 C 18 26.895 18.895 26 20 26 z M 32 26 C 33.657 26 35 27.343 35 29 L 35 51 L 29 51 L 29 29 C 29 27.343 30.343 26 32 26 z M 44 26 C 45.105 26 46 26.895 46 28 L 45 51 L 42 51 L 42 28 C 42 26.895 42.895 26 44 26 z" />
-                                                                        </svg>
-                                                                    </button>
-                                                                </td>
-                                                            </tr>
-                                                        @endforeach
-                                                    
+
+
+                                                    @foreach ($products as $product)
+                                                        <tr>
+                                                            <td style="padding-right: 8px">
+                                                                <div class="flex gap-3 items-center">
+                                                                    <img class=" aspect-square w-[80px] h-[80px] rounded-[10px]"
+                                                                        src="{{ asset('storage/' . $product->images->first()->path) }}"
+                                                                        alt="Generic placeholder image">
+
+                                                                    <h5 class="mt-0 w-max pl-5">{{ $product->name }}
+                                                                    </h5>
+
+                                                                </div>
+                                                            </td>
+                                                            <td>{{ number_format($product->final_price, 0) }} تومان
+                                                            </td>
+                                                            <td>{{ number_format($product->final_price, 0) }} تومان
+                                                            </td>
+                                                            <td>
+                                                                <button type="button"
+                                                                    class="action-btn float-end rounded-full p-2"
+                                                                    wire:click="removeFromCart({{ $product->id }})">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                        viewBox="0 0 64 64" width="35px"
+                                                                        height="35px">
+                                                                        <path class="dark:fill-white"
+                                                                            d="M 28 6 C 25.791 6 24 7.791 24 10 L 24 12 L 23.599609 12 L 10 14 L 10 17 L 54 17 L 54 14 L 40.400391 12 L 40 12 L 40 10 C 40 7.791 38.209 6 36 6 L 28 6 z M 28 10 L 36 10 L 36 12 L 28 12 L 28 10 z M 12 19 L 14.701172 52.322266 C 14.869172 54.399266 16.605453 56 18.689453 56 L 45.3125 56 C 47.3965 56 49.129828 54.401219 49.298828 52.324219 L 51.923828 20 L 12 19 z M 20 26 C 21.105 26 22 26.895 22 28 L 22 51 L 19 51 L 18 28 C 18 26.895 18.895 26 20 26 z M 32 26 C 33.657 26 35 27.343 35 29 L 35 51 L 29 51 L 29 29 C 29 27.343 30.343 26 32 26 z M 44 26 C 45.105 26 46 26.895 46 28 L 45 51 L 42 51 L 42 28 C 42 26.895 42.895 26 44 26 z" />
+                                                                    </svg>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+
                                                 </table><!-- End: table -->
                                             </div>
 
-                                            <div
-                                                class="w-full lg:w-[30%] bg-[#EFEFEF] dark:bg-[#4A4E7C] rounded-[10px] p-5   " style="min-width: 236px">
+                                            <div class="w-full lg:w-[30%] bg-[#EFEFEF] dark:bg-[#4A4E7C] rounded-[10px] p-5   "
+                                                style="min-width: 236px">
                                                 <div class="flex flex-col gap-10  mt-20">
                                                     <div class="card-header border-bottom-0 p-0 pb-25">
                                                         <h5 class="fw-500">خلاصه سفارش</h5>
