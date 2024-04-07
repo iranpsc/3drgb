@@ -910,14 +910,12 @@
                 </div>
             </footer>
         </div>
+        <script src="{{ asset('assets/vendor_assets/js/jquery/jquery-3.5.1.min.js') }}"></script>
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
         <script src="{{ asset('home-page/script/preline.js') }}"></script>
         <script src="{{ asset('home-page/script/scripts.js') }}"></script>
         <script src="{{ asset('home-page/script/product-img.js') }}"></script>
         <script src="{{ asset('home-page/script/main.js') }}"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-        <script src="{{ asset('assets/vendor_assets/js/jquery/jquery-3.5.1.min.js') }}"></script>
         <script src="{{ asset('assets/vendor_assets/js/jquery/jquery-ui.js') }}"></script>
         <script src="{{ asset('assets/vendor_assets/js/bootstrap/bootstrap.min.js') }}"></script>
         <script src="{{ asset('assets/vendor_assets/js/jquery.star-rating-svg.min.js') }}"></script>
@@ -971,8 +969,7 @@
                     ['view', ['fullscreen', 'codeview', 'help']]
                 ]
             });
-        </script>
-        <script>
+
             jQuery(document).ready(function() {
                 var $this = $(".items");
                 if ($this.find("div").length > 2) {
@@ -989,8 +986,7 @@
                     $(this).toggleClass("showLess");
                 });
             });
-        </script>
-        <script>
+
             jQuery(document).ready(function() {
                 var $this = $(".items2");
                 if ($this.find("div").length > 2) {
@@ -1007,8 +1003,7 @@
                     $(this).toggleClass("showLess2");
                 });
             });
-        </script>
-        <script>
+
             var swiper1 = new Swiper('#swiper1', {
                 // Optional parameters
                 direction: 'horizontal',
@@ -1050,8 +1045,7 @@
                     el: '.swiper-scrollbar',
                 },
             });
-        </script>
-        <script>
+
             var swiper2 = new Swiper('#swiper2', {
                 // Optional parameters
                 direction: 'horizontal',
@@ -1097,19 +1091,13 @@
                 clickable: true, // اضافه کردن قابلیت کلیک بر روی پگینیشن
               },
             });
-        
+
             // اضافه کردن رویداد کلیک به نقاط پیگینیشن
             document.querySelectorAll('.swiper-pagination-bullet').forEach(function (bullet, index) {
               bullet.addEventListener('click', function () {
                 swiper1.slideTo(index); // اسکرول Swiper به اسلاید متناظر با نقطه پیگینیشن
               });
-              
-                
             });
         </script>
-
-
-
     </body>
-
 </html>
