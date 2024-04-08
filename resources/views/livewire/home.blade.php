@@ -276,11 +276,11 @@
             </div>
             <div class="relative px-5">
                 <div id="swiper2" class="swiper-container  overflow-x-hidden " dir="ltr">
-                    <div class="swiper-wrapper ">
+                    <div class="swiper-wrapper">
 
                         <!-- start card -->
                         @forelse ($products as $product)
-                            <div class="swiper-slide flex w-full">
+                            <div class="swiper-slide flex w-full" wire:key="product-{{ $product->id }}">
                                 <livewire:product-item :$product :key="'product-' . $product->id" />
                             </div>
                         @empty
@@ -297,18 +297,111 @@
     </main>
 </div>
 
-
-
 @script
     <script>
-        const buttons = document.querySelectorAll(
-            "#order-by-score, #order-by-newest, #order-by-sales");
+        const buttons = document.querySelectorAll("#order-by-score, #order-by-newest, #order-by-sales");
 
         buttons.forEach(button => {
             button.addEventListener("click", () => {
+                console.log(button.id)
                 $wire.call('changeTab', button.id);
                 buttons.forEach(btn => btn.classList.remove("active"));
                 button.classList.add("active");
+            });
+        });
+
+        let swiper1 = new Swiper('#swiper1', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+
+
+            // Responsive breakpoints
+            breakpoints: {
+                1550: {
+                    slidesPerView: 4,
+                    spaceBetween: 20
+                },
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                },
+                // when window width is <= 768px
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                },
+                // when window width is <= 480px
+                480: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                }
+            },
+            //   // If you need pagination
+            //   pagination: {
+            //     el: '.swiper-pagination',
+            //   },
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-buttonnext',
+                prevEl: '.swiper-buttonprev',
+            },
+            // And if we need scrollbar
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        });
+
+        let swiper2 = new Swiper('#swiper2', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+
+
+            // Responsive breakpoints
+            breakpoints: {
+                1550: {
+                    slidesPerView: 4,
+                    spaceBetween: 20
+                },
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                },
+                // when window width is <= 768px
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                },
+                // when window width is <= 480px
+                480: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                }
+            },
+            // If you need pagination
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            // And if we need scrollbar
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true, // اضافه کردن قابلیت کلیک بر روی پگینیشن
+            },
+        });
+
+        // اضافه کردن رویداد کلیک به نقاط پیگینیشن
+        document.querySelectorAll('.swiper-pagination-bullet').forEach(function(bullet, index) {
+            bullet.addEventListener('click', function() {
+                swiper1.slideTo(index); // اسکرول Swiper به اسلاید متناظر با نقطه پیگینیشن
             });
         });
     </script>
