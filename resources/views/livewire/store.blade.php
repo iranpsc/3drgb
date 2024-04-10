@@ -59,7 +59,7 @@
                     </button>
                 </div>
                 <!-- Swiper -->
-                <div id="swiper1" class="swiper-container  overflow-x-hidden p-0" dir="ltr" wire:ignore>
+                <div class="swiper-slider swiper-container  overflow-x-hidden p-0" dir="ltr" wire:ignore>
                     <div class="swiper-wrapper ">
 
                         @forelse ($this->categories as $category)

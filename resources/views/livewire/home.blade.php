@@ -267,7 +267,7 @@
 
             </div>
             <div class="relative px-5">
-                <div class="swiper-slider swiper-container  overflow-x-hidden " wire:ignore>
+                <div class="swiper-slider swiper-container  overflow-x-hidden " dir="rtl" wire:ignore>
                     <div class="swiper-wrapper">
 
                         <!-- start card -->
@@ -298,38 +298,6 @@
                 buttons.forEach(btn => btn.classList.remove("active"));
                 button.classList.add("active");
             });
-        });
-
-
-        let swiper = new Swiper('.swiper-slider', {
-            // Optional parameters
-            direction: 'horizontal',
-            loop: true,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            // Responsive breakpoints
-            breakpoints: {
-                1550: {
-                    slidesPerView: 4,
-                    spaceBetween: 20
-                },
-                1200: {
-                    slidesPerView: 3,
-                    spaceBetween: 20
-                },
-                // when window width is <= 768px
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 20
-                },
-                // when window width is <= 480px
-                480: {
-                    slidesPerView: 1,
-                    spaceBetween: 10
-                }
-            }
         });
     </script>
 @endscript

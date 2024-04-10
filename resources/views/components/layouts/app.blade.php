@@ -995,6 +995,37 @@
                 $(this).toggleClass("showLess2");
             });
         });
+
+        let swiper = new Swiper('.swiper-slider', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            // Responsive breakpoints
+            breakpoints: {
+                1550: {
+                    slidesPerView: 4,
+                    spaceBetween: 20
+                },
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                },
+                // when window width is <= 768px
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                },
+                // when window width is <= 480px
+                480: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                }
+            }
+        });
     </script>
 </body>
 </html>
