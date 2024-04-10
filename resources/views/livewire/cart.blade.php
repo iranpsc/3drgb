@@ -108,7 +108,7 @@
                                                             <td>
                                                                 <div
                                                                     class="flex flex-row rounded-lg relative bg-transparent ">
-                                                                    <button data-action="decrement"
+                                                                    <button type="button" id="decrement-button"
                                                                         class=" bg-white text-[#3A4980]  h-12 w-10 rounded-r-full cursor-pointer outline-none">
                                                                         <span class="m-auto text-2xl font-thin">−</span>
                                                                     </button>
@@ -117,7 +117,7 @@
                                                                         name="custom-input-number"
                                                                         value="{{ $quantity }}"
                                                                         id="custom-input-number">
-                                                                    <button data-action="increment"
+                                                                    <button type="button" id="increment-button"
                                                                         class="bg-white text-[#3A4980]  h-12 w-10 rounded-l-full cursor-pointer">
                                                                         <span class="m-auto text-2xl font-thin">+</span>
                                                                     </button>
@@ -179,6 +179,26 @@
 @script
     <script>
         let customInputNumber = document.querySelectorAll('[name="custom-input-number"]');
+        let incrementButton = document.querySelectorAll('#increment-button');
+        let decrementButton = document.querySelectorAll('#decrement-button');
+
+        incrementButton.forEach(function(item) {
+            item.addEventListener('click', function() {
+                let input = item.closest('td').querySelector('[name="custom-input-number"]');
+                input.value = parseInt(input.value) + 1;
+                input.dispatchEvent(new Event('change'));
+            });
+        });
+
+        decrementButton.forEach(function(item) {
+            item.addEventListener('click', function() {
+                let input = item.closest('td').querySelector('[name="custom-input-number"]');
+                if (parseInt(input.value) > 1) {
+                    input.value = parseInt(input.value) - 1;
+                    input.dispatchEvent(new Event('change'));
+                }
+            });
+        });
 
         customInputNumber.forEach(function(item) {
             item.addEventListener('change', function() {
