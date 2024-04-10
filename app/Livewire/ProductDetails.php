@@ -17,20 +17,26 @@ class ProductDetails extends Component
             'tags',
             'attributes',
             'category',
-        ])
-            ->loadCount('reviews')
-            ->loadAvg('reviews as rating_avg', 'rating');
+        ])->loadCount('reviews')->loadAvg('reviews as rating_avg', 'rating');
     }
 
-    public function addToCart()
+    public function addToCart(int $quantity = 1)
     {
         // check if product is already in cart
-        if (in_array($this->product->id, session()->get('cart', []))) {
+        if (in_array($this->product->id, array_column(session('cart', []), 'product_id'))) {
             session()->flash('message', $this->product->name . ' قبلا به سبد خرید اضافه شده است.');
             return;
         }
 
-        session()->push('cart', $this->product->id);
+        if($quantity > $this->product->quantity) {
+            session()->flash('message', 'موجودی کافی نیست.');
+            return;
+        }
+
+        session()->push('cart', [
+            'product_id' => $this->product->id,
+            'quantity' => $quantity
+        ]);
 
         $cartProductsCount = count(session()->get('cart', []));
 
@@ -39,18 +45,9 @@ class ProductDetails extends Component
         session()->flash('message', $this->product->name . ' به سبد خرید اضافه شد.');
     }
 
-    public function purchase()
-    {
-        if (!in_array($this->product->id, session()->get('cart', []))) {
-            session()->push('cart', $this->product->id);
-        }
-
-        return $this->redirect('/checkout');
-    }
-
     public function download()
     {
-        if(!auth()->check()) {
+        if (!auth()->check()) {
             return $this->redirectRoute('login');
         }
 

@@ -11,7 +11,7 @@ use Livewire\Attributes\On;
 class Checkout extends Component
 {
     #[Locked]
-    public $cart = [];
+    public $cart_items = [];
 
     #[Locked]
     public $products;
@@ -26,11 +26,12 @@ class Checkout extends Component
 
     public function mount()
     {
-        $this->cart = session()->get('cart', []);
+        $this->cart_items = session()->get('cart', []);
+        $products_ids = array_column($this->cart_items, 'product_id');
 
-        $this->products = Product::whereIn('id', $this->cart)->get();
+        $this->products = Product::whereIn('id', $products_ids)->get();
 
-        if (count($this->cart) == 0 && count($this->products) == 0) {
+        if (count($this->cart_items) == 0 && count($this->products) == 0) {
             return $this->redirectRoute('cart');
         }
 

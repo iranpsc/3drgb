@@ -38,7 +38,7 @@
                             </td>
                             <td>
                                 <div class="orderDatatable-title">
-                                    {{ $order->products->sum('final_price') }}
+                                    {{ $order->amount }}
                                 </div>
                             </td>
                             <td>
@@ -64,6 +64,9 @@
                                 <span class="userDatatable-title">نام محصول</span>
                             </th>
                             <th>
+                                <span class="userDatatable-title">تعداد</span>
+                            </th>
+                            <th>
                                 <span class="userDatatable-title">تعداد دانلود</span>
                             </th>
                             <th>
@@ -83,6 +86,10 @@
                                         {{ $product->name }}
                                     </div>
                                 </td>
+                                <td>
+                                    <div class="orderDatatable-title">
+                                        {{ $product->users()->find(Auth::id())->pivot->quantity }}
+                                    </div>
                                 <td>
                                     <div class="orderDatatable-title">
                                         {{ $product->users()->find(Auth::id())->pivot->download_count }}

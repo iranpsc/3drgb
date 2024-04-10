@@ -9,15 +9,18 @@ class ProductItem extends Component
 {
     public Product $product;
 
-    public function addToCart()
+    public function addToCart(int $quantity = 1)
     {
         // check if product is already in cart
-        if (in_array($this->product->id, session()->get('cart', []))) {
+        if (in_array($this->product->id, array_column(session('cart', []), 'product_id'))) {
             session()->flash('message', $this->product->name . ' قبلا به سبد خرید اضافه شده است.');
             return;
         }
 
-        session()->push('cart', $this->product->id);
+        session()->push('cart', [
+            'product_id' => $this->product->id,
+            'quantity' => $quantity
+        ]);
 
         $cartProductsCount = count(session()->get('cart', []));
 
@@ -26,18 +29,9 @@ class ProductItem extends Component
         session()->flash('message', $this->product->name . ' به سبد خرید اضافه شد.');
     }
 
-    public function purchase()
-    {
-        if (!in_array($this->product->id, session()->get('cart', []))) {
-            session()->push('cart', $this->product->id);
-        }
-
-        return $this->redirect('/checkout');
-    }
-
     public function download()
     {
-        if(!auth()->check()) {
+        if (!auth()->check()) {
             return $this->redirectRoute('login');
         }
 

@@ -17,14 +17,14 @@
     <x-page title="سبد خرید">
 
         @session('message')
-            <x-alert type="success" message="{{ session('message') }}" />
+            <x-alert type="success" :message="session('message')" />
         @endsession
 
         <div class="container-fluid">
             <div class="checkout wizard1 global-shadow border-0 px-sm-50pt-sm-50 py-30 mb-30  radius-xl w-100">
                 <div class="row justify-content-center">
                     <div class="col-xl-10 col-12">
-                        @if (count($cart) > 0)
+                        @if (!empty($cart_items))
                             <div>
                                 <div class=" flex items-center justify-between gap-3 ">
                                     <div class="step current flex flex-col gap-2  items-center mt-5" id="1">
@@ -38,16 +38,16 @@
                                         </span>
                                         <span>سبد خرید</span>
                                     </div>
-                                    <div class="current hidden lg:block w-full"><img src="img/svg/checkout.svg"
-                                            alt="img" class="w-full">
+                                    <div class="current hidden lg:block w-full"><img
+                                            src="{{ asset('img/svg/checkout.svg') }}" alt="img" class="w-full">
                                     </div>
                                     <div class="step flex flex-col gap-2  items-center mt-5" id="2">
                                         <span
                                             class="flex justify-center items-center bg-[#EFEFEF] dark:bg-[#4A4E7C] aspect-square rounded-full w-12">2</span>
                                         <span>ایجاد حساب</span>
                                     </div>
-                                    <div class="current hidden lg:block w-full"><img src="img/svg/checkout.svg"
-                                            alt="img" class="w-full">
+                                    <div class="current hidden lg:block w-full"><img
+                                            src="{{ asset('img/svg/checkout.svg') }}" alt="img" class="w-full">
                                     </div>
                                     <div class="step flex flex-col gap-2  items-center mt-5" id="3">
                                         <span
@@ -55,8 +55,8 @@
                                             3</span>
                                         <span>پرداخت</span>
                                     </div>
-                                    <div class="current hidden lg:block w-full"><img src="img/svg/checkout.svg"
-                                            alt="img" class="w-full">
+                                    <div class="current hidden lg:block w-full"><img
+                                            src="{{ asset('img/svg/checkout.svg') }}" alt="img" class="w-full">
                                     </div>
                                     <div class="step flex flex-col gap-2  items-center mt-5" id="4">
                                         <span
@@ -68,41 +68,63 @@
                         @endif
                         <div class="row justify-content-center mt-10">
                             <div class="col-12">
-                                @if (count($cart) > 0)
+                                @if (!empty($cart_items))
                                     <div class="">
                                         <div class="flex flex-col lg:flex-row w-full gap-10">
                                             <div class=" overflow-x-auto w-full lg:w-[70%]">
                                                 <table id="cart">
-
-
                                                     <thead>
                                                         <tr style="height: 60px;"
                                                             class="bg-[#EFEFEF] dark:bg-[#4A4E7C] rounded-[10px] ">
                                                             <th style="padding-right: 8px">محصول</th>
                                                             <th>قیمت</th>
+                                                            <th>تعداد</th>
                                                             <th>مجموع</th>
                                                             <th>عملیات</th>
                                                         </tr>
                                                     </thead>
-
-
+                                                    @php
+                                                        $total_price = 0;
+                                                    @endphp
                                                     @foreach ($products as $product)
-                                                        <tr>
+                                                        <tr wire:key="{{ $product->id }}">
+                                                            @php
+                                                                $cart_item = collect($cart_items)
+                                                                    ->where('product_id', $product->id)
+                                                                    ->first();
+                                                                $quantity = $cart_item['quantity'];
+                                                                $total_price += $product->final_price * $quantity;
+                                                            @endphp
                                                             <td style="padding-right: 8px">
                                                                 <div class="flex gap-3 items-center">
-                                                                    <img class=" aspect-square w-[80px] h-[80px] rounded-[10px]"
-                                                                        src="{{ asset('storage/' . $product->images->first()->path) }}"
+                                                                    <img class="aspect-square w-[80px] h-[80px] rounded-[10px]"
+                                                                        src="{{ $product->latestImage->url }}"
                                                                         alt="Generic placeholder image">
-
                                                                     <h5 class="mt-0 w-max pl-5">{{ $product->name }}
                                                                     </h5>
-
                                                                 </div>
                                                             </td>
-                                                            <td>{{ number_format($product->final_price, 0) }} تومان
+                                                            <td>{{ number_format($product->final_price, 0) }} تومان</td>
+                                                            <td>
+                                                                <div
+                                                                    class="flex flex-row rounded-lg relative bg-transparent ">
+                                                                    <button data-action="decrement"
+                                                                        class=" bg-white text-[#3A4980]  h-12 w-10 rounded-r-full cursor-pointer outline-none">
+                                                                        <span class="m-auto text-2xl font-thin">−</span>
+                                                                    </button>
+                                                                    <input type="number"
+                                                                        class="focus:border-0  focus:ring-0 border-0 text-center w-10 h-12 bg-white font-semibold text-md   flex items-center text-[#3A4980] "
+                                                                        name="custom-input-number"
+                                                                        value="{{ $quantity }}"
+                                                                        id="custom-input-number">
+                                                                    <button data-action="increment"
+                                                                        class="bg-white text-[#3A4980]  h-12 w-10 rounded-l-full cursor-pointer">
+                                                                        <span class="m-auto text-2xl font-thin">+</span>
+                                                                    </button>
+                                                                </div>
                                                             </td>
-                                                            <td>{{ number_format($product->final_price, 0) }} تومان
-                                                            </td>
+                                                            <td>{{ number_format($product->final_price * $quantity, 0) }}
+                                                                تومان</td>
                                                             <td>
                                                                 <button type="button"
                                                                     class="action-btn float-end rounded-full p-2"
@@ -117,7 +139,6 @@
                                                             </td>
                                                         </tr>
                                                     @endforeach
-
                                                 </table><!-- End: table -->
                                             </div>
 
@@ -129,23 +150,10 @@
                                                     </div>
                                                     <div
                                                         class="bg-white dark:bg-[#9A9ECC] rounded-[10px] p-5 flex flex-col gap-3">
-                                                        <div class=" flex flex-col gap-3">
-                                                            <div class="flex items-center justify-between">
-                                                                <span>جمع فرعی:</span>
-                                                                <span>{{ number_format($products->sum('final_price'), 0) }}
-                                                                    تومان</span>
-                                                            </div>
-                                                            <div class="flex items-center justify-between">
-                                                                <span>
-                                                                    تخفیف:
-                                                                </span>
-                                                                <span>0</span>
-                                                            </div>
-                                                        </div>
                                                         <div class="flex items-center justify-between ">
                                                             <h6 style="color:blue">مجموع :</h6>
                                                             <h5 style="color:blue">
-                                                                {{ number_format($products->sum('final_price'), 0) }}
+                                                                {{ number_format($total_price, 0) }}
                                                                 تومان</h5>
                                                         </div>
                                                         <button type="button" wire:click="checkout"
@@ -167,3 +175,17 @@
         </div>
     </x-page>
 </div>
+
+@script
+    <script>
+        let customInputNumber = document.querySelectorAll('[name="custom-input-number"]');
+
+        customInputNumber.forEach(function(item) {
+            item.addEventListener('change', function() {
+                let quantity = item.value;
+                let productId = item.closest('tr').getAttribute('wire:key');
+                $wire.call('updateCart', productId, quantity);
+            });
+        });
+    </script>
+@endscript

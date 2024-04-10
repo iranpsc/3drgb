@@ -98,12 +98,7 @@
                                                                             محصول</span>
                                                                     </th>
                                                                     <th>
-                                                                        <span class="userDatatable-title">مبلغ
-                                                                            پرداختی</span>
-                                                                    </th>
-                                                                    <th>
-                                                                        <span
-                                                                            class="userDatatable-title float-end">دانلود</span>
+                                                                        <span class="userDatatable-title float-end">دانلود</span>
                                                                     </th>
                                                                 </tr>
                                                             </thead>
@@ -123,14 +118,7 @@
                                                                             </div>
                                                                         </td>
                                                                         <td>
-                                                                            <div class="orderDatatable-title">
-                                                                                {{ $product->price }}
-                                                                            </div>
-                                                                        </td>
-                                                                        <td>
-                                                                            <x-button
-                                                                                wire:click="download({{ $product->id }})"><i
-                                                                                    class="uil uil-download-alt"></i>دانلود</x-button>
+                                                                            <x-button wire:click="download({{ $product->id }})"><i class="uil uil-download-alt"></i>دانلود</x-button>
                                                                         </td>
                                                                     </tr>
                                                                 @endforeach

@@ -33,18 +33,18 @@ class Home extends Component
         $this->products = match ($tab) {
             'order-by-newest' => Product::published()
                 ->withAvg('reviews as rating_avg', 'rating')
-                ->with('images')
+                ->with('latestImage')
                 ->orderByDesc('created_at')
                 ->paginate(12),
             'order-by-score' => Product::published()
                 ->withAvg('reviews as rating_avg', 'rating')
-                ->with('images')
+                ->with('latestImage')
                 ->orderBy('rating_avg', 'desc')
                 ->paginate(12),
             'order-by-sales' => Product::published()
                 ->withAvg('reviews as rating_avg', 'rating')
                 ->withCount('sales')
-                ->with('images')
+                ->with('latestImage')
                 ->orderByDesc('sales_count')
                 ->paginate(12),
         };
@@ -55,12 +55,12 @@ class Home extends Component
     {
         return view('livewire.home')
             ->with([
-                'popular_categories' => Category::with('parent')->whereHas('products', function ($query) {
+                'popular_categories' => Category::with('parent', 'image')->whereHas('products', function ($query) {
                     $query->published();
                 })->withCount('products')->orderByDesc('products_count')->take(12)->get(),
                 'products' => $this->products ?? Product::published()
                     ->withAvg('reviews as rating_avg', 'rating')
-                    ->with('images')
+                    ->with('latestImage')
                     ->orderByDesc('rating_avg')
                     ->paginate(12)
             ]);

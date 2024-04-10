@@ -13,11 +13,14 @@ class Payment extends Component
     #[Locked]
     public $products;
 
+    #[Locked]
+    public $cart_items;
+
     public function mount()
     {
-        $cartItems = session()->get('cart');
-
-        $this->products = Product::whereIn('id', $cartItems)->get();
+        $this->cart_items = session()->get('cart');
+        $products_ids = array_column($this->cart_items, 'product_id');
+        $this->products = Product::whereIn('id', $products_ids)->with('latestImage')->get();
     }
 
     public function goBack()
@@ -27,7 +30,7 @@ class Payment extends Component
 
     public function pay()
     {
-        $amount = $this->products->sum('final_price');
+        $amount = $this->calculateTotalPrice();
 
         $order = Order::create([
             'user_id' => auth()->id(),
@@ -36,9 +39,11 @@ class Payment extends Component
         ]);
 
         foreach ($this->products as $product) {
+            $cart_item = $this->getCartItem($product->id);
             $orderItems[] = [
                 'order_id' => $order->id,
                 'product_id' => $product->id,
+                'quantity' => $cart_item['quantity'],
             ];
         }
 
@@ -65,6 +70,26 @@ class Payment extends Component
         session()->forget('cart');
 
         return redirect()->to($response->url());
+    }
+
+    private function calculateTotalPrice()
+    {
+        $total_price = 0;
+
+        foreach ($this->products as $product) {
+            $cart_item = $this->getCartItem($product->id);
+            $quantity = $cart_item['quantity'];
+            $total_price += $product->final_price * $quantity;
+        }
+
+        return $total_price;
+    }
+
+    private function getCartItem(int $productId)
+    {
+        return collect($this->cart_items)
+            ->where('product_id', $productId)
+            ->first();
     }
 
     public function render()

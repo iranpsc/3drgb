@@ -995,6 +995,101 @@
                 $(this).toggleClass("showLess2");
             });
         });
+
+        let swiper1 = new Swiper('#swiper1', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+
+
+            // Responsive breakpoints
+            breakpoints: {
+                1550: {
+                    slidesPerView: 4,
+                    spaceBetween: 20
+                },
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                },
+                // when window width is <= 768px
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                },
+                // when window width is <= 480px
+                480: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                }
+            },
+            //   // If you need pagination
+            //   pagination: {
+            //     el: '.swiper-pagination',
+            //   },
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-buttonnext',
+                prevEl: '.swiper-buttonprev',
+            },
+            // And if we need scrollbar
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        });
+
+        let swiper2 = new Swiper('#swiper2', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+
+
+            // Responsive breakpoints
+            breakpoints: {
+                1550: {
+                    slidesPerView: 4,
+                    spaceBetween: 20
+                },
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                },
+                // when window width is <= 768px
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                },
+                // when window width is <= 480px
+                480: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                }
+            },
+            // If you need pagination
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            // And if we need scrollbar
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true, // اضافه کردن قابلیت کلیک بر روی پگینیشن
+            },
+        });
+
+        // اضافه کردن رویداد کلیک به نقاط پیگینیشن
+        document.querySelectorAll('.swiper-pagination-bullet').forEach(function(bullet, index) {
+            bullet.addEventListener('click', function() {
+                swiper1.slideTo(index); // اسکرول Swiper به اسلاید متناظر با نقطه پیگینیشن
+            });
+        });
     </script>
 </body>
 </html>

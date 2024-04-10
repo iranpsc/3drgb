@@ -17,20 +17,35 @@ class OAuthCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::check()) {
-            $response = Http::withHeaders([
-                'Authorization' => 'Bearer ' . $request->user()->access_token,
-            ])
-                ->acceptJson()
-                ->get(config('app.oauth_server_url') . '/api/auth/check');
-    
-            if ($response->status() !== 200) {
-                Auth::logout();
-                $request->session()->invalidate();
-                $request->session()->regenerateToken();
+        if (Auth::check()) {
+
+            try {
+                $response = Http::withHeaders([
+                    'Authorization' => 'Bearer ' . $request->user()->access_token,
+                ])
+                    ->acceptJson()
+                    ->get(config('app.oauth_server_url') . '/api/auth/check');
+
+                if ($response->status() !== 200) {
+                    $this->logout($request);
+                }
+            } catch (\Exception $e) {
+                $this->logout($request);
             }
         }
 
         return $next($request);
+    }
+
+    /**
+     * Logout user out
+     *
+     * @param Illuminate\Http\Request $request
+     */
+    private function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
     }
 }

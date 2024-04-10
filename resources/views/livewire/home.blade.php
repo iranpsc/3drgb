@@ -102,19 +102,15 @@
                     <!-- Swiper -->
                     <div id="swiper1" class="swiper-container  overflow-x-hidden " dir="ltr" wire:ignore>
                         <div class="swiper-wrapper ">
-
                             @forelse ($popular_categories as $category)
                                 <div class="swiper-slide flex w-full" wire:key="popular-category-{{ $category->id }}">
                                     <a href="{{ route('product-categories', ['category_link' => $category->url]) }}"
                                         class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16">
-                                        <div class="hidden lg:block w-[60%] aspect-square  ">
+                                        <div class="hidden lg:block w-[60%] aspect-square">
                                             <img src="{{ asset($category->image?->url) }}" alt=""
                                                 class="w-full">
                                         </div>
                                         <div class="flex flex-col justify-end ">
-                                            {{-- <p class="text-gray-500 text-sm font-serif mb-[-8px]">
-                                                3D models
-                                            </p> --}}
                                             <p class="text-[#000BEE]  dark:text-[#E8E9FF] text-3xl font-bold p-0 mt-2"
                                                 style="font-family:rokh ;">
                                                 {{ $category->name }}
@@ -125,12 +121,8 @@
                             @empty
                                 <x-alert type="warning" message="دسته بندی یافت نشد" />
                             @endforelse
-
-
                         </div>
                         <!-- Add Pagination -->
-
-
                     </div>
                 </div>
             </div>
@@ -151,7 +143,7 @@
                         <p class="m-0 p-0">
                             لیست مدل های سه بعدی
                         </p>
-                        <img src="../images/Union.png" alt="">
+                        <img src="{{ asset('home-page/images/Union.png') }} ">
                     </a>
                 </div>
             </div>
@@ -307,101 +299,6 @@
                 $wire.call('changeTab', button.id);
                 buttons.forEach(btn => btn.classList.remove("active"));
                 button.classList.add("active");
-            });
-        });
-
-        let swiper1 = new Swiper('#swiper1', {
-            // Optional parameters
-            direction: 'horizontal',
-            loop: true,
-
-
-            // Responsive breakpoints
-            breakpoints: {
-                1550: {
-                    slidesPerView: 4,
-                    spaceBetween: 20
-                },
-                1200: {
-                    slidesPerView: 3,
-                    spaceBetween: 20
-                },
-                // when window width is <= 768px
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 20
-                },
-                // when window width is <= 480px
-                480: {
-                    slidesPerView: 1,
-                    spaceBetween: 10
-                }
-            },
-            //   // If you need pagination
-            //   pagination: {
-            //     el: '.swiper-pagination',
-            //   },
-            // Navigation arrows
-            navigation: {
-                nextEl: '.swiper-buttonnext',
-                prevEl: '.swiper-buttonprev',
-            },
-            // And if we need scrollbar
-            scrollbar: {
-                el: '.swiper-scrollbar',
-            },
-        });
-
-        let swiper2 = new Swiper('#swiper2', {
-            // Optional parameters
-            direction: 'horizontal',
-            loop: true,
-
-
-            // Responsive breakpoints
-            breakpoints: {
-                1550: {
-                    slidesPerView: 4,
-                    spaceBetween: 20
-                },
-                1200: {
-                    slidesPerView: 3,
-                    spaceBetween: 20
-                },
-                // when window width is <= 768px
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 20
-                },
-                // when window width is <= 480px
-                480: {
-                    slidesPerView: 1,
-                    spaceBetween: 10
-                }
-            },
-            // If you need pagination
-            pagination: {
-                el: '.swiper-pagination',
-            },
-            // Navigation arrows
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            // And if we need scrollbar
-            scrollbar: {
-                el: '.swiper-scrollbar',
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true, // اضافه کردن قابلیت کلیک بر روی پگینیشن
-            },
-        });
-
-        // اضافه کردن رویداد کلیک به نقاط پیگینیشن
-        document.querySelectorAll('.swiper-pagination-bullet').forEach(function(bullet, index) {
-            bullet.addEventListener('click', function() {
-                swiper1.slideTo(index); // اسکرول Swiper به اسلاید متناظر با نقطه پیگینیشن
             });
         });
     </script>

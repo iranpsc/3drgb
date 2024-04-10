@@ -104,11 +104,11 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * Get the purchases for the user.
+     * Get the products for the user.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function purchases()
+    public function products()
     {
         return $this->belongsToMany(Product::class)->withTimestamps();
     }
@@ -121,7 +121,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function hasPurchased(Product $product)
     {
-        return $this->purchases()->where('product_id', $product->id)->exists();
+        return $this->products()->where('product_id', $product->id)->exists();
     }
 
     /**

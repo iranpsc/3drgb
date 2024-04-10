@@ -8,6 +8,7 @@ use App\Models\Transaction;
 use Livewire\Attributes\Locked;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Url;
+use Illuminate\Support\Facades\Auth;
 
 class Verify extends Component
 {
@@ -25,7 +26,7 @@ class Verify extends Component
 
     public function mount()
     {
-        $this->transaction = Transaction::where('authority', $this->Authority)->with('order')->first();
+        $this->transaction = Transaction::where('authority', $this->Authority)->with('order.orderItems')->first();
 
         if (!$this->transaction || $this->transaction->status != 'pending') {
             session()->flash('error', 'تراکنش مورد نظر یافت نشد.');
@@ -62,19 +63,38 @@ class Verify extends Component
 
             $this->order = $this->transaction->order;
 
+            $this->order->load('products');
+
             $this->order->update([
                 'status' => $this->Status,
             ]);
 
             $user = $this->order->user;
 
-            $user->purchases()->attach($this->order->orderItems->pluck('product_id'));
+            $user->products()->attach($this->getOrderItems());
         }
+    }
+
+    private function getOrderItems()
+    {
+        $orderItems = [];
+
+        foreach ($this->order->orderItems as $item) {
+            $orderItems[$item->product_id] = ['quantity' => $item->quantity];
+        }
+
+        return $orderItems;
     }
 
     public function download(Product $product)
     {
         $this->authorize('download', $product);
+
+        $product->users()->updateExistingPivot(Auth::id(), [
+            'download_count' => $product->users()->find(auth()->id())->pivot->download_count + 1,
+            'downloaded_at' => now(),
+        ]);
+
         return response()->download(storage_path('app/' . $product->file->path));
     }
 

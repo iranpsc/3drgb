@@ -46,9 +46,9 @@ class Store extends Component
                 ->where('name', 'like', '%' . $this->q . '%')
                 ->withCount('reviews')
                 ->withAvg('reviews as rating_avg', 'rating')
-                ->with('images')
+                ->with('latestImage')
                 ->orderByDesc('created_at')
-                ->paginate(16);
+                ->paginate(15);
         }
 
         if ($this->category) {
@@ -72,9 +72,9 @@ class Store extends Component
             ->where('name', 'like', '%' . $this->q . '%')
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
-            ->with('images')
+            ->with('latestImage')
             ->orderByDesc('created_at')
-            ->paginate(16);
+            ->paginate(15);
     }
 
     /**
@@ -90,9 +90,9 @@ class Store extends Component
             ->whereBetween('price', [$this->price_filter['min'], $this->price_filter['max']])
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
-            ->with('images')
+            ->with('latestImage')
             ->orderByDesc('created_at')
-            ->paginate(16);
+            ->paginate(15);
     }
 
     public function getPorductsByCategory($id)
@@ -103,9 +103,9 @@ class Store extends Component
             ->where('category_id', $id)
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
-            ->with('images')
+            ->with('latestImage')
             ->orderByDesc('created_at')
-            ->paginate(16);
+            ->paginate(15);
     }
 
     public function updatedTagFilter()
@@ -121,9 +121,9 @@ class Store extends Component
             ->where('name', 'like', '%' . $this->q . '%')
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
-            ->with('images')
+            ->with('latestImage')
             ->orderByDesc('created_at')
-            ->paginate(16);
+            ->paginate(15);
     }
 
     public function sortBy(string $orderBy)
@@ -155,9 +155,9 @@ class Store extends Component
             ->where('name', 'like', '%' . $this->q . '%')
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
-            ->with('images')
+            ->with('latestImage')
             ->orderByDesc('created_at')
-            ->paginate(16);
+            ->paginate(15);
     }
 
     #[Computed(persist: true)]
@@ -165,7 +165,7 @@ class Store extends Component
     {
         return Category::whereHas('products', function ($query) {
             $query->published();
-        })->select('id', 'name')->withCount('products')
+        })->select('id', 'name')->with('image')->withCount('products')
             ->orderByDesc('products_count')->get();
     }
 
@@ -180,9 +180,9 @@ class Store extends Component
             ->where('name', 'like', '%' . $this->q . '%')
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
-            ->with('images')
+            ->with('latestImage')
             ->orderByDesc('created_at')
-            ->paginate(16);
+            ->paginate(15);
     }
 
     #[Title('محصولات')]
@@ -191,9 +191,9 @@ class Store extends Component
         return view('livewire.store', [
             'products' => $this->products ?? Product::published()
                 ->withAvg('reviews as rating_avg', 'rating')
-                ->with('images')
+                ->with('latestImage')
                 ->orderByDesc('created_at')
-                ->paginate(16)
+                ->paginate(15)
         ]);
     }
 }

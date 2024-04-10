@@ -61,7 +61,7 @@
             </div>
             <div class="w-full flex flex-col justify-start md:flex-row gap-5">
                 <div class="flex justify-start items-center flex-col gap-5 w-full md:w-1/3 xl:w-[35%] ">
-                    <div
+                    <div wire:ignore
                         class=" zoomable rounded-lg overflow-hidden w-full bg-white aspect-square flex items-center justify-center">
                         <img class="aspect-square zoomable__img" id="square" />
                     </div>
@@ -191,17 +191,17 @@
                         </div>
                     </div>
                     <div class="flex  gap-2   justify-between ">
-                        @if($product->stock_status && $product->quantity > 0)
+                        @if ($product->stock_status && $product->quantity > 1)
                             <div class="flex flex-col md:flex-row items-center gap-4 text-[#3A4980] dark:text-gray-300 text-xs w-[25%] "
                                 style="margin-right: 10px">
-                                <div class="flex flex-row   rounded-lg relative bg-transparent ">
+                                <div class="flex flex-row rounded-lg relative bg-transparent ">
                                     <button data-action="decrement"
                                         class=" bg-white text-[#3A4980]  h-12 w-10 rounded-r-full cursor-pointer outline-none">
                                         <span class="m-auto text-2xl font-thin">−</span>
                                     </button>
                                     <input type="number"
                                         class="focus:border-0  focus:ring-0 border-0 text-center w-10 h-12 bg-white font-semibold text-md   flex items-center text-[#3A4980] "
-                                        name="custom-input-number" value="0">
+                                        name="custom-input-number" value="1" id="custom-input-number">
                                     <button data-action="increment"
                                         class="bg-white text-[#3A4980]  h-12 w-10 rounded-l-full cursor-pointer">
                                         <span class="m-auto text-2xl font-thin">+</span>
@@ -218,22 +218,46 @@
                             </div>
                         @endif
                         <div class="w-[60%] md:w-[30%] lg:w-[40%]">
-                            @if ((Auth::check() && Auth::user()->hasPurchased($product)) || $product->is_free)
+                            @if ($product->is_free)
                                 <x-button wire:click="download" color="info" size="block"
                                     style="display: flex; justify-content: center; align-items: center;border-radius: 900px ; gap:20px"><img
                                         src="{{ asset('img/svg/download.svg') }}" alt="download" class="svg">
                                     دانلود
                                 </x-button>
-                            @else
-                                <button type="button" @disabled(session('cart') && in_array($product->id, session('cart'))) wire:click="addToCart"
-                                    id="cartBtn" onclick="cartAlert()"
+                            @elseif($product->stock_status && $product->quantity > 1)
+                                <button type="button" @disabled(session('cart') && in_array($product->id, array_column(session('cart'), 'product_id'))) id="addToCartBtn"
                                     class="bg-[#E3000F] text-white text-sm font-bold text-center w-full h-12  rounded-full flex items-center gap-3 flex-row-reverse justify-center">
                                     <p>افزودن به سبد خرید</p>
                                     <svg width="21" height="22" viewBox="0 0 21 22" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M13.7812 9.6875V5.75C13.7812 4.87976 13.4355 4.04516 12.8202 3.42981C12.2048 2.81445 11.3702 2.46875 10.5 2.46875C9.62971 2.46875 8.79512 2.81445 8.17976 3.42981C7.56441 4.04516 7.21871 4.87976 7.21871 5.75V9.6875M17.1552 7.94362L18.2603 18.4436C18.3216 19.0255 17.8666 19.5312 17.2812 19.5312H3.71871C3.58064 19.5314 3.44408 19.5025 3.31791 19.4464C3.19174 19.3904 3.07877 19.3084 2.98635 19.2058C2.89393 19.1032 2.82412 18.9824 2.78145 18.8511C2.73879 18.7197 2.72422 18.5809 2.73871 18.4436L3.84471 7.94362C3.87022 7.70174 3.98438 7.47786 4.16518 7.31516C4.34597 7.15246 4.5806 7.06246 4.82383 7.0625H16.1761C16.6801 7.0625 17.1027 7.44312 17.1552 7.94362ZM7.54683 9.6875C7.54683 9.77452 7.51226 9.85798 7.45073 9.91952C7.38919 9.98106 7.30573 10.0156 7.21871 10.0156C7.13168 10.0156 7.04822 9.98106 6.98669 9.91952C6.92515 9.85798 6.89058 9.77452 6.89058 9.6875C6.89058 9.60048 6.92515 9.51702 6.98669 9.45548C7.04822 9.39394 7.13168 9.35938 7.21871 9.35938C7.30573 9.35938 7.38919 9.39394 7.45073 9.45548C7.51226 9.51702 7.54683 9.60048 7.54683 9.6875ZM14.1093 9.6875C14.1093 9.77452 14.0748 9.85798 14.0132 9.91952C13.9517 9.98106 13.8682 10.0156 13.7812 10.0156C13.6942 10.0156 13.6107 9.98106 13.5492 9.91952C13.4877 9.85798 13.4531 9.77452 13.4531 9.6875C13.4531 9.60048 13.4877 9.51702 13.5492 9.45548C13.6107 9.39394 13.6942 9.35938 13.7812 9.35938C13.8682 9.35938 13.9517 9.39394 14.0132 9.45548C14.0748 9.51702 14.1093 9.60048 14.1093 9.6875Z"
-                                            stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                        <path d="M13.7812 9.6875V5.75C13.7812 4.87976 13.4355 4.04516 12.8202 3.42981C12.2048 2.81445 11.3702 2.46875 10.5 2.46875C9.62971 2.46875 8.79512 2.81445 8.17976 3.42981C7.56441 4.04516 7.21871 4.87976 7.21871 5.75V9.6875M17.1552 7.94362L18.2603 18.4436C18.3216 19.0255 17.8666 19.5312 17.2812 19.5312H3.71871C3.58064 19.5314 3.44408 19.5025 3.31791 19.4464C3.19174 19.3904 3.07877 19.3084 2.98635 19.2058C2.89393 19.1032 2.82412 18.9824 2.78145 18.8511C2.73879 18.7197 2.72422 18.5809 2.73871 18.4436L3.84471 7.94362C3.87022 7.70174 3.98438 7.47786 4.16518 7.31516C4.34597 7.15246 4.5806 7.06246 4.82383 7.0625H16.1761C16.6801 7.0625 17.1027 7.44312 17.1552 7.94362ZM7.54683 9.6875C7.54683 9.77452 7.51226 9.85798 7.45073 9.91952C7.38919 9.98106 7.30573 10.0156 7.21871 10.0156C7.13168 10.0156 7.04822 9.98106 6.98669 9.91952C6.92515 9.85798 6.89058 9.77452 6.89058 9.6875C6.89058 9.60048 6.92515 9.51702 6.98669 9.45548C7.04822 9.39394 7.13168 9.35938 7.21871 9.35938C7.30573 9.35938 7.38919 9.39394 7.45073 9.45548C7.51226 9.51702 7.54683 9.60048 7.54683 9.6875ZM14.1093 9.6875C14.1093 9.77452 14.0748 9.85798 14.0132 9.91952C13.9517 9.98106 13.8682 10.0156 13.7812 10.0156C13.6942 10.0156 13.6107 9.98106 13.5492 9.91952C13.4877 9.85798 13.4531 9.77452 13.4531 9.6875C13.4531 9.60048 13.4877 9.51702 13.5492 9.45548C13.6107 9.39394 13.6942 9.35938 13.7812 9.35938C13.8682 9.35938 13.9517 9.39394 14.0132 9.45548C14.0748 9.51702 14.1093 9.60048 14.1093 9.6875Z
+                                            9.35938C7.30573 9.35938 7.38919 9.39394 7.45073 9.45548C7.51226 9.51702
+                                            7.54683 9.60048 7.54683 9.6875ZM14.1093 9.6875C14.1093 9.77452 14.0748
+                                            9.85798 14.0132 9.91952C13.9517 9.98106 13.8682 10.0156 13.7812
+                                            10.0156C13.6942 10.0156 13.6107 9.98106 13.5492 9.91952C13.4877 9.85798
+                                            13.4531 9.77452 13.4531 9.6875C13.4531 9.60048 13.4877 9.51702 13.5492
+                                            9.45548C13.6107 9.39394 13.6942 9.35938 13.7812 9.35938C13.8682 9.35938
+                                            13.9517 9.39394 14.0132 9.45548C14.0748 9.51702 14.1093 9.60048 14.1093
+                                            9.6875Z" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                            @else
+                                <button type="button" @disabled(in_array($product->id, array_column(session('cart', []), 'product_id'))) wire:click="addToCart"
+                                    id="addToCartBtn"
+                                    class="bg-[#E3000F] text-white text-sm font-bold text-center w-full h-12  rounded-full flex items-center gap-3 flex-row-reverse justify-center">
+                                    <p>افزودن به سبد خرید</p>
+                                    <svg width="21" height="22" viewBox="0 0 21 22" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.7812 9.6875V5.75C13.7812 4.87976 13.4355 4.04516 12.8202 3.42981C12.2048 2.81445 11.3702 2.46875 10.5 2.46875C9.62971 2.46875 8.79512 2.81445 8.17976 3.42981C7.56441 4.04516 7.21871 4.87976 7.21871 5.75V9.6875M17.1552 7.94362L18.2603 18.4436C18.3216 19.0255 17.8666 19.5312 17.2812 19.5312H3.71871C3.58064 19.5314 3.44408 19.5025 3.31791 19.4464C3.19174 19.3904 3.07877 19.3084 2.98635 19.2058C2.89393 19.1032 2.82412 18.9824 2.78145 18.8511C2.73879 18.7197 2.72422 18.5809 2.73871 18.4436L3.84471 7.94362C3.87022 7.70174 3.98438 7.47786 4.16518 7.31516C4.34597 7.15246 4.5806 7.06246 4.82383 7.0625H16.1761C16.6801 7.0625 17.1027 7.44312 17.1552 7.94362ZM7.54683 9.6875C7.54683 9.77452 7.51226 9.85798 7.45073 9.91952C7.38919 9.98106 7.30573 10.0156 7.21871 10.0156C7.13168 10.0156 7.04822 9.98106 6.98669 9.91952C6.92515 9.85798 6.89058 9.77452 6.89058 9.6875C6.89058 9.60048 6.92515 9.51702 6.98669 9.45548C7.04822 9.39394 7.13168 9.35938 7.21871 9.35938C7.30573 9.35938 7.38919 9.39394 7.45073 9.45548C7.51226 9.51702 7.54683 9.60048 7.54683 9.6875ZM14.1093 9.6875C14.1093 9.77452 14.0748 9.85798 14.0132 9.91952C13.9517 9.98106 13.8682 10.0156 13.7812 10.0156C13.6942 10.0156 13.6107 9.98106 13.5492 9.91952C13.4877 9.85798 13.4531 9.77452 13.4531 9.6875C13.4531 9.60048 13.4877 9.51702 13.5492 9.45548C13.6107 9.39394 13.6942 9.35938 13.7812 9.35938C13.8682 9.35938 13.9517 9.39394 14.0132 9.45548C14.0748 9.51702 14.1093 9.60048 14.1093 9.6875Z
+                                            9.35938C7.30573 9.35938 7.38919 9.39394 7.45073 9.45548C7.51226 9.51702
+                                            7.54683 9.60048 7.54683 9.6875ZM14.1093 9.6875C14.1093 9.77452 14.0748
+                                            9.85798 14.0132 9.91952C13.9517 9.98106 13.8682 10.0156 13.7812
+                                            10.0156C13.6942 10.0156 13.6107 9.98106 13.5492 9.91952C13.4877 9.85798
+                                            13.4531 9.77452 13.4531 9.6875C13.4531 9.60048 13.4877 9.51702 13.5492
+                                            9.45548C13.6107 9.39394 13.6942 9.35938 13.7812 9.35938C13.8682 9.35938
+                                            13.9517 9.39394 14.0132 9.45548C14.0748 9.51702 14.1093 9.60048 14.1093
+                                            9.6875Z" stroke="white" stroke-width="1.5" stroke-linecap="round"
                                             stroke-linejoin="round" />
                                     </svg>
                                 </button>
@@ -319,9 +343,7 @@
                     <div
                         class="bg-[#FFFFFF] dark:bg-[#001448] rounded-[10px] flex flex-col gap-5 justify-between  p-5 px-4 dark:text-white">
                         <p class="text-gray-800 dark:text-white">توضیحات :</p>
-                        <p class="text-[#667085] dark:text-white"> {!! $product->long_description !!}
-
-                        </p>
+                        <p class="text-[#667085] dark:text-white">{!! $product->long_description !!}</p>
                     </div>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
                         @foreach ($product->attributes as $attribute)
@@ -344,3 +366,22 @@
         </section>
     </main>
 </div>
+
+@script
+    <script>
+        let customInputNumber = document.getElementById('custom-input-number');
+        let addToCartBtn = document.getElementById('addToCartBtn');
+
+        customInputNumber.addEventListener('change', function() {
+            console.log(customInputNumber.value);
+            if (customInputNumber.value > {{ $product->quantity }}) {
+                customInputNumber.value = {{ $product->quantity }};
+            }
+        });
+
+        addToCartBtn.addEventListener('click', function() {
+            let quantity = customInputNumber.value;
+            $wire.addToCart(quantity);
+        });
+    </script>
+@endscript

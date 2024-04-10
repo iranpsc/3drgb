@@ -15,7 +15,7 @@ class OrderDetails extends Component
     public function mount(Order $order)
     {
         $this->authorize('view', $order);
-        $this->order = $order->load('products.users', 'products.file');
+        $this->order = $order->load('products.users');
     }
 
     public function download(Product $product)

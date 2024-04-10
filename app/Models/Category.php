@@ -23,17 +23,11 @@ class Category extends Model implements Sitemapable
         'parent_id' => 'integer'
     ];
 
-    protected $appends = [
-        'url'
-    ];
-
     public function getUrlAttribute()
     {
-        if ($this->parent) {
-            return $this->parent->url . '/' . $this->slug;
-        } else {
-            return $this->slug;
-        }
+        $this->loadMissing('parent');
+
+        return $this->parent ? $this->parent->url . '/' . $this->slug : $this->slug;
     }
 
     public function toSitemapTag(): Url|string|array
@@ -57,7 +51,7 @@ class Category extends Model implements Sitemapable
      */
     public function parent()
     {
-        return $this->belongsTo(Category::class, 'parent_id');
+        return $this->belongsTo(__CLASS__, 'parent_id');
     }
 
     /**

@@ -94,6 +94,16 @@ class Product extends Model implements Sitemapable
     }
 
     /**
+     * Get the latest image for the product.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function latestImage()
+    {
+        return $this->morphOne(Image::class, 'imageable')->latestOfMany();
+    }
+
+    /**
      * Get the file for the product.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
@@ -130,7 +140,7 @@ class Product extends Model implements Sitemapable
      */
     public function users()
     {
-        return $this->belongsToMany(User::class)->withPivot('download_count', 'downloaded_at');
+        return $this->belongsToMany(User::class)->withPivot('download_count', 'downloaded_at', 'quantity');
     }
 
     /**
