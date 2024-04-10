@@ -143,33 +143,22 @@
             <div class="w-full lg:w-3/4 space-y-5 p-5 mx-auto" id="products-list">
                 <div class="">
                     <div class="grid lg:grid-cols-2 xl:grid-cols-4 gap-5 transition-[5s] duration-500 ">
-                        @forelse ($category->children as $child)
-                            @php
-                                $children_links = implode('/', array_merge($category_link, [$child->slug]));
-                            @endphp
+                        @forelse ($categories as $category)
                             <div class=" product">
                                 <div
                                     class="bg-white dark:bg-[#001448] w-full flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
-                                    <a href="{{ route('categories.show', ['category_link' => $children_links]) }}"
+                                    <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
                                         class="p-3 w-full ">
-                                        <img
-                                            src="{{ $child->image->url ?? asset('home-page/images/3d-Strawberry-3dmodel.jpg') }}">
+                                        <img src="{{ $category->image->url }}">
                                     </a>
                                     <div class="w-full flex flex-col justify-center items-center gap-3">
-                                        <a href="{{ route('categories.show', ['category_link' => $children_links]) }}"
-                                            class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white py-5">{{ $child->name }}</a>
+                                        <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
+                                            class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white py-5">{{ $category->name }}</a>
                                     </div>
                                 </div>
                             </div>
                         @empty
-                            <!-- start card -->
-                            @forelse ($products as $product)
-                                <livewire:product-item :$product :key="'product-' . $product->id" />
-                            @empty
-                                <x-alert type="warning" message="محصولی یافت نشد" />
-                            @endforelse
-                            {{ $products->links() }}
-
+                            <x-alert type="warning" message="هیچ محصولی در این دسته بندی وجود ندارد" />
                         @endforelse
                     </div>
                 </div>

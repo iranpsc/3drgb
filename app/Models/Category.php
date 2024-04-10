@@ -32,7 +32,7 @@ class Category extends Model implements Sitemapable
 
     public function toSitemapTag(): Url|string|array
     {
-        $url = Url::create(url('product-categories/' . $this->url))
+        $url = Url::create(url('categories.show/' . $this->url))
             ->setLastModificationDate($this->updated_at)
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
             ->setPriority(0.8);

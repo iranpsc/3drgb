@@ -104,7 +104,7 @@
                         <div class="swiper-wrapper ">
                             @forelse ($popular_categories as $category)
                                 <div class="swiper-slide flex w-full" wire:key="popular-category-{{ $category->id }}">
-                                    <a href="{{ route('product-categories', ['category_link' => $category->url]) }}"
+                                    <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
                                         class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16">
                                         <div class="hidden lg:block w-[60%] aspect-square">
                                             <img src="{{ asset($category->image?->url) }}" alt=""
@@ -168,7 +168,7 @@
                             class="h-full flex lg:gap-7 gap-5 items-center justify-start transition ease-out duration-700 ">
                             @forelse ($popular_categories as $category)
                                 <div class="flex flex-shrink-0 relative  ">
-                                    <a href="{{ route('product-categories', ['category_link' => $category->url]) }}"
+                                    <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
                                         class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
                                         <div class="w-full p-1 md:p-5">
                                             <img src="{{ asset($category->image?->url) }}" alt=""
@@ -212,7 +212,7 @@
                             </svg>
                         </button>
                         <div>
-                            <a href="#"
+                            <a href="{{ route('categories') }}"
                                 class="text-[#000BEE] dark:bg-[#c2008b36] dark:text-[#E8E9FF] bg-[#CDD6FC] px-3 md:px-5 py-3 rounded-3xl font-bold text-lg md:text-xl">مشاهده
                                 همه</a>
                         </div>
