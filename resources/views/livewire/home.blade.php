@@ -100,7 +100,7 @@
                         </button>
                     </div>
                     <!-- Swiper -->
-                    <div id="swiper1" class="swiper-container  overflow-x-hidden " dir="ltr" wire:ignore>
+                    <div class="swiper-slider swiper-container  overflow-x-hidden " dir="ltr" wire:ignore>
                         <div class="swiper-wrapper ">
                             @forelse ($popular_categories as $category)
                                 <div class="swiper-slide flex w-full" wire:key="popular-category-{{ $category->id }}">
@@ -267,7 +267,7 @@
 
             </div>
             <div class="relative px-5">
-                <div id="swiper2" class="swiper-container  overflow-x-hidden " dir="ltr">
+                <div class="swiper-slider swiper-container  overflow-x-hidden " wire:ignore>
                     <div class="swiper-wrapper">
 
                         <!-- start card -->
@@ -281,7 +281,6 @@
                         <!-- end card -->
 
                     </div>
-                    <div class="swiper-pagination  mt-5"></div>
                 </div>
             </div>
             <!-- end show more products -->
@@ -295,11 +294,42 @@
 
         buttons.forEach(button => {
             button.addEventListener("click", () => {
-                console.log(button.id)
                 $wire.call('changeTab', button.id);
                 buttons.forEach(btn => btn.classList.remove("active"));
                 button.classList.add("active");
             });
+        });
+
+
+        let swiper = new Swiper('.swiper-slider', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            // Responsive breakpoints
+            breakpoints: {
+                1550: {
+                    slidesPerView: 4,
+                    spaceBetween: 20
+                },
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                },
+                // when window width is <= 768px
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                },
+                // when window width is <= 480px
+                480: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                }
+            }
         });
     </script>
 @endscript

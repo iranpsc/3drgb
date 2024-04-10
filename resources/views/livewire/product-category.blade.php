@@ -169,7 +169,6 @@
                                 <x-alert type="warning" message="محصولی یافت نشد" />
                             @endforelse
                             {{ $products->links() }}
-
                         @endforelse
                     </div>
                 </div>

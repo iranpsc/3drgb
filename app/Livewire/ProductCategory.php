@@ -23,8 +23,8 @@ class ProductCategory extends Component
                 ->published()
                 ->withCount('reviews')
                 ->withAvg('reviews as rating_avg', 'rating')
-                ->with('images')
-                ->orderByDesc('created_at')
+                ->with('latestImage')
+                ->latest()
                 ->paginate(16);
         }
     }
