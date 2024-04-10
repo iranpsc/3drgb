@@ -105,9 +105,9 @@
                                                                 </div>
                                                             </td>
                                                             <td>{{ number_format($product->final_price, 0) }} تومان</td>
-                                                            <td>
+                                                            <td class="flex justify-center " style="padding-right: 0px; padding-top:20px">
                                                                 <div
-                                                                    class="flex flex-row rounded-lg relative bg-transparent ">
+                                                                    class="flex flex-row rounded-lg relative bg-transparent justify-center mx-auto">
                                                                     <button type="button" id="decrement-button"
                                                                         class=" bg-white text-[#3A4980]  h-12 w-10 rounded-r-full cursor-pointer outline-none">
                                                                         <span class="m-auto text-2xl font-thin">−</span>
