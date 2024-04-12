@@ -12,6 +12,7 @@
     <meta name="robots" content="index,follow">
     <link rel="icon" type="image/x-icon" href="{{ asset('home-page/images/3ddmetaa143.png') }}">
     <link href="{{ asset('home-page/style/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('home-page/style/swiper-main.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/fontawesome.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style-rtl.css') }}">
@@ -19,7 +20,6 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/star-rating-svg.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <title>{{ 'سه بعدی متا' . ' | ' . $title ?? config('app.name') }}</title>
     <script>
         document.documentElement.className = document.documentElement.className
@@ -903,7 +903,7 @@
         </footer>
     </div>
     <script src="{{ asset('assets/vendor_assets/js/jquery/jquery-3.5.1.min.js') }}"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="{{ asset('home-page/script/swiper.js') }}"></script>
     <script src="{{ asset('home-page/script/preline.js') }}"></script>
     <script src="{{ asset('home-page/script/scripts.js') }}"></script>
     <script src="{{ asset('home-page/script/product-img.js') }}"></script>
