@@ -2,11 +2,11 @@
     <!-- start card -->
     <div class=" product ">
         <div
-            class="bg-white dark:bg-[#001448] w-full flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
-            <a href="{{ $product->url }}" class="p-3 w-[80%] ">
+            class="bg-white dark:bg-[#001448] w-full flex flex-col overflow-hidden rounded-xl justify-between items-center text-center  gap-2  duration-500 transition-all">
+            <a href="{{ $product->url }}" style="width: 90%">
                 <img src="{{ $product->latestImage->url }}" alt="">
             </a>
-            <div class="w-full flex flex-col justify-center items-center gap-3">
+            <div class="w-full flex flex-col justify-center items-center gap-3 p-3">
                 <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
                     سه بعدی/غذا
                 </p>
@@ -26,7 +26,7 @@
                 <div class="w-full flex justify-between gap-2 ">
                     @if ($product->is_free)
                         <x-button wire:click="download({{ $product->id }})" color="light"
-                            style="display: flex; justify-content: center; align-items: center;border-radius: 10px; padding:10px 20px; gap:20px;color:white"><img src="{{ asset('img/svg/download.svg') }}" alt="download" class="w-6 svg">
+                            style="display: flex; justify-content: center; align-items: center;border-radius: 10px; padding:10px 20px; gap:20px;color:white;width: 60%"><img src="{{ asset('img/svg/download.svg') }}" alt="download" class="w-6 svg">
                             دانلود
                         </x-button>
                     @else
