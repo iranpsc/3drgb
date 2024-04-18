@@ -57,11 +57,11 @@
                         </form>
                     </div>
                     <div class="flex flex-col gap-7 w-full lg:w-1/2 justify-center lg:justify-start">
-                        <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+                        <div class="flex flex-wrap items-center justify-between gap-6 ">
                             <div class="flex gap-3 items-center ">
                                 <a class="font-bold text-2xl text-black/50 dark:text-gray-300"
                                     href="tel:۰۹۳۳۷۸۵۰۴۲۴">۰۹۳۳۷۸۵۰۴۲۴</a>
-                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
+                                <svg width="27" height="27" viewBox="0 0 20 21" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path class="dark:stroke-white"
                                         d="M5.32467 18.05C6.69967 18.875 8.34967 19.3333 9.99967 19.3333C15.0413 19.3333 19.1663 15.2083 19.1663 10.1667C19.1663 5.125 15.0413 1 9.99967 1C4.95801 1 0.833008 5.125 0.833008 10.1667C0.833008 11.8167 1.29134 13.375 2.02467 14.75L1.27345 17.6393C1.07873 18.3883 1.77193 19.0651 2.51599 18.8525L5.32467 18.05Z"
@@ -74,7 +74,7 @@
                             <div class="flex gap-3 items-center text-center lg:text-right">
                                 <a class="text-2xl text-black/50 dark:text-gray-300"
                                     href="mailto:3dmeta.irpsc@gmail.com">3dmeta.irpsc@gmail.com</a>
-                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                <svg width="27" height="27" viewBox="0 0 22 22" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path class="dark:stroke-white"
                                         d="M15.583 18.7916H6.41634C3.66634 18.7916 1.83301 17.4166 1.83301 14.2083V7.79159C1.83301 4.58325 3.66634 3.20825 6.41634 3.20825H15.583C18.333 3.20825 20.1663 4.58325 20.1663 7.79159V14.2083C20.1663 17.4166 18.333 18.7916 15.583 18.7916Z"

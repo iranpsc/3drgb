@@ -22,12 +22,12 @@
             </div>
         </section>
         <div>
-            <div class="bg-[#ECF4FE] dark:bg-[#4A4E7C] w-full relative   pt-20 ">
+            <div class="bg-[#ECF4FE] dark:bg-[#4A4E7C] w-full relative    ">
                 <div
-                    class="w-full mx-auto flex flex-col md:flex-row items-ctener justify-between  gap-10 px-10 md:px-10  py-5 lg:px-20">
-                    <div class="w-full md:w-[45%] flex flex-col justify-center">
-                        <p class="text-[#000BEE] dark:text-white py-3 font-extrabold text-4xl"
-                            style="font-family:rokh ;">
+                    class="w-full mx-auto flex flex-col md:flex-row items-ctener justify-between  gap-10 px-10 md:px-10  py-5 lg:px-20 ">
+                    <div class="w-full md:w-[45%] flex flex-col justify-center mt-20 lg:mt-0">
+                        <p class="text-[#000BEE] dark:text-white py-3 font-extrabold text-5xl"
+                            style="font-family:rokh ; font-size: 46px ; line-height: 50px">
                             مدل سه بعدی و تجربه ای متفاوت
                         </p>
                         <p class="text-stone-800 dark:text-[#ffffff] font-bold text-xl lg:text-2xl mt-5">
@@ -36,7 +36,7 @@
                             تعرفه ای
                             ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .
                         </p>
-                        <div class="flex gap-5 relative mt-20">
+                        <div class="flex gap-5 relative mt-20 hidden lg:flex">
                             <input type="text" wire:model="searchTerm"
                                 class="relative w-full p-5 text-[#ACB9FA] font-bold bg-[#D8E5FD] dark:bg-[#001448c9] rounded-[32px] focus:outline-none pr-12 md:px-20">
 
@@ -55,8 +55,23 @@
 
                         </div>
                     </div>
-                    <div class="w-full flex items-center justify-end md:w-[55%]">
-                        <img src="{{ asset('home-page/images/Asset 2@300x 1.png') }}" alt="">
+                    <div class="w-full flex items-center justify-end md:w-[55%] flex-col">
+                        <img src="{{ asset('home-page/images/Asset 2@300x 1.png') }}" alt="" class="w-full">
+                        <div class="flex gap-5 relative mt-5 w-full lg:hidden">
+                            <input type="text" wire:model.live.debounce.500ms="searchTerm"
+                                class="relative w-full p-5 text-[#ACB9FA] font-bold bg-[#D8E5FD] dark:bg-[#001448c9] rounded-full focus:outline-none pr-12 md:px-20 lg:py-[23px]">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" class="absolute right-5 top-5">
+                                <path class="dark:stroke-white"
+                                    d="M11.4582 21.7501C17.1421 21.7501 21.7498 17.1423 21.7498 11.4584C21.7498 5.77448 17.1421 1.16675 11.4582 1.16675C5.77424 1.16675 1.1665 5.77448 1.1665 11.4584C1.1665 17.1423 5.77424 21.7501 11.4582 21.7501Z"
+                                    stroke="#000BEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path class="dark:stroke-white" d="M22.8332 22.8334L20.6665 20.6667" stroke="#000BEE"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+
+                            <button type="button" wire:click="search"
+                                class="bg-[#000BEE] dark:bg-[#C2008C] text-white font-bold md:text-xl pb-4 pt-[15px]  px-5 w-[30%] lg:w-[20%] rounded-[32px]  text-center absolute left-[6px] top-[6px] min-w-max">جستجو</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -73,7 +88,7 @@
                     <p class="text-stone-800 dark:text-[#ffffff] font-bold text-2xl">
                         محصولات ما
                     </p>
-                    <p class="text-[#000BEE] dark:text-[#E8E9FF] font-extrabold text-5xl" style="font-family:rokh;">
+                    <p class="text-[#000BEE] dark:text-[#E8E9FF] font-extrabold text-4xl" style="font-family:rokh;">
                         هزاران فایل بینظیر
                     </p>
                 </div>
@@ -84,8 +99,8 @@
                             @forelse ($popular_categories as $category)
                                 <div class="swiper-slide flex w-full" wire:key="popular-category-{{ $category->id }}">
                                     <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
-                                        class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16">
-                                        <div class="hidden lg:block w-[60%] aspect-square">
+                                        class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-5 gap-16">
+                                        <div class="hidden lg:block  aspect-square" style="width: 90%">
                                             <img src="{{ asset($category->image?->url) }}" alt=""
                                                 class="w-full">
                                         </div>
@@ -110,15 +125,15 @@
                     <img src="{{ asset('home-page/images/Image 2.png') }}" alt="">
                 </div>
                 <div class="flex flex-col gap-10 w-full md:w-1/2 items-center md:items-start justify-center">
-                    <p class="text-[#000BEE] dark:text-[#E8E9FF] font-extrabold text-4xl m-0 p-0"
+                    <p class="text-[#000BEE] dark:text-[#E8E9FF] font-extrabold text-5xl m-0 p-0"
                         style="font-family:rokh ;">
                         مدل های سه بعدی
                     </p>
-                    <p class="text-stone-800 dark:text-[#D1D1D1] font-bold text-xl">
+                    <p class="text-stone-800 dark:text-[#D1D1D1] font-bold text-2xl">
                         کیفیت طراحی های خود را با استفاده از مدل های سه بعدی افزایش دهید .
                     </p>
                     <a href="{{ route('products') }}"
-                        class="text-[#000BEE] text-xl dark:text-[#E8E9FF] bg-[#CDD6FC] dark:bg-[#C2008C] px-5 py-3 rounded-3xl font-bold text-xl w-max flex items-center justify-center gap-6 md:gap-10">
+                        class="text-[#000BEE] text-xl dark:text-[#E8E9FF] bg-[#CDD6FC] dark:bg-[#C2008C] px-5 py-3 rounded-3xl font-bold lg:text-2xl w-max flex items-center justify-center gap-6 md:gap-10">
                         <p class="m-0 p-0">
                             لیست مدل های سه بعدی
                         </p>
@@ -168,7 +183,7 @@
                     </div>
                     <div class="absolute  md:top-7 flex w-full justify-center md:w-max md:left-0 gap-5 items-center">
                         <button aria-label="slide forward"
-                            class=" aspect-square  focus:outline-none focus:bg-[#000BEE] dark:bg-[#c2008b36] dark:focus:bg-[#C2008C] dark:focus:ring-[#C2008C] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full"
+                            class=" aspect-square  focus:outline-none  dark:bg-[#c2008b36]  dark:focus:ring-[#C2008C] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full"
                             id="next">
 
                             <svg style="width:20px; height:20px" class="dark:fill-white rotate-180" width="29"
@@ -181,7 +196,7 @@
 
                         </button>
                         <button aria-label="slide backward"
-                            class=" aspect-square  focus:outline-none focus:bg-[#000BEE] dark:bg-[#c2008b36] dark:focus:bg-[#C2008C] dark:focus:ring-[#C2008C] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full"
+                            class=" aspect-square  focus:outline-none dark:bg-[#c2008b36]  dark:focus:ring-[#C2008C] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full"
                             id="prev">
                             <svg style="width:20px; height:20px" width="29" height="22" viewBox="0 0 29 22"
                                 fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -204,7 +219,7 @@
             <div
                 class="w-full text-center flex flex-col justify-center items-center xl:flex-row gap-5 gap-y-10 py-12 xl:py-16 px-7 rounded-3xl bg-[#000ceec2] dark:bg-[#001448] ">
                 <div class="lg:w-[70%]">
-                    <h2 class="text-white text-3xl 2xl:text-5xl !leading-[70px]  text-right"
+                    <h2 class="text-white text-3xl 2xl:text-5xl !leading-[70px]  text-center "
                         style="font-family:rokh ;">“خدمات طراحی محیط های سه بعدی <br>به صورت Low-Poly و High-Poly”
                     </h2>
                 </div>
@@ -217,7 +232,7 @@
                 </a>
             </div>
         </section>
-        <section class="w-full max-w-[1500px] mx-auto">
+        <section class="w-full max-w-[1500px] mx-auto px-5 lg:px-0">
             <div>
                 <p class="text-4xl font-bold text-[#000BEE] dark:text-[#E8E9FF] mt-32 text-center py-3"
                     style="font-family:rokh ;">محصولات ما</p>
@@ -245,7 +260,7 @@
                 </div>
 
             </div>
-            <div class="relative px-5">
+            <div class="relative ">
                 <div class="swiper-slider swiper-container  overflow-x-hidden " dir="rtl" wire:ignore>
                     <div class="swiper-wrapper">
 

@@ -22,7 +22,7 @@
             </div>
         </section>
         <section class="max-w-[1500px] mx-auto p-4 lg:p-9 mt-24 lg:mt-14">
-            <div class="w-full bg-white dark:bg-[#001448] rounded-xl dark:text-white p-5 lg:p-7">
+            <div class="w-full lg:w-[70%] 2xl:w-[55%] bg-white mx-auto dark:bg-[#001448] rounded-xl dark:text-white p-5 lg:p-7">
                 <h1 class="text-2xl dark:text-white font-bold py-5 text-center "> جهت ثبت سفارش طراحی، فرم زیرا پر کنید.</h1>
 
                 <div class="flex-col flex gap-7 justify-center w-full">
@@ -49,15 +49,23 @@
 
 
                             </div>
-                            <x-form.file name="attachment" label="" wire:model="attachment"  style="width: 100% ; margin-top: 30px"/>
+                            
 
                             <div class="flex flex-col gap-7 w-full mt-5">
                                 <x-form.textarea name="message" placeholder="پیام خود را اینجا بنویسید..." label=""
                                     wire:model="message" />
+                                    <x-form.file name="attachment" label="" wire:model="attachment"  style="width: 100% ; margin-top: 10px"/>
 
                                 <x-button type="submit">ارسال پیام</x-button>
                             </div>
                         </form>
+                    </div>
+                    <div class="flex flex-col gap-7 mx-auto text-center">
+                        <p class="text-3xl " style="font-family:rokh">تماس با تیم مشاوره</p>
+                        <div class="flex flex-col  gap-3  text-xl text-black/50 dark:text-gray-300">
+                            <a href="tel:09337850424" style="font-family:rokh" dir="ltr">۰۹۳۳- ۷۸۵۰۴۲۴</a>
+                            <a href="maileto:3dmeta.irpsc@gmail.com" style="font-family:rokh">3dmeta.irpsc@gmail.com</a>
+                        </div>
                     </div>
                 </div>
             </div>

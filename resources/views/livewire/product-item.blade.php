@@ -3,7 +3,7 @@
     <div class=" product ">
         <div
             class="bg-white dark:bg-[#001448] w-full flex flex-col overflow-hidden rounded-xl justify-between items-center text-center  gap-2  duration-500 transition-all">
-            <a href="{{ $product->url }}" style="width: 90%">
+            <a href="{{ $product->url }}" style="width: 90% ;padding-top: 16px" >
                 <img src="{{ $product->latestImage->url }}" alt="">
             </a>
             <div class="w-full flex flex-col justify-center items-center gap-3 p-3">

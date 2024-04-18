@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="lmf8kBJQgLHew_wXcxGQwJQWiOSFy8odEBRTLOoX7Q4" />
     <meta name="description"
         content="سامانه سه بعدی متا با تعرفه ای ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .">
     <meta name="keywords"
@@ -164,6 +165,7 @@
                                         </div>
 
                                     </label>
+                                    @auth
                                     <ul>
                                         <li>
                                             <label class="text-[#868B90] before:text-transparent tree_label">
@@ -179,7 +181,22 @@
                                                 </div>
                                             </label>
                                         </li>
+                                        <li>
+                                            <label class="text-[#868B90] before:text-transparent tree_label">
+                                                <div class="flex justify-between items-center gap-3">
+                                                    <svg class="w-7 h-7" width="22" height="22"
+                                                        viewBox="0 0 22 22" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M20.5 10.75C20.5 5.64137 16.3586 1.5 11.25 1.5C6.14137 1.5 2 5.64137 2 10.75C2 13.0237 2.82034 15.1058 4.18119 16.7164C4.5435 16.0371 5.11916 15.4274 5.86153 14.9278L5.86315 14.9267C7.37286 13.9166 9.32687 13.4351 11.2427 13.4351C13.1588 13.4351 15.1166 13.9166 16.6352 14.9253L16.6352 14.9253L16.6389 14.9278C17.3812 15.4273 17.9568 16.0369 18.3191 16.7161C19.6798 15.1055 20.5 13.0235 20.5 10.75ZM8.7461 19.6571C9.54246 19.8805 10.3823 20 11.25 20C12.2198 20 13.1548 19.8508 14.0331 19.574C15.1949 19.2072 16.2569 18.6163 17.1719 17.8501C17.0041 17.2859 16.5736 16.6923 15.8034 16.1736C14.5821 15.363 12.9308 14.9351 11.2427 14.9351C9.55398 14.9351 7.90836 15.3634 6.69814 16.1728C5.92728 16.6918 5.49645 17.2857 5.32861 17.8501C6.31632 18.6772 7.47532 19.3 8.7461 19.6571ZM9.54622 21.3657C10.1011 21.4541 10.6702 21.5 11.25 21.5C17.1871 21.5 22 16.6871 22 10.75C22 4.81294 17.1871 0 11.25 0C5.31294 0 0.5 4.81294 0.5 10.75C0.5 16.0408 4.32213 20.4388 9.35585 21.3337C9.41912 21.3449 9.48258 21.3556 9.54622 21.3657ZM11.2503 5.72998C12.6546 5.72998 13.7803 6.8627 13.7803 8.25998C13.7803 9.60876 12.7266 10.7085 11.3916 10.7784C11.2996 10.7709 11.2016 10.7702 11.1063 10.7782C9.77704 10.7072 8.72901 9.61176 8.72027 8.25786C8.72142 6.86305 9.85519 5.72998 11.2503 5.72998ZM15.2803 8.25998C15.2803 6.03726 13.486 4.22998 11.2503 4.22998C9.02606 4.22998 7.22027 6.03577 7.22027 8.25998V8.26422H7.22029C7.23254 10.4326 8.93809 12.2057 11.1047 12.2795C11.1487 12.281 11.1928 12.2787 11.2363 12.2724C11.232 12.2731 11.2312 12.273 11.234 12.2728C11.2365 12.2727 11.2408 12.2725 11.2465 12.2725C11.2588 12.2725 11.2702 12.2733 11.2772 12.2742C11.3166 12.2791 11.3562 12.2809 11.3958 12.2795C13.5587 12.2058 15.2803 10.4354 15.2803 8.25998Z"
+                                                            fill="#868B90" />
+                                                    </svg>
+                                                    <a href="{{ route('user.orders') }}">خریدها</a>
+                                                </div>
+                                            </label>
+                                        </li>
                                     </ul>
+                                    @endauth
                                 </li>
                             </ul>
                         </div>
@@ -372,47 +389,6 @@
                                 </ul>
                             </div>
                         @endHasRole
-
-                        @auth
-                            <div>
-                                <ul class="tree">
-                                    <li class="flex flex-col gap-3">
-                                        <input type="checkbox" id="c112" class="peer" />
-                                        <label
-                                            class="px-[20px] py-4 w-full rounded-[10px] text-[#868B90]  peer-checked:text-white head_label peer-checked:bg-[#000BEE] dark:peer-checked:bg-[#C2008C] peer-checked:[&>div>svg]:rotate-180 peer-checked:[&>div>svg>path]:stroke-white"
-                                            for="c112">
-                                            <div class="flex w-full justify-between items-center select-none"
-                                                for="c112">
-                                                <div class="flex items-center gap-4">
-                                                    <svg class="w-7 h-7" width="22" height="22"
-                                                        viewBox="0 0 1024 1024" version="1.1"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill="#888888"
-                                                            d="M315.392 507.904c-81.92-40.96-137.216-122.88-137.216-221.184 0-135.168 110.592-245.76 245.76-245.76s245.76 110.592 245.76 245.76c0 133.12-104.448 241.664-237.568 245.76h-2.048c-202.752 0-368.64 165.888-368.64 368.64 0 12.288-8.192 20.48-20.48 20.48s-20.48-8.192-20.48-20.48c0-186.368 124.928-344.064 294.912-393.216z m108.544-16.384c112.64 0 204.8-92.16 204.8-204.8s-92.16-204.8-204.8-204.8-204.8 92.16-204.8 204.8 92.16 204.8 204.8 204.8z m561.152 135.168l4.096 10.24-49.152 59.392c-8.192 10.24-8.192 26.624 0 36.864l49.152 57.344-4.096 10.24c-10.24 28.672-24.576 57.344-45.056 79.872l-8.192 8.192-75.776-12.288c-12.288-2.048-26.624 6.144-30.72 18.432l-26.624 73.728-10.24 2.048c-38.912 8.192-77.824 8.192-116.736 0l-12.288-2.048-24.576-71.68c-4.096-12.288-18.432-20.48-30.72-18.432l-77.824 12.288-8.192-8.192c-10.24-10.24-18.432-22.528-24.576-34.816-8.192-14.336-16.384-30.72-20.48-47.104l-4.096-10.24 51.2-57.344c8.192-10.24 8.192-26.624 0-34.816l-49.152-59.392 4.096-10.24c10.24-30.72 26.624-57.344 47.104-81.92l8.192-8.192 73.728 12.288c12.288 2.048 26.624-6.144 32.768-18.432l26.624-71.68 10.24-2.048c36.864-8.192 75.776-8.192 114.688 0l12.288 2.048 24.576 69.632c4.096 12.288 18.432 22.528 32.768 20.48l75.776-10.24 8.192 8.192c10.24 12.288 18.432 22.528 24.576 36.864 6.144 10.24 12.288 26.624 18.432 40.96z m-57.344-24.576c-4.096-8.192-8.192-14.336-14.336-22.528l-53.248 6.144c-32.768 4.096-65.536-16.384-75.776-47.104L768 491.52c-24.576-4.096-49.152-4.096-73.728 0l-18.432 49.152c-10.24 30.72-45.056 51.2-77.824 45.056l-51.2-8.192c-12.288 14.336-20.48 32.768-28.672 49.152l34.816 40.96c20.48 24.576 20.48 63.488 0 88.064l-34.816 40.96c4.096 10.24 8.192 18.432 14.336 28.672 4.096 8.192 8.192 14.336 14.336 20.48l55.296-8.192c32.768-4.096 65.536 16.384 75.776 47.104l16.384 49.152c24.576 4.096 51.2 4.096 75.776 0l18.432-51.2c10.24-30.72 45.056-51.2 75.776-45.056l51.2 8.192c10.24-14.336 20.48-30.72 26.624-49.152l-32.768-38.912c-20.48-24.576-22.528-63.488-2.048-88.064l34.816-40.96c-4.096-8.192-8.192-16.384-14.336-26.624z m-196.608 204.8c-51.2 0-92.16-40.96-92.16-92.16s40.96-92.16 92.16-92.16 92.16 40.96 92.16 92.16-43.008 92.16-92.16 92.16z m0-40.96c28.672 0 51.2-22.528 51.2-51.2s-22.528-51.2-51.2-51.2-51.2 22.528-51.2 51.2 22.528 51.2 51.2 51.2z" />
-                                                    </svg>
-                                                    <p> داشبورد کاربر </p>
-                                                </div>
-                                                <svg class="transition-[5s] duration-300" width="15" height="9"
-                                                    viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path class=" stroke-[#868B90]" d="M14 1L7.5 7.5L1 0.999999"
-                                                        stroke="black" stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg>
-                                            </div>
-                                        </label>
-                                        <ul>
-                                            <div
-                                                class="flex flex-col text-sm text-[#000BEE] font-bold gap-5 p-3 pr-[20PX] dark:text-[#868B90]">
-                                                {{-- <a href="{{ route('user.dashboard') }}">داشبورد</a> --}}
-                                                <a href="{{ route('user.orders') }}">خریدها</a>
-                                                <a href="{{ route('user.profile') }}">پروفایل</a>
-                                            </div>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        @endauth
-
                         <div>
                             <ul class="tree">
                                 <li class="flex flex-col gap-3">
@@ -866,31 +842,31 @@
                     </div>
                     <div>
                         <a href="whatsapp://send?text=http://+98 933 785 0424">
-                            <img src="{{ asset('home-page/images/whatsapp.png') }}" alt="">
+                            <img src="{{ asset('home-page/images/whatsapp.png') }}" alt="واتساپ">
                         </a>
                     </div>
                     <div>
                         <a href="https://discord.gg/xqBe3h9hnN"
                             class="bg-gray-200 w-[38px] h-[38px] rounded-full flex justify-center items-center">
-                            <img src="{{ asset('home-page/images/discord-icon-svgrepo-com.png') }}" alt=""
+                            <img src="{{ asset('home-page/images/discord-icon-svgrepo-com.png') }}" alt="دیسکورد"
                                 class="w-6 h-6  mt-1">
                         </a>
                     </div>
                     <div>
                         <a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy">
-                            <img src="{{ asset('home-page/images/istagram.png') }}" alt="">
+                            <img src="{{ asset('home-page/images/istagram.png') }}" alt="اینستاگرام">
                         </a>
                     </div>
                     <div>
                         <a href="mailto:dmeta.irpsc@gmail.com"
                             class="rounded-full bg-gray-500 p-2 w-max flex justify-center items-center">
-                            <img src="{{ asset('home-page/images/sms.png') }}" alt="">
+                            <img src="{{ asset('home-page/images/sms.png') }}" alt="پیام">
                         </a>
                     </div>
                     <div>
                         <a href="https://pin.it/7C5mYf6Q6"
                             class="rounded-full bg-[#E70000] p-2 px-[10px] w-max flex justify-center items-center">
-                            <img src="{{ asset('home-page/images/Vector (9).png') }}" alt="">
+                            <img src="{{ asset('home-page/images/Vector (9).png') }}" alt="پینترست">
                         </a>
                     </div>
                 </div>
@@ -915,7 +891,6 @@
     <script src="{{ asset('assets/vendor_assets/js/message.js') }}"></script>
     <script src="{{ asset('assets/vendor_assets/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/theme_assets/js/drag-drop.js') }}"></script>
-    <script src="{{ asset('assets/theme_assets/js/main.js') }}"></script>
     <script src="{{ asset('assets/summernote/summernote-lite.min.js') }}"></script>
 
     <script>
