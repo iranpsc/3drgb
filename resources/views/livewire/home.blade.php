@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <div class="w-full flex items-center justify-end md:w-[55%] flex-col">
-                        <img src="{{ asset('home-page/images/Asset 2@300x 1.png') }}" alt="" class="w-full">
+                        <img src="{{ asset('home-page/images/Asset2.png') }}" alt="3dmodel" class="w-full">
                         <div class="flex gap-5 relative mt-5 w-full lg:hidden">
                             <input type="text" wire:model.live.debounce.500ms="searchTerm"
                                 class="relative w-full p-5 text-[#ACB9FA] font-bold bg-[#D8E5FD] dark:bg-[#001448c9] rounded-full focus:outline-none pr-12 md:px-20 lg:py-[23px]">
@@ -122,7 +122,7 @@
             </div>
             <div class="flex flex-col md:flex-row items-center gap-y-5 gap-x-20 w-full px-5 mt-28 py-32">
                 <div class="w-full md:w-1/2 flex justify-center items-center">
-                    <img src="{{ asset('home-page/images/Image 2.png') }}" alt="">
+                    <img src="{{ asset('home-page/images/222-min.png') }}" alt="3dmodel">
                 </div>
                 <div class="flex flex-col gap-10 w-full md:w-1/2 items-center md:items-start justify-center">
                     <p class="text-[#000BEE] dark:text-[#E8E9FF] font-extrabold text-5xl m-0 p-0"
