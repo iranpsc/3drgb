@@ -12,11 +12,11 @@
                         <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (1).png"
                                     alt=""></a></div>
                         <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy"><img
-                                    src="https://3d.irpsc.com/home-page/images/Union (2).png" alt=""></a></div>
+                                    src="https://3d.irpsc.com/home-page/images/Union (2).png" alt="social"></a></div>
                         <div><a href="whatsapp://send?text=http://+98 933 785 0424"><img
-                                    src="https://3d.irpsc.com/home-page/images/Union (3).png" alt=""></a></div>
+                                    src="https://3d.irpsc.com/home-page/images/Union (3).png" alt="social"></a></div>
                         <div><a href="mailto:dmeta.irpsc@gmail.com"><img
-                                    src="https://3d.irpsc.com/home-page/images/Union (4).png" alt=""></a></div>
+                                    src="https://3d.irpsc.com/home-page/images/Union (4).png" alt="social"></a></div>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                             <a href="#"
                                 class="w-[92vw] lg:w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
                                 <div class="hidden lg:block w-[60%] aspect-square  ">
-                                    <img src="{{ asset('home-page/images/Design 1.png') }}" alt=""
+                                    <img src="{{ asset('home-page/images/Design 1.png') }}" alt="category"
                                         class="w-full">
                                 </div>
                                 <div class="flex flex-col justify-end ">
@@ -141,7 +141,7 @@
         <section class="max-w-[1500px] mx-auto  lg:p-9 mt-24 lg:mt-14 flex flex-col lg:flex-row gap-5 ">
 
             <div class="w-full lg:w-3/4 space-y-5 p-5 mx-auto" id="products-list">
-                <div class="">
+                <div >
                     <div class="grid lg:grid-cols-2 xl:grid-cols-4 gap-5 transition-[5s] duration-500 ">
                         @forelse ($categories as $category)
                             <div class=" product">
@@ -149,7 +149,7 @@
                                     class="bg-white dark:bg-[#001448] w-full flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
                                     <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
                                         class="p-3 w-full ">
-                                        <img src="{{ $category->image->url }}">
+                                        <img src="{{ $category->image->url }}" loading="lazy" alt="category">
                                     </a>
                                     <div class="w-full flex flex-col justify-center items-center gap-3">
                                         <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"

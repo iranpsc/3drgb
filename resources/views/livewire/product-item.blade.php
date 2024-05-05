@@ -4,7 +4,7 @@
         <div
             class="bg-white dark:bg-[#001448] w-full flex flex-col overflow-hidden rounded-xl justify-between items-center text-center  gap-2  duration-500 transition-all">
             <a href="{{ $product->url }}" style="width: 90% ;padding-top: 16px" >
-                <img src="{{ $product->latestImage->url }}" alt="">
+                <img src="{{ $product->latestImage->url }}" alt="product" loading="lazy">
             </a>
             <div class="w-full flex flex-col justify-center items-center gap-3 p-3">
                 <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">

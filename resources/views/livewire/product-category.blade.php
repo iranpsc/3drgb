@@ -10,13 +10,13 @@
                     </div>
                     <div class="flex gap-4">
                         <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (1).png"
-                                    alt=""></a></div>
+                                    alt="social"></a></div>
                         <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy"><img
-                                    src="https://3d.irpsc.com/home-page/images/Union (2).png" alt=""></a></div>
+                                    src="https://3d.irpsc.com/home-page/images/Union (2).png" alt="social"></a></div>
                         <div><a href="whatsapp://send?text=http://+98 933 785 0424"><img
-                                    src="https://3d.irpsc.com/home-page/images/Union (3).png" alt=""></a></div>
+                                    src="https://3d.irpsc.com/home-page/images/Union (3).png" alt="social"></a></div>
                         <div><a href="mailto:dmeta.irpsc@gmail.com"><img
-                                    src="https://3d.irpsc.com/home-page/images/Union (4).png" alt=""></a></div>
+                                    src="https://3d.irpsc.com/home-page/images/Union (4).png" alt="social"></a></div>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                             <a href="#"
                                 class="w-[92vw] lg:w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
                                 <div class="hidden lg:block w-[60%] aspect-square  ">
-                                    <img src="{{ asset('home-page/images/Design 1.png') }}" alt=""
+                                    <img src="{{ asset('home-page/images/Design 1.png') }}" loading="lazy" alt="category"
                                         class="w-full">
                                 </div>
                                 <div class="flex flex-col justify-end ">
@@ -84,7 +84,7 @@
                             <a href="#"
                                 class="w-[92vw] lg:w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
                                 <div class="hidden lg:block w-[60%] aspect-square">
-                                    <img src="{{ asset('home-page/images/Group (3).png') }}" alt=""
+                                    <img src="{{ asset('home-page/images/Group (3).png') }}" loading="lazy" alt="category"
                                         class="w-full h-full">
                                 </div>
                                 <div class="flex flex-col justify-end ">
@@ -102,7 +102,7 @@
                             <a href="#"
                                 class="w-[92vw] lg:w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
                                 <div class="hidden lg:block w-[60%] aspect-square">
-                                    <img src="{{ asset('home-page/images/Group@2x.png') }}" alt=""
+                                    <img src="{{ asset('home-page/images/Group@2x.png') }}" loading="lazy" alt="category"
                                         class="w-full h-full">
                                 </div>
                                 <div class="flex flex-col justify-end ">
@@ -120,7 +120,7 @@
                             <a href="#"
                                 class="w-[92vw] lg:w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16 hover:drop-shadow-2xl duration-500 transition-all">
                                 <div class="hidden lg:block w-[60%] aspect-square">
-                                    <img src="{{ asset('home-page/images/Group.png') }}" alt=""
+                                    <img src="{{ asset('home-page/images/Group.png') }}" loading="lazy" alt="category"
                                         class="w-full">
                                 </div>
                                 <div class="flex flex-col justify-end ">
@@ -153,7 +153,7 @@
                                     <a href="{{ route('categories.show', ['category_link' => $children_links]) }}"
                                         class="p-3 w-full ">
                                         <img
-                                            src="{{ $child->image->url ?? asset('home-page/images/3d-Strawberry-3dmodel.jpg') }}">
+                                            src="{{ $child->image->url ?? asset('home-page/images/3d-Strawberry-3dmodel.jpg') }}" loading="lazy" alt="category">
                                     </a>
                                     <div class="w-full flex flex-col justify-center items-center gap-3">
                                         <a href="{{ route('categories.show', ['category_link' => $children_links]) }}"

@@ -4272,3 +4272,6 @@ button:active{
 .step.not-completed span{
   background-color: red;
 }
+.focus\:ring-transparent:focus {
+  --tw-ring-color: transparent;
+}

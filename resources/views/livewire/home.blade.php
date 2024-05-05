@@ -10,13 +10,13 @@
                     </div>
                     <div class="flex gap-4">
                         <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (1).png"
-                                    alt=""></a></div>
+                                    alt="social"></a></div>
                         <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy"><img
-                                    src="https://3d.irpsc.com/home-page/images/Union (2).png" alt=""></a></div>
+                                    src="https://3d.irpsc.com/home-page/images/Union (2).png" alt="social"></a></div>
                         <div><a href="whatsapp://send?text=http://+98 933 785 0424"><img
-                                    src="https://3d.irpsc.com/home-page/images/Union (3).png" alt=""></a></div>
+                                    src="https://3d.irpsc.com/home-page/images/Union (3).png" alt="social"></a></div>
                         <div><a href="mailto:dmeta.irpsc@gmail.com"><img
-                                    src="https://3d.irpsc.com/home-page/images/Union (4).png" alt=""></a></div>
+                                    src="https://3d.irpsc.com/home-page/images/Union (4).png" alt="social"></a></div>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                             ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .
                         </p>
                         <div class="flex gap-5 relative mt-20 hidden lg:flex">
-                            <input type="text" wire:model="searchTerm"
+                            <input type="text" wire:model="searchTerm" placeholder="جستجوی محصول"
                                 class="relative w-full p-5 text-[#ACB9FA] font-bold bg-[#D8E5FD] dark:bg-[#001448c9] rounded-[32px] focus:outline-none pr-12 md:px-20">
 
 
@@ -57,20 +57,23 @@
                     </div>
                     <div class="w-full flex items-center justify-end md:w-[55%] flex-col">
                         <img src="{{ asset('home-page/images/Asset2.png') }}" alt="3dmodel" class="w-full">
-                        <div class="flex gap-5 relative mt-5 w-full lg:hidden">
-                            <input type="text" wire:model.live.debounce.500ms="searchTerm"
-                                class="relative w-full p-5 text-[#ACB9FA] font-bold bg-[#D8E5FD] dark:bg-[#001448c9] rounded-full focus:outline-none pr-12 md:px-20 lg:py-[23px]">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" class="absolute right-5 top-5">
-                                <path class="dark:stroke-white"
-                                    d="M11.4582 21.7501C17.1421 21.7501 21.7498 17.1423 21.7498 11.4584C21.7498 5.77448 17.1421 1.16675 11.4582 1.16675C5.77424 1.16675 1.1665 5.77448 1.1665 11.4584C1.1665 17.1423 5.77424 21.7501 11.4582 21.7501Z"
-                                    stroke="#000BEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                <path class="dark:stroke-white" d="M22.8332 22.8334L20.6665 20.6667" stroke="#000BEE"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-
-                            <button type="button" wire:click="search"
-                                class="bg-[#000BEE] dark:bg-[#C2008C] text-white font-bold md:text-xl pb-4 pt-[15px]  px-5 w-[30%] lg:w-[20%] rounded-[32px]  text-center absolute left-[6px] top-[6px] min-w-max">جستجو</button>
+                        <div class="flex gap-5  mt-5 bg-[#D8E5FD] dark:bg-[#001448c9] rounded-full  p-2 lg:hidden">
+                            <div class="flex justify-center items-center p-3 w-min">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path class="dark:stroke-white"
+                                        d="M11.4582 21.7501C17.1421 21.7501 21.7498 17.1423 21.7498 11.4584C21.7498 5.77448 17.1421 1.16675 11.4582 1.16675C5.77424 1.16675 1.1665 5.77448 1.1665 11.4584C1.1665 17.1423 5.77424 21.7501 11.4582 21.7501Z"
+                                        stroke="#000BEE" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path class="dark:stroke-white" d="M22.8332 22.8334L20.6665 20.6667"
+                                        stroke="#000BEE" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <input type="text" wire:model="searchTerm" placeholder="جستجوی محصول"
+                                class=" w-full  text-[#ACB9FA] font-bold ring-transparent outline-transparent    focus:!outline-0  focus:!right-0 border-0 focus:border-0 ring-offset-0  focus:ring-transparent     bg-transparent">
+                            <button wire:click="search"
+                                class="bg-[#000BEE] dark:bg-[#C2008C] text-white font-bold md:text-xl pb-4 pt-[15px]  px-5 w-[30%] lg:w-[20%] rounded-[32px]  text-center  min-w-max ">جستجو</button>
                         </div>
                     </div>
                 </div>
@@ -101,7 +104,7 @@
                                     <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
                                         class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-5 gap-16">
                                         <div class="hidden lg:block  aspect-square" style="width: 90%">
-                                            <img src="{{ asset($category->image?->url) }}" alt=""
+                                            <img src="{{ asset($category->image?->url) }}" loading="lazy" alt="category"
                                                 class="w-full">
                                         </div>
                                         <div class="flex flex-col justify-end ">
@@ -165,7 +168,7 @@
                                     <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
                                         class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
                                         <div class="w-full p-1 md:p-5">
-                                            <img src="{{ asset($category->image?->url) }}" alt=""
+                                            <img src="{{ asset($category->image?->url) }}" loading="lazy" alt="category"
                                                 class="w-full">
                                         </div>
                                         <div>
@@ -293,5 +296,27 @@
                 button.classList.add("active");
             });
         });
+    </script>
+    <script>
+        // slyder
+        let defaultTransform = 0;
+
+        function goNext() {
+            defaultTransform = defaultTransform - 300;
+            var slider = document.getElementById("slider");
+            if (Math.abs(defaultTransform) >= slider.scrollWidth / 1.4) defaultTransform = 0;
+            slider.style.transform = "translateX(" + defaultTransform + "px)";
+        }
+        next.addEventListener("click", goNext);
+
+        function goPrev() {
+            var slider = document.getElementById("slider");
+            if (Math.abs(defaultTransform) === 0) defaultTransform = 0;
+            else defaultTransform = defaultTransform + 300;
+            slider.style.transform = "translateX(" + defaultTransform + "px)";
+        }
+        prev.addEventListener("click", goPrev);
+
+        //slyder end
     </script>
 @endscript
