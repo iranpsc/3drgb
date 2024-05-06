@@ -191,7 +191,7 @@ class Store extends Component
         return view('livewire.store', [
             'products' => $this->products ?? Product::published()
                 ->withAvg('reviews as rating_avg', 'rating')
-                ->with('latestImage')
+                ->with('latestImage', 'category.parent')
                 ->orderByDesc('created_at')
                 ->paginate(15)
         ]);

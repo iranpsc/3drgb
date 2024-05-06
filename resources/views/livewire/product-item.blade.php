@@ -8,7 +8,7 @@
             </a>
             <div class="w-full flex flex-col justify-center items-center gap-3 p-3">
                 <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
-                    سه بعدی/غذا
+                    {{ $product->category->name }}
                 </p>
                 <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
                     {{ $product->sku }}
