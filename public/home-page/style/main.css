@@ -2441,6 +2441,11 @@ select {
 
   src: url("../font/RokhFaNum-Bold.ttf");
 }
+@font-face {
+  font-family: rokh-bold;
+
+  src: url("../font/RokhFaNum-ExtraBold.ttf");
+}
 
 body {
   font-family: AzarMehr;
@@ -4274,4 +4279,18 @@ button:active{
 }
 .focus\:ring-transparent:focus {
   --tw-ring-color: transparent;
+}
+.sortbtn.active{
+  color: #000BEE;
+}
+.dark .sortbtn.active{
+  color: #C2008C;
+}
+.text-head{
+  font-size: 50px;
+}
+@media only screen and (max-width: 800px) {
+  .text-head {
+    font-size: 32px;
+  }
 }
