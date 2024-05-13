@@ -80,7 +80,7 @@ class Product extends Model implements Sitemapable
      */
     public function category()
     {
-        return $this->belongsTo(Category::class)->select('id', 'name');
+        return $this->belongsTo(Category::class);
     }
 
     /**
@@ -101,6 +101,16 @@ class Product extends Model implements Sitemapable
     public function latestImage()
     {
         return $this->morphOne(Image::class, 'imageable')->latestOfMany();
+    }
+
+    /**
+     * Get the oldest image for the product.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     */
+    public function oldestImage()
+    {
+        return $this->morphOne(Image::class, 'imageable')->oldestOfMany();
     }
 
     /**
