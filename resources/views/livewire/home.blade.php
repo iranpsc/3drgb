@@ -99,7 +99,7 @@
                     <!-- Swiper -->
                     <div class="swiper-slider swiper-container  overflow-x-hidden " dir="ltr" wire:ignore>
                         <div class="swiper-wrapper ">
-                            @forelse ($popular_categories as $category)
+                            @forelse ($this->firstLevelCategories as $category)
                                 <div class="swiper-slide flex w-full" wire:key="popular-category-{{ $category->id }}">
                                     <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
                                         class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-5 gap-16">
@@ -163,13 +163,12 @@
                         dir="ltr">
                         <div id="slider"
                             class="h-full flex lg:gap-7 gap-5 items-center justify-start transition ease-out duration-700 ">
-                            @forelse ($popular_categories as $category)
+                            @forelse ($this->popularCategories as $category)
                                 <div class="flex flex-shrink-0 relative  ">
                                     <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
                                         class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
                                         <div class="w-full p-1 md:p-5">
-                                            <img src="{{ asset($category->image?->url) }}" loading="lazy" alt="category"
-                                                class="w-full">
+                                            <img src="{{ asset($category->image?->url) }}" loading="lazy" alt="category" class="w-full">
                                         </div>
                                         <div>
                                             <p

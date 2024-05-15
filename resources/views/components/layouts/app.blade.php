@@ -756,6 +756,8 @@
                 <a href="https://Shop.irpsc.com" target="_blank " style="width:55px ;" title="فروشگاه ملی">
                     <img src="https://irpsc.com/img-icon/shop.png" alt="فروشگاه ملی">
                 </a>
+                <a href="https://supply.irpsc.com" target="_blank " style="width:55px ;" title="تولید کنندگان"  >
+                    <img src="https://irpsc.com/img-icon/supply.png" alt="تولید کنندگان">
                 <a href="https://supply.irpsc.com" target="_blank " style="width:55px ;" title="تولید کنندگان">
                     <img src="https://irpsc.com/img-icon/supply.png" alt="تولید کنندگان">
                 </a>

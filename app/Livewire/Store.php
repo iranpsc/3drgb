@@ -46,7 +46,7 @@ class Store extends Component
                 ->where('name', 'like', '%' . $this->q . '%')
                 ->withCount('reviews')
                 ->withAvg('reviews as rating_avg', 'rating')
-                ->with('latestImage')
+                ->with('oldestImage')
                 ->orderByDesc('created_at')
                 ->paginate(15);
         }
@@ -72,7 +72,7 @@ class Store extends Component
             ->where('name', 'like', '%' . $this->q . '%')
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
-            ->with('latestImage')
+            ->with('oldestImage')
             ->orderByDesc('created_at')
             ->paginate(15);
     }
@@ -90,7 +90,7 @@ class Store extends Component
             ->whereBetween('price', [$this->price_filter['min'], $this->price_filter['max']])
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
-            ->with('latestImage')
+            ->with('oldestImage')
             ->orderByDesc('created_at')
             ->paginate(15);
     }
@@ -103,7 +103,7 @@ class Store extends Component
             ->where('category_id', $id)
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
-            ->with('latestImage')
+            ->with('oldestImage')
             ->orderByDesc('created_at')
             ->paginate(15);
     }
@@ -121,7 +121,7 @@ class Store extends Component
             ->where('name', 'like', '%' . $this->q . '%')
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
-            ->with('latestImage')
+            ->with('oldestImage')
             ->orderByDesc('created_at')
             ->paginate(15);
     }
@@ -155,7 +155,7 @@ class Store extends Component
             ->where('name', 'like', '%' . $this->q . '%')
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
-            ->with('latestImage')
+            ->with('oldestImage')
             ->orderByDesc('created_at')
             ->paginate(15);
     }
@@ -166,7 +166,13 @@ class Store extends Component
         return Category::whereHas('products', function ($query) {
             $query->published();
         })->select('id', 'name')->with('image')->withCount('products')
-            ->orderByDesc('products_count')->get();
+        ->orderByDesc('products_count')->get();
+    }
+
+    #[Computed(persist: true)]
+    public function firstLevelCategories()
+    {
+        return Category::whereNull('parent_id')->get();
     }
 
     public function updatingPage($page)
@@ -180,7 +186,7 @@ class Store extends Component
             ->where('name', 'like', '%' . $this->q . '%')
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
-            ->with('latestImage')
+            ->with('oldestImage')
             ->orderByDesc('created_at')
             ->paginate(15);
     }
@@ -191,7 +197,7 @@ class Store extends Component
         return view('livewire.store', [
             'products' => $this->products ?? Product::published()
                 ->withAvg('reviews as rating_avg', 'rating')
-                ->with('latestImage', 'category.parent')
+                ->with('oldestImage', 'category.parent')
                 ->orderByDesc('created_at')
                 ->paginate(15)
         ]);
