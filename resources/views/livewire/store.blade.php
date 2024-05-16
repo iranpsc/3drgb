@@ -44,8 +44,8 @@
                         @forelse ($this->firstLevelCategories as $category)
                             <div class="swiper-slide flex w-full" wire:key="popular-category-{{ $category->id }}">
                                 <a href=""
-                                    class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center py-5 lg:py-12 px-6 gap-16">
-                                    <div class="hidden lg:block w-[60%] aspect-square  ">
+                                    class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-5 gap-16">
+                                    <div class=" aspect-square  " style="width: 90%;">
                                         <img src="{{ asset($category->image?->url) }}" alt=""
                                             class="w-full">
                                     </div>
