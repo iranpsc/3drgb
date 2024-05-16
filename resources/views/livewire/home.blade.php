@@ -25,12 +25,12 @@
             <div class="bg-[#ECF4FE] dark:bg-[#4A4E7C] w-full relative    ">
                 <div
                     class="w-full mx-auto flex flex-col md:flex-row items-ctener justify-between  gap-10 px-10 md:px-10  py-5 lg:px-20 ">
-                    <div class="w-full md:w-[45%] flex flex-col justify-center mt-20 lg:mt-0">
-                        <p class="text-[#000BEE] dark:text-white py-3 font-extrabold text-5xl"
-                            style="font-family:rokh ; font-size: 46px ; line-height: 50px">
+                    <div class="w-full md:w-3/5 flex flex-col justify-center mt-20 lg:mt-0">
+                        <p class="text-[#000BEE] dark:text-white py-3 font-extrabold  text-head"
+                            style="font-family:rokh-bold ; line-height: 50px">
                             مدل سه بعدی و تجربه ای متفاوت
                         </p>
-                        <p class="text-stone-800 dark:text-[#ffffff] font-bold text-xl lg:text-2xl mt-5">
+                        <p class="text-stone-800 dark:text-[#ffffff] font-bold text-xl lg:text-2xl mt-5 " style="line-height: 50px">
                             ما اینجا هستیم تا روزانه محصولات سه بعدی را در اختیار شما طراحان قرار دهیم . سامانه سه بعدی
                             متا با
                             تعرفه ای
@@ -38,7 +38,7 @@
                         </p>
                         <div class="flex gap-5 relative mt-20 hidden lg:flex">
                             <input type="text" wire:model="searchTerm" placeholder="جستجوی محصول"
-                                class="relative w-full p-5 text-[#ACB9FA] font-bold bg-[#D8E5FD] dark:bg-[#001448c9] rounded-[32px] focus:outline-none pr-12 md:px-20">
+                                class="relative w-full p-5 text-[#ACB9FA] font-bold bg-[#D8E5FD] dark:bg-[#001448c9] rounded-[32px] focus:outline-none pr-12 md:px-20 border-0">
 
 
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -55,8 +55,8 @@
 
                         </div>
                     </div>
-                    <div class="w-full flex items-center justify-end md:w-[55%] flex-col">
-                        <img src="{{ asset('home-page/images/Asset2.png') }}" alt="3dmodel" class="w-full">
+                    <div class="w-full flex items-center justify-end md:w-2/5 flex-col overflow-hidden">
+                        <img src="{{ asset('home-page/images/Asset2.png') }}" alt="3dmodel" class="w-full" style="width: 127%; max-width:none;">
                         <div class="flex gap-5  mt-5 bg-[#D8E5FD] dark:bg-[#001448c9] rounded-full  p-2 lg:hidden">
                             <div class="flex justify-center items-center p-3 w-min">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -78,9 +78,9 @@
                     </div>
                 </div>
             </div>
-            <img src="{{ asset('home-page/images/output-onlinepngtools.png') }}" alt=""
+            <img src="{{ asset('home-page/images/output-onlinepngtools.png') }}" alt="body"
                 class=" hidden dark:block  w-full  overflow-hidden mb-36 2xl:mt-[-185px]">
-            <img src="{{ asset('home-page/images/helal.png') }}" alt=""
+            <img src="{{ asset('home-page/images/helal.png') }}" alt="body"
                 class=" dark:hidden w-full  overflow-hidden mb-36 2xl:mt-[-185px]">
 
         </div>
@@ -103,7 +103,7 @@
                                 <div class="swiper-slide flex w-full" wire:key="popular-category-{{ $category->id }}">
                                     <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
                                         class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-5 gap-16">
-                                        <div class="hidden lg:block  aspect-square" style="width: 90%">
+                                        <div class=" aspect-square" style="width: 90%">
                                             <img src="{{ asset($category->image?->url) }}" loading="lazy" alt="category"
                                                 class="w-full">
                                         </div>
@@ -244,17 +244,17 @@
                     <nav class="flex justify-center gap-2  lg:text-2xl font-bold py-5" aria-label="Tabs"
                         role="tablist" style="font-family:rokh ;">
                         <button type="button"
-                            class="px-3 hs-tab-active:text-black dark:hs-tab-active:text-white items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1] dark:hover:text-white hover:text-black active"
+                            class="px-3  sortbtn items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1] dark:hover:text-white hover:text-black active"
                             id="order-by-score" aria-controls="tabs-with-underline-1" role="tab">
                             بالاترین امتیاز
                         </button>
                         <button type="button"
-                            class="px-4 border-x-2 border-gray-400 hs-tab-active:text-black dark:hs-tab-active:text-white items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1] dark:hover:text-white hover:text-black"
+                            class="px-4 sortbtn border-x-2 border-gray-400  items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1] dark:hover:text-white hover:text-black"
                             id="order-by-newest" aria-controls="tabs-with-underline-2" role="tab">
                             جدید ترین
                         </button>
                         <button type="button"
-                            class="px-3 hs-tab-active:text-black dark:hs-tab-active:text-white items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1] dark:hover:text-white hover:text-black"
+                            class="px-3 sortbtn items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1] dark:hover:text-white hover:text-black"
                             id="order-by-sales" aria-controls="tabs-with-underline-3" role="tab">
                             پرفروش ترین
                         </button>

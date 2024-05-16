@@ -9,20 +9,23 @@
                         <p class="lg:text-xl">
                             صفحه ای که دنبال آن هستید وجود ندارد . از جستجو کردن کمک بگیرید یا به صفحه اصلی بروید .
                         </p>
-                        <div class="flex gap-5 relative mt-5">
-                            <input type="text" wire:model.live.debounce.500ms="searchTerm"
-                                class="relative w-full p-5 text-[#ACB9FA] font-bold bg-[#D8E5FD] dark:bg-[#001448c9] rounded-full focus:outline-none pr-12 md:px-20 lg:py-[23px]">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" class="absolute right-5 top-5">
-                                <path class="dark:stroke-white"
-                                    d="M11.4582 21.7501C17.1421 21.7501 21.7498 17.1423 21.7498 11.4584C21.7498 5.77448 17.1421 1.16675 11.4582 1.16675C5.77424 1.16675 1.1665 5.77448 1.1665 11.4584C1.1665 17.1423 5.77424 21.7501 11.4582 21.7501Z"
-                                    stroke="#000BEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                <path class="dark:stroke-white" d="M22.8332 22.8334L20.6665 20.6667" stroke="#000BEE"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-
-                            <button type="button" wire:click="search"
-                                class="bg-[#000BEE] dark:bg-[#C2008C] text-white font-bold md:text-xl pb-4 pt-[15px]  px-5 w-[30%] lg:w-[20%] rounded-[32px]  text-center absolute left-[6px] top-[6px] min-w-max">جستجو</button>
+                        <div class="flex gap-5  mt-5 bg-[#D8E5FD] dark:bg-[#4A4E7C] rounded-full  p-2 ">
+                            <div class="flex justify-center items-center p-3 w-min">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path class="dark:stroke-white"
+                                        d="M11.4582 21.7501C17.1421 21.7501 21.7498 17.1423 21.7498 11.4584C21.7498 5.77448 17.1421 1.16675 11.4582 1.16675C5.77424 1.16675 1.1665 5.77448 1.1665 11.4584C1.1665 17.1423 5.77424 21.7501 11.4582 21.7501Z"
+                                        stroke="#000BEE" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path class="dark:stroke-white" d="M22.8332 22.8334L20.6665 20.6667"
+                                        stroke="#000BEE" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <input type="text" wire:model="searchTerm" placeholder="جستجوی محصول"
+                                class=" w-full  text-[#ACB9FA] font-bold ring-transparent outline-transparent    focus:!outline-0  focus:!right-0 border-0 focus:border-0 ring-offset-0  focus:ring-transparent     bg-transparent">
+                            <button wire:click="search"
+                                class="bg-[#000BEE] dark:bg-[#C2008C] text-white font-bold md:text-xl pb-4 pt-[15px]  px-5 w-[30%] lg:w-[20%] rounded-[32px]  text-center  min-w-max ">جستجو</button>
                         </div>
                     </div>
                     <img src="{{ asset('home-page/images/Rectangle 23998zzzz.png') }}"
