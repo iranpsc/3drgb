@@ -836,52 +836,58 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-[#c6d9fc] dark:bg-[#001448] w-full  p-5 rounded-t-[32px] mt-10 gap-6 flex flex-col">
-                <div class="flex flex-col md:flex-row gap-5 md:gap-14 w-max mx-auto">
-                    <a href="#" class="text-stone-800 dark:text-[#ffffff] font-bold">بانک مدل 3 بعدی</a>
-                    <a href="#" class="text-stone-800 dark:text-[#ffffff] font-bold">آموزش</a>
-                    <a href="#" class="text-stone-800 dark:text-[#ffffff] font-bold">سیاست و حریم خصوصی</a>
+            <div class="bg-[#c6d9fc] dark:bg-[#001448] w-full  p-5 rounded-t-[32px] mt-10 gap-6 flex flex-col lg:flex-row justify-between">
+                <div></div>
+                <div class="gap-6 flex flex-col">
+                    <div class="flex flex-col md:flex-row gap-5 md:gap-14 w-max mx-auto">
+                        <a href="#" class="text-stone-800 dark:text-[#ffffff] font-bold">بانک مدل 3 بعدی</a>
+                        <a href="#" class="text-stone-800 dark:text-[#ffffff] font-bold">آموزش</a>
+                        <a href="#" class="text-stone-800 dark:text-[#ffffff] font-bold">سیاست و حریم خصوصی</a>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-5 mx-auto ">
+                        <div>
+                            <a href="https://www.youtube.com/channel/UCG9jK8hoh9X5YoTs6Z1zlIQ">
+                                <img src="{{ asset('home-page/images/youtub.png') }}" alt="یوتوب">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="whatsapp://send?text=http://+98 933 785 0424">
+                                <img src="{{ asset('home-page/images/whatsapp.png') }}" alt="واتساپ">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="https://discord.gg/xqBe3h9hnN"
+                                class="bg-gray-200 w-[38px] h-[38px] rounded-full flex justify-center items-center">
+                                <img src="{{ asset('home-page/images/discord-icon-svgrepo-com.png') }}" alt="دیسکورد"
+                                    class="w-6 h-6  mt-1">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy">
+                                <img src="{{ asset('home-page/images/istagram.png') }}" alt="اینستاگرام">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="mailto:dmeta.irpsc@gmail.com"
+                                class="rounded-full bg-gray-500 p-2 w-max flex justify-center items-center">
+                                <img src="{{ asset('home-page/images/sms.png') }}" alt="پیام">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="https://pin.it/7C5mYf6Q6"
+                                class="rounded-full bg-[#E70000] p-2 px-[10px] w-max flex justify-center items-center">
+                                <img src="{{ asset('home-page/images/Vector (9).png') }}" alt="پینترست">
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-sm text-[#393939] text-center m-0  p-0">
+                            تمام حقوق مادی و معنوی مطالب و طرح قالب برای این سایت میباشد.
+                        </p>
+                    </div>
                 </div>
-                <div class="flex flex-wrap justify-center gap-5 mx-auto ">
-                    <div>
-                        <a href="https://www.youtube.com/channel/UCG9jK8hoh9X5YoTs6Z1zlIQ">
-                            <img src="{{ asset('home-page/images/youtub.png') }}" alt="یوتوب">
-                        </a>
-                    </div>
-                    <div>
-                        <a href="whatsapp://send?text=http://+98 933 785 0424">
-                            <img src="{{ asset('home-page/images/whatsapp.png') }}" alt="واتساپ">
-                        </a>
-                    </div>
-                    <div>
-                        <a href="https://discord.gg/xqBe3h9hnN"
-                            class="bg-gray-200 w-[38px] h-[38px] rounded-full flex justify-center items-center">
-                            <img src="{{ asset('home-page/images/discord-icon-svgrepo-com.png') }}" alt="دیسکورد"
-                                class="w-6 h-6  mt-1">
-                        </a>
-                    </div>
-                    <div>
-                        <a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy">
-                            <img src="{{ asset('home-page/images/istagram.png') }}" alt="اینستاگرام">
-                        </a>
-                    </div>
-                    <div>
-                        <a href="mailto:dmeta.irpsc@gmail.com"
-                            class="rounded-full bg-gray-500 p-2 w-max flex justify-center items-center">
-                            <img src="{{ asset('home-page/images/sms.png') }}" alt="پیام">
-                        </a>
-                    </div>
-                    <div>
-                        <a href="https://pin.it/7C5mYf6Q6"
-                            class="rounded-full bg-[#E70000] p-2 px-[10px] w-max flex justify-center items-center">
-                            <img src="{{ asset('home-page/images/Vector (9).png') }}" alt="پینترست">
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <p class="text-sm text-[#393939] text-center m-0  p-0">
-                        تمام حقوق مادی و معنوی مطالب و طرح قالب برای این سایت میباشد.
-                    </p>
+                <div class="flex items-center justify-end" >
+                    <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=844575&Code=pdzLR1cYzWx6kOYRxHckoMmXtXK0jux2'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=844575&Code=pdzLR1cYzWx6kOYRxHckoMmXtXK0jux2' alt='نماد اعتماد الکترونیک' style='cursor:pointer' code='pdzLR1cYzWx6kOYRxHckoMmXtXK0jux2'></a>
                 </div>
             </div>
         </footer>
