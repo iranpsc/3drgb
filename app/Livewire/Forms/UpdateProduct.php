@@ -4,13 +4,10 @@ namespace App\Livewire\Forms;
 
 use App\Models\Product;
 use Livewire\Form;
-use Livewire\WithFileUploads;
 use Closure;
 
 class UpdateProduct extends Form
 {
-    use WithFileUploads;
-
     public Product $product;
 
     public $category_id;
@@ -93,7 +90,6 @@ class UpdateProduct extends Form
                 'meta_keywords',
             ])
         );
-
     }
 
     public function getProduct(): Product

@@ -9,9 +9,12 @@ use Livewire\Component;
 use App\Models\Product;
 use App\Models\Tag;
 use App\Models\Attribute;
+use Livewire\WithFileUploads;
 
 class EditProduct extends Component
 {
+    use WithFileUploads;
+
     public UpdateProduct $form;
 
     public function mount(Product $product)
@@ -24,7 +27,7 @@ class EditProduct extends Component
     public function update()
     {
         $this->authorize('update', $this->form->getProduct());
-        
+
         $this->form->update();
 
         session()->flash('success', __('Product updated successfully.'));
