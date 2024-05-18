@@ -31,24 +31,22 @@
                 <x-form.text wire:model="form.price" name="form.price" label="قیمت عادی" />
                 <x-form.text wire:model="form.sale_price" name="form.sale_price" label="قیمت فروش ویژه" />
 
-
                 <div class="flex flex-col gap-5">
                     <div class="flex gap-5 items-center">
                         <input type="checkbox" class="w-5 h-5" id="showStockInputs">
                         <label for="showStockInputs" class="flex flex-col gap-5">محصول برای متارنگ است؟</label>
                     </div>
 
+                    <div id="stockInputs" class="flex flex-col gap-5 hidden">
+                        <x-form.select wire:model="form.stock_status" name="form.stock_status" label="وضعیت انبار">
+                            <option value="1" selected>موجود</option>
+                            <option value="0">ناموجود</option>
+                        </x-form.select>
 
-                <div id="stockInputs" class="flex flex-col gap-5 hidden">
-                    <x-form.select wire:model="form.stock_status" name="form.stock_status" label="وضعیت انبار">
-                        <option value="1" selected>موجود</option>
-                        <option value="0">ناموجود</option>
-                    </x-form.select>
-
-                    <x-form.text wire:model="form.quantity" name="form.quantity" label="تعداد موجود در انبار" />
-                    <x-form.text wire:model="form.delivery_time" name="form.delivery_time" label="مدت زمان تحویل" />
+                        <x-form.text wire:model="form.quantity" name="form.quantity" label="تعداد موجود در انبار" />
+                        <x-form.text wire:model="form.delivery_time" name="form.delivery_time" label="مدت زمان تحویل" />
+                    </div>
                 </div>
-            </div>
 
             </div>
 

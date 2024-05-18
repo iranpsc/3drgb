@@ -4,6 +4,8 @@ namespace App\Livewire\Forms;
 
 use App\Models\Product;
 use Livewire\Form;
+use App\Models\Category;
+use Morilog\Jalali\Jalalian;
 use Closure;
 
 class UpdateProduct extends Form
@@ -140,12 +142,27 @@ class UpdateProduct extends Form
         }
 
         if ($this->file) {
+            $uploadPath = $this->getUploadPath();
+
+            $fileUrl = $this->file->storeAs($uploadPath, $this->file->getClientOriginalName());
+
+
             $this->product->file->update([
                 'name' => $this->file->getClientOriginalName(),
-                'path' => $this->file->storeAs('products', $this->file->getClientOriginalName()),
+                'path' => $fileUrl,
                 'type' => $this->file->getMimeType(),
                 'size' => $this->file->getSize(),
             ]);
         }
+    }
+
+    private function getUploadPath()
+    {
+        $category = Category::where('id', $this->product->category_id)->with('parent')->first();
+
+        if ($category->parent) {
+            return 'download/' . Jalalian::now()->getYear() . '/3d/model/' . $category->parent->slug . '/' . $category->slug;
+        }
+        return 'download/' . Jalalian::now()->getYear() . '/3d/model/' . $category->slug;
     }
 }

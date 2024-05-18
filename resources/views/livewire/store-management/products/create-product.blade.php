@@ -33,40 +33,6 @@
                 <x-form.text wire:model="form.price" name="form.price" label="قیمت عادی" />
                 <x-form.text wire:model="form.sale_price" name="form.sale_price" label="قیمت فروش ویژه" />
 
-                <div class="flex flex-col gap-5">
-                    <div class="flex items-center gap-5">
-                        <input type="checkbox" id="showStockInputs">
-                        <label for="showStockInputs">محصول برای متارنگ است؟</label>
-                    </div>
-
-                <div class="flex flex-col gap-5 hidden" id="stockInputs">
-                    <x-form.select wire:model="form.stock_status" name="form.stock_status" label="وضعیت انبار">
-                        <option value="1">موجود</option>
-                        <option value="0">ناموجود</option>
-                    </x-form.select>
-
-                    <x-form.text wire:model="form.quantity" name="form.quantity" label="تعداد موجود در انبار" />
-                    <x-form.text wire:model="form.delivery_time" name="form.delivery_time" label="مدت زمان تحویل" />
-                </div>
-            </div>
-
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-7">
-                <x-form.file wire:model="form.images" name="form.images" label="تصاویر محصول" multiple />
-                <x-form.file wire:model="form.file" name="form.file" label="فایل محصول" />
-
-                <x-form.select wire:model="form.customer_can_add_review" name="form.customer_can_add_review"
-                    label="مشتری می تواند دیدگاه بنویسد؟">
-                    <option value="1" selected>بله</option>
-                    <option value="0">خیر</option>
-                </x-form.select>
-
-                <x-form.select wire:model="form.published" name="form.published" label="محصول انتشار داده شود؟">
-                    <option value="1" selected>بله</option>
-                    <option value="0">خیر</option>
-                </x-form.select>
-
                 <div class="mt-10 mb-10 flex flex-col gap-4">
                     <label for="tags" class="flex flex-col gap-5">برچسب ها</label>
                     <div class="flex flex-col gap-5">
@@ -171,6 +137,7 @@
         let saveBtn = document.getElementById('save-btn');
         let tags;
         let attributes = [];
+        let fileName = '';
 
         saveBtn.addEventListener('click', function() {
             saveBtn.classList.add('disabled');
@@ -245,5 +212,45 @@
                 stockInputs.classList.add('hidden');
             }
         });
+
+        // Initialize Resumable.js
+        var r = new Resumable({
+            headers: {
+                'Accept': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+            },
+            target: '/upload', // Replace with your upload endpoint
+            chunkSize: 1 * 1024 * 1024, // 1MB chunk size
+            simultaneousUploads: 4, // Number of simultaneous uploads
+            testChunks: false, // Disable chunk testing
+            throttleProgressCallbacks: 1, // Trigger progress event every 1 second
+            maxFiles: 1, // Max number of files
+        });
+
+        // Add event listeners
+        r.on('fileAdded', function(file) {
+            // Handle when a file is added
+            console.log('File added:', file);
+        });
+
+        r.on('fileProgress', function(file) {
+            // Handle file upload progress
+            var progress = Math.floor(file.progress() * 100);
+            console.log('File progress:', progress + '%');
+        });
+
+        r.on('fileSuccess', function(file, message) {
+            // Handle when a file is successfully uploaded
+            console.log('File uploaded:', file);
+            console.log('Server response:', message);
+        });
+
+        r.on('fileError', function(file, message) {
+            // Handle when a file upload encounters an error
+            console.error('File upload error:', message);
+        });
+
+        // Start uploading the file
+        r.upload();
     </script>
 @endscript

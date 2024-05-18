@@ -19,7 +19,7 @@ class EditProduct extends Component
 
     public function mount(Product $product)
     {
-        $product->load('tags', 'attributes', 'category');
+        $product->load('tags', 'attributes', 'category', 'images', 'file');
 
         $this->form->setProduct($product);
     }

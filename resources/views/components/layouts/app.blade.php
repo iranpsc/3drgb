@@ -905,6 +905,7 @@
     <script src="{{ asset('assets/vendor_assets/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/theme_assets/js/drag-drop.js') }}"></script>
     <script src="{{ asset('assets/summernote/summernote-lite.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/resumablejs@1.1.0"></script>
     <script>
         jQuery.uaMatch = function(ua) {
             ua = ua.toLowerCase();

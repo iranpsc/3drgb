@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\FileUploadController;
 use App\Livewire\AboutUs;
 use App\Livewire\ContactUsMessages;
 use App\Livewire\AdminDashboard;
@@ -121,3 +122,5 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->
 Route::get('/download/{file}', function (Request $request, File $file) {
     return response()->download(storage_path("app/{$file->path}"), $file->name);
 })->middleware('signed')->name('files.download');
+
+Route::post('/upload', [FileUploadController::class, 'upload'])->name('files.upload');

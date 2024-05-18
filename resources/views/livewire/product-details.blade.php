@@ -134,9 +134,9 @@
                                     {{ $product->final_price }}<sub>(تومان)</sub>
                                 @endif
                             </p>
-                            @if ($product->sale_price)
+                            @if ($product->price)
                                 <p class="text-[#3A498087] dark:text-gray-400 text-xs line-through">
-                                    {{ $product->sale_price }}<sub>(تومان)</sub>
+                                    {{ $product->price }}<sub>(تومان)</sub>
                                 </p>
                             @endif
                         </div>

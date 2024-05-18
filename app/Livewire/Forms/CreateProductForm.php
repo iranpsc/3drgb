@@ -2,10 +2,12 @@
 
 namespace App\Livewire\Forms;
 
+use App\Models\Category;
 use App\Models\Product;
 use Closure;
 use Livewire\Form;
 use Livewire\WithFileUploads;
+use Morilog\Jalali\Jalalian;
 
 class CreateProductForm extends Form
 {
@@ -98,9 +100,13 @@ class CreateProductForm extends Form
             ]);
         }
 
+        $uploadPath = $this->getUploadPath();
+
+        $fileUrl = $this->file->storeAs($uploadPath, $this->file->getClientOriginalName());
+
         $product->file()->create([
             'name' => $this->file->getClientOriginalName(),
-            'path' => $this->file->storeAs('products', $this->file->getClientOriginalName()),
+            'path' => $fileUrl,
             'type' => $this->file->getMimeType(),
             'size' => $this->file->getSize(),
         ]);
@@ -114,5 +120,15 @@ class CreateProductForm extends Form
         }
 
         $this->reset();
+    }
+
+    private function getUploadPath()
+    {
+        $category = Category::where('id', $this->category_id)->with('parent')->first();
+
+        if ($category->parent) {
+            return 'download/' . Jalalian::now()->getYear() . '/3d/model/' . $category->parent->slug . '/' . $category->slug;
+        }
+        return 'download/' . Jalalian::now()->getYear() . '/3d/model/' . $category->slug;
     }
 }
