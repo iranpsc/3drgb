@@ -65,7 +65,17 @@
 
                 <x-form.file wire:model="form.images" name="form.images" label="تصاویر محصول" multiple />
 
-                <x-form.file wire:model="form.file" name="form.file" label="فایل محصول" />
+                <div class="flex flex-col gap-3 ">
+                    <label for="fbx_file" class="form-col-label col-sm-4">فایل FBX</label>
+                    <div class="flex flex-col gap-5">
+                        <span class="form-control w-full  bg-[#F8F9FA] dark:bg-[#4A4E7C] rounded-[10px] p-4 border-0"
+                            id="fbx_file" wire:ignore>انتخاب فایل</span>
+                        @error('form.fbx_file')
+                            <span
+                                style="color:red;padding:14px;background-color:rgba(207, 117, 117, 0.47);border-radius:10px">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
 
                 <div class="mt-10 mb-10 flex flex-col gap-4">
                     <label for="tags" class="flex flex-col gap-5">برچسب ها</label>
@@ -173,6 +183,8 @@
         let updateBtn = document.getElementById('update-btn');
         let tags;
         let attributes = [];
+        let fbxFileBrowse = document.getElementById('fbx_file');
+        let fbxFile;
 
         $('#summernote2').summernote('code', $wire.form.long_description);
 
@@ -236,6 +248,8 @@
 
             $wire.set('form.attributes', attributes);
 
+            $wire.set('form.fbx_file', fbxFile);
+
             $wire.call('update');
         });
 
@@ -248,6 +262,48 @@
             } else {
                 stockInputs.style.display = 'none';
             }
+        });
+
+        // Initialize Resumable.js
+        let resumable = new Resumable({
+            headers: {
+                'Accept': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+            },
+            target: '/upload', // Replace with your upload endpoint
+            chunkSize: 1 * 1024 * 1024, // 1MB chunk size
+            simultaneousUploads: 4, // Number of simultaneous uploads
+            testChunks: false, // Disable chunk testing
+            throttleProgressCallbacks: 1, // Trigger progress event every 1 second
+            maxFiles: 1, // Max number of files
+        });
+
+        resumable.assignBrowse(document.getElementById('fbx_file'));
+
+        // Add event listeners
+        resumable.on('fileAdded', function(file) {
+            // Start uploading the file
+            resumable.upload();
+        });
+
+        resumable.on('fileProgress', function(file) {
+            // Handle file upload progress
+            var progress = Math.floor(file.progress() * 100);
+
+            // Update the progress percentage
+            fbxFileBrowse.innerText = 'در حال آپلود ' + progress + '%';
+        });
+
+        resumable.on('fileSuccess', function(file, message) {
+            message = JSON.parse(message);
+            fbxFileBrowse.innerText = message['name'];
+
+            fbxFile = message;
+        });
+
+        resumable.on('fileError', function(file, message) {
+            // Handle file upload error
+            console.error('File upload error:', message);
         });
     </script>
 @endscript

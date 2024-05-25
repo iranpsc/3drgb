@@ -4,9 +4,12 @@ namespace App\Livewire;
 
 use App\Models\Category;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class ProductCategory extends Component
 {
+    use WithPagination;
+
     public $category_link, $category;
 
     private $products;

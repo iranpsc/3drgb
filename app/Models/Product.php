@@ -30,17 +30,21 @@ class Product extends Model implements Sitemapable
         'meta_keywords',
     ];
 
-    protected $casts = [
-        'published' => 'boolean',
-        'customer_can_add_review' => 'boolean',
-    ];
-
     protected $appends = [
         'url',
         'discount',
         'final_price',
         'is_free'
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'published' => 'boolean',
+            'stock_status' => 'boolean',
+            'customer_can_add_review' => 'boolean',
+        ];
+    }
 
     public function setSlugAttribute($value)
     {

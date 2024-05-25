@@ -23,6 +23,11 @@ class Image extends Model
         return $this->morphTo();
     }
 
+    /**
+     * Get the image URL.
+     *
+     * @return string
+     */
     public function getUrlAttribute()
     {
         return url('storage/' . $this->path);

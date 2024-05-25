@@ -22,12 +22,12 @@ class CreateProductForm extends Form
     public $stock_status = 0;
     public $quantity = 0;
     public $delivery_time = 0;
-    public $customer_can_add_review = 0;
+    public $customer_can_add_review = 1;
     public $price;
     public $sale_price;
-    public $published = 0;
+    public $published = 1;
     public $images = [];
-    public $file;
+    public $fbx_file;
     public $tags = [];
     public $attributes = [];
     public $meta_description;
@@ -59,7 +59,7 @@ class CreateProductForm extends Form
             'sale_price' => 'nullable|numeric|min:0|lte:price',
             'published' => 'required|boolean',
             'images.*' => 'required|image|max:1024',
-            'file' => 'required|file|max:100024',
+            'fbx_file' => 'required|array|min:1',
             'tags' => 'required|array|min:1',
             'tags.*' => 'required|exists:tags,id',
             'attributes' => 'required|array|min:1',
@@ -102,13 +102,20 @@ class CreateProductForm extends Form
 
         $uploadPath = $this->getUploadPath();
 
-        $fileUrl = $this->file->storeAs($uploadPath, $this->file->getClientOriginalName());
+        if (!file_exists(storage_path('app/' . $uploadPath))) {
+            mkdir(storage_path('app/' . $uploadPath), 0777, true);
+        }
+
+        $originalPath = storage_path('app/' . $this->fbx_file['path'] . $this->fbx_file['name']);
+        $newPath = storage_path('app/' . $uploadPath . '/' . $this->fbx_file['name']);
+
+        rename($originalPath, $newPath);
 
         $product->file()->create([
-            'name' => $this->file->getClientOriginalName(),
-            'path' => $fileUrl,
-            'type' => $this->file->getMimeType(),
-            'size' => $this->file->getSize(),
+            'name' => $this->fbx_file['name'],
+            'path' => $uploadPath . '/' . $this->fbx_file['name'],
+            'type' => $this->fbx_file['mime_type'],
+            'size' => $this->fbx_file['size'],
         ]);
 
         $product->tags()->attach($this->tags);

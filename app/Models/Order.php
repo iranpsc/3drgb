@@ -12,10 +12,10 @@ class Order extends Model
     protected $guarded = [];
 
     /**
-    * Get the user that owns the order.
-    * 
-    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-    */
+     * Get the user that owns the order.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -23,7 +23,7 @@ class Order extends Model
 
     /**
      * Get the order items for the order.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function orderItems()
@@ -33,7 +33,7 @@ class Order extends Model
 
     /**
      * Get the transaction for the order.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function transaction()
@@ -43,7 +43,7 @@ class Order extends Model
 
     /**
      * Get the products for the order.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
      */
     public function products()
@@ -53,7 +53,7 @@ class Order extends Model
 
     /**
      * Check if the order is paid.
-     * 
+     *
      * @return bool
      */
     public function isPaid()

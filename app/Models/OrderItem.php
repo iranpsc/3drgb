@@ -15,7 +15,7 @@ class OrderItem extends Model
 
     /**
      * Get the product for the order item.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function product()
@@ -25,7 +25,7 @@ class OrderItem extends Model
 
     /**
      * Get the order for the order item.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function order()

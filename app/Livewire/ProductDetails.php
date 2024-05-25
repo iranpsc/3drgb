@@ -20,7 +20,7 @@ class ProductDetails extends Component
         ])->loadCount('reviews')->loadAvg('reviews as rating_avg', 'rating');
     }
 
-    public function addToCart(int $quantity = 1)
+    public function addToCart()
     {
         // check if product is already in cart
         if (in_array($this->product->id, array_column(session('cart', []), 'product_id'))) {
@@ -28,14 +28,9 @@ class ProductDetails extends Component
             return;
         }
 
-        if($quantity > $this->product->quantity) {
-            session()->flash('message', 'موجودی کافی نیست.');
-            return;
-        }
-
         session()->push('cart', [
             'product_id' => $this->product->id,
-            'quantity' => $quantity
+            'quantity' => 1
         ]);
 
         $cartProductsCount = count(session()->get('cart', []));
