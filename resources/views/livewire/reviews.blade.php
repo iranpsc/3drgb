@@ -84,9 +84,6 @@
     @endforelse
 </div>
 
-
-
-
 @script
     <script>
         let starRating = document.getElementById('star-rating');

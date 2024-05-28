@@ -13,6 +13,7 @@
         "livewire/livewire": "^3.1",
         "maatwebsite/excel": "^3.1",
         "morilog/jalali": "3.*",
+        "pion/laravel-chunk-upload": "^1.5",
         "pishran/zarinpal": "^4.3",
         "predis/predis": "^2.2",
         "sadegh19b/laravel-persian-validation": "^1.4",

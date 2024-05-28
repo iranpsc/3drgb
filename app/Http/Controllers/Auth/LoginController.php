@@ -9,13 +9,12 @@ use Illuminate\Support\Facades\Http;
 use GuzzleHttp\Exception\InvalidArgumentException;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\JsonResponse;
 
 class LoginController extends Controller
 {
     /**
      * Redirect the user to the OAuth Server.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -41,7 +40,7 @@ class LoginController extends Controller
 
     /**
      * Obtain the user information from the OAuth Server.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -94,7 +93,7 @@ class LoginController extends Controller
 
     /**
      * Logout the user from the application.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */

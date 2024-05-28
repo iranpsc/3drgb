@@ -4,13 +4,12 @@ namespace App\Livewire\Forms;
 
 use App\Models\Product;
 use Livewire\Form;
-use Livewire\WithFileUploads;
+use App\Models\Category;
+use Morilog\Jalali\Jalalian;
 use Closure;
 
 class UpdateProduct extends Form
 {
-    use WithFileUploads;
-
     public Product $product;
 
     public $category_id;
@@ -26,8 +25,8 @@ class UpdateProduct extends Form
     public $price;
     public $sale_price;
     public $published;
-    public $images;
-    public $file;
+    public $images = [];
+    public $fbx_file = null;
     public $tags;
     public $attributes;
     public $meta_description;
@@ -60,7 +59,7 @@ class UpdateProduct extends Form
             'published' => 'required|boolean',
             'images' => 'nullable|array|max:3',
             'images.*' => 'nullable|image|max:1024',
-            'file' => 'nullable|file|max:100024',
+            'fbx_file' => 'nullable|array|min:1',
             'tags' => 'required|array|min:1',
             'tags.*' => 'required|exists:tags,id',
             'attributes' => 'required|array|min:1',
@@ -93,7 +92,6 @@ class UpdateProduct extends Form
                 'meta_keywords',
             ])
         );
-
     }
 
     public function getProduct(): Product
@@ -143,13 +141,37 @@ class UpdateProduct extends Form
             }
         }
 
-        if ($this->file) {
-            $this->product->file->update([
-                'name' => $this->file->getClientOriginalName(),
-                'path' => $this->file->storeAs('products', $this->file->getClientOriginalName()),
-                'type' => $this->file->getMimeType(),
-                'size' => $this->file->getSize(),
+        if ($this->fbx_file) {
+            $uploadPath = $this->getUploadPath();
+
+            if (!file_exists(storage_path('app/' . $uploadPath))) {
+                mkdir(storage_path('app/' . $uploadPath), 0777, true);
+            }
+
+            $originalPath = storage_path('app/' . $this->fbx_file['path'] . $this->fbx_file['name']);
+            $newPath = storage_path('app/' . $uploadPath . '/' . $this->fbx_file['name']);
+
+            // Move the file to the new path
+            rename($originalPath, $newPath);
+
+            $this->product->file()->updateOrCreate([
+                'product_id' => $this->product->id,
+            ], [
+                'name' => $this->fbx_file['name'],
+                'path' => $uploadPath . '/' . $this->fbx_file['name'],
+                'type' => $this->fbx_file['mime_type'],
+                'size' => $this->fbx_file['size'],
             ]);
         }
+    }
+
+    private function getUploadPath()
+    {
+        $category = Category::where('id', $this->product->category_id)->with('parent')->first();
+
+        if ($category->parent) {
+            return 'download/' . Jalalian::now()->getYear() . '/3d/model/' . $category->parent->slug . '/' . $category->slug;
+        }
+        return 'download/' . Jalalian::now()->getYear() . '/3d/model/' . $category->slug;
     }
 }

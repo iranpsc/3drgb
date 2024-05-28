@@ -134,9 +134,9 @@
                                     {{ $product->final_price }}<sub>(تومان)</sub>
                                 @endif
                             </p>
-                            @if ($product->sale_price)
+                            @if ($product->price)
                                 <p class="text-[#3A498087] dark:text-gray-400 text-xs line-through">
-                                    {{ $product->sale_price }}<sub>(تومان)</sub>
+                                    {{ $product->price }}<sub>(تومان)</sub>
                                 </p>
                             @endif
                         </div>
@@ -244,7 +244,7 @@
                                 </button>
                             @else
                                 <button type="button" @disabled(in_array($product->id, array_column(session('cart', []), 'product_id'))) wire:click="addToCart"
-                                    id="addToCartBtn"
+                                    wire:click="addToCart"
                                     class="bg-[#E3000F] text-white text-sm font-bold text-center w-full h-12  rounded-full flex items-center gap-3 flex-row-reverse justify-center">
                                     <p>افزودن به سبد خرید</p>
                                     <svg width="21" height="22" viewBox="0 0 21 22" fill="none"
@@ -366,22 +366,3 @@
         </section>
     </main>
 </div>
-
-@script
-    <script>
-        let customInputNumber = document.getElementById('custom-input-number');
-        let addToCartBtn = document.getElementById('addToCartBtn');
-
-        customInputNumber.addEventListener('change', function() {
-            console.log(customInputNumber.value);
-            if (customInputNumber.value > {{ $product->quantity }}) {
-                customInputNumber.value = {{ $product->quantity }};
-            }
-        });
-
-        addToCartBtn.addEventListener('click', function() {
-            let quantity = customInputNumber.value;
-            $wire.addToCart(quantity);
-        });
-    </script>
-@endscript
