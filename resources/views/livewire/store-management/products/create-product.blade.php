@@ -64,12 +64,12 @@
                     </div>
                 </div>
 
-                <div class="mt-10 mb-10 flex flex-col gap-4">
+                <div class="mt-10 mb-10 flex flex-col gap-4 w-full">
                     <label for="tags" class="flex flex-col gap-5">برچسب ها</label>
-                    <div class="flex flex-col gap-5">
+                    <div class="flex flex-col gap-5 w-full">
                         <div wire:ignore>
                             <select name="tags" id="select-tag"
-                                class="bg-[#F8F9FA] dark:bg-[#4A4E7C] rounded-[10px] p-4 space-y-2  w-full"
+                                class="bg-[#F8F9FA] dark:bg-[#4A4E7C] rounded-[10px] p-4 space-y-2  w-full" style="width: 100%;"
                                 label="برچسب ها" multiple="multiple" style="height:150px">
                                 <option value="">انتخاب برچسب ها</option>
                                 @foreach ($tags as $tag)
