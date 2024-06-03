@@ -19,7 +19,7 @@ class ProductPolicy
 
     public function delete(User $user, Product $product)
     {
-        return $user->hasRole('admin') && !$product->hasOrders();
+        return $user->hasRole('admin');
     }
 
     public function import(User $user)
