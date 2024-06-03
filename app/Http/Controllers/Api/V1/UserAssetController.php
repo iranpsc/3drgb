@@ -19,30 +19,28 @@ class UserAssetController extends Controller
         $user = request()->user();
 
         if (request()->query('defaults') == true) {
-            $categories = Category::doesntHave('children')->withCount('products')->with('image')->get();
+            $categories = Category::doesntHave('children')->withCount('products')->get();
 
             $categories = $categories->map(function ($category) {
                 return [
                     'id' => $category->id,
                     'name' => $category->name,
                     'slug' => $category->slug,
-                    'image' => $category->image->url ?? null,
                     'quantity' => $category->products_count,
                 ];
             });
         } else {
-            $categories = $user->products()->with('category.image')->withPivot('quantity')->get();
+            $categories = $user->products()->with('category')->get();
 
             $categories = $categories->map(function ($product) use ($categories) {
 
                 $category = $product->category;
-                $quantity = $categories->where('category_id', $category->id)->sum('pivot.quantity');
+                $quantity = $categories->where('category_id', $category->id)->count();
 
                 return [
                     'id' => $category->id,
                     'name' => $category->name,
                     'slug' => $category->slug,
-                    'image' => $category->image->url ?? null,
                     'quantity' => $quantity,
                 ];
             })->unique();
@@ -187,21 +185,35 @@ class UserAssetController extends Controller
 
         $user = request()->user();
 
-        $avatars = $user->products()
-            ->whereIn('category_id', $avatarCategoryChildren->pluck('id'))
-            ->with('oldestImage')
-            ->withPivot('quantity')
-            ->orderByPivot('updated_at', 'desc')
-            ->get();
+        if (request()->query('defaults') == true) {
+            $avatars = Product::whereIn('category_id', $avatarCategoryChildren->pluck('id'))
+                ->with('oldestImage')
+                ->get();
 
-        $avatars = $avatars->map(function ($avatar) {
-            return [
-                'id' => $avatar->id,
-                'name' => $avatar->name,
-                'image' => $avatar->oldestImage->url,
-                'quantity' => $avatar->pivot->quantity,
-            ];
-        });
+            $avatars = $avatars->map(function ($avatar) {
+                return [
+                    'id' => $avatar->id,
+                    'name' => $avatar->name,
+                    'image' => $avatar->oldestImage->url,
+                ];
+            });
+        } else {
+            $avatars = $user->products()
+                ->whereIn('category_id', $avatarCategoryChildren->pluck('id'))
+                ->with('oldestImage')
+                ->withPivot('quantity')
+                ->orderByPivot('updated_at', 'desc')
+                ->get();
+
+            $avatars = $avatars->map(function ($avatar) {
+                return [
+                    'id' => $avatar->id,
+                    'name' => $avatar->name,
+                    'image' => $avatar->oldestImage->url,
+                    'quantity' => $avatar->pivot->quantity,
+                ];
+            });
+        }
 
         return response()->json(['data' => $avatars]);
     }
