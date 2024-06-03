@@ -58,7 +58,7 @@ class Product extends Model implements Sitemapable
 
     public function getUrlAttribute()
     {
-        return route('products.show', $this);
+        return route('products.show', $this->sku);
     }
 
     public function toSitemapTag(): Url|string|array
