@@ -32,7 +32,7 @@
                 <div
                     class="flex items-center justify-center lg:w-[30%] xl:w-[20%] bg-white dark:bg-[#001448] rounded-[10px] gap-1 text-[#828282] p-3">
                     <span>دسته بندی : </span>
-                    <a href="#">آیکون ها</a>
+                    <a href="#">مدل سه بعدی </a>
                 </div>
             </div>
 
