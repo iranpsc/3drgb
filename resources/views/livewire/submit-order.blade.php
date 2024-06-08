@@ -23,7 +23,7 @@
         </section>
         <section class="max-w-[1500px] mx-auto p-4 lg:p-9 mt-24 lg:mt-14">
             <div class="w-full lg:w-[70%] 2xl:w-[55%] bg-white mx-auto dark:bg-[#001448] rounded-xl dark:text-white p-5 lg:p-7">
-                <h1 class="text-2xl dark:text-white font-bold py-5 text-center "> جهت ثبت سفارش طراحی، فرم زیرا پر کنید.</h1>
+                <h1 class="text-2xl dark:text-white font-bold py-5 text-center " style="font-family:rokh ;"> جهت ثبت سفارش طراحی، فرم زیرا پر کنید.</h1>
 
                 <div class="flex-col flex gap-7 justify-center w-full">
                     <div class="flex flex-col gap-7 w-full 2xl:w-1/2 justify-center ">

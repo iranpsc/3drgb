@@ -33,7 +33,50 @@
                 <x-form.text wire:model="form.price" name="form.price" label="قیمت عادی" />
                 <x-form.text wire:model="form.sale_price" name="form.sale_price" label="قیمت فروش ویژه" />
 
-                <x-form.file wire:model="form.images" name="form.images" label="تصاویر" multiple />
+                <div>
+                    <x-form.file wire:model="form.images" name="form.images" label="تصاویر" multiple />
+                    <div class="grid md:grid-cols-2 2xl:grid-cols-4 gap-5 p-2  ">
+
+                        <button
+                            class="flex justify-between items-center w-full bg-[#F8F9FA] dark:bg-[#4A4E7C] aspect-square rounded-lg overflow-hidden">
+                            <div class="flex justify-between items-center w-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                </svg>
+
+                            </div>
+                        </button>
+                        <div
+                            class=" w-full bg-[#F8F9FA] dark:bg-[#4A4E7C] aspect-square rounded-lg overflow-hidden border relative">
+                            <img src="{{ asset('home-page/images/chicken-512x512.jpg') }}" alt=""
+                                class="relative">
+                            <div class="absolute  z-50 w-[60%] flex gap-1" style="top: 4px;right: 4px;">
+                                <button class="rounded-full  w-1/2 flex items-center justify-center" style="background-color: red">
+                                    <div class="flex justify-center items-center w-full">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                        </svg>
+                                    </div>
+                                </button>
+                                <button class="w-1/2 rounded-full flex items-center justify-center" style="background-color: green">
+                                    <div class="flex justify-center items-center w-full">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        </svg>
+
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
 
                 <div class="flex flex-col gap-3 ">
                     <label for="fbx_file" class="form-col-label col-sm-4">فایل FBX</label>
@@ -69,8 +112,8 @@
                     <div class="flex flex-col gap-5 w-full">
                         <div wire:ignore>
                             <select name="tags" id="select-tag"
-                                class="bg-[#F8F9FA] dark:bg-[#4A4E7C] rounded-[10px] p-4 space-y-2  w-full" style="width: 100%;"
-                                label="برچسب ها" multiple="multiple" style="height:150px">
+                                class="bg-[#F8F9FA] dark:bg-[#4A4E7C] rounded-[10px] p-4 space-y-2  w-full"
+                                style="width: 100%;" label="برچسب ها" multiple="multiple" style="height:150px">
                                 <option value="">انتخاب برچسب ها</option>
                                 @foreach ($tags as $tag)
                                     <option value="{{ $tag->id }}">{{ $tag->name }}</option>
