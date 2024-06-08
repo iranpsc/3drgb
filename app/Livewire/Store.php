@@ -141,7 +141,7 @@ class Store extends Component
 
         $this->products = Product::published()
             ->when($orderBy == 'newest', function ($query) {
-                $query->orderByDesc('created_at');
+                $query->latest();
             })
             ->when($orderBy == 'cheapest', function ($query) {
                 $query->orderBy('price');
@@ -156,7 +156,7 @@ class Store extends Component
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
             ->with('oldestImage')
-            ->orderByDesc('created_at')
+            ->latest()
             ->paginate(15);
     }
 
@@ -187,7 +187,7 @@ class Store extends Component
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
             ->with('oldestImage')
-            ->orderByDesc('created_at')
+            ->latest()
             ->paginate(15);
     }
 
@@ -198,7 +198,7 @@ class Store extends Component
             'products' => $this->products ?? Product::published()
                 ->withAvg('reviews as rating_avg', 'rating')
                 ->with('oldestImage', 'category.parent')
-                ->orderByDesc('created_at')
+                ->latest()
                 ->paginate(15)
         ]);
     }
