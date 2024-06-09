@@ -1,6 +1,6 @@
-<div>
+<div class="swiper-slide flex w-full mt-10">
     @forelse ($categories as $category)
-        <div class="swiper-slide flex w-full" wire:key="popular-category-{{ $category->id }}">
+        <div class="w-full" wire:key="popular-category-{{ $category->id }}">
             <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
                 class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-5 gap-16">
                 <div class=" aspect-square" style="width: 90%">
