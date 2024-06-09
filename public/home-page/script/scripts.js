@@ -34,53 +34,61 @@ if (enableDarkModeButton2 && disableDarkModeButton2) {
 };
 
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   var checkbox = document.getElementById("c11");
   var zabanLink = document.getElementById("zaban");
 
-  checkbox.addEventListener("change", function() {
+  checkbox.addEventListener("change", function () {
     if (this.checked) {
       zabanLink.scrollIntoView({ behavior: 'smooth' });
     }
   });
 });
 
-function openNav2(){
-    var element = document.querySelector("#main-nav");
-   element.classList.replace("sidenav", "sidnav-t");
-   var element = document.querySelector(".main-content-smallNav");
-   element.classList.replace("main-content-smallNav", "main-content-activeNav");
-   var element = document.querySelector(".main-content-smallNav2");
-   element.classList.replace("main-content-smallNav2", "main-content-activeNav2");
-   element.classList.replace("sidenav", "sidnav-t");
-   document.getElementById("open00").style.display = 'flex';
-   document.getElementById("close00").style.display = 'none';
-   document.getElementById("close-nav-btn").style.display = 'flex';
-   document.getElementById("open-nav-btn").style.display = 'none';
+function openNav2() {
+  var element = document.querySelector("#main-nav");
+  element.classList.replace("sidenav", "sidnav-t");
+  element = document.querySelector(".main-content-smallNav");
+  element.classList.replace("main-content-smallNav", "main-content-activeNav");
+  element = document.querySelector(".main-content-smallNav2");
+  element.classList.replace("main-content-smallNav2", "main-content-activeNav2");
+  element.classList.replace("sidenav", "sidnav-t");
+  document.getElementById("open00").style.display = 'flex';
+  document.getElementById("close00").style.display = 'none';
+  document.getElementById("close-nav-btn").style.display = 'flex';
+  document.getElementById("open-nav-btn").style.display = 'none';
+  var homeImg = document.getElementById("home-img");
+  homeImg.classList.remove("mt-250");
+  var homeImg2 = document.getElementById("home-img2");
+  homeImg2.classList.remove("mt-250");
+}
 
-  } ;
-  function closeNav2(){
-    var element = document.querySelector("#main-nav");
-   element.classList.replace("sidnav-t", "sidenav");
-   var element = document.querySelector(".main-content-activeNav");
-   element.classList.replace("main-content-activeNav", "main-content-smallNav");
-   var element = document.querySelector(".main-content-activeNav2");
-   element.classList.replace("main-content-activeNav2", "main-content-smallNav2");
-   document.getElementById("open00").style.display = 'none';
-   document.getElementById("close00").style.display = 'flex';
-   document.getElementById("close-nav-btn").style.display = 'none';
-   document.getElementById("open-nav-btn").style.display = 'flex';
-  };
+function closeNav2() {
+  var element = document.querySelector("#main-nav");
+  element.classList.replace("sidnav-t", "sidenav");
+  var element = document.querySelector(".main-content-activeNav");
+  element.classList.replace("main-content-activeNav", "main-content-smallNav");
+  var element = document.querySelector(".main-content-activeNav2");
+  element.classList.replace("main-content-activeNav2", "main-content-smallNav2");
+  document.getElementById("open00").style.display = 'none';
+  document.getElementById("close00").style.display = 'flex';
+  document.getElementById("close-nav-btn").style.display = 'none';
+  document.getElementById("open-nav-btn").style.display = 'flex'
+  var homeImg = document.getElementById("home-img");
+  homeImg.classList.add("mt-250");
+  var homeImg2 = document.getElementById("home-img2");
+  homeImg2.classList.add("mt-250");
+};
 
 
-  function fillterContainerMobile() {
-    document.getElementById("fillterContainer").style.display = "block";
-  }
-  function closeFillterContainerMobile() {
-    document.getElementById("fillterContainer").style.display = "none";
-  }
+function fillterContainerMobile() {
+  document.getElementById("fillterContainer").style.display = "block";
+}
+function closeFillterContainerMobile() {
+  document.getElementById("fillterContainer").style.display = "none";
+}
 
-  function cartAlert() {
+function cartAlert() {
   alert("محصول به سبد خرید اضافه شد");
 }
 

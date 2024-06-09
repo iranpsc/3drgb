@@ -23,7 +23,7 @@
         </section>
         <section class="max-w-[1500px] mx-auto p-4 lg:p-9 mt-24 lg:mt-14">
             <div>
-                <h1 class="text-[#414040] dark:text-gray-200 text-3xl font-bold"> درباره ما</h1>
+                <h1 class="text-[#414040] dark:text-gray-200 text-3xl font-bold" style="font-family:rokh ;"> درباره ما</h1>
                 <p class="text-[#6A6A6A] dark:text-gray-400 text-justify text-xl mt-5  leading-10">در سه بعدی متا، ما به
                     دنیایی وارد می‌شویم که هنر و تکنولوژی به آغوش هم می‌رقصند. فروشگاه سه بعدی متا با هدف ارائه بهترین
                     مدل‌های سه بعدی و آواتار با بهترین ویژگی‌ها و جزئیات، برای علاقه‌مندان به دنیای گرافیک دیجیتال و

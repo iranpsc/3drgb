@@ -4053,6 +4053,7 @@ input[type='number']::-webkit-outer-spin-button {
     margin-top: -185px;
   }
 
+
   .\32xl\:h-\[45vh\] {
     height: 45vh;
   }
@@ -4129,6 +4130,7 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 @media (min-width: 1850px) {
+
   .\33xl\:h-\[53vh\] {
     height: 53vh;
   }
@@ -4172,6 +4174,7 @@ input[type='number']::-webkit-outer-spin-button {
   .\33xl\:w-\[30\%\] {
     width: 30%;
   }
+  
 }
 
 .peer:checked ~ .peer-checked\:\[\&\>div\>svg\]\:rotate-180>div>svg {
@@ -4292,5 +4295,10 @@ button:active{
 @media only screen and (max-width: 800px) {
   .text-head {
     font-size: 32px;
+  }
+}
+@media (min-width: 1850px) {
+  .mt-250{
+    margin-top: -250px;
   }
 }

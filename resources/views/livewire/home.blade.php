@@ -39,8 +39,6 @@
                         <div class="flex gap-5 relative mt-20 hidden lg:flex">
                             <input type="text" wire:model="searchTerm" placeholder="جستجوی محصول"
                                 class="relative w-full p-5 text-[#ACB9FA] font-bold bg-[#D8E5FD] dark:bg-[#001448c9] rounded-[32px] focus:outline-none pr-12 md:px-20 border-0">
-
-
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" class="absolute right-5 top-5">
                                 <path class="dark:stroke-white"
@@ -49,14 +47,12 @@
                                 <path class="dark:stroke-white" d="M22.8332 22.8334L20.6665 20.6667" stroke="#000BEE"
                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-
                             <button type="button" wire:click="search"
                                 class="bg-[#000BEE] dark:bg-[#C2008C] text-white font-bold md:text-xl pb-5 pt-[18px] px-5 md:px-14 w-max rounded-[32px]  text-center">جستجو</button>
-
                         </div>
                     </div>
                     <div class="w-full flex items-center justify-end md:w-2/5 flex-col overflow-hidden">
-                        <img src="{{ asset('home-page/images/Asset2.png') }}" alt="3dmodel" class="w-full" style="width: 127%; max-width:none;">
+                        <img  src="{{ asset('home-page/images/Asset2.png') }}" alt="3dmodel" class="w-full" style="width: 125%; max-width:none; ">
                         <div class="flex gap-5  mt-5 bg-[#D8E5FD] dark:bg-[#001448c9] rounded-full  p-2 lg:hidden">
                             <div class="flex justify-center items-center p-3 w-min">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -78,14 +74,14 @@
                     </div>
                 </div>
             </div>
-            <img src="{{ asset('home-page/images/output-onlinepngtools.png') }}" alt="body"
-                class=" hidden dark:block  w-full  overflow-hidden mb-36 2xl:mt-[-185px]">
-            <img src="{{ asset('home-page/images/helal.png') }}" alt="body"
-                class=" dark:hidden w-full  overflow-hidden mb-36 2xl:mt-[-185px]">
+            <img id="home-img2" src="{{ asset('home-page/images/output-onlinepngtools.png') }}" alt="body"
+                class="mt-250 hidden dark:block  w-full  overflow-hidden mb-36 2xl:mt-[-185px] mt-250" >
+            <img id="home-img" src="{{ asset('home-page/images/helal.png') }}" alt="body"
+                class=" dark:hidden w-full  overflow-hidden mb-36 2xl:mt-[-185px] mt-250">
 
         </div>
 
-        <section class="w-full mx-auto max-w-[1500px] lg:mt-[-85px] p-5">
+        <section class="w-full mx-auto max-w-[1500px]  p-5" style="margin-top: -140px">
             <div class="space-y-10">
                 <div class="w-full flex justify-center flex-col items-center gap-4 space-y-5 py-10">
                     <p class="text-stone-800 dark:text-[#ffffff] font-bold text-2xl">
@@ -148,8 +144,8 @@
                             @forelse ($this->popularCategories as $category)
                                 <div class="flex flex-shrink-0 relative  ">
                                     <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
-                                        class="bg-white dark:bg-[#001448] p-3 w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-10 text-center">
-                                        <div class="w-full p-1 md:p-5">
+                                        class="bg-white dark:bg-[#001448] p-3    w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-7 text-center" style="padding-top:28px;padding-bottom: 28px">
+                                        <div class="w-full p-1">
                                             <img src="{{ asset($category->image?->url) }}" loading="lazy" alt="category" class="w-full">
                                         </div>
                                         <div>
@@ -265,8 +261,19 @@
         </section>
     </main>
 </div>
+@script
+<script>
+    const buttons = document.querySelectorAll("#order-by-score, #order-by-newest, #order-by-sales");
 
-
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            $wire.call('changeTab', button.id);
+            buttons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+        });
+    });
+</script>
+@endscript
 <script>
     // slyder
     let defaultTransform = 0;
@@ -289,15 +296,5 @@
 
     //slyder end
 </script>
-    <script>
-        const buttons = document.querySelectorAll("#order-by-score, #order-by-newest, #order-by-sales");
 
-        buttons.forEach(button => {
-            button.addEventListener("click", () => {
-                $wire.call('changeTab', button.id);
-                buttons.forEach(btn => btn.classList.remove("active"));
-                button.classList.add("active");
-            });
-        });
-    </script>
 
