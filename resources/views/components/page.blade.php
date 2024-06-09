@@ -35,7 +35,7 @@
                                  <a href="{{ $actionBtnLink }}"  data-bs-toggle="{{ $toggle }}" class="rounded-[10px] bg-blue-600 px-5 py-1"
                                  data-bs-target="{{ $target }}" data-hs-overlay="#hs-slide-up-animation-modal-02">{{ $actionBtnText }}</a>
                               </div>
-         
+
                            @endif
                         </div>
                      </div>

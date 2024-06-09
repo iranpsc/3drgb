@@ -1,6 +1,8 @@
 <div>
     <x-page title="محصولات">
 
+        <input type="text" wire:model.live="search">
+
         @session('message')
             <x-alert type="success" message="{{ session('message') }}" />
         @endsession
@@ -28,7 +30,7 @@
                         </td>
                         <td>
                             <div>
-                                {{ $product->name }} <br> {{ $product->sku}}
+                                {{ $product->name }} <br> {{ $product->sku }}
                             </div>
                         </td>
                         <td>
@@ -64,9 +66,16 @@
                         <td>
                             <div class="userDatatable-content flex items-center ">
                                 <div class="d-flex justify-content-start gap-2">
-                                    <a href="{{ route('products.edit', $product->id) }}" class="px-2 py-1 rounded-[10px] text-white font-bold text-sm" style="background-color:#0EBDE2;">ویرایش</a>
-                                    <a href="{{ route('products.show', $product->sku) }}" class="px-2 py-1 rounded-[10px] text-white font-bold text-sm" style="background-color:blue">جزییات</a>
-                                    <button type="button" class="px-2 py-1 rounded-[10px] text-white font-bold text-sm" wire:click="delete({{ $product->id }})" wire:confirm="آیا از حذف این محصول مطمئن هستید؟" style="background-color:red;">حذف</button>
+                                    <a href="{{ route('products.edit', $product->id) }}"
+                                        class="px-2 py-1 rounded-[10px] text-white font-bold text-sm"
+                                        style="background-color:#0EBDE2;">ویرایش</a>
+                                    <a href="{{ route('products.show', $product->sku) }}"
+                                        class="px-2 py-1 rounded-[10px] text-white font-bold text-sm"
+                                        style="background-color:blue">جزییات</a>
+                                    <button type="button" class="px-2 py-1 rounded-[10px] text-white font-bold text-sm"
+                                        wire:click="delete({{ $product->id }})"
+                                        wire:confirm="آیا از حذف این محصول مطمئن هستید؟"
+                                        style="background-color:red;">حذف</button>
                                 </div>
                             </div>
                         </td>

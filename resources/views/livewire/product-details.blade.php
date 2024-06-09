@@ -306,9 +306,16 @@
                         </div>
                         <div class="flex flex-col justify-between gap-5">
                             <p class="text-[#726C6C] dark:text-white/50 text-xs"> قابلیت تبدیل سه بعدی به</p>
-                            <p class="text-[#1D364D] dark:text-white/70 font-bold">مدل سه بعدی سیب دانلود به صورت سه
-                                بعدی و
-                                png دارای مشخصات و جزییات محصول</p>
+                            <p class="text-[#1D364D] dark:text-white/70 font-bold">
+                                @php
+                                    $convertableTo3dModel = $product->attributes->where('slug', 'convertable_to_3d_model')->first();
+                                    if ($convertableTo3dModel) {
+                                        echo $convertableTo3dModel->pivot->value;
+                                    } else {
+                                        echo 'ندارد';
+                                    }
+                                @endphp
+                            </p>
                         </div>
                     </div>
                 </div>

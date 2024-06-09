@@ -52,12 +52,6 @@ class Home extends Component
     }
 
     #[Computed(persist: true)]
-    public function firstLevelCategories()
-    {
-        return Category::whereNull('parent_id')->get();
-    }
-
-    #[Computed(persist: true)]
     public function popularCategories()
     {
         return Category::with('parent', 'image')->whereHas('products', function ($query) {

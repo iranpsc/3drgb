@@ -11,6 +11,19 @@ class Products extends Component
 {
     use WithPagination;
 
+    public $search;
+
+    private $products;
+
+    public function updatedSearch()
+    {
+        $this->resetPage();
+
+        $this->products = Product::where('name', 'like', "%{$this->search}%")
+            ->orderByDesc('created_at')
+            ->paginate(10);
+    }
+
     public function delete(Product $product)
     {
         $this->authorize('delete', $product);
@@ -24,7 +37,8 @@ class Products extends Component
     #[Title('محصولات')]
     public function render()
     {
-        return view('livewire.store-management.products.products')
-            ->with('products', Product::orderByDesc('created_at')->paginate(10));
+        return view('livewire.store-management.products.products', [
+            'products' => $this->products ?? Product::orderByDesc('created_at')->paginate(10)
+        ]);
     }
 }
