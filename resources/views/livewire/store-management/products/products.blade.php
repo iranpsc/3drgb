@@ -1,7 +1,8 @@
 <div>
     <x-page title="محصولات">
 
-        <input type="text" wire:model.live="search">
+        <input type="text" class="w-full  bg-[#F8F9FA] dark:bg-[#4A4E7C] rounded-[10px] p-4 border-0" wire:model.live="search"
+        placeholder="نام محصول را وارد کنید ...">
 
         @session('message')
             <x-alert type="success" message="{{ session('message') }}" />

@@ -107,13 +107,13 @@
                         <img class="svg" src="{{ asset('img/svg/smile.svg') }}" alt="smile">
 
                         <input wire:model="message" class="form-control me-sm-2 border-0 box-shadow-none" type="search" placeholder="پیام خود را تایپ کنید..." aria-label="Search">
-                        
+
                         <input type="file" wire:model="attachment" name="attachment" id="attachment" style="display: none;">
-                        
+
                         <button type="button" class="border-0 btn-deep color-light wh-50 p-10 rounded-circle" id="file-attacher">
                             <img class="svg" src="{{ asset('img/svg/paperclip.svg') }}" alt="paperclip">
                         </button>
-                        
+
                         @push('scripts')
                             <script>
                                 document.getElementById('file-attacher').addEventListener('click', function() {
@@ -122,7 +122,7 @@
                             </script>
                         @endpush
 
-                        <button type="button" class="border-0 btn-primary wh-50 p-10 rounded-circle">
+                        <button type="button" class="border-0 btn-primary wh-50 p-10 rounded-circle" wire:click="sendResponse">
                             <img class="svg" src="{{ asset('img/svg/send.svg') }}" alt="send">
                         </button>
                     </form>
