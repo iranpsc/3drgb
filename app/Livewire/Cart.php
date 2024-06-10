@@ -51,7 +51,7 @@ class Cart extends Component
 
         session()->put('cart', $this->cart_items);
 
-        $this->products = Product::whereIn('id', array_column($this->cart_items, 'product_id'))->with('latestImage')->get();
+        $this->products = Product::whereIn('id', array_column($this->cart_items, 'product_id'))->with('oldestImage')->get();
     }
 
     public function checkout()

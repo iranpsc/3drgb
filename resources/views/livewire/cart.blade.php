@@ -98,7 +98,7 @@
                                                             <td style="padding-right: 8px">
                                                                 <div class="flex gap-3 items-center">
                                                                     <img class="aspect-square w-[80px] h-[80px] rounded-[10px]"
-                                                                        src="{{ $product->latestImage->url }}"
+                                                                        src="{{ $product->oldestImage->url ?? '' }}"
                                                                         alt="Generic placeholder image">
                                                                     <h5 class="mt-0 w-max pl-5">{{ $product->name }}
                                                                     </h5>
