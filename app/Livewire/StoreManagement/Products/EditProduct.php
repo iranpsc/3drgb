@@ -9,6 +9,7 @@ use Livewire\Component;
 use App\Models\Product;
 use App\Models\Tag;
 use App\Models\Attribute;
+use App\Models\Image;
 use Livewire\WithFileUploads;
 
 class EditProduct extends Component
@@ -19,7 +20,7 @@ class EditProduct extends Component
 
     public function mount(Product $product)
     {
-        $product->load('tags', 'attributes', 'category', 'images', 'file');
+        $product->load('tags', 'attributes', 'category', 'images');
 
         $this->form->setProduct($product);
     }
@@ -31,6 +32,11 @@ class EditProduct extends Component
         $this->form->update();
 
         session()->flash('success', __('Product updated successfully.'));
+    }
+
+    public function removeImage(Image $image)
+    {
+        $image->delete();
     }
 
     #[Title('ویرایش محصول')]
