@@ -1,4 +1,16 @@
 <div>
+    <style>
+        table{
+           width: 100%; 
+        }
+        table, th, td {
+       border:1px solid gray;
+       padding: 10px;
+     }
+     /* tr:nth-child(even) {
+       background-color: #EFEFEF;
+     } */
+     </style>
     <x-page title="کاربران">
         <div class="row">
             <div class="col-12">
