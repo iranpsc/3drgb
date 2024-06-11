@@ -167,7 +167,6 @@ class Store extends Component
             ->when($orderBy == 'most-sales', function ($query) {
                 $query->withCount('sales')->orderByDesc('sales_count');
             })
-            ->where('name', 'like', '%' . $this->q . '%')
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
             ->with('oldestImage')
