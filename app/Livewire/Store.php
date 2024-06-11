@@ -16,7 +16,7 @@ class Store extends Component
     use WithPagination;
 
     #[Url(as: 'search')]
-    public $q = '';
+    public $search = '';
 
     #[Url(as: 'tag')]
     public $tag;
@@ -29,7 +29,7 @@ class Store extends Component
         'max' => 95000,
     ];
 
-    public $search, $tags;
+    public $tags;
 
     private $products;
 
@@ -42,9 +42,9 @@ class Store extends Component
 
     public function mount()
     {
-        if ($this->q) {
+        if ($this->search) {
             $this->products = Product::published()
-                ->where('name', 'like', '%' . $this->q . '%')
+                ->where('name', 'like', '%' . $this->search . '%')
                 ->withCount('reviews')
                 ->withAvg('reviews as rating_avg', 'rating')
                 ->with('oldestImage')
@@ -76,13 +76,10 @@ class Store extends Component
     {
         $this->resetPage();
 
-        $this->resetQueryString();
-
-        $this->q = $this->search;
+        $this->reset('tag', 'category');
 
         $this->products = Product::published()
             ->where('name', 'like', '%' . $this->search . '%')
-            ->where('name', 'like', '%' . $this->q . '%')
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
             ->with('oldestImage')
@@ -99,8 +96,6 @@ class Store extends Component
     {
         $this->resetPage();
 
-        $this->resetQueryString();
-
         $this->products = Product::published()
             ->whereBetween('price', [$this->price_filter['min'], $this->price_filter['max']])
             ->withCount('reviews')
@@ -114,7 +109,7 @@ class Store extends Component
     {
         $this->resetPage();
 
-        $this->resetQueryString();
+        $this->reset('search', 'tag');
 
         $this->category = Category::findOrFail($id)->slug;
 
@@ -131,7 +126,7 @@ class Store extends Component
     {
         $this->resetPage();
 
-        // $this->resetQueryString();
+        $this->reset('search', 'category');
 
         $this->products = Product::published()
             ->when($this->tag, function ($query) {
@@ -139,7 +134,6 @@ class Store extends Component
                     $query->where('tags.slug', $this->tag);
                 });
             })
-            ->where('name', 'like', '%' . $this->q . '%')
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
             ->with('oldestImage')
@@ -208,19 +202,14 @@ class Store extends Component
                     $query->where('slug', $this->tag);
                 });
             })
-            ->when($this->q, function ($query) {
-                $query->where('name', 'like', '%' . $this->q . '%');
+            ->when($this->search, function ($query) {
+                $query->where('name', 'like', '%' . $this->search . '%');
             })
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
             ->with('oldestImage')
             ->latest()
             ->paginate(15);
-    }
-
-    private function resetQueryString()
-    {
-        $this->reset('category', 'tag', 'price_filter', 'orderBy');
     }
 
     #[Title('محصولات')]
