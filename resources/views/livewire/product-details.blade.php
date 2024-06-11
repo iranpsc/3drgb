@@ -321,9 +321,9 @@
                 </div>
             </div>
             <div class="flex flex-wrap gap-3 mt-6">
-                @foreach ($product->tags->pluck('name') as $tag)
-                    <span href="#"
-                        class="py-3 pb-[13px] px-5 rounded-[10px] w-max bg-[#ffffffa8] dark:bg-[#3A4980] text-[#8E9ABC] dark:text-white/70 text-sm">{{ $tag }}</span>
+                @foreach ($product->tags as $tag)
+                    <a href="/products?tag={{ $tag->slug }}"
+                        class="py-3 pb-[13px] px-5 rounded-[10px] w-max bg-[#ffffffa8] dark:bg-[#3A4980] text-[#8E9ABC] dark:text-white/70 text-sm">{{ $tag->name }}</a>
                 @endforeach
             </div>
         </section>
@@ -350,10 +350,11 @@
                     <div
                         class="bg-[#FFFFFF] dark:bg-[#001448] rounded-[10px] flex flex-col gap-5 justify-between  p-5 px-4 dark:text-white">
                         <p class="text-gray-800 dark:text-white">توضیحات :</p>
-                        <p class="text-[#667085] dark:text-white">{!! $product->long_description !!}</p>
+                        <p class="text-[#667085] dark:text-white">{!! nl2br($product->long_description) !!}</p>
+                    </div>
                     </div>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
-                        @foreach ($product->attributes as $attribute)
+                        @foreach ($product->attributes->where('slug', '!=', 'convertable_to_3d_model') as $attribute)
                             <div
                                 class="bg-[#FFFFFF] dark:bg-[#001448] rounded-[10px] flex justify-between items-center p-5 px-4">
                                 <p class="text-gray-800 dark:text-gray-300">{{ $attribute->name }}</p>

@@ -15,7 +15,10 @@ class ProductDetails extends Component
             'images',
             'reviews.user',
             'tags',
-            'attributes',
+            'attributes' => function ($query) {
+                $query->whereNotNull('value')
+                    ->whereNot('value', '-');
+            },
             'category',
         ])->loadCount('reviews')->loadAvg('reviews as rating_avg', 'rating');
     }

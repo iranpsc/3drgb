@@ -8,7 +8,8 @@
             </a>
             <div class="w-full flex flex-col justify-center items-center gap-3 p-3">
                 <p class="text-[#000BEE]  text-xs lg:text-sm font-bold p-0 m-0">
-                    <a href="{{ route('categories', $product->category->parent->url) }}"> {{ $product->category->parent->name }} </a> / <a href="{{ route('categories', $product->category->url) }}"> {{ $product->category->name }} </a>
+                    <a href="{{ route('categories.show', ['category_link' => $product->category->parent->url]) }}"> {{ $product->category->parent->name }} </a>
+                    / <a href="{{ route('categories.show', ['category_link' => $product->category->url]) }}"> {{ $product->category->name }} </a>
                 </p>
                 <p class="text-[#000BEE] dark:text-[#D1D1D1] text-xs lg:text-sm font-bold p-0 m-0">
                     {{ $product->sku }}

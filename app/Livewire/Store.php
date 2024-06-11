@@ -18,6 +18,9 @@ class Store extends Component
     #[Url(as: 'search')]
     public $q = '';
 
+    #[Url(as: 'tag')]
+    public $tag;
+
     #[Url(as: 'category')]
     public $category;
 
@@ -25,8 +28,6 @@ class Store extends Component
         'min' => 7000,
         'max' => 95000,
     ];
-
-    public $tag_filter = [];
 
     public $search, $tags;
 
@@ -51,8 +52,16 @@ class Store extends Component
                 ->paginate(15);
         }
 
-        if ($this->category) {
-            //
+        if ($this->tag) {
+            $this->products = Product::published()
+                ->whereHas('tags', function ($query) {
+                    $query->where('slug', $this->tag);
+                })
+                ->withCount('reviews')
+                ->withAvg('reviews as rating_avg', 'rating')
+                ->with('oldestImage')
+                ->orderByDesc('created_at')
+                ->paginate(15);
         }
 
         $this->tags = Tag::take(10)->get();
@@ -66,6 +75,10 @@ class Store extends Component
     public function updatedSearch()
     {
         $this->resetPage();
+
+        $this->resetQueryString();
+
+        $this->q = $this->search;
 
         $this->products = Product::published()
             ->where('name', 'like', '%' . $this->search . '%')
@@ -86,6 +99,8 @@ class Store extends Component
     {
         $this->resetPage();
 
+        $this->resetQueryString();
+
         $this->products = Product::published()
             ->whereBetween('price', [$this->price_filter['min'], $this->price_filter['max']])
             ->withCount('reviews')
@@ -99,6 +114,10 @@ class Store extends Component
     {
         $this->resetPage();
 
+        $this->resetQueryString();
+
+        $this->category = Category::findOrFail($id)->slug;
+
         $this->products = Product::published()
             ->where('category_id', $id)
             ->withCount('reviews')
@@ -108,14 +127,16 @@ class Store extends Component
             ->paginate(15);
     }
 
-    public function updatedTagFilter()
+    public function updatedTag()
     {
         $this->resetPage();
 
+        // $this->resetQueryString();
+
         $this->products = Product::published()
-            ->when(!empty($this->tag_filter), function ($query) {
+            ->when($this->tag, function ($query) {
                 $query->whereHas('tags', function ($query) {
-                    $query->whereIn('tags.id', $this->tag_filter);
+                    $query->where('tags.slug', $this->tag);
                 });
             })
             ->where('name', 'like', '%' . $this->q . '%')
@@ -166,13 +187,7 @@ class Store extends Component
         return Category::whereHas('products', function ($query) {
             $query->published();
         })->select('id', 'name')->with('image')->withCount('products')
-        ->orderByDesc('products_count')->get();
-    }
-
-    #[Computed(persist: true)]
-    public function firstLevelCategories()
-    {
-        return Category::whereNull('parent_id')->get();
+            ->orderByDesc('products_count')->get();
     }
 
     public function updatingPage($page)
@@ -183,12 +198,29 @@ class Store extends Component
     public function updatedPage($page)
     {
         $this->products = Product::published()
-            ->where('name', 'like', '%' . $this->q . '%')
+            ->when($this->category, function ($query) {
+                $query->whereHas('category', function ($query) {
+                    $query->where('slug', $this->category);
+                });
+            })
+            ->when($this->tag, function ($query) {
+                $query->whereHas('tags', function ($query) {
+                    $query->where('slug', $this->tag);
+                });
+            })
+            ->when($this->q, function ($query) {
+                $query->where('name', 'like', '%' . $this->q . '%');
+            })
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
             ->with('oldestImage')
             ->latest()
             ->paginate(15);
+    }
+
+    private function resetQueryString()
+    {
+        $this->reset('category', 'tag', 'price_filter', 'orderBy');
     }
 
     #[Title('محصولات')]

@@ -39,6 +39,45 @@
                 </div>
             </div>
         </div>
+    @elseif($product->is_free)
+        @if (Auth::check())
+            <div class="flex flex-col gap-7 text-[#1D2939] dark:text-gray-200">
+                <div class="font-bold text-xl">
+                    یک نظر بنویسید
+                </div>
+                <div class="flex flex-col gap-3">
+                    <p>محصول چگونه است؟</p>
+
+                    <div class="col-sm-6">
+                        <div class="stars-rating flex gap-3 items-center" id="star-rating">
+                            <span class="star-icon las la-star"></span>
+                            <span class="star-icon las la-star"></span>
+                            <span class="star-icon las la-star"></span>
+                            <span class="star-icon las la-star"></span>
+                            <span class="star-icon las la-star"></span>
+                        </div>
+                        @error('rating')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="space-y-5 w-full lg:w-[60%]">
+                    <p class="mt-5">نظر شما در باره این محصول چیست؟</p>
+                    <textarea wire:model="comment" name="" id="" cols="30" rows="10"
+                        class="w-full text-gray-400 py-3 rounded-[10px] border-2 border-gray-300 ring-offset-0 focus:ring-offset-0 ring-0 !focus:ring-0 bg-transparent"></textarea>
+                    @error('comment')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                    <div class="flex justify-end mt-10">
+                        <button type="button"
+                            class="bg-[#3A4980] dark:bg-[#001448] text-white py-4 pb-[17px] rounded-full w-max px-6"
+                            id="save-review-btn">ارسال بررسی</button>
+                    </div>
+                </div>
+            </div>
+        @else
+            <x-alert type="success" message="برای ارسال نظر باید وارد حساب کاربری خود شوید." />
+        @endif
     @endif
     @forelse ($product->reviews as $review)
         <div class="w-full" wire:key="{{ $review->id }}">

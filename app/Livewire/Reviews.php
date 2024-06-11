@@ -20,6 +20,10 @@ class Reviews extends Component
     {
         $this->validate();
 
+        if(!auth()->check()) {
+            return $this->redirectRoute('login');
+        }
+
         $this->authorize('addReview', $this->product);
 
         $this->product->reviews()->create([

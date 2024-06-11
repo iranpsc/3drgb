@@ -132,9 +132,9 @@
                             style="font-family:rokh ;">
                             دسته بندی های پر طرفدار
                         </p>
-                        <p class="text-sm text-stone-800 dark:text-[#ffffff] ">لیستی ار محصولات سه بعدی ، انیمیشن آیکون
+                        <p class="text-sm text-stone-800 dark:text-[#ffffff] ">لیستی از محصولات سه بعدی ، انیمیشن آیکون
                             و فایل
-                            های ایلیسترتور</p>
+                            های ایلستریتور</p>
                     </div>
 
                     <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden py-5 my-5 pl-5 md:pl-0"

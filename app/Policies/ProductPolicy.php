@@ -36,6 +36,8 @@ class ProductPolicy
 
     public function addReview(User $user, Product $product): bool
     {
+        if ($product->is_free && $product->customer_can_add_review) return true;
+
         return $user->hasPurchased($product)
             && !$user->hasReviewed($product)
             && $product->customer_can_add_review;
