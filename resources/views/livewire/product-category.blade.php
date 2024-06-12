@@ -47,7 +47,7 @@
         </section>
         <section class="max-w-[1500px] mx-auto  lg:p-9 mt-24 lg:mt-14 flex flex-col lg:flex-row gap-5 ">
 
-            <div class="w-full lg:w-3/4 space-y-5 p-5 mx-auto" id="products-list">
+            <div class="w-full space-y-5 p-5 mx-auto" id="products-list">
                 <div class="">
                     <div class="grid lg:grid-cols-2 xl:grid-cols-4 gap-5 transition-[5s] duration-500 ">
                         @forelse ($category->children as $child)

@@ -23,12 +23,12 @@
         </section>
         <section class="max-w-[1500px] mx-auto p-4 lg:p-9 mt-24 lg:mt-14">
             <div class="w-full bg-white dark:bg-[#001448] rounded-xl dark:text-white p-5 lg:p-7">
-                <h1 class="text-3xl dark:text-white font-bold py-5 text-center lg:text-right" style="font-family:rokh ;">ارتباط باما</h1>
+                <h1 class="text-3xl dark:text-white font-bold py-5 text-center lg:text-right" >ارتباط باما</h1>
 
                 <div class="flex-col flex gap-7 lg:flex-row w-full">
                     <div class="flex flex-col gap-7 w-full lg:w-1/2 justify-center lg:justify-start">
                         <div>
-                            <p class="text-black/50 dark:text-gray-300 py-1 text-center lg:text-right" style="font-family:rokh ;">پیام شما میتواند
+                            <p class="text-black/50 dark:text-gray-300 py-1 text-center lg:text-right" >پیام شما میتواند
                                 شروع یک مکالمه سازنده باشد.</p>
                         </div>
 
