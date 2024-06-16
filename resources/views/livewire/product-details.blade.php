@@ -353,7 +353,7 @@
                         <p class="text-[#667085] dark:text-white">{!! nl2br($product->long_description) !!}</p>
                     </div>
                     </div>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 mt-7">
                         @foreach ($product->attributes->where('slug', '!=', 'convertable_to_3d_model') as $attribute)
                             <div
                                 class="bg-[#FFFFFF] dark:bg-[#001448] rounded-[10px] flex justify-between items-center p-5 px-4">
