@@ -81,14 +81,15 @@
                                 {{ $product->name }} &nbsp {{ $product->sku }}
                             </p>
                         </div>
-                        <div class="flex items-start justify-end gap-2">
+                        <div class="flex items-start justify-end gap-2" wire:ignore>
                             <div
                                 class="p-1 h-8 bg-[#91B3FA29] dark:bg-[#3A4980] dark:text-white rounded-lg flex items-center gap-3 w-max select-none text-[#3A4980]">
                                 <div>
-                                    <p>106</p>
+                                    <p>{{ $product->likes_count }}</p>
                                 </div>
-                                <div class="like ">
-                                    <input id="like" type="checkbox" class="peer">
+                                <div class="like">
+                                    <input id="like" type="checkbox" class="peer" wire:click="toggleLike"
+                                        @checked($product->user_liked)>
                                     <label for="like" class="like-label peer-checked:[&>svg>path]:fill-red-600">
                                         <svg width="18" height="16" viewBox="0 0 18 16" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -102,7 +103,8 @@
                             </div>
                             <div
                                 class="like p-1 h-8 w-8 aspect-square bg-white dark:bg-[#3A4980] rounded-lg flex items-center gap-3 justify-center select-none text-[#3A4980]">
-                                <input id="save" type="checkbox" class="peer">
+                                <input id="save" type="checkbox" class="peer" wire:click="toggleBookmark"
+                                    @checked($product->user_bookmarked)>
                                 <label for="save" class="like-label peer-checked:[&>svg>path]:fill-black">
                                     <svg width="14" height="18" viewBox="0 0 14 18" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -113,7 +115,7 @@
                                     </svg>
                                 </label>
                             </div>
-                            <bottom data-hs-overlay="#hs-slide-up-animation-modal"
+                            <button data-hs-overlay="#hs-slide-up-animation-modal"
                                 class="p-1 h-8 w-8 aspect-square bg-white dark:bg-[#3A4980] rounded-lg select-none flex items-center justify-center">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -122,7 +124,7 @@
                                         stroke="#3A4980" stroke-width="1.5" stroke-linecap="round"
                                         stroke-linejoin="round" />
                                 </svg>
-                            </bottom>
+                            </button>
                         </div>
                     </div>
                     <div class="flex justify-between h-min w-full  px-5 pb-5 border-b border-gray-300">
@@ -155,7 +157,7 @@
                                 </div>
                                 <div
                                     class="flex items-center w-max gap-3 px-3 py-1 text-[#3A4980] dark:text-white bg-white dark:bg-[#91B3FA29] rounded-full">
-                                    <p>{{ $product->reviews_count }} &nbsp بررسی</p>
+                                    <p>{{ $product->approved_reviews_count }} &nbsp بررسی</p>
                                     <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path class="dark:stroke-white"
@@ -308,7 +310,9 @@
                             <p class="text-[#726C6C] dark:text-white/50 text-xs"> قابلیت تبدیل سه بعدی به</p>
                             <p class="text-[#1D364D] dark:text-white/70 font-bold">
                                 @php
-                                    $convertableTo3dModel = $product->attributes->where('slug', 'convertable_to_3d_model')->first();
+                                    $convertableTo3dModel = $product->attributes
+                                        ->where('slug', 'convertable_to_3d_model')
+                                        ->first();
                                     if ($convertableTo3dModel) {
                                         echo $convertableTo3dModel->pivot->value;
                                     } else {
@@ -352,24 +356,23 @@
                         <p class="text-gray-800 dark:text-white">توضیحات :</p>
                         <p class="text-[#667085] dark:text-white">{!! nl2br($product->long_description) !!}</p>
                     </div>
-                    </div>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
-                        @foreach ($product->attributes->where('slug', '!=', 'convertable_to_3d_model') as $attribute)
-                            <div
-                                class="bg-[#FFFFFF] dark:bg-[#001448] rounded-[10px] flex justify-between items-center p-5 px-4">
-                                <p class="text-gray-800 dark:text-gray-300">{{ $attribute->name }}</p>
-                                <p class="text-[#667085] dark:text-gray-300"> {{ $attribute->pivot->value }}</p>
-                            </div>
-                        @endforeach
-                    </div>
                 </div>
-                <div id="horizontal-right-alignment-2" class="hidden" role="tabpanel"
-                    aria-labelledby="horizontal-right-alignment-item-2">
-                    <div class="w-full lg:w-[60%] space-y-10">
-                        <livewire:reviews :product="$product" />
-                    </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
+                    @foreach ($product->attributes->where('slug', '!=', 'convertable_to_3d_model') as $attribute)
+                        <div
+                            class="bg-[#FFFFFF] dark:bg-[#001448] rounded-[10px] flex justify-between items-center p-5 px-4">
+                            <p class="text-gray-800 dark:text-gray-300">{{ $attribute->name }}</p>
+                            <p class="text-[#667085] dark:text-gray-300"> {{ $attribute->pivot->value }}</p>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <div id="horizontal-right-alignment-2" class="hidden" role="tabpanel"
+                aria-labelledby="horizontal-right-alignment-item-2">
+                <div class="w-full lg:w-[60%] space-y-10">
+                    <livewire:reviews :product="$product" />
+                </div>
 
-                </div>
             </div>
         </section>
     </main>

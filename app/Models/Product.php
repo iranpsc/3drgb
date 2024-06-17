@@ -234,4 +234,54 @@ class Product extends Model implements Sitemapable
     {
         return $this->orders()->exists();
     }
+
+    /**
+     * Get product likes
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
+    public function likes()
+    {
+        return $this->morphMany(Interaction::class, 'interactable')->type('like');
+    }
+
+    /**
+     * Get product shares
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
+    public function shares()
+    {
+        return $this->morphMany(Interaction::class, 'interactable')->type('share');
+    }
+
+    /**
+     * Get product downloads
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
+    public function downloads()
+    {
+        return $this->morphMany(Interaction::class, 'interactable')->type('download');
+    }
+
+    /**
+     * Get product views
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
+    public function views()
+    {
+        return $this->morphMany(Interaction::class, 'interactable')->type('view');
+    }
+
+    /**
+     * Get product bookmarks
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
+    public function bookmarks()
+    {
+        return $this->morphMany(Interaction::class, 'interactable')->type('bookmark');
+    }
 }

@@ -26,7 +26,7 @@ class ProductCategory extends Component
                 ->published()
                 ->withCount('reviews')
                 ->withAvg('reviews as rating_avg', 'rating')
-                ->with('latestImage')
+                ->with('oldestImage')
                 ->latest()
                 ->paginate(16);
         }

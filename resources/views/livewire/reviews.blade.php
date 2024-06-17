@@ -110,8 +110,14 @@
                         <div class="text-[#1d29399d] dark:text-gray-200 text-sm">
                             <p>{{ $review->comment }}</p>
                             <div class="flex gap-4 items-center justify-end mt-5">
-                                <button class="text-xs text-red-600">Replay</button>
-                                <button class="text-xs ">Like</button>
+                                <button class="text-xs text-red-600" wire:click="saveReviewReply({{ $review->id }})">Replay</button>
+                                <button class="text-xs" wire:click="likeReview({{ $review->id }})">Like</button>
+                            </div>
+                            <div class="flex gap-4 items-center justify-end mt-5">
+                                @session('message')
+                                    <x-alert type="success" message="{{ session('message') }}" />
+                                @endsession
+                                <textarea id="review-reply-box-{{ $review->id }}" cols="30" rows="10" class="d-hidden" wire:model="reviewReplyText"></textarea>
                             </div>
                         </div>
                     </div>

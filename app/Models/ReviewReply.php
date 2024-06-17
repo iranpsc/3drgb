@@ -5,32 +5,31 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Review extends Model
+class ReviewReply extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'product_id',
+        'review_id',
         'user_id',
         'comment',
-        'rating',
         'approved',
         'approved_at',
         'approved_by',
     ];
 
     /**
-     * Get the product that owns the review.
+     * Get the review that owns the reply.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function product()
+    public function review()
     {
-        return $this->belongsTo(Product::class)->select('id', 'name');
+        return $this->belongsTo(Review::class)->select('id', 'comment');
     }
 
     /**
-     * Get the user that owns the review.
+     * Get the user that owns the reply.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -40,7 +39,7 @@ class Review extends Model
     }
 
     /**
-     * Scope a query to only include approved reviews.
+     * Scope a query to only include approved replies.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
@@ -58,28 +57,34 @@ class Review extends Model
      */
     public function approve($approved_by)
     {
-        $this->approved = true;
-        $this->approved_at = now();
-        $this->approved_by = $approved_by;
-        $this->save();
+        $this->update([
+            'approved' => true,
+            'approved_at' => now(),
+            'approved_by' => $approved_by,
+        ]);
     }
 
     /**
-     * Get the likes for the review.
+     * Set the approved_at and approved_by attributes to null.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     * @return void
      */
-    public function likes() {
-        return $this->morphMany(Interaction::class, 'interactable')->type('like');
-    }
-
-    /**
-     * Get the replies for the review.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function replies()
+    public function disapprove()
     {
-        return $this->hasMany(ReviewReply::class);
+        $this->update([
+            'approved' => false,
+            'approved_at' => null,
+            'approved_by' => null,
+        ]);
+    }
+
+    /**
+     * Check if the reply is approved.
+     *
+     * @return bool
+     */
+    public function isApproved()
+    {
+        return $this->approved;
     }
 }
