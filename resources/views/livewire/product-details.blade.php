@@ -356,22 +356,22 @@
                         <p class="text-gray-800 dark:text-white">توضیحات :</p>
                         <p class="text-[#667085] dark:text-white">{!! nl2br($product->long_description) !!}</p>
                     </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 mt-7">
+                        @foreach ($product->attributes->where('slug', '!=', 'convertable_to_3d_model') as $attribute)
+                            <div
+                                class="bg-[#FFFFFF] dark:bg-[#001448] rounded-[10px] flex justify-between items-center p-5 px-4">
+                                <p class="text-gray-800 dark:text-gray-300">{{ $attribute->name }}</p>
+                                <p class="text-[#667085] dark:text-gray-300"> {{ $attribute->pivot->value }}</p>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
-                    @foreach ($product->attributes->where('slug', '!=', 'convertable_to_3d_model') as $attribute)
-                        <div
-                            class="bg-[#FFFFFF] dark:bg-[#001448] rounded-[10px] flex justify-between items-center p-5 px-4">
-                            <p class="text-gray-800 dark:text-gray-300">{{ $attribute->name }}</p>
-                            <p class="text-[#667085] dark:text-gray-300"> {{ $attribute->pivot->value }}</p>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-            <div id="horizontal-right-alignment-2" class="hidden" role="tabpanel"
-                aria-labelledby="horizontal-right-alignment-item-2">
-                <div class="w-full lg:w-[60%] space-y-10">
-                    <livewire:reviews :product="$product" />
-                </div>
+                <div id="horizontal-right-alignment-2" class="hidden" role="tabpanel"
+                    aria-labelledby="horizontal-right-alignment-item-2">
+                    <div class="w-full lg:w-[60%] space-y-10">
+                        <livewire:reviews :product="$product" />
+                    </div>
 
             </div>
         </section>

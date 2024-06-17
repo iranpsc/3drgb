@@ -2440,11 +2440,17 @@ select {
   font-family: rokh;
 
   src: url("../font/RokhFaNum-Bold.ttf");
+
+}
+@font-face {
+  font-family: rokh-ebold;
+
+  src: url("../font/RokhFaNum-ExtraBold.ttf");
 }
 @font-face {
   font-family: rokh-bold;
 
-  src: url("../font/RokhFaNum-ExtraBold.ttf");
+  src: url("../font/RokhFaNum-Bold.ttf");
 }
 
 body {
