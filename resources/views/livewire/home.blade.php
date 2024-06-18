@@ -26,8 +26,8 @@
                 <div
                     class="w-full mx-auto flex flex-col md:flex-row items-ctener justify-between  gap-10 px-10 md:px-10  py-5 lg:px-20 ">
                     <div class="w-full md:w-3/5 flex flex-col justify-center mt-20 lg:mt-0">
-                        <p class="text-[#000BEE] dark:text-white py-3 font-extrabold  text-head"
-                            style="font-family:rokh-bold ; line-height: 50px">
+                        <p class="text-[#000BEE] dark:text-white py-3 font-extrabold  text-head text-6xl " style="font-family: rokh"
+                            >
                             مدل سه بعدی و تجربه ای متفاوت
                         </p>
                         <p class="text-stone-800 dark:text-[#ffffff] font-bold text-xl lg:text-2xl mt-5 " style="line-height: 50px">

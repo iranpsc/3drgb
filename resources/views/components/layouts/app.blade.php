@@ -12,7 +12,7 @@
     <meta http-equiv="content-language" content="farsi">
     <meta name="robots" content="index,follow">
     <link rel="icon" type="image/x-icon" href="{{ asset('home-page/images/3ddmetaa143.png') }}">
-    <link href="{{ asset('home-page/style/main.css') }}" rel="stylesheet">
+
     <link href="{{ asset('home-page/style/swiper-main.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/fontawesome.css') }}">
@@ -28,6 +28,10 @@
             .replace(/\bno-js\b/g, '') + ' js ';
     </script>
     <style>
+        body {
+  font-family: AzarMehr;
+  font-weight: bold;
+}
         #style1::-webkit-scrollbar-track {
             border-radius: 10px;
             background-color: #ECECEC;
@@ -61,7 +65,7 @@
 </head>
 
 <body
-    class="bg-gradient-to-t to-[#DAE7FE] from-[#ECF4FE] dark:to-[#162658] dark:via-[#162658] dark:from-[#4A4E7C] w-full ">
+    class="bg-gradient-to-t  to-[#DAE7FE] from-[#ECF4FE] dark:to-[#162658] dark:via-[#162658] dark:from-[#4A4E7C] w-full ">
     <!-- start nav -->
     <header>
         <!-- start head mobile nav -->
