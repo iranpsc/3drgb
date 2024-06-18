@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/line-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/star-rating-svg.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    @vite('resources/css/app.css')
+
     <title>{{ 'سه بعدی متا' . ' | ' . $title ?? config('app.name') }}</title>
     <script>
         document.documentElement.className = document.documentElement.className
@@ -396,7 +398,7 @@
                                 </ul>
                             </div>
                         @endHasRole
-                            
+
                         <div>
                             <ul class="tree">
                                 <li class="flex flex-col gap-3">
