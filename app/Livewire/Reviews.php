@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Product;
 use App\Models\Review;
+use App\Models\User;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 
@@ -18,6 +19,17 @@ class Reviews extends Component
     public $rating;
 
     public $reviewReplyText;
+
+    public function mount()
+    {
+        $this->product->loadCount([
+            'reviews as five_star_reviews_count' => fn ($query) => $query->where('rating', 5),
+            'reviews as four_star_reviews_count' => fn ($query) => $query->where('rating', 4),
+            'reviews as three_star_reviews_count' => fn ($query) => $query->where('rating', 3),
+            'reviews as two_star_reviews_count' => fn ($query) => $query->where('rating', 2),
+            'reviews as one_star_reviews_count' => fn ($query) => $query->where('rating', 1),
+        ]);
+    }
 
     public function saveReview()
     {
@@ -71,6 +83,13 @@ class Reviews extends Component
         ], [
             'type' => 'like',
             'ip' => request()->ip(),
+        ]);
+    }
+
+    public function render()
+    {
+        return view('livewire.reviews', [
+            'users_count' => User::count(),
         ]);
     }
 }

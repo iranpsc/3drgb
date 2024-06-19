@@ -19,6 +19,15 @@ class Review extends Model
         'approved_by',
     ];
 
+    protected function casts()
+    {
+        return [
+            'approved' => 'boolean',
+            'approved_at' => 'datetime',
+            'rating' => 'integer',
+        ];
+    }
+
     /**
      * Get the product that owns the review.
      *
