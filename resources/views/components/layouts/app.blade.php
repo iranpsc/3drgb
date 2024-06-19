@@ -154,10 +154,10 @@
                                         <div class="flex w-full items-center justify-between gap-5">
                                             <div class="flex items-center gap-4">
                                                 @guest
-                                                    <div class="w-7 h-7  rounded-full bg-gray-300"></div>
+                                                    <div class="w-7 h-7 rounded-full bg-gray-300"></div>
                                                     <a href="{{ route('login') }}">ورود کاربر</a>
                                                 @else
-                                                    <img src="{{ Auth::user()->avatar ? asset('storage/' . Auth::user()->avatar) : asset('img/author-nav.jpg') }}"
+                                                    <img src="{{ asset('storage/' . Auth::user()->avatar) }}"
                                                         alt="" class="w-7 h-7  rounded-full">
                                                     <a href="#">{{ Auth::user()->name }}</a>
                                                 @endguest
@@ -555,8 +555,7 @@
                                 </a>
                             @else
                                 <a href="{{ route('user.profile') }}" class="w-full ">
-                                    <img src="{{ Auth::user()->avatar ? asset('storage/' . Auth::user()->avatar) : asset('img/author-nav.jpg') }}"
-                                        class="w-full border rounded-full aspect-square ">
+                                    <img src="{{ asset('storage/' . Auth::user()->avatar) }}" class="w-full border rounded-full aspect-square" />
                                 </a>
                             @endguest
                         </div>

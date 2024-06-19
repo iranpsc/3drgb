@@ -252,39 +252,18 @@
         <div
             class="bg-[#FFFFFF] dark:bg-[#001448] p-5 md:p-[34px] rounded-[10px] flex flex-row-reverse md:flex-col items-center justify-between w-full md:w-[30%] gap-5 lg:gap-10">
             <div class="flex flex-col gap-5 lg:gap-10 items-center justify-center">
-                <p class="text-2xl md:text-5xl font-bold text-[#4F547B] dark:text-gray-300">{{ floor($product->rating_avg) }}
+                <p class="text-2xl md:text-5xl font-bold text-[#4F547B] dark:text-gray-300">
+                    {{ floor($product->rating_avg) }}
                 </p>
                 <div class="flex items-center gap-2">
-                    <svg class="w-6 h-6 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
-                        viewBox="0 0 22 20">
-                        <path
-                            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
-                        </path>
-                    </svg>
-                    <svg class="w-6 h-6 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
-                        viewBox="0 0 22 20">
-                        <path
-                            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
-                        </path>
-                    </svg>
-                    <svg class="w-6 h-6 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
-                        viewBox="0 0 22 20">
-                        <path
-                            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
-                        </path>
-                    </svg>
-                    <svg class="w-6 h-6 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
-                        viewBox="0 0 22 20">
-                        <path
-                            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
-                        </path>
-                    </svg>
-                    <svg class="w-6 h-6 ms-1 text-gray-300 dark:text-gray-500" aria-hidden="true" fill="currentColor"
-                        viewBox="0 0 22 20">
-                        <path
-                            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
-                        </path>
-                    </svg>
+                    @for ($i = 0; $i < 5; $i++)
+                        <svg class="w-6 h-6 @if ($i < $product->rating_avg) text-yellow-300 @else text-gray-300 @endif"
+                            aria-hidden="true" fill="currentColor" viewBox="0 0 22 20">
+                            <path
+                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
+                            </path>
+                        </svg>
+                    @endfor
                 </div>
             </div>
             <p class="text-[#4F547B] dark:text-gray-300">رتبه بندی محصول</p>
@@ -412,6 +391,28 @@
                                 @error('reviewReplyText')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
+
+                                <!-- Review replies -->
+                                @foreach ($review->replies as $reply)
+                                    <div class="flex gap-5 ">
+                                        <div
+                                            class="w-12 h-12 rounded-full bg-[#164C96] text-gray-200 flex items-center justify-center">
+                                            <img src="{{ asset('storage/' . $reply->user->avatar) }}"
+                                                class="w-12 h-12 rounded-full">
+                                        </div>
+                                        <div class="space-y-1">
+                                            <div class="flex items center gap-3 text-[#1D2939] dark:text-gray-200">
+                                                <p class="font-bold">{{ $reply->user->name }}</p>
+                                                <p class="text-xs">
+                                                    {{ \Morilog\Jalali\Jalalian::fromDateTime($reply->created_at)->ago() }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-[#1d29399d] dark:text-gray-200 text-sm">
+                                        <p>{{ $reply->comment }}</p>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

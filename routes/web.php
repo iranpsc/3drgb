@@ -27,6 +27,7 @@ use App\Livewire\StoreManagement\Products\EditProduct;
 use App\Livewire\StoreManagement\Products\Import;
 use App\Livewire\StoreManagement\Products\Products;
 use App\Livewire\ProductDetails;
+use App\Livewire\StoreManagement\Products\ReviewReplies;
 use App\Livewire\StoreManagement\Products\Reviews;
 use App\Livewire\Support\CreateTicket;
 use App\Livewire\Support\ShowTicket;
@@ -86,6 +87,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/attributes', Attributes::class)->name('attributes');
 
         Route::get('/reviews', Reviews::class)->name('reviews');
+
+        Route::get('/reviews/{review}/replies', ReviewReplies::class)->name('review-replies');
 
         Route::get('/users', Users::class)->name('users');
 

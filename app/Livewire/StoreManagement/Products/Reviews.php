@@ -26,6 +26,6 @@ class Reviews extends Component
     public function render()
     {
         return view('livewire.store-management.products.reviews')
-            ->with('reviews', Review::with(['product:id,name', 'user:id,name'])->paginate(10));
+            ->with('reviews', Review::with(['product:id,name,sku', 'user:id,name', 'replies'])->paginate(10));
     }
 }

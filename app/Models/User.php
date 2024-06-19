@@ -45,13 +45,22 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * The attributes that should be cast.
      *
-     * @var array<string, string>
+     * @return array<string, string>
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-        'role' => 'string'
-    ];
+    protected function casts()
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'role' => 'string',
+            'phone' => 'string',
+            'code' => 'string',
+            'access_token' => 'string',
+            'expires_in' => 'timestamp',
+            'refresh_token' => 'string',
+            'token_type' => 'string',
+            'avatar' => 'string',
+        ];
+    }
 
     /**
      * The attributes that should have default values.
