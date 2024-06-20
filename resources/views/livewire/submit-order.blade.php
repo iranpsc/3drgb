@@ -23,10 +23,10 @@
         </section>
         <section class="max-w-[1500px] mx-auto p-4 lg:p-9 mt-24 lg:mt-14">
             <div class="w-full lg:w-[70%] 2xl:w-[55%] bg-white mx-auto dark:bg-[#001448] rounded-xl dark:text-white p-5 lg:p-7">
-                <h1 class="text-2xl dark:text-white font-bold py-5 text-center "style="font-family:rokh-bold ;" > جهت ثبت سفارش طراحی، فرم زیرا پر کنید.</h1>
+                <h1 class="text-lg md:text-2xl dark:text-white font-bold py-5 text-center "style="font-family:rokh ;" > جهت ثبت سفارش طراحی، فرم زیرا پر کنید.</h1>
 
                 <div class="flex-col flex gap-7 justify-center w-full">
-                    <div class="flex flex-col gap-7 w-full 2xl:w-1/2 justify-center ">
+                    <div class="flex flex-col gap-2 md:gap-7 w-full  justify-center ">
 
 
                         @session('message')
@@ -36,7 +36,7 @@
                         @endsession
 
                         <form wire:submit="submit">
-                            <div class="grid lg:grid-cols-2 gap-7">
+                            <div class="grid lg:grid-cols-2 gap-4 md:gap-7 w-full">
                                 @guest
                                     <x-form.text name="name" placeholder=" نام و نام خانوادگی" label="" wire:model="name" />
 
@@ -51,7 +51,7 @@
                             </div>
                             
 
-                            <div class="flex flex-col gap-7 w-full mt-5">
+                            <div class="flex flex-col gap-7 w-full mt-2 md:mt-5">
                                 <x-form.textarea name="message" placeholder="پیام خود را اینجا بنویسید..." label=""
                                     wire:model="message" />
                                     <x-form.file name="attachment" label="" wire:model="attachment"  style="width: 100% ; margin-top: 10px"/>

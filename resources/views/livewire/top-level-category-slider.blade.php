@@ -2,7 +2,7 @@
     @forelse ($categories as $category)
         <div class="w-full" wire:key="popular-category-{{ $category->id }}">
             <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
-                class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-5 gap-16">
+                class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-5 pb-7 gap-16">
                 <div class=" aspect-square" style="width: 90%">
                     <img src="{{ asset($category->image?->url) }}" loading="lazy" alt="category" class="w-full">
                 </div>

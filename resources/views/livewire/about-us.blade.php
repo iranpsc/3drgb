@@ -39,7 +39,7 @@
 
             <div class="flex flex-col lg:flex-row w-full gap-7 mt-16">
                 <div
-                    class="w-full flex items-center lg:w-2/3 bg-white dark:bg-[#4A4E7C] text-[#6A6A6A] dark:text-gray-400 rounded-[30px] p-6 py-10 leading-10 text-lg text-justify">
+                    class="w-full flex items-center lg:w-2/3 bg-white dark:bg-[#4A4E7C] text-[#6A6A6A] dark:text-gray-400 rounded-[30px] p-6 md:py-10 leading-10 text-lg text-justify">
                     <p>در فروشگاه سه بعدی متا، مرزها باز می‌شوند و شما به دنیایی عظیم و بی‌پایان از تجربه‌ی خرید خوش آمد
                         گویی میکنیم. اینجا جایی است که واقعیت متلاقی با خیال می‌شود و هر خرید یک ماجراجویی جدید در دل
                         مدل های سه بعدی آغاز می‌شود. خرید نه تنها یک فعل است، بلکه سفری است که هر لحظه آن، یک کاوش در

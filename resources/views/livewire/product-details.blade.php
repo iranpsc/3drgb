@@ -378,5 +378,9 @@
 
             
         </section>
+        <section class="mt-10 max-w-[1500px] mx-auto p-4 lg:p-9 mt-20 lg:mt-0">
+            <p class="text-[#344054] dark:text-gray-200 font-bold text-xl text-center md:text-right md:text-[30px] my-8">موارد مشابه‌ که ممکن است دوست داشته باشید.</p>
+            <livewire:similar-products :category="$product->category" :product="$product" />
+        </section>
     </main>
 </div>
