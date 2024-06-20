@@ -741,7 +741,7 @@
 
     <div class="w-full main-content-smallNav2">
         <footer class="px-5 lg:px-0 w-full max-w-[1500px] mx-auto mt-32">
-            <div class="flex-wrap flex justify-between  items-ctener gap-2 mx-auto w-full "
+            <div class="flex-wrap flex md:justify-between  items-ctener gap-2 mx-auto w-full "
                 style="margin-bottom:50px ; padding-left: 3px;padding-right: 3px">
                 <a href="https://irpsc.com" style="width:55px ;" target="_blank "
                     title="وزارت تعاون کار و رفاه اجتماعی">
@@ -810,7 +810,7 @@
                     <img src="https://irpsc.com/img-icon/home-soon.png">
                 </a>
             </div>
-            <div class="flex flex-col md:flex-row gap-10">
+            <div class="flex flex-col-reverse md:flex-row gap-10">
                 <div
                     class="bg-[#2667FF] dark:bg-[#002886] w-full md:w-[55%] rounded-[32px] text-white p-10 flex flex-col lg:flex-row gap-y-7 justify-between items-center">
                     <div class="space-y-3  lg:w-1/2">
@@ -847,12 +847,12 @@
             <div class="bg-[#c6d9fc] dark:bg-[#001448] w-full  p-5 rounded-t-[32px] mt-10 gap-6 flex flex-col lg:flex-row justify-between">
                 <div></div>
                 <div class="gap-6 flex flex-col">
-                    <div class="flex flex-col md:flex-row gap-5 md:gap-14 w-max mx-auto">
+                    <div class="flex flex-col text-center md:text-right md:flex-row gap-5 md:gap-14 w-max mx-auto">
                         <a href="#" class="text-stone-800 dark:text-[#ffffff] font-bold">بانک مدل 3 بعدی</a>
                         <a href="#" class="text-stone-800 dark:text-[#ffffff] font-bold">آموزش</a>
                         <a href="#" class="text-stone-800 dark:text-[#ffffff] font-bold">سیاست و حریم خصوصی</a>
                     </div>
-                    <div class="flex flex-wrap justify-center gap-5 mx-auto ">
+                    <div class="flex flex-wrap md:justify-center gap-5 mx-auto ">
                         <div>
                             <a href="https://www.youtube.com/channel/UCG9jK8hoh9X5YoTs6Z1zlIQ">
                                 <img src="{{ asset('home-page/images/youtub.png') }}" alt="یوتوب">

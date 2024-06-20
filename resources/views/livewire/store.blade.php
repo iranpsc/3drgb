@@ -142,22 +142,22 @@
                             </svg>
                         </button>
                         <div role="tab">
-                            <a class="nav-link @if ($orderBy['newest']) active @endif  px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383]  items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  "
+                            <a class="nav-link @if ($orderBy['newest']) active @endif  px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383]  items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  text-xs md:text-base"
                                 href="javascript::void(0)" wire:click="sortBy('newest')" role="tab"
                                 aria-controls="ap-overview" aria-selected="false">جدید ترین</a>
                         </div>
                         <div role="tab">
-                            <a class="nav-link @if ($orderBy['most-sales']) active @endif   px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383]  items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  "
+                            <a class="nav-link @if ($orderBy['most-sales']) active @endif   px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383]  items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  text-xs md:text-base"
                                 href="javascript::void(0)" wire:click="sortBy('most-sales')" role="tab"
                                 aria-controls="draft" aria-selected="false">پر فروش ترین</a>
                         </div>
                         <div role="tab">
-                            <a class="nav-link @if ($orderBy['most-expensive']) active @endif   px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383]  items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  "
+                            <a class="nav-link @if ($orderBy['most-expensive']) active @endif   px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383]  items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  text-xs md:text-base"
                                 href="javascript::void(0)" wire:click="sortBy('most-expensive')" role="tab"
                                 aria-controls="activity" aria-selected="false">گرانترین</a>
                         </div>
                         <div role="tab">
-                            <a class="nav-link @if ($orderBy['cheapest']) active @endif   px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383]  items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  "
+                            <a class="nav-link @if ($orderBy['cheapest']) active @endif   px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383]  items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  text-xs md:text-base"
                                 href="javascript::void(0)" wire:click="sortBy('cheapest')" role="tab"
                                 aria-controls="timeline" aria-selected="false">ارزان ترین</a>
                         </div>

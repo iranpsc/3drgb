@@ -26,11 +26,12 @@
                 <div
                     class="w-full mx-auto flex flex-col md:flex-row items-ctener justify-between  gap-10 px-10 md:px-10  py-5 lg:px-20 ">
                     <div class="w-full md:w-3/5 flex flex-col justify-center mt-20 lg:mt-0">
-                        <p class="text-[#000BEE] dark:text-white py-3 font-extrabold  text-head text-6xl " style="font-family: rokh"
+                        <img  src="{{ asset('home-page/images/Asset2.png') }}" alt="3dmodel" class="md:hidden w-full mx-auto">
+                        <p class="text-[#000BEE] dark:text-white py-3 text-head text-6xl text-center md:text-right leading-10" style="font-family:rokh-ebold"
                             >
                             مدل سه بعدی و تجربه ای متفاوت
                         </p>
-                        <p class="text-stone-800 dark:text-[#ffffff] font-bold text-xl lg:text-2xl mt-5 " style="line-height: 50px">
+                        <p class="text-stone-800 dark:text-[#ffffff] font-bold text-xl lg:text-2xl mt-5 text-center md:text-right" style="line-height: 50px">
                             ما اینجا هستیم تا روزانه محصولات سه بعدی را در اختیار شما طراحان قرار دهیم . سامانه سه بعدی
                             متا با
                             تعرفه ای
@@ -51,8 +52,8 @@
                                 class="bg-[#000BEE] dark:bg-[#C2008C] text-white font-bold md:text-xl pb-5 pt-[18px] px-5 md:px-14 w-max rounded-[32px]  text-center">جستجو</button>
                         </div>
                     </div>
-                    <div class="w-full flex items-center justify-end md:w-2/5 flex-col overflow-hidden">
-                        <img  src="{{ asset('home-page/images/Asset2.png') }}" alt="3dmodel" class="w-full" style="width: 125%; max-width:none; ">
+                    <div class="w-full flex items-center justify-end md:w-1/2 flex-col overflow-hidden">
+                        <img  src="{{ asset('home-page/images/Asset2.png') }}" alt="3dmodel" class="hidden md:block"  style="width: 125%; max-width:none; ">
                         <div class="flex gap-5  mt-5 bg-[#D8E5FD] dark:bg-[#001448c9] rounded-full  p-2 lg:hidden">
                             <div class="flex justify-center items-center p-3 w-min">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -82,16 +83,16 @@
         </div>
 
         <section class="w-full mx-auto max-w-[1500px]  p-5" style="margin-top: -140px">
-            <div class="space-y-10">
+            <div class=" space-y-5 md:space-y-10">
                 <div class="w-full flex justify-center flex-col items-center gap-4 space-y-5 py-10">
                     <p class="text-stone-800 dark:text-[#ffffff] font-bold text-2xl">
                         محصولات ما
                     </p>
-                    <p class="text-[#000BEE] dark:text-[#E8E9FF] font-extrabold text-4xl" style="font-family:rokh;">
+                    <p class="text-[#000BEE] dark:text-[#E8E9FF] font-extrabold text-4xl" style="font-family:rokh-ebold;">
                         هزاران فایل بینظیر
                     </p>
                 </div>
-                <div class="w-full relative ">
+                <div class="w-full relative">
                     <!-- Swiper -->
                     <div class="swiper-slider swiper-container  overflow-x-hidden " dir="ltr" wire:ignore>
                         <div class="swiper-wrapper ">
@@ -101,20 +102,20 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row items-center gap-y-5 gap-x-20 w-full px-5 mt-28 py-32">
+            <div class="flex flex-col md:flex-row items-center gap-y-10 gap-x-20 w-full px-5 mt-28 py-32">
                 <div class="w-full md:w-1/2 flex justify-center items-center">
                     <img src="{{ asset('home-page/images/222-min.png') }}" alt="3dmodel">
                 </div>
-                <div class="flex flex-col gap-10 w-full md:w-1/2 items-center md:items-start justify-center">
-                    <p class="text-[#000BEE] dark:text-[#E8E9FF] font-extrabold text-5xl m-0 p-0"
-                        style="font-family:rokh ;">
+                <div class="flex flex-col  w-full md:w-1/2 items-center md:items-start justify-center">
+                    <p class="text-[#000BEE] dark:text-[#E8E9FF] font-extrabold text-[30px]  text-center"
+                        style="font-family:rokh-ebold ;">
                         مدل های سه بعدی
                     </p>
-                    <p class="text-stone-800 dark:text-[#D1D1D1] font-bold text-2xl">
+                    <p class="text-stone-800 dark:text-[#D1D1D1] font-medium leading-[30px] text-center">
                         کیفیت طراحی های خود را با استفاده از مدل های سه بعدی افزایش دهید .
                     </p>
                     <a href="{{ route('products') }}"
-                        class="text-[#000BEE] text-xl dark:text-[#E8E9FF] bg-[#CDD6FC] dark:bg-[#C2008C] px-5 py-3 rounded-3xl font-bold lg:text-2xl w-max flex items-center justify-center gap-6 md:gap-10">
+                        class="mt-5 text-[#000BEE] text-base md:text-xl dark:text-[#E8E9FF] bg-[#CDD6FC] dark:bg-[#C2008C] px-5 py-3 rounded-3xl font-bold lg:text-2xl w-max flex items-center justify-center gap-6 md:gap-10">
                         <p class="m-0 p-0">
                             لیست مدل های سه بعدی
                         </p>
@@ -123,16 +124,16 @@
                 </div>
             </div>
         </section>
-        <section class="w-full mx-auto  max-w-[1500px] ">
+        <section class="w-full mx-auto  max-w-[1500px] -mt-10">
             <!-- start slyder -->
-            <div class="flex flex-col  mt-32  w-full">
+            <div class="flex flex-col  md:mt-32  w-full">
                 <div class="w-full flex-col relative  ">
-                    <div class="flex flex-col justify-start items-start gap-3 px-5">
-                        <p class="text-2xl md:text-4xl text-[#000BEE] dark:text-[#E8E9FF] font-extrabold text-center p-0 m-0 "
-                            style="font-family:rokh ;">
+                    <div class="flex flex-col  gap-3 px-5 text-center">
+                        <p class="text-[26px] md:text-4xl text-[#000BEE] dark:text-[#E8E9FF] font-extrabold text-center p-0 m-0 "
+                            style="font-family:rokh-ebold ;">
                             دسته بندی های پر طرفدار
                         </p>
-                        <p class="text-sm text-stone-800 dark:text-[#ffffff] ">لیستی از محصولات سه بعدی ، انیمیشن آیکون
+                        <p class="text-base text-stone-800 dark:text-[#ffffff] ">لیستی از محصولات سه بعدی ، انیمیشن آیکون
                             و فایل
                             های ایلستریتور</p>
                     </div>
