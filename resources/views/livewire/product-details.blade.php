@@ -78,8 +78,9 @@
                     <div class="flex justify-between h-min w-full  px-5 pb-5 border-b border-gray-300">
                         <div class="flex flex-col gap-4 justify-center">
                             <p class="text-[#3A4980] lg:text-2xl font-bold dark:text-white">
-                                {{ $product->name }} &nbsp {{ $product->sku }}
+                                {{ $product->name }}
                             </p>
+                            <span class="text-[#3A498087] dark:text-gray-200">{{ $product->sku }}</span>
                         </div>
                         <div class="flex items-start justify-end gap-2" wire:ignore>
                             <div
@@ -356,25 +357,29 @@
                         <p class="text-gray-800 dark:text-white">توضیحات :</p>
                         <p class="text-[#667085] dark:text-white">{!! nl2br($product->long_description) !!}</p>
                     </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
+                        @foreach ($product->attributes->where('slug', '!=', 'convertable_to_3d_model') as $attribute)
+                            <div
+                                class="bg-[#FFFFFF] dark:bg-[#001448] rounded-[10px] flex justify-between items-center p-5 px-4">
+                                <p class="text-gray-800 dark:text-gray-300">{{ $attribute->name }}</p>
+                                <p class="text-[#667085] dark:text-gray-300"> {{ $attribute->pivot->value }}</p>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 mt-7">
-                    @foreach ($product->attributes->where('slug', '!=', 'convertable_to_3d_model') as $attribute)
-                        <div
-                            class="bg-[#FFFFFF] dark:bg-[#001448] rounded-[10px] flex justify-between items-center p-5 px-4">
-                            <p class="text-gray-800 dark:text-gray-300">{{ $attribute->name }}</p>
-                            <p class="text-[#667085] dark:text-gray-300"> {{ $attribute->pivot->value }}</p>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-            <div id="horizontal-right-alignment-2" class="hidden" role="tabpanel"
+
+                <div id="horizontal-right-alignment-2" class="hidden" role="tabpanel"
                 aria-labelledby="horizontal-right-alignment-item-2">
                 <div class="w-full lg:w-[60%] space-y-10">
                     <livewire:reviews :product="$product" />
                 </div>
             </div>
+            </div>
+
+            
         </section>
         <section class="mt-10 max-w-[1500px] mx-auto p-4 lg:p-9 mt-20 lg:mt-0">
+            <p class="text-[#344054] dark:text-gray-200 font-bold text-xl text-center md:text-right md:text-[30px] my-8">موارد مشابه‌ که ممکن است دوست داشته باشید.</p>
             <livewire:similar-products :category="$product->category" :product="$product" />
         </section>
     </main>

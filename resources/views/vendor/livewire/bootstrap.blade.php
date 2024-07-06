@@ -34,8 +34,8 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
     </style>
 
     @if ($paginator->hasPages())
-        <nav style="margin-top:20px">
-            <ul class="pagination flex gap-1 p-1">
+        <nav style="margin-top:20px" class="w-full ">
+            <ul class="pagination flex gap-1 p-1 w-full ">
                 {{-- Previous Page Link --}}
                 @if ($paginator->onFirstPage())
                     <li class=" disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">

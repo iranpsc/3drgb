@@ -1,6 +1,6 @@
 <div class="relative ">
-    <div class="swiper-slider swiper-container  overflow-x-hidden " dir="rtl" wire:ignore>
-        <div class="swiper-wrapper">
+    <div class="swiper-slider swiper-container  overflow-x-hidden w-full" dir="rtl" wire:ignore>
+        <div class="swiper-wrapper w-full">
 
             <!-- start card -->
             @forelse ($products as $product)

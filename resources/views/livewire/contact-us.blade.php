@@ -26,7 +26,7 @@
                 <h1 class="text-3xl dark:text-white font-bold py-5 text-center lg:text-right" >تماس باما</h1>
 
                 <div class="flex-col flex gap-7 lg:flex-row w-full">
-                    <div class="flex flex-col gap-7 w-full lg:w-1/2 justify-center lg:justify-start">
+                    <div class="flex flex-col gap-2 md:gap-7 w-full lg:w-1/2 justify-center lg:justify-start">
                         <div>
                             <p class="text-black/50 dark:text-gray-300 py-1 text-center lg:text-right" >پیام شما میتواند
                                 شروع یک مکالمه سازنده باشد.</p>
@@ -39,7 +39,7 @@
                         @endsession
 
                         <form wire:submit="submit">
-                            <div class="grid lg:grid-cols-2 gap-7">
+                            <div class="grid lg:grid-cols-2 gap-2 md:gap-7">
                                 <x-form.text name="name" label="" placeholder="نام و نام خانوادگی" wire:model="name"/>
 
                                 <x-form.text name="phone" label="" placeholder="شماره تلفن" wire:model="phone"/>
@@ -49,15 +49,15 @@
                                 <x-form.text name="subject" label="" placeholder="موضوع پیام" wire:model="subject"/>
 
                             </div>
-                            <div class="flex flex-col gap-7 w-full mt-5">
+                            <div class="flex flex-col gap-2 md:gap-7 w-full mt-2 md:mt-5">
                                 <x-form.textarea  name="message" label="" placeholder="پیام خود را اینجا بنویسید..." wire:model="message"/>
 
                                 <x-button style="margin-top:4px " type="submit">ارسال پیام</x-button>
                             </div>
                         </form>
                     </div>
-                    <div class="flex flex-col gap-7 w-full lg:w-1/2 justify-center lg:justify-start">
-                        <div class="flex flex-wrap items-center justify-between gap-6 ">
+                    <div class="flex flex-col gap-7 w-full lg:w-1/2 justify-center lg:justify-start ">
+                        <div class="flex flex-col lg:flex-row lg:flex-wrap w-full items-center justify-between gap-6 ">
                             <div class="flex gap-3 items-center ">
                                 <a class="font-bold text-2xl text-black/50 dark:text-gray-300"
                                     href="tel:۰۹۳۳۷۸۵۰۴۲۴">۰۹۳۳۷۸۵۰۴۲۴</a>

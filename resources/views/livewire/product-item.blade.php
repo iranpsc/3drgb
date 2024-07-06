@@ -1,6 +1,6 @@
-<div>
+<div class="w-full">
     <!-- start card -->
-    <div class=" product ">
+    <div class=" product w-full">
         <div
             class="bg-white dark:bg-[#001448] w-full flex flex-col overflow-hidden rounded-xl justify-between items-center text-center  gap-2  duration-500 transition-all">
             <a href="{{ $product->url }}" style="width: 90% ;padding-top: 16px" >
