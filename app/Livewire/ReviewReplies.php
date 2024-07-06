@@ -9,6 +9,13 @@ class ReviewReplies extends Component
 {
     public Review $review;
 
+    public function mount()
+    {
+        $this->review->load(['replies' => function ($query) {
+            $query->where('approved', 1)->orderBy('created_at', 'desc');
+        }]);
+    }
+
     public function approve($reply)
     {
         $reply->approve(auth()->user()->name);
