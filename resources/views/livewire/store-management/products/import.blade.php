@@ -4,15 +4,22 @@
         @if (session()->has('message'))
             <x-alert type="success" :message="session('message')" />
         @endif
-        
+
         <div class="row justify-content-center">
             <div class="col-sm-8 col-md-6 col-lg-4">
                 <form wire:submit="import">
                     <div class="flex flex-col gap-3">
                         <label for="file" class="">فایل اکسل</label>
-                        <div >
-                            <input type="file" class="w-full bg-[#F8F9FA] dark:bg-[#4A4E7C] rounded-[10px] p-3 border-dashed border-gray-500 dark:border-gray-400 border-2" id="file" wire:model="file">
-                            @error('file') <span    >{{ $message }}</span> @enderror
+                        <div>
+                            <input type="file"
+                                class="w-full bg-[#F8F9FA] dark:bg-[#4A4E7C] rounded-[10px] p-3 border-dashed border-gray-500 dark:border-gray-400 border-2"
+                                id="file" wire:model="file">
+                            @error('file')
+                                <span>{{ $message }}</span>
+                            @enderror
+                            <div wire:loading wire:target="file" class="alert alert-info">
+                                در حال بارگذاری...
+                            </div>
                         </div>
                     </div>
                     <div class="mt-5">

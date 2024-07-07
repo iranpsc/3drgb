@@ -45,7 +45,7 @@ class ProductImport implements ToArray, WithChunkReading, ShouldQueue
                 $tag = trim($tag);
 
                 $tag = \App\Models\Tag::firstOrCreate(
-                    ['name' => $tag],
+                    ['name' => trim($tag)],
                     ['slug' => str_replace(' ', '-', $tag)]
                 );
 
@@ -74,19 +74,30 @@ class ProductImport implements ToArray, WithChunkReading, ShouldQueue
 
             for ($i = 15; $i <= count($row) - 1; $i += 3) {
                 if ($row[$i] != null) {
-                    $attribute = \App\Models\Attribute::firstOrCreate(
-                        ['name' => $row[$i]],
-                        ['slug' => str_replace(' ', '-', $row[$i])]
-                    );
+                    $attribute = \App\Models\Attribute::where('name', trim($row[$i]))->first();
 
-                    $product->attributes()->attach($attribute->id, [
-                        'value' => $row[$i + 1],
-                        'display' => $row[$i + 2],
-                    ]);
+                    if ($attribute) {
+                        $product->attributes()->syncWithoutDetaching([$attribute->id => [
+                            'value' => $row[$i + 1],
+                            'display' => $row[$i + 2],
+                        ]]);
+                    } else {
+                        $attribute = \App\Models\Attribute::create([
+                            'name' => trim($row[$i]),
+                            'slug' => str_replace(' ', '-', $row[$i]),
+                        ]);
+
+                        $product->attributes()->attach($attribute->id, [
+                            'value' => $row[$i + 1],
+                            'display' => $row[$i + 2],
+                        ]);
+                    }
                 }
             }
 
             $images = explode(',', $row[13]);
+
+            $product->images()->delete();
 
             foreach ($images as $image) {
                 $image = trim($image);
@@ -95,6 +106,8 @@ class ProductImport implements ToArray, WithChunkReading, ShouldQueue
                     'path' => $image
                 ]);
             }
+
+            $product->file()->delete();
 
             $product->file()->create([
                 'path' => $row[14]

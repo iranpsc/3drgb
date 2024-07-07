@@ -25,8 +25,8 @@ class Store extends Component
     public $category;
 
     public $price_filter = [
-        'min' => 7000,
-        'max' => 95000,
+        'min' => 0,
+        'max' => 9000000,
     ];
 
     public $tags;

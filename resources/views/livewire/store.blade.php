@@ -88,11 +88,7 @@
                         <span class="multi-range">
                             <input type="range" min="0" max="10000000" value="0" step="1"
                                 id="minPrice" wire:model.live.debounce.500ms="price_filter.min">
-<<<<<<< HEAD
-                            <input type="range" min="0" max="10000000" value="10000000" step="1"
-=======
                             <input type="range" min="0" max="9000000" value="479900" step="1"
->>>>>>> 9cab145ba2cdba49570e03c3c44ff41d7d5ce763
                                 id="maxPrice" wire:model.live.debounce.500ms="price_filter.max">
                         </span>
                     </div>

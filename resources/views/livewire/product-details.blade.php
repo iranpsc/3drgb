@@ -77,9 +77,9 @@
                 <div class="w-full md:w-2/3 xl:w-[65%] flex flex-col gap-5 mt-14 md:mt-0">
                     <p class="text-[#3A4980] text-2xl font-bold dark:text-white px-5 ">
                         {{ $product->name }}
-                    </p>    
+                    </p>
                     <div class="flex justify-between h-min w-full  px-5 pb-5 border-b border-gray-300">
-                        
+
                         <div class="flex flex-col gap-4 justify-center">
 
                             <span class="text-[#3A498087] dark:text-gray-200">{{ $product->sku }}</span>
@@ -378,7 +378,7 @@
             </div>
             </div>
 
-            
+
         </section>
         <section class="mt-10 max-w-[1500px] mx-auto p-4 lg:p-9 mt-20 lg:mt-0">
             <p class="text-[#344054] dark:text-gray-200 font-bold text-xl text-center md:text-right md:text-[30px] my-8">موارد مشابه‌ که ممکن است دوست داشته باشید.</p>
