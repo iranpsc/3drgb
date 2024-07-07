@@ -1,7 +1,8 @@
 <div>
     <main>
         <section>
-            <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm hidden lg:block px-5" style="font-family: rokh">
+            <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm hidden lg:block px-5"
+                style="font-family: rokh">
                 <div class="flex items-center justify-between max-w-[1500px] mx-auto">
                     <div>
                         <a href="#" class="px-4">قوانین و مجوزات</a>
@@ -26,12 +27,14 @@
                 <div
                     class="w-full mx-auto flex flex-col md:flex-row items-ctener justify-between  gap-10 px-10 md:px-10  py-5 lg:px-20 ">
                     <div class="w-full md:w-3/5 flex flex-col justify-center mt-20 lg:mt-0">
-                        <img  src="{{ asset('home-page/images/Asset2.png') }}" alt="3dmodel" class="md:hidden w-full mx-auto">
-                        <p class="text-[#000BEE] dark:text-white py-3 text-head text-6xl text-center md:text-right leading-10" style="font-family:rokh-ebold"
-                            >
+                        <img src="{{ asset('home-page/images/Asset2.png') }}" alt="3dmodel"
+                            class="md:hidden w-full mx-auto">
+                        <p class="text-[#000BEE] dark:text-white py-3 text-head text-6xl text-center md:text-right leading-10"
+                            style="font-family:rokh-ebold">
                             مدل سه بعدی و تجربه ای متفاوت
                         </p>
-                        <p class="text-stone-800 dark:text-[#ffffff] font-bold text-xl lg:text-2xl mt-5 text-center md:text-right" style="line-height: 50px">
+                        <p class="text-stone-800 dark:text-[#ffffff] font-bold text-xl lg:text-2xl mt-5 text-center md:text-right"
+                            style="line-height: 50px">
                             ما اینجا هستیم تا روزانه محصولات سه بعدی را در اختیار شما طراحان قرار دهیم . سامانه سه بعدی
                             متا با
                             تعرفه ای
@@ -53,7 +56,8 @@
                         </div>
                     </div>
                     <div class="w-full flex items-center justify-end md:w-1/2 flex-col overflow-hidden">
-                        <img  src="{{ asset('home-page/images/Asset2.png') }}" alt="3dmodel" class="hidden md:block"  style="width: 125%; max-width:none; ">
+                        <img src="{{ asset('home-page/images/Asset2.png') }}" alt="3dmodel" class="hidden md:block"
+                            style="width: 125%; max-width:none; ">
                         <div class="flex   mt-5 bg-[#D8E5FD] dark:bg-[#001448c9] rounded-full  p-2 lg:hidden">
                             <div class="flex justify-center items-center p-3 w-min">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -76,7 +80,7 @@
                 </div>
             </div>
             <img id="home-img2" src="{{ asset('home-page/images/output-onlinepngtools.png') }}" alt="body"
-                class="mt-250 hidden dark:block  w-full  overflow-hidden mb-36 2xl:mt-[-185px] mt-250" >
+                class="mt-250 hidden dark:block  w-full  overflow-hidden mb-36 2xl:mt-[-185px] mt-250">
             <img id="home-img" src="{{ asset('home-page/images/helal.png') }}" alt="body"
                 class=" dark:hidden w-full  overflow-hidden mb-36 2xl:mt-[-185px] mt-250">
 
@@ -88,7 +92,8 @@
                     <p class="text-stone-800 dark:text-[#ffffff] font-bold text-2xl">
                         محصولات ما
                     </p>
-                    <p class="text-[#000BEE] dark:text-[#E8E9FF] font-extrabold text-4xl" style="font-family:rokh-ebold;">
+                    <p class="text-[#000BEE] dark:text-[#E8E9FF] font-extrabold text-4xl"
+                        style="font-family:rokh-ebold;">
                         هزاران فایل بینظیر
                     </p>
                 </div>
@@ -133,21 +138,23 @@
                             style="font-family:rokh-ebold ;">
                             دسته بندی های پر طرفدار
                         </p>
-                        <p class="text-base text-stone-800 dark:text-[#ffffff] ">لیستی از محصولات سه بعدی ، انیمیشن آیکون
+                        <p class="text-base text-stone-800 dark:text-[#ffffff] ">لیستی از محصولات سه بعدی ، انیمیشن
+                            آیکون
                             و فایل
                             های ایلستریتور</p>
                     </div>
 
                     <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden py-5 my-5 pl-5 md:pl-0"
                         dir="ltr">
-                        <div 
+                        <div
                             class="h-full flex overflow-x-scroll scrollbar lg:gap-7 gap-5 items-center justify-start transition ease-out duration-700 ">
                             @forelse ($this->popularCategories as $category)
                                 <div class="flex flex-shrink-0 relative  ">
                                     <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
-                                        class="bg-white dark:bg-[#001448] p-3 pb-7   w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-7 text-center" >
+                                        class="bg-white dark:bg-[#001448] p-3 pb-7   w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-7 text-center">
                                         <div class="w-full ">
-                                            <img src="{{ asset($category->image?->url) }}" loading="lazy" alt="category" class="w-full rounded-xl">
+                                            <img src="{{ asset($category->image?->url) }}" loading="lazy"
+                                                alt="category" class="w-full rounded-xl">
                                         </div>
                                         <div>
                                             <p
@@ -241,39 +248,36 @@
     </main>
 </div>
 @script
-<script>
-    const buttons = document.querySelectorAll("#order-by-score, #order-by-newest, #order-by-sales");
+    <script>
+        const buttons = document.querySelectorAll("#order-by-score, #order-by-newest, #order-by-sales");
 
-    buttons.forEach(button => {
-        button.addEventListener("click", () => {
-            $wire.call('changeTab', button.id);
-            buttons.forEach(btn => btn.classList.remove("active"));
-            button.classList.add("active");
+        buttons.forEach(button => {
+            button.addEventListener("click", () => {
+                $wire.call('changeTab', button.id);
+                buttons.forEach(btn => btn.classList.remove("active"));
+                button.classList.add("active");
+            });
         });
-    });
-</script>
+
+        // slider
+        let defaultTransform = 0;
+
+        function goNext() {
+            defaultTransform = defaultTransform - 300;
+            var slider = document.getElementById("slider");
+            if (Math.abs(defaultTransform) >= slider.scrollWidth / 1.4) defaultTransform = 0;
+            slider.style.transform = "translateX(" + defaultTransform + "px)";
+        }
+        next.addEventListener("click", goNext);
+
+        function goPrev() {
+            var slider = document.getElementById("slider");
+            if (Math.abs(defaultTransform) === 0) defaultTransform = 0;
+            else defaultTransform = defaultTransform + 300;
+            slider.style.transform = "translateX(" + defaultTransform + "px)";
+        }
+        prev.addEventListener("click", goPrev);
+
+        //slyder end
+    </script>
 @endscript
-<script>
-    // slyder
-    let defaultTransform = 0;
-
-    function goNext() {
-        defaultTransform = defaultTransform - 300;
-        var slider = document.getElementById("slider");
-        if (Math.abs(defaultTransform) >= slider.scrollWidth / 1.4) defaultTransform = 0;
-        slider.style.transform = "translateX(" + defaultTransform + "px)";
-    }
-    next.addEventListener("click", goNext);
-
-    function goPrev() {
-        var slider = document.getElementById("slider");
-        if (Math.abs(defaultTransform) === 0) defaultTransform = 0;
-        else defaultTransform = defaultTransform + 300;
-        slider.style.transform = "translateX(" + defaultTransform + "px)";
-    }
-    prev.addEventListener("click", goPrev);
-
-    //slyder end
-</script>
-
-

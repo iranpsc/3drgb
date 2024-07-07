@@ -16,12 +16,11 @@ class Attribute extends Model
 
     /**
      * Get the products for the attribute.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function products()
     {
         return $this->belongsToMany(Product::class)->withPivot('value');
     }
-
 }

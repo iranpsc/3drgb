@@ -23,6 +23,11 @@ class Category extends Model implements Sitemapable
         'parent_id' => 'integer'
     ];
 
+    /**
+     * Get the URL attribute for the category.
+     *
+     * @return string
+     */
     public function getUrlAttribute()
     {
         $this->loadMissing('parent');
@@ -30,6 +35,30 @@ class Category extends Model implements Sitemapable
         return $this->parent ? $this->parent->url . '/' . $this->slug : $this->slug;
     }
 
+    /**
+     * Get the breadcrumb attribute for the category.
+     *
+     * @return string
+     */
+    /**
+     * Get the breadcrumb attribute for the category.
+     *
+     * @return string
+     */
+    public function getBreadcrumbAttribute()
+    {
+        $this->loadMissing('parent');
+
+        $url = '<a href="' . url('categories/' . $this->url) . '">' . $this->name . '</a>';
+
+        return $this->parent ? $this->parent->breadcrumb . ' / ' . $url : $url;
+    }
+
+    /**
+     * Convert the category to a sitemap tag.
+     *
+     * @return \Illuminate\Contracts\Routing\UrlGenerator|string|array
+     */
     public function toSitemapTag(): Url|string|array
     {
         $url = Url::create(url('categories.show/' . $this->url))

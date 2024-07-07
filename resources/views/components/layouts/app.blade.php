@@ -750,7 +750,7 @@
                 <a class="active" href="#" target="_blank "  style="width:55px ;"
                     title="نماد اعتماد الکترونیک">
                     <img src="https://irpsc.com/img-icon/enamad.png" class="rounded-lg" alt="نماد اعتماد الکترونیک">
-                    
+
                 </a>
                 <a href="https://irpsc.com" target="_blank " style="width:55px ;" title="ثبت اسناد و املاک کشور">
                     <img src="https://irpsc.com/img-icon/qazaii.png" class="rounded-lg" alt="ثبت اسناد و املاک کشور">

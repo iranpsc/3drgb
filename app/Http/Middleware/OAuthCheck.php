@@ -19,6 +19,14 @@ class OAuthCheck
     {
         if (Auth::check()) {
 
+            if (app()->environment('local')) {
+                return $next($request);
+            }
+
+            if (!$request->user()->access_token) {
+                $this->logout($request);
+            }
+
             try {
                 $response = Http::withHeaders([
                     'Authorization' => 'Bearer ' . $request->user()->access_token,

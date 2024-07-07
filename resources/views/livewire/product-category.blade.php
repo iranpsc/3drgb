@@ -27,7 +27,8 @@
                     class="flex gap-1 text-[#828282] p-3 items-center lg:w-[70%] xl:w-[80%] bg-white dark:bg-[#001448] rounded-[10px]">
                     <a href="{{ route('home') }}" class="text-[#828282] !font-medium">خانه</a>
                     <span>/</span>
-                    <a href="#" class="text-[#828282] font-bold">دسته بندی ها</a>
+                    {{-- <a href="#" class="text-[#828282] font-bold">{{ $category->breadcrumb }}</a> --}}
+                    {!! $category->breadcrumb !!}
                 </div>
                 <div
                     class="flex items-center justify-center lg:w-[30%] xl:w-[20%] bg-white dark:bg-[#001448] rounded-[10px] gap-1 text-[#828282] p-3">

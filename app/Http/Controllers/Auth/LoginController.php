@@ -75,7 +75,7 @@ class LoginController extends Controller
                 'email' => $user['email'],
                 'phone' => $user['mobile'],
                 'email_verified_at' => now(),
-                'password' => Str::random(10),
+                'password' => bcrypt(Str::random(10)),
                 'code' => $user['code'],
                 'access_token' => $response['access_token'],
                 'refresh_token' => $response['refresh_token'],
