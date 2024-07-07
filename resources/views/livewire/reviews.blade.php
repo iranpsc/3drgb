@@ -50,8 +50,10 @@
                                 </path>
                             </svg>
                         </div>
-                        <span
+                        <div class="w-5">
+                            <span
                             class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ $five_star_review_percentage }}%</span>
+                        </div>
                     </div>
                 </dd>
             </dl>
@@ -98,8 +100,10 @@
                                 </path>
                             </svg>
                         </div>
-                        <span
+                        <div class="w-5">
+                            <span
                             class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ $four_star_review_percentage }}%</span>
+                        </div>
                     </div>
                 </dd>
             </dl>
@@ -146,8 +150,10 @@
                                 </path>
                             </svg>
                         </div>
-                        <span
+                            <div class="w-5">
+                                <span
                             class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ $three_star_review_percentage }}%</span>
+                            </div>
                     </div>
                 </dd>
             </dl>
@@ -194,9 +200,10 @@
                                 </path>
                             </svg>
                         </div>
-                        <span
-                            class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ $two_star_review_percentage }}
-                            %</span>
+                        <div class="w-5">
+                            <span
+                            class="text-sm font-medium text-gray-500 dark:text-gray-400 ">{{ $two_star_review_percentage }}%</span>
+                        </div>
                     </div>
                 </dd>
             </dl>
@@ -243,14 +250,16 @@
                                 </path>
                             </svg>
                         </div>
-                        <span
+                        <div class="w-5">
+                            <span
                             class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ $one_star_review_percentage }}%</span>
+                        </div>
                     </div>
                 </dd>
             </dl>
         </div>
         <div
-            class="bg-[#FFFFFF] dark:bg-[#001448] p-5 md:p-[34px] rounded-[10px] flex flex-row-reverse md:flex-col items-center justify-between w-full md:w-[30%] gap-5 lg:gap-10">
+            class="bg-[#FFFFFF] dark:bg-[#001448] p-5 md:p-[34px] rounded-[10px] flex flex-row-reverse md:flex-col items-center justify-between w-full md:w-[30%] md:min-h-[264px] gap-5 lg:gap-10">
             <div class="flex flex-col gap-5 lg:gap-10 items-center justify-center">
                 <p class="text-2xl md:text-5xl font-bold text-[#4F547B] dark:text-gray-300">
                     {{ floor($product->rating_avg) }}
