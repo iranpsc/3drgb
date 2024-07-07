@@ -52,9 +52,6 @@
                             <div class="mx-2 w-5">
                                 <span
                             class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ $five_star_review_percentage }}%</span>
-                            </div>
-                        </div>
-                        
                     </div>
                 </dd>
             </dl>
@@ -105,7 +102,8 @@
                             class="text-sm  font-medium text-gray-500 dark:text-gray-400">{{ $four_star_review_percentage }}%</span>
                             </div>
                         </div>
-                        
+                        <span
+                            class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ $four_star_review_percentage }}%</span>
                     </div>
                 </dd>
             </dl>
@@ -395,7 +393,7 @@
                                 <p>{{ $review->comment }}</p>
                                 <div class="bg-[#FBFDFF] my-5 dark:bg-[#001448] dark:border-transparent dark:text-[#A8ABB4] border border-[#ECEEF3] w-full md:w-[70%] flex items-center justify-center px-4 py-1 rounded-xl">
                                     
-                                    <textarea wire:model="reviewReplyText" id="review-reply-box-{{ $review->id }}" name="reply" placeholder="پاسخ خود را بنویسید"  class="placeholder:text-[#A8ABB4] w-full bg-transparent ring-0 focus:ring-0 border-0 focus:border-0"></textarea>
+                                    <textarea  wire:model="reviewReplyText" id="review-reply-box-{{ $review->id }}" name="reply" placeholder="پاسخ خود را بنویسید"  class="placeholder:text-[#A8ABB4] w-full bg-transparent ring-0 focus:ring-0 border-0 focus:border-0 "></textarea>
 
                                 </div>
                                 @error('reviewReplyText')
@@ -403,7 +401,7 @@
                             @enderror
                                 <div class="flex gap-4 items-center justify-end mt-5">
                                     <button class="text-xs text-red-600"
-                                        wire:click="saveReviewReply({{ $review->id }})">Replay</button>
+                                        wire:click="saveReviewReply({{ $review->id }})">ثبت</button>
                                     <button class="text-xs" wire:click="likeReview({{ $review->id }})">Like</button>
                                 </div>
                                 <div class="flex flex-col gap-4 w-full   mt-5">
