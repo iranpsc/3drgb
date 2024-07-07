@@ -19,38 +19,38 @@
                     </div>
                     <div class="flex items-center gap-4 w-[50%] md:w-[40%] 2xl:w-[35%] 3xl:w-[30%]">
                         <div class="flex items-center">
-                            <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
+                            <svg class="w-5 h-5 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
                                 viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
+                            <svg class="w-5 h-5 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
                                 viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
+                            <svg class="w-5 h-5 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
                                 viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
+                            <svg class="w-5 h-5 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
                                 viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <svg class="w-4 h-4 ms-1 text-yellow-300 dark:text-gray-500" aria-hidden="true"
+                            <svg class="w-5 h-5 ms-1 text-yellow-300 dark:text-gray-500" aria-hidden="true"
                                 fill="currentColor" viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <div class="mx-2 w-5">
-                                <span
+                        </div>
+                        <span
                             class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ $five_star_review_percentage }}%</span>
                     </div>
                 </dd>
@@ -67,40 +67,36 @@
                     </div>
                     <div class="flex items-center gap-4 w-[50%] md:w-[40%] 2xl:w-[35%] 3xl:w-[30%]">
                         <div class="flex items-center">
-                            <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
+                            <svg class="w-5 h-5 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
                                 viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
+                            <svg class="w-5 h-5 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
                                 viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
+                            <svg class="w-5 h-5 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
                                 viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
+                            <svg class="w-5 h-5 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
                                 viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <svg class="w-4 h-4 ms-1 text-gray-300 dark:text-gray-500" aria-hidden="true"
+                            <svg class="w-5 h-5 ms-1 text-gray-300 dark:text-gray-500" aria-hidden="true"
                                 fill="currentColor" viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <div class="mx-2  w-5">
-                                <span
-                            class="text-sm  font-medium text-gray-500 dark:text-gray-400">{{ $four_star_review_percentage }}%</span>
-                            </div>
                         </div>
                         <span
                             class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ $four_star_review_percentage }}%</span>
@@ -119,42 +115,39 @@
                     </div>
                     <div class="flex items-center gap-4 w-[50%] md:w-[40%] 2xl:w-[35%] 3xl:w-[30%]">
                         <div class="flex items-center">
-                            <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
+                            <svg class="w-5 h-5 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
                                 viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
+                            <svg class="w-5 h-5 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
                                 viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
+                            <svg class="w-5 h-5 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
                                 viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <svg class="w-4 h-4 text-gray-300 ms-1" aria-hidden="true" fill="currentColor"
+                            <svg class="w-5 h-5 text-gray-300 ms-1" aria-hidden="true" fill="currentColor"
                                 viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <svg class="w-4 h-4 ms-1 text-gray-300 dark:text-gray-500" aria-hidden="true"
+                            <svg class="w-5 h-5 ms-1 text-gray-300 dark:text-gray-500" aria-hidden="true"
                                 fill="currentColor" viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <div class="mx-2  w-5">
-                                <span
-                                class="text-sm font-medium text-gray-500 dark:text-gray-400 ">{{ $three_star_review_percentage }}%</span>
-                            </div>
                         </div>
-
+                        <span
+                            class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ $three_star_review_percentage }}%</span>
                     </div>
                 </dd>
             </dl>
@@ -170,43 +163,40 @@
                     </div>
                     <div class="flex items-center gap-4 w-[50%] md:w-[40%] 2xl:w-[35%] 3xl:w-[30%]">
                         <div class="flex items-center">
-                            <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
+                            <svg class="w-5 h-5 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
                                 viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
+                            <svg class="w-5 h-5 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
                                 viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <svg class="w-4 h-4 text-gray-300 ms-1" aria-hidden="true" fill="currentColor"
+                            <svg class="w-5 h-5 text-gray-300 ms-1" aria-hidden="true" fill="currentColor"
                                 viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <svg class="w-4 h-4 text-gray-300 ms-1" aria-hidden="true" fill="currentColor"
+                            <svg class="w-5 h-5 text-gray-300 ms-1" aria-hidden="true" fill="currentColor"
                                 viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <svg class="w-4 h-4 ms-1 text-gray-300 dark:text-gray-500" aria-hidden="true"
+                            <svg class="w-5 h-5 ms-1 text-gray-300 dark:text-gray-500" aria-hidden="true"
                                 fill="currentColor" viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <div class="mx-2 w-5">
-                                <span
-                                class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ $two_star_review_percentage }}
-                                %</span>
-                            </div>
                         </div>
-
+                        <span
+                            class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ $two_star_review_percentage }}
+                            %</span>
                     </div>
                 </dd>
             </dl>
@@ -222,48 +212,45 @@
                     </div>
                     <div class="flex items-center gap-4 w-[50%] md:w-[40%] 2xl:w-[35%] 3xl:w-[30%]">
                         <div class="flex items-center">
-                            <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
+                            <svg class="w-5 h-5 text-yellow-300 ms-1" aria-hidden="true" fill="currentColor"
                                 viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <svg class="w-4 h-4 text-gray-300 ms-1" aria-hidden="true" fill="currentColor"
+                            <svg class="w-5 h-5 text-gray-300 ms-1" aria-hidden="true" fill="currentColor"
                                 viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <svg class="w-4 h-4 text-gray-300 ms-1" aria-hidden="true" fill="currentColor"
+                            <svg class="w-5 h-5 text-gray-300 ms-1" aria-hidden="true" fill="currentColor"
                                 viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <svg class="w-4 h-4 text-gray-300 ms-1" aria-hidden="true" fill="currentColor"
+                            <svg class="w-5 h-5 text-gray-300 ms-1" aria-hidden="true" fill="currentColor"
                                 viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <svg class="w-4 h-4 ms-1 text-gray-300 dark:text-gray-500" aria-hidden="true"
+                            <svg class="w-5 h-5 ms-1 text-gray-300 dark:text-gray-500" aria-hidden="true"
                                 fill="currentColor" viewBox="0 0 22 20">
                                 <path
                                     d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z">
                                 </path>
                             </svg>
-                            <div class="mx-2 w-5">
-                                <span
-                            class="text-sm w-10 font-medium text-gray-500 dark:text-gray-400">{{ $one_star_review_percentage }}%</span>
-                            </div>
                         </div>
-
+                        <span
+                            class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ $one_star_review_percentage }}%</span>
                     </div>
                 </dd>
             </dl>
         </div>
         <div
-            class="bg-[#FFFFFF] dark:bg-[#001448] p-5 md:p-[34px] rounded-[10px] flex flex-row-reverse md:flex-col items-center justify-between w-full md:w-[30%] gap-5 lg:gap-10 md:min-h-[264px]">
+            class="bg-[#FFFFFF] dark:bg-[#001448] p-5 md:p-[34px] rounded-[10px] flex flex-row-reverse md:flex-col items-center justify-between w-full md:w-[30%] gap-5 lg:gap-10">
             <div class="flex flex-col gap-5 lg:gap-10 items-center justify-center">
                 <p class="text-2xl md:text-5xl font-bold text-[#4F547B] dark:text-gray-300">
                     {{ floor($product->rating_avg) }}
@@ -282,9 +269,69 @@
             <p class="text-[#4F547B] dark:text-gray-300">رتبه بندی محصول</p>
         </div>
     </div>
+    @forelse ($product->reviews as $review)
+    <div class="w-full mt-10" wire:key="{{ $review->id }}">
+        <div class="w-full">
+            <div class="space-y-5 ">
+                <div class="flex gap-5 ">
+                    <div
+                        class="w-12 h-12 rounded-full bg-[#164C96] text-gray-200 flex items-center justify-center">
+                        <img src="{{ asset('storage/' . $review->user->avatar) }}"
+                            class="w-12 h-12 rounded-full">
+                    </div>
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-3 text-[#1D2939] dark:text-gray-200">
+                            <p class="font-bold">{{ $review->user->name }}</p>
+                            <p class="text-xs">
+                                {{ \Morilog\Jalali\Jalalian::fromDateTime($review->created_at)->ago() }}</p>
+                        </div>
+                        <div class="product-details__availability my-2">
+                            <div class="free">
+                                <div class="stars-rating flex gap-1 items-center">
+                                    @for ($i = 0; $i < 5; $i++)
+                                        <span
+                                            class="star-icon las la-star @if ($i < $review->rating) active @endif"></span>
+                                    @endfor
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="flex flex-col-reverse">
-        @if (Auth::check() && Auth::user()->hasPurchased($product) && !Auth::user()->hasReviewed($product))
+                <div class="space-y-5">
+                    <div class="text-[#1d29399d] dark:text-gray-200 text-sm">
+                        <p>{{ $review->comment }}</p>
+                        <div class="flex gap-4 items-center justify-between mt-5">
+                            <textarea id="review-reply-box-{{ $review->id }}" cols="30" rows="1" placeholder="پاسخ خود را بنویسید" class="placeholder:text-[#A8ABB4] w-full bg-[#FBFDFF] ring-0 focus:ring-0  dark:bg-[#001448] dark:border-transparent dark:text-[#A8ABB4] border border-[#ECEEF3] rounded-xl py-3 px-5"
+                                wire:model="reviewReplyText"></textarea>    
+                            <div class="flex gap-4 items-center justify-end">
+                                <button class="text-xs text-red-600"
+                                wire:click="saveReviewReply({{ $review->id }})">Replay</button>
+                            <button class="text-xs" wire:click="likeReview({{ $review->id }})">Like</button>
+                            </div>
+                        </div>
+                        <div class="flex flex-col my-5 mb-10">
+                            @session('message')
+                                <x-alert type="success" message="{{ session('message') }}" />
+                            @endsession
+                            
+                            @error('reviewReplyText')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+
+                            <!-- Review replies -->
+                            <livewire:review-replies :review="$review" :key="$review->id" />
+                            <!-- End review replies -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@empty
+    <x-alert type="success" message="نظری ثبت نشده است." />
+@endforelse
+    @if (Auth::check() && Auth::user()->hasPurchased($product) && !Auth::user()->hasReviewed($product))
         <div class="flex flex-col gap-7 text-[#1D2939] dark:text-gray-200">
             <div class="font-bold text-xl">
                 یک نظر بنویسید
@@ -319,150 +366,47 @@
                 </div>
             </div>
         </div>
-        @elseif($product->is_free)
-            @if (Auth::check())
-                <div class="flex flex-col gap-7 text-[#1D2939] dark:text-gray-200">
-                    <div class="font-bold text-xl">
-                        یک نظر بنویسید
-                    </div>
-                    <div class="flex flex-col gap-3">
-                        <p>محصول چگونه است؟</p>
+    @elseif($product->is_free)
+        @if (Auth::check())
+            <div class="flex flex-col gap-7 text-[#1D2939] dark:text-gray-200">
+                <div class="font-bold text-xl">
+                    یک نظر بنویسید
+                </div>
+                <div class="flex flex-col gap-3">
+                    <p>محصول چگونه است؟</p>
 
-                        <div class="col-sm-6">
-                            <div class="stars-rating flex gap-3 items-center" id="star-rating">
-                                <span class="star-icon las la-star"></span>
-                                <span class="star-icon las la-star"></span>
-                                <span class="star-icon las la-star"></span>
-                                <span class="star-icon las la-star"></span>
-                                <span class="star-icon las la-star"></span>
-                            </div>
-                            @error('rating')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                    <div class="col-sm-6">
+                        <div class="stars-rating flex gap-3 items-center" id="star-rating">
+                            <span class="star-icon las la-star"></span>
+                            <span class="star-icon las la-star"></span>
+                            <span class="star-icon las la-star"></span>
+                            <span class="star-icon las la-star"></span>
+                            <span class="star-icon las la-star"></span>
                         </div>
-                    </div>
-                    <div class="space-y-5 w-full lg:w-[60%]">
-                        <p class="mt-5">نظر شما در باره این محصول چیست؟</p>
-                        <textarea wire:model="comment" name="" id="" cols="30" rows="10"
-                            class="w-full text-gray-400 py-3 rounded-[10px] border-2 border-gray-300 ring-offset-0 focus:ring-offset-0 ring-0 !focus:ring-0 bg-transparent"></textarea>
-                        @error('comment')
+                        @error('rating')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
-                        <div class="flex justify-end mt-10">
-                            <button type="button"
-                                class="bg-[#3A4980] dark:bg-[#001448] text-white py-4 pb-[17px] rounded-full w-max px-6"
-                                id="save-review-btn">ارسال بررسی</button>
-                        </div>
                     </div>
                 </div>
-            @else
-                <x-alert type="success" message="برای ارسال نظر باید وارد حساب کاربری خود شوید." />
-            @endif
-        @endif
-        @forelse ($product->reviews as $review)
-            <div class="w-full my-14" wire:key="{{ $review->id }}">
-                <div class="w-full">
-                    <div class="space-y-5 ">
-                        <div class="flex gap-5 ">
-                            <div
-                                class="w-12 h-12 rounded-full bg-[#164C96] text-gray-200 flex items-center justify-center">
-                                <img src="{{ asset('storage/' . $review->user->avatar) }}"
-                                    class="w-12 h-12 rounded-full">
-                            </div>
-                            <div class="space-y-1">
-                                <div class="flex items-center gap-3 text-[#1D2939] dark:text-gray-200">
-                                    <p class="font-bold">{{ $review->user->name }}</p>
-                                    <p class="text-xs">
-                                        {{ \Morilog\Jalali\Jalalian::fromDateTime($review->created_at)->ago() }}</p>
-                                </div>
-                                <div class="product-details__availability my-2">
-                                    <div class="free">
-                                        <div class="stars-rating flex gap-1 items-center">
-                                            @for ($i = 0; $i < 5; $i++)
-                                                <span
-                                                    class="star-icon las la-star @if ($i < $review->rating) active @endif"></span>
-                                            @endfor
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="space-y-5 ">
-                            <div class="text-[#1d29399d] dark:text-gray-200 text-sm">
-                                <p>{{ $review->comment }}</p>
-                                <div class="bg-[#FBFDFF] my-5 dark:bg-[#001448] dark:border-transparent dark:text-[#A8ABB4] border border-[#ECEEF3] w-full md:w-[70%] flex items-center justify-center px-4 py-1 rounded-xl">
-                                    
-                                    <textarea  wire:model="reviewReplyText" id="review-reply-box-{{ $review->id }}" name="reply" placeholder="پاسخ خود را بنویسید"  class="placeholder:text-[#A8ABB4] w-full bg-transparent ring-0 focus:ring-0 border-0 focus:border-0 "></textarea>
-
-                                </div>
-                                @error('reviewReplyText')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                                <div class="flex gap-4 items-center justify-end mt-5">
-                                    <button class="text-xs text-red-600"
-                                        wire:click="saveReviewReply({{ $review->id }})">ثبت</button>
-                                    <button class="text-xs" wire:click="likeReview({{ $review->id }})">Like</button>
-                                </div>
-                                <div class="flex flex-col gap-4 w-full   mt-5">
-
-                                    @session('message')
-                                        <x-alert type="success" message="{{ session('message') }}" />
-                                    @endsession
-                                    <!-- Review replies -->
-                                    @foreach ($review->replies as $reply)
-                                        <div
-                                            class="border-r-4 border-[#F4F4F4] mr-3 pr-3 md:pr-10 md:mr-10 dark:border-[#3A4980] w-full">
-                                            <div
-                                                class="bg-[#F4F4F4] w-full rounded-[20px] p-5 flex flex-col gap-6 dark:bg-[#3A4980]  ">
-                                                <div class="w-full grid grid-cols-2  justify-between items-center gap-y-4">
-                                                    <div class="flex  gap-3 w-max">
-                                                        <div class="flex gap-3 items-center">
-                                                            <div
-                                                                class="w-[32px] aspect-square overflow-hidden rounded-full ">
-                                                                <img src="{{ asset('storage/' . $reply->user->avatar) }}"
-                                                                    alt="user" class="w-full">
-                                                            </div>
-                                                            <div class="flex gap-3 items-center">
-                                                                <a href="#"
-                                                                    class="text-[#0F0F0E] dark:text-[#FCFCFC] text-xs md:text-base">{{ $reply->user->name }}
-                                                                </a>
-
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                    <div
-                                                        class="text-[#5A5F66] dark:text-[#84858F] text-xs w-full md:text-left">
-                                                        <time>{{ \Morilog\Jalali\Jalalian::fromDateTime($reply->created_at)->ago() }}</time>
-                                                    </div>
-                                                </div>
-                                                <div class="w-full ">
-                                                    <p class="dark:text-[#DEDEE9] text-[#343434] text-xs md:text-base  text-wrap ">
-                                                        {{ $reply->comment }}</p>
-                                                </div>
-
-                                            </div>
-
-
-
-
-                                        </div>
-                                    @endforeach
-            
-
-
-
-                                </div>
-                            </div>
-                        </div>
+                <div class="space-y-5 w-full lg:w-[60%]">
+                    <p class="mt-5">نظر شما در باره این محصول چیست؟</p>
+                    <textarea wire:model="comment" name="" id="" cols="30" rows="10"
+                        class="w-full text-gray-400 py-3 rounded-[10px] border-2 border-gray-300 ring-offset-0 focus:ring-offset-0 ring-0 !focus:ring-0 bg-transparent"></textarea>
+                    @error('comment')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                    <div class="flex justify-end mt-10">
+                        <button type="button"
+                            class="bg-[#3A4980] dark:bg-[#001448] text-white py-4 pb-[17px] rounded-full w-max px-6"
+                            id="save-review-btn">ارسال بررسی</button>
                     </div>
                 </div>
             </div>
-        @empty
-            <x-alert type="success" message="نظری ثبت نشده است." />
-        @endforelse
-    </div>
+        @else
+            <x-alert type="success" message="برای ارسال نظر باید وارد حساب کاربری خود شوید." />
+        @endif
+    @endif
+
 </div>
 
 @script
