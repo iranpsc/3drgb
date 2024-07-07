@@ -1,7 +1,7 @@
 <div>
     <main>
         <section>
-            <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm font-mono hidden lg:block px-5">
+            <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm hidden lg:block px-5" style="font-family: rokh">
                 <div class="flex items-center justify-between max-w-[1500px] mx-auto">
                     <div>
                         <a href="#" class="px-4">قوانین و مجوزات</a>
@@ -13,7 +13,7 @@
                                     alt=""></a></div>
                         <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy"><img src="https://3d.irpsc.com/home-page/images/Union (2).png"
                                     alt=""></a></div>
-                        <div><a href="whatsapp://send?text=http://+98 933 785 0424"><img src="https://3d.irpsc.com/home-page/images/Union (3).png"
+                        <div><a href="whatsapp://send?text=http://+989337850551"><img src="https://3d.irpsc.com/home-page/images/Union (3).png"
                                     alt=""></a></div>
                         <div><a href="mailto:dmeta.irpsc@gmail.com"><img src="https://3d.irpsc.com/home-page/images/Union (4).png"
                                     alt=""></a></div>
@@ -42,7 +42,7 @@
                             <div class="grid lg:grid-cols-2 gap-2 md:gap-7">
                                 <x-form.text name="name" label="" placeholder="نام و نام خانوادگی" wire:model="name"/>
 
-                                <x-form.text name="phone" label="" placeholder="شماره تلفن" wire:model="phone"/>
+                                <x-form.text name="phone" type="number" label="" placeholder="شماره تلفن" wire:model="phone"/>
 
                                 <x-form.text name="email" label="" placeholder="پست الکترونیک" wire:model="email"/>
 

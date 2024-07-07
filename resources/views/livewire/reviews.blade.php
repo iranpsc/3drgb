@@ -285,7 +285,8 @@
         </div>
     </div>
 
-    @if (Auth::check() && Auth::user()->hasPurchased($product) && !Auth::user()->hasReviewed($product))
+    <div class="flex flex-col-reverse">
+        @if (Auth::check() && Auth::user()->hasPurchased($product) && !Auth::user()->hasReviewed($product))
         <div class="flex flex-col gap-7 text-[#1D2939] dark:text-gray-200">
             <div class="font-bold text-xl">
                 یک نظر بنویسید
@@ -320,149 +321,150 @@
                 </div>
             </div>
         </div>
-    @elseif($product->is_free)
-        @if (Auth::check())
-            <div class="flex flex-col gap-7 text-[#1D2939] dark:text-gray-200">
-                <div class="font-bold text-xl">
-                    یک نظر بنویسید
-                </div>
-                <div class="flex flex-col gap-3">
-                    <p>محصول چگونه است؟</p>
+        @elseif($product->is_free)
+            @if (Auth::check())
+                <div class="flex flex-col gap-7 text-[#1D2939] dark:text-gray-200">
+                    <div class="font-bold text-xl">
+                        یک نظر بنویسید
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <p>محصول چگونه است؟</p>
 
-                    <div class="col-sm-6">
-                        <div class="stars-rating flex gap-3 items-center" id="star-rating">
-                            <span class="star-icon las la-star"></span>
-                            <span class="star-icon las la-star"></span>
-                            <span class="star-icon las la-star"></span>
-                            <span class="star-icon las la-star"></span>
-                            <span class="star-icon las la-star"></span>
+                        <div class="col-sm-6">
+                            <div class="stars-rating flex gap-3 items-center" id="star-rating">
+                                <span class="star-icon las la-star"></span>
+                                <span class="star-icon las la-star"></span>
+                                <span class="star-icon las la-star"></span>
+                                <span class="star-icon las la-star"></span>
+                                <span class="star-icon las la-star"></span>
+                            </div>
+                            @error('rating')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
-                        @error('rating')
+                    </div>
+                    <div class="space-y-5 w-full lg:w-[60%]">
+                        <p class="mt-5">نظر شما در باره این محصول چیست؟</p>
+                        <textarea wire:model="comment" name="" id="" cols="30" rows="10"
+                            class="w-full text-gray-400 py-3 rounded-[10px] border-2 border-gray-300 ring-offset-0 focus:ring-offset-0 ring-0 !focus:ring-0 bg-transparent"></textarea>
+                        @error('comment')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
-                    </div>
-                </div>
-                <div class="space-y-5 w-full lg:w-[60%]">
-                    <p class="mt-5">نظر شما در باره این محصول چیست؟</p>
-                    <textarea wire:model="comment" name="" id="" cols="30" rows="10"
-                        class="w-full text-gray-400 py-3 rounded-[10px] border-2 border-gray-300 ring-offset-0 focus:ring-offset-0 ring-0 !focus:ring-0 bg-transparent"></textarea>
-                    @error('comment')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                    <div class="flex justify-end mt-10">
-                        <button type="button"
-                            class="bg-[#3A4980] dark:bg-[#001448] text-white py-4 pb-[17px] rounded-full w-max px-6"
-                            id="save-review-btn">ارسال بررسی</button>
-                    </div>
-                </div>
-            </div>
-        @else
-            <x-alert type="success" message="برای ارسال نظر باید وارد حساب کاربری خود شوید." />
-        @endif
-    @endif
-    @forelse ($product->reviews as $review)
-        <div class="w-full my-14" wire:key="{{ $review->id }}">
-            <div class="w-full">
-                <div class="space-y-5 ">
-                    <div class="flex gap-5 ">
-                        <div
-                            class="w-12 h-12 rounded-full bg-[#164C96] text-gray-200 flex items-center justify-center">
-                            <img src="{{ asset('storage/' . $review->user->avatar) }}"
-                                class="w-12 h-12 rounded-full">
+                        <div class="flex justify-end mt-10">
+                            <button type="button"
+                                class="bg-[#3A4980] dark:bg-[#001448] text-white py-4 pb-[17px] rounded-full w-max px-6"
+                                id="save-review-btn">ارسال بررسی</button>
                         </div>
-                        <div class="space-y-1">
-                            <div class="flex items-center gap-3 text-[#1D2939] dark:text-gray-200">
-                                <p class="font-bold">{{ $review->user->name }}</p>
-                                <p class="text-xs">
-                                    {{ \Morilog\Jalali\Jalalian::fromDateTime($review->created_at)->ago() }}</p>
+                    </div>
+                </div>
+            @else
+                <x-alert type="success" message="برای ارسال نظر باید وارد حساب کاربری خود شوید." />
+            @endif
+        @endif
+        @forelse ($product->reviews as $review)
+            <div class="w-full my-14" wire:key="{{ $review->id }}">
+                <div class="w-full">
+                    <div class="space-y-5 ">
+                        <div class="flex gap-5 ">
+                            <div
+                                class="w-12 h-12 rounded-full bg-[#164C96] text-gray-200 flex items-center justify-center">
+                                <img src="{{ asset('storage/' . $review->user->avatar) }}"
+                                    class="w-12 h-12 rounded-full">
                             </div>
-                            <div class="product-details__availability my-2">
-                                <div class="free">
-                                    <div class="stars-rating flex gap-1 items-center">
-                                        @for ($i = 0; $i < 5; $i++)
-                                            <span
-                                                class="star-icon las la-star @if ($i < $review->rating) active @endif"></span>
-                                        @endfor
+                            <div class="space-y-1">
+                                <div class="flex items-center gap-3 text-[#1D2939] dark:text-gray-200">
+                                    <p class="font-bold">{{ $review->user->name }}</p>
+                                    <p class="text-xs">
+                                        {{ \Morilog\Jalali\Jalalian::fromDateTime($review->created_at)->ago() }}</p>
+                                </div>
+                                <div class="product-details__availability my-2">
+                                    <div class="free">
+                                        <div class="stars-rating flex gap-1 items-center">
+                                            @for ($i = 0; $i < 5; $i++)
+                                                <span
+                                                    class="star-icon las la-star @if ($i < $review->rating) active @endif"></span>
+                                            @endfor
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="space-y-5 ">
-                        <div class="text-[#1d29399d] dark:text-gray-200 text-sm">
-                            <p>{{ $review->comment }}</p>
-                            <div class="bg-[#FBFDFF] my-5 dark:bg-[#001448] dark:border-transparent dark:text-[#A8ABB4] border border-[#ECEEF3] w-full md:w-[70%] flex items-center justify-center px-4 py-1 rounded-xl">
-                                
-                                <textarea wire:model="reviewReplyText" id="review-reply-box-{{ $review->id }}" name="reply" placeholder="پاسخ خود را بنویسید"  class="placeholder:text-[#A8ABB4] w-full bg-transparent ring-0 focus:ring-0 border-0 focus:border-0"></textarea>
+                        <div class="space-y-5 ">
+                            <div class="text-[#1d29399d] dark:text-gray-200 text-sm">
+                                <p>{{ $review->comment }}</p>
+                                <div class="bg-[#FBFDFF] my-5 dark:bg-[#001448] dark:border-transparent dark:text-[#A8ABB4] border border-[#ECEEF3] w-full md:w-[70%] flex items-center justify-center px-4 py-1 rounded-xl">
+                                    
+                                    <textarea wire:model="reviewReplyText" id="review-reply-box-{{ $review->id }}" name="reply" placeholder="پاسخ خود را بنویسید"  class="placeholder:text-[#A8ABB4] w-full bg-transparent ring-0 focus:ring-0 border-0 focus:border-0"></textarea>
 
-                              </div>
-                              @error('reviewReplyText')
-                              <span class="text-danger">{{ $message }}</span>
-                          @enderror
-                            <div class="flex gap-4 items-center justify-end mt-5">
-                                <button class="text-xs text-red-600"
-                                    wire:click="saveReviewReply({{ $review->id }})">Replay</button>
-                                <button class="text-xs" wire:click="likeReview({{ $review->id }})">Like</button>
-                            </div>
-                            <div class="flex flex-col gap-4 w-full   mt-5">
+                                </div>
+                                @error('reviewReplyText')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                                <div class="flex gap-4 items-center justify-end mt-5">
+                                    <button class="text-xs text-red-600"
+                                        wire:click="saveReviewReply({{ $review->id }})">Replay</button>
+                                    <button class="text-xs" wire:click="likeReview({{ $review->id }})">Like</button>
+                                </div>
+                                <div class="flex flex-col gap-4 w-full   mt-5">
 
-                                @session('message')
-                                    <x-alert type="success" message="{{ session('message') }}" />
-                                @endsession
-                                <!-- Review replies -->
-                                @foreach ($review->replies as $reply)
-                                    <div
-                                        class="border-r-4 border-[#F4F4F4] mr-3 pr-3 md:pr-10 md:mr-10 dark:border-[#3A4980] w-full">
+                                    @session('message')
+                                        <x-alert type="success" message="{{ session('message') }}" />
+                                    @endsession
+                                    <!-- Review replies -->
+                                    @foreach ($review->replies as $reply)
                                         <div
-                                            class="bg-[#F4F4F4] w-full rounded-[20px] p-5 flex flex-col gap-6 dark:bg-[#3A4980]  ">
-                                            <div class="w-full grid grid-cols-2  justify-between items-center gap-y-4">
-                                                <div class="flex  gap-3 w-max">
-                                                    <div class="flex gap-3 items-center">
-                                                        <div
-                                                            class="w-[32px] aspect-square overflow-hidden rounded-full ">
-                                                            <img src="{{ asset('storage/' . $reply->user->avatar) }}"
-                                                                alt="user" class="w-full">
-                                                        </div>
+                                            class="border-r-4 border-[#F4F4F4] mr-3 pr-3 md:pr-10 md:mr-10 dark:border-[#3A4980] w-full">
+                                            <div
+                                                class="bg-[#F4F4F4] w-full rounded-[20px] p-5 flex flex-col gap-6 dark:bg-[#3A4980]  ">
+                                                <div class="w-full grid grid-cols-2  justify-between items-center gap-y-4">
+                                                    <div class="flex  gap-3 w-max">
                                                         <div class="flex gap-3 items-center">
-                                                            <a href="#"
-                                                                class="text-[#0F0F0E] dark:text-[#FCFCFC] text-xs md:text-base">{{ $reply->user->name }}
-                                                            </a>
+                                                            <div
+                                                                class="w-[32px] aspect-square overflow-hidden rounded-full ">
+                                                                <img src="{{ asset('storage/' . $reply->user->avatar) }}"
+                                                                    alt="user" class="w-full">
+                                                            </div>
+                                                            <div class="flex gap-3 items-center">
+                                                                <a href="#"
+                                                                    class="text-[#0F0F0E] dark:text-[#FCFCFC] text-xs md:text-base">{{ $reply->user->name }}
+                                                                </a>
 
+                                                            </div>
                                                         </div>
-                                                    </div>
 
+                                                    </div>
+                                                    <div
+                                                        class="text-[#5A5F66] dark:text-[#84858F] text-xs w-full md:text-left">
+                                                        <time>{{ \Morilog\Jalali\Jalalian::fromDateTime($reply->created_at)->ago() }}</time>
+                                                    </div>
                                                 </div>
-                                                <div
-                                                    class="text-[#5A5F66] dark:text-[#84858F] text-xs w-full md:text-left">
-                                                    <time>{{ \Morilog\Jalali\Jalalian::fromDateTime($reply->created_at)->ago() }}</time>
+                                                <div class="w-full ">
+                                                    <p class="dark:text-[#DEDEE9] text-[#343434] text-xs md:text-base  text-wrap ">
+                                                        {{ $reply->comment }}</p>
                                                 </div>
+
                                             </div>
-                                            <div class="w-full ">
-                                                <p class="dark:text-[#DEDEE9] text-[#343434] text-xs md:text-base  text-wrap ">
-                                                    {{ $reply->comment }}</p>
-                                            </div>
+
+
+
 
                                         </div>
+                                    @endforeach
+            
 
 
 
-
-                                    </div>
-                                @endforeach
-           
-
-
-
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    @empty
-        <x-alert type="success" message="نظری ثبت نشده است." />
-    @endforelse
+        @empty
+            <x-alert type="success" message="نظری ثبت نشده است." />
+        @endforelse
+    </div>
 </div>
 
 @script

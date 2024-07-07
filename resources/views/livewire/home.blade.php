@@ -1,7 +1,7 @@
 <div>
     <main>
         <section>
-            <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm font-mono hidden lg:block px-5">
+            <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm hidden lg:block px-5" style="font-family: rokh">
                 <div class="flex items-center justify-between max-w-[1500px] mx-auto">
                     <div>
                         <a href="#" class="px-4">قوانین و مجوزات</a>
@@ -13,7 +13,7 @@
                                     alt="social"></a></div>
                         <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy"><img
                                     src="https://3d.irpsc.com/home-page/images/Union (2).png" alt="social"></a></div>
-                        <div><a href="whatsapp://send?text=http://+98 933 785 0424"><img
+                        <div><a href="whatsapp://send?text=http://+989337850551"><img
                                     src="https://3d.irpsc.com/home-page/images/Union (3).png" alt="social"></a></div>
                         <div><a href="mailto:dmeta.irpsc@gmail.com"><img
                                     src="https://3d.irpsc.com/home-page/images/Union (4).png" alt="social"></a></div>
@@ -39,7 +39,7 @@
                         </p>
                         <div class="flex gap-5 relative mt-20 hidden lg:flex">
                             <input type="text" wire:model="searchTerm" placeholder="جستجوی محصول"
-                                class="relative w-full p-5 text-[#ACB9FA] font-bold bg-[#D8E5FD] dark:bg-[#001448c9] rounded-[32px] focus:outline-none pr-12 md:px-20 border-0">
+                                class="relative w-full p-5 placeholder:text-[#ACB9FA] font-bold bg-[#D8E5FD] text-gray-500 dark:text-gray-400  dark:bg-[#001448c9] rounded-[32px] focus:outline-none pr-12 md:px-20 border-0">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" class="absolute right-5 top-5">
                                 <path class="dark:stroke-white"
@@ -54,7 +54,7 @@
                     </div>
                     <div class="w-full flex items-center justify-end md:w-1/2 flex-col overflow-hidden">
                         <img  src="{{ asset('home-page/images/Asset2.png') }}" alt="3dmodel" class="hidden md:block"  style="width: 125%; max-width:none; ">
-                        <div class="flex gap-5  mt-5 bg-[#D8E5FD] dark:bg-[#001448c9] rounded-full  p-2 lg:hidden">
+                        <div class="flex   mt-5 bg-[#D8E5FD] dark:bg-[#001448c9] rounded-full  p-2 lg:hidden">
                             <div class="flex justify-center items-center p-3 w-min">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -68,7 +68,7 @@
                                 </svg>
                             </div>
                             <input type="text" wire:model="searchTerm" placeholder="جستجوی محصول"
-                                class=" w-full  text-[#ACB9FA] font-bold ring-transparent outline-transparent    focus:!outline-0  focus:!right-0 border-0 focus:border-0 ring-offset-0  focus:ring-transparent     bg-transparent">
+                                class=" w-full mr-[-14px]  placeholder:-[#ACB9FA] text-gray-500 dark:text-gray-400 font-bold ring-transparent outline-transparent    focus:!outline-0  focus:!right-0 border-0 focus:border-0 ring-offset-0  focus:ring-transparent     bg-transparent">
                             <button wire:click="search"
                                 class="bg-[#000BEE] dark:bg-[#C2008C] text-white font-bold md:text-xl pb-4 pt-[15px]  px-5 w-[30%] lg:w-[20%] rounded-[32px]  text-center  min-w-max ">جستجو</button>
                         </div>
@@ -128,8 +128,8 @@
             <!-- start slyder -->
             <div class="flex flex-col  md:mt-32  w-full">
                 <div class="w-full flex-col relative  ">
-                    <div class="flex flex-col  gap-3 px-5 text-center">
-                        <p class="text-[26px] md:text-4xl text-[#000BEE] dark:text-[#E8E9FF] font-extrabold text-center p-0 m-0 "
+                    <div class="flex flex-col  gap-3 px-5 text-center md:text-right">
+                        <p class="text-[26px] md:text-4xl text-[#000BEE] dark:text-[#E8E9FF] font-extrabold   p-0 m-0 "
                             style="font-family:rokh-ebold ;">
                             دسته بندی های پر طرفدار
                         </p>
@@ -140,14 +140,14 @@
 
                     <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden py-5 my-5 pl-5 md:pl-0"
                         dir="ltr">
-                        <div id="slider"
-                            class="h-full flex lg:gap-7 gap-5 items-center justify-start transition ease-out duration-700 ">
+                        <div 
+                            class="h-full flex overflow-x-scroll scrollbar lg:gap-7 gap-5 items-center justify-start transition ease-out duration-700 ">
                             @forelse ($this->popularCategories as $category)
                                 <div class="flex flex-shrink-0 relative  ">
                                     <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
-                                        class="bg-white dark:bg-[#001448] p-3    w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-7 text-center" style="padding-top:28px;padding-bottom: 28px">
-                                        <div class="w-full p-1">
-                                            <img src="{{ asset($category->image?->url) }}" loading="lazy" alt="category" class="w-full">
+                                        class="bg-white dark:bg-[#001448] p-3 pb-7   w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-7 text-center" >
+                                        <div class="w-full ">
+                                            <img src="{{ asset($category->image?->url) }}" loading="lazy" alt="category" class="w-full rounded-xl">
                                         </div>
                                         <div>
                                             <p
@@ -163,29 +163,7 @@
                         </div>
                     </div>
                     <div class="absolute  md:top-7 flex w-full justify-center md:w-max md:left-0 gap-5 items-center">
-                        <button aria-label="slide forward"
-                            class=" aspect-square  focus:outline-none  dark:bg-[#c2008b36]  dark:focus:ring-[#C2008C] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full"
-                            id="next">
 
-                            <svg style="width:20px; height:20px" class="dark:fill-white rotate-180" width="29"
-                                height="22" viewBox="0 0 29 22" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" class="dark:fill-white " clip-rule="evenodd"
-                                    d="M10 0C9.44772 0 9 0.447715 9 1C9 3.84609 7.67935 5.92053 5.97199 7.39265C4.25137 8.87621 2.17172 9.71149 0.803669 10.0192C0.791773 10.0216 0.779936 10.0242 0.768166 10.027C0.696033 10.0441 0.626926 10.0691 0.561789 10.1009C0.46092 10.1499 0.370703 10.2149 0.293615 10.292C0.193146 10.392 0.113024 10.5144 0.061842 10.6534C0.0213566 10.7627 -0.000339508 10.8799 -0.000213623 11.0001C-0.00028038 11.0787 0.0089798 11.156 0.0267162 11.2306C0.0613613 11.3774 0.128351 11.5117 0.219749 11.6255C0.330452 11.7638 0.478315 11.8735 0.652571 11.9378C0.701506 11.956 0.75202 11.9704 0.803688 11.9808C2.17174 12.2885 4.25138 13.1238 5.97199 14.6074C7.67935 16.0795 9 18.1539 9 21C9 21.5523 9.44772 22 10 22C10.5523 22 11 21.5523 11 21C11 17.4461 9.32065 14.8539 7.27801 13.0926C6.80751 12.687 6.31601 12.3235 5.81819 12H28C28.5523 12 29 11.5523 29 11C29 10.4477 28.5523 10 28 10H5.81819C6.31601 9.6765 6.80751 9.31303 7.27801 8.90735C9.32065 7.14614 11 4.55391 11 1C11 0.447715 10.5523 0 10 0Z"
-                                    fill="#000BEE" />
-                            </svg>
-
-                        </button>
-                        <button aria-label="slide backward"
-                            class=" aspect-square  focus:outline-none dark:bg-[#c2008b36]  dark:focus:ring-[#C2008C] focus:ring-2 focus:ring-offset-2 focus:ring-[#000BEE] bg-[#CDD6FC] p-5 rounded-full"
-                            id="prev">
-                            <svg style="width:20px; height:20px" width="29" height="22" viewBox="0 0 29 22"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" class="dark:fill-white " clip-rule="evenodd"
-                                    d="M10 0C9.44772 0 9 0.447715 9 1C9 3.84609 7.67935 5.92053 5.97199 7.39265C4.25137 8.87621 2.17172 9.71149 0.803669 10.0192C0.791773 10.0216 0.779936 10.0242 0.768166 10.027C0.696033 10.0441 0.626926 10.0691 0.561789 10.1009C0.46092 10.1499 0.370703 10.2149 0.293615 10.292C0.193146 10.392 0.113024 10.5144 0.061842 10.6534C0.0213566 10.7627 -0.000339508 10.8799 -0.000213623 11.0001C-0.00028038 11.0787 0.0089798 11.156 0.0267162 11.2306C0.0613613 11.3774 0.128351 11.5117 0.219749 11.6255C0.330452 11.7638 0.478315 11.8735 0.652571 11.9378C0.701506 11.956 0.75202 11.9704 0.803688 11.9808C2.17174 12.2885 4.25138 13.1238 5.97199 14.6074C7.67935 16.0795 9 18.1539 9 21C9 21.5523 9.44772 22 10 22C10.5523 22 11 21.5523 11 21C11 17.4461 9.32065 14.8539 7.27801 13.0926C6.80751 12.687 6.31601 12.3235 5.81819 12H28C28.5523 12 29 11.5523 29 11C29 10.4477 28.5523 10 28 10H5.81819C6.31601 9.6765 6.80751 9.31303 7.27801 8.90735C9.32065 7.14614 11 4.55391 11 1C11 0.447715 10.5523 0 10 0Z"
-                                    fill="#000BEE" />
-                            </svg>
-                        </button>
                         <div>
                             <a href="{{ route('categories') }}"
                                 class="text-[#000BEE] dark:bg-[#c2008b36] dark:text-[#E8E9FF] bg-[#CDD6FC] px-3 md:px-5 py-3 rounded-3xl font-bold text-lg md:text-xl">مشاهده
@@ -216,7 +194,7 @@
         <section class="w-full max-w-[1500px] mx-auto px-5 lg:px-0">
             <div>
                 <p class="text-4xl font-bold text-[#000BEE] dark:text-[#E8E9FF] mt-32 text-center py-3"
-                    style="font-family:rokh ;">محصولات ما</p>
+                    style="font-family:rokh-ebold ;">محصولات ما</p>
             </div>
             <div class="mx-auto  w-full ">
                 <div class="py-4">

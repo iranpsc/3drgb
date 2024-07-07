@@ -75,11 +75,13 @@
                     </div>
                 </div>
                 <div class="w-full md:w-2/3 xl:w-[65%] flex flex-col gap-5 mt-14 md:mt-0">
+                    <p class="text-[#3A4980] text-2xl font-bold dark:text-white px-5 ">
+                        {{ $product->name }}
+                    </p>    
                     <div class="flex justify-between h-min w-full  px-5 pb-5 border-b border-gray-300">
+                        
                         <div class="flex flex-col gap-4 justify-center">
-                            <p class="text-[#3A4980] lg:text-2xl font-bold dark:text-white">
-                                {{ $product->name }}
-                            </p>
+
                             <span class="text-[#3A498087] dark:text-gray-200">{{ $product->sku }}</span>
                         </div>
                         <div class="flex items-start justify-end gap-2" wire:ignore>

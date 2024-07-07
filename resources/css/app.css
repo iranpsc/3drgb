@@ -39,7 +39,7 @@
 
 
 .sidenav {
-  @apply h-full w-0 top-0 right-0  hidden  lg:w-[75px] transition-[1.5s] duration-300 text-right fixed z-10  lg:flex flex-col  items-center pt-0 bg-[#FCFCFC] dark:bg-[#0F0F0E]  
+  @apply h-full w-0 top-0 right-0  hidden  lg:w-[75px] transition-[1.5s] duration-300 text-right fixed z-10  lg:flex flex-col  items-center pt-0 bg-[#FCFCFC] dark:bg-[#001448]  
 }
 .sidnav-t{
   @apply transition-[1.5s] duration-300 w-[87%] lg:w-[25%] xl:w-[20%] 2xl:w-[17%]  fixed  h-full z-50 top-0  right-0 

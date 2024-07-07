@@ -3,8 +3,8 @@
         <div class="w-full" wire:key="popular-category-{{ $category->id }}">
             <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
                 class="w-full bg-white dark:bg-[#001448] flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-5 pb-7 gap-16">
-                <div class=" aspect-square" style="width: 90%">
-                    <img src="{{ asset($category->image?->url) }}" loading="lazy" alt="category" class="w-full">
+                <div class=" aspect-square w-full" >
+                    <img src="{{ asset($category->image?->url) }}" loading="lazy" alt="category" class="w-full rounded-xl">
                 </div>
                 <div class="flex flex-col justify-end ">
                     <p class="text-[#000BEE]  dark:text-[#E8E9FF] text-3xl font-bold p-0 mt-2"

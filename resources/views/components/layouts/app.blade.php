@@ -741,73 +741,73 @@
 
     <div class="w-full main-content-smallNav2">
         <footer class="px-5 lg:px-0 w-full max-w-[1500px] mx-auto mt-32">
-            <div class="flex-wrap flex md:justify-between  items-ctener gap-2 mx-auto w-full "
-                style="margin-bottom:50px ; padding-left: 3px;padding-right: 3px">
+            <div class="flex-wrap flex justify-between  items-ctener gap-1 md:gap-2 mx-auto w-full bg-white dark:bg-[#001448] p-3 mb-10 rounded-2xl"
+                >
                 <a href="https://irpsc.com" style="width:55px ;" target="_blank "
                     title="وزارت تعاون کار و رفاه اجتماعی">
-                    <img src="https://irpsc.com/img-icon/vezarat.png">
+                    <img src="https://irpsc.com/img-icon/vezarat.png" class="rounded-lg">
                 </a>
-                <a class="active" href="#" target="_blank " style="width:55px ;"
+                <a class="active" href="#" target="_blank "  style="width:55px ;"
                     title="نماد اعتماد الکترونیک">
-                    <img src="https://irpsc.com/img-icon/enamad.png" alt="نماد اعتماد الکترونیک">
-                    <i class="vi vi-chat"></i>
+                    <img src="https://irpsc.com/img-icon/enamad.png" class="rounded-lg" alt="نماد اعتماد الکترونیک">
+                    
                 </a>
                 <a href="https://irpsc.com" target="_blank " style="width:55px ;" title="ثبت اسناد و املاک کشور">
-                    <img src="https://irpsc.com/img-icon/qazaii.png" alt="ثبت اسناد و املاک کشور">
+                    <img src="https://irpsc.com/img-icon/qazaii.png" class="rounded-lg" alt="ثبت اسناد و املاک کشور">
                 </a>
-                <a href="https://video.irpsc.com" target="_blank " style="width:55px ;" title="مرکز آموزش ویدئویی">
-                    <img src="https://irpsc.com/img-icon/video.png" alt="مرکز آموزش ویدئویی">
+                <a href="https://video.irpsc.com" target="_blank "  style="width:55px ;" title="مرکز آموزش ویدئویی">
+                    <img src="https://irpsc.com/img-icon/video.png" class="rounded-lg" alt="مرکز آموزش ویدئویی">
                 </a>
                 <a href="https://faq.irpsc.com" target="_blank " style="width:55px ;" title="انجمن پرسش و پاسخ">
-                    <img src="https://irpsc.com/img-icon/faq.png" alt="انجمن پرسش و پاسخ">
+                    <img src="https://irpsc.com/img-icon/faq.png" class="rounded-lg" alt="انجمن پرسش و پاسخ">
                 </a>
                 <a href="https://Shop.irpsc.com" target="_blank " style="width:55px ;" title="فروشگاه ملی">
-                    <img src="https://irpsc.com/img-icon/shop.png" alt="فروشگاه ملی">
+                    <img src="https://irpsc.com/img-icon/shop.png" class="rounded-lg" alt="فروشگاه ملی">
                 </a>
                 <a href="https://supply.irpsc.com" target="_blank " style="width:55px ;" title="تولید کنندگان"  >
-                    <img src="https://irpsc.com/img-icon/supply.png" alt="تولید کنندگان">
+                    <img src="https://irpsc.com/img-icon/supply.png" class="rounded-lg" alt="تولید کنندگان">
                 <a href="https://supply.irpsc.com" target="_blank " style="width:55px ;" title="تولید کنندگان">
-                    <img src="https://irpsc.com/img-icon/supply.png" alt="تولید کنندگان">
+                    <img src="https://irpsc.com/img-icon/supply.png" class="rounded-lg" alt="تولید کنندگان">
                 </a>
                 <a href="https://crm.irpsc.com" target="_blank " style="width:55px ;" title="مدیریت بر مدیران">
-                    <img src="https://irpsc.com/img-icon/crm.png" alt="مدیریت بر مدیران">
+                    <img src="https://irpsc.com/img-icon/crm.png" class="rounded-lg" alt="مدیریت بر مدیران">
                 </a>
                 <a href="https://target.irpsc.com" target="_blank " style="width:55px ;" title="نگرش ملی">
-                    <img src="https://irpsc.com/img-icon/target.png" alt="نگرش ملی">
+                    <img src="https://irpsc.com/img-icon/target.png" class="rounded-lg" alt="نگرش ملی">
                 </a>
                 <a href="https://animal.irpsc.com" target="_blank " style="width:55px ;" title="حیوانات و دامپزشک">
-                    <img src="https://irpsc.com/img-icon/animal.png" alt="حیوانات و دامپزشک">
+                    <img src="https://irpsc.com/img-icon/animal.png" class="rounded-lg" alt="حیوانات و دامپزشک">
                 </a>
                 <a href="https://irpsc.com" target="_blank " style="width:55px ;" title="رسانه ملی">
-                    <img src="https://irpsc.com/img-icon/irpsc.png" alt="رسانه ملی">
+                    <img src="https://irpsc.com/img-icon/irpsc.png" class="rounded-lg" alt="رسانه ملی">
                 </a>
                 <a href="https://meta.irpsc.com" target="_blank " style="width:55px ;" title="اخبار متا">
-                    <img src="https://irpsc.com/img-icon/meta.png" alt="اخبار متا">
+                    <img src="https://irpsc.com/img-icon/meta.png" class="rounded-lg" alt="اخبار متا">
                 </a>
                 <a href="https://uni.irpsc.com" target="_blank " style="width:55px ;" title="دانشگاه متاورس">
-                    <img src="https://irpsc.com/img-icon/uni.png" alt="دانشگاه متاورس">
+                    <img src="https://irpsc.com/img-icon/uni.png" class="rounded-lg" alt="دانشگاه متاورس">
                 </a>
                 <a href="https://crm.irpsc.com/knowledgebase" target="_blank " style="width:55px ;"
                     title="استخدام | دانش محور">
-                    <img src="https://irpsc.com/img-icon/knowledge.png" alt="استخدام | دانش محور">
+                    <img src="https://irpsc.com/img-icon/knowledge.png" class="rounded-lg" alt="استخدام | دانش محور">
                 </a>
                 <a href="https://sale.irpsc.com" target="_blank " style="width:55px ;" title="فروشگاه مجازی حم">
-                    <img src="https://irpsc.com/img-icon/sale.png" alt="فروشگاه مجازی حم">
+                    <img src="https://irpsc.com/img-icon/sale.png" class="rounded-lg" alt="فروشگاه مجازی حم">
                 </a>
                 <a href="https://ad.irpsc.com" target="_blank " style="width:55px ;" title="تبلیغات ملی">
-                    <img src="https://irpsc.com/img-icon/ad.png" alt="تبلیغات ملی">
+                    <img src="https://irpsc.com/img-icon/ad.png" class="rounded-lg" alt="تبلیغات ملی">
                 </a>
-                <a href="https://nft.irpsc.com" target="_blank " style="width:55px ;" title="بازار NFT">
-                    <img src="https://irpsc.com/img-icon/nft.png">
+                <a href="https://nft.irpsc.com" target="_blank "  style="width:55px ;" title="بازار NFT">
+                    <img src="https://irpsc.com/img-icon/nft.png" class="rounded-lg">
                 </a>
                 <a href="https://rgb.irpsc.com" target="_blank " style="width:55px ;" title="متاورس رنگ">
-                    <img src="https://irpsc.com/img-icon/rgb.png" alt="متاورس رنگ">
+                    <img src="https://irpsc.com/img-icon/rgb.png" class="rounded-lg" alt="متاورس رنگ">
                 </a>
                 <a href="https://3d.irpsc.com" target="_blank " style="width:55px ;" title="سه بعدی متا">
-                    <img src="https://irpsc.com/img-icon/3d.gif" alt="سه بعدی متا">
+                    <img src="https://irpsc.com/img-icon/3d.gif" class="rounded-lg" alt="سه بعدی متا">
                 </a>
                 <a title="خانه" style="width:55px ;">
-                    <img src="https://irpsc.com/img-icon/home-soon.png">
+                    <img src="https://irpsc.com/img-icon/home-soon.png" class="rounded-lg">
                 </a>
             </div>
             <div class="flex flex-col-reverse md:flex-row gap-10">
@@ -839,8 +839,8 @@
                         </p>
                     </div>
                     <div class="font-bold">
-                        <a href="whatsapp://send?text=http://+98 933 785 0424"
-                            class="rounded-3xl bg-white dark:bg-[#DCFFE8]/75 py-3 px-5 text-[#20D05C] dark:text-[#02501D]">09028689789</a>
+                        <a href="whatsapp://send?text=http://+989337850551"
+                            class="rounded-3xl bg-white dark:bg-[#DCFFE8]/75 py-3 px-5 text-[#20D05C] dark:text-[#02501D]">0933 785 0551</a>
                     </div>
                 </div>
             </div>
@@ -859,7 +859,7 @@
                             </a>
                         </div>
                         <div>
-                            <a href="whatsapp://send?text=http://+98 933 785 0424">
+                            <a href="whatsapp://send?text=http://+989337850551">
                                 <img src="{{ asset('home-page/images/whatsapp.png') }}" alt="واتساپ">
                             </a>
                         </div>

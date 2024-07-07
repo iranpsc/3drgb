@@ -1,7 +1,7 @@
 <div>
     <main>
         <section>
-            <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm font-mono hidden lg:block px-5">
+            <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm hidden lg:block px-5" style="font-family: rokh">
                 <div class="flex items-center justify-between max-w-[1500px] mx-auto">
                     <div>
                         <a href="#" class="px-4">قوانین و مجوزات</a>
@@ -13,7 +13,7 @@
                                     alt=""></a></div>
                         <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy"><img
                                     src="https://3d.irpsc.com/home-page/images/Union (2).png" alt=""></a></div>
-                        <div><a href="whatsapp://send?text=http://+98 933 785 0424"><img
+                        <div><a href="whatsapp://send?text=http://+989337850551"><img
                                     src="https://3d.irpsc.com/home-page/images/Union (3).png" alt=""></a></div>
                         <div><a href="mailto:dmeta.irpsc@gmail.com"><img
                                     src="https://3d.irpsc.com/home-page/images/Union (4).png" alt=""></a></div>
@@ -86,16 +86,16 @@
                     </div>
                     <div class="flex flex-col gap-3">
                         <span class="multi-range">
-                            <input type="range" min="0" max="200000" value="8000" step="1"
+                            <input type="range" min="0" max="10000000" value="0" step="1"
                                 id="minPrice" wire:model.live.debounce.500ms="price_filter.min">
-                            <input type="range" min="0" max="200000" value="479900" step="1"
+                            <input type="range" min="0" max="10000000" value="10000000" step="1"
                                 id="maxPrice" wire:model.live.debounce.500ms="price_filter.max">
                         </span>
                     </div>
                     <div class="flex items-center gap-3">
-                        <p id="priceFillterMin">{{ $price_filter['min'] }}</p>
+                        <p id="priceFillterMin">{{ $price_filter['min'] }}  تومان </p>
                         <hr class="border w-10">
-                        <p id="priceFillterMax">{{ $price_filter['max'] }}</p>
+                        <p id="priceFillterMax"> {{ $price_filter['max'] }} تومان</p>
                     </div>
                 </div>
                 <div
