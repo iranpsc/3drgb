@@ -25,7 +25,7 @@ class BuildPackageController extends Controller
                     ->where('value', $request->karbari);
             })
             ->whereHas('attributes', function ($query) use ($request) {
-                $query->where('slug', 'used_in')
+                $query->where('slug', 'owner')
                     ->where('value', 'METARGB');
             })
             ->select('id', 'name', 'sku')
