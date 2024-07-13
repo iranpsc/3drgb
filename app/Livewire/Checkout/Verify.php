@@ -24,6 +24,10 @@ class Verify extends Component
     #[Locked]
     public $order = null;
 
+    /**
+     * Mount method is called when the component is being mounted.
+     * It retrieves the transaction details and performs the verification process.
+     */
     public function mount()
     {
         $this->transaction = Transaction::where('authority', $this->Authority)->with('order.orderItems')->first();
@@ -33,6 +37,16 @@ class Verify extends Component
             return;
         }
 
+        $this->handleTransaction();
+    }
+
+    /**
+     * Handles the transaction by sending a verification request to ZarinPal payment gateway.
+     *
+     * @return void
+     */
+    private function handleTransaction()
+    {
         $response = zarinpal()
             ->amount($this->transaction->amount)
             ->verification()
@@ -40,41 +54,70 @@ class Verify extends Component
             ->send();
 
         if (!$response->success()) {
-
-            $this->transaction->update([
-                'status' => $this->Status,
-            ]);
-
-            $this->transaction->order->update([
-                'status' => $this->Status,
-            ]);
-
-            session()->flash('error', $response->error()->message());
+            $this->handleFailedTransaction($response);
         } else {
-
-            $this->transaction->update([
-                'reference_id' => $response->referenceId(),
-                'card_hash' => $response->cardHash(),
-                'card_pan' => $response->cardPan(),
-                'fee_type' => $response->feeType(),
-                'fee' => $response->fee(),
-                'status' => $this->Status,
-            ]);
-
-            $this->order = $this->transaction->order;
-
-            $this->order->load('products');
-
-            $this->order->update([
-                'status' => $this->Status,
-            ]);
-
-            $user = $this->order->user;
-
-            $user->products()->attach($this->getOrderItems());
+            $this->handleSuccessfulTransaction($response);
         }
     }
 
+    /**
+     * Handles a failed transaction.
+     * Updates the transaction and order status, and displays an error message.
+     * @param $response The response object from the payment gateway.
+     */
+    private function handleFailedTransaction($response)
+    {
+        $this->transaction->update([
+            'status' => $this->Status,
+        ]);
+
+        $this->transaction->order->update([
+            'status' => $this->Status,
+        ]);
+
+        session()->flash('error', $response->error()->message());
+    }
+
+    /**
+     * Handles a successful transaction.
+     * Updates the transaction and order details, and updates the user's product quantity.
+     * @param $response The response object from the payment gateway.
+     */
+    private function handleSuccessfulTransaction($response)
+    {
+        $this->transaction->update([
+            'reference_id' => $response->referenceId(),
+            'card_hash' => $response->cardHash(),
+            'card_pan' => $response->cardPan(),
+            'fee_type' => $response->feeType(),
+            'fee' => $response->fee(),
+            'status' => $this->Status,
+        ]);
+
+        $this->order = $this->transaction->order;
+
+        $this->order->load('products');
+
+        $this->order->update([
+            'status' => $this->Status,
+        ]);
+
+        $user = $this->order->user;
+
+        foreach ($this->getOrderItems() as $product_id => $data) {
+            $product = $user->products()->where('product_id', $product_id)->first();
+            if ($product) {
+                $product->pivot->increment('quantity', $data['quantity']);
+            } else {
+                $user->products()->attach($product_id, ['quantity' => $data['quantity']]);
+            }
+        }
+    }
+
+    /**
+     * Retrieves the order items and their quantities.
+     * @return array An array of order items with their quantities.
+     */
     private function getOrderItems()
     {
         $orderItems = [];
@@ -86,6 +129,11 @@ class Verify extends Component
         return $orderItems;
     }
 
+    /**
+     * Downloads a product file.
+     * @param Product $product The product to download.
+     * @return \Illuminate\Http\Response The file download response.
+     */
     public function download(Product $product)
     {
         $this->authorize('download', $product);

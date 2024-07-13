@@ -149,7 +149,7 @@
                                     class="bg-white dark:bg-[#001448] w-full flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
                                     <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
                                         class="p-3 w-full ">
-                                        <img src="{{ $category->image->url }}" loading="lazy" alt="category">
+                                        <img src="{{ $category->image->url ?? '' }}" loading="lazy" alt="category">
                                     </a>
                                     <div class="w-full flex flex-col justify-center items-center gap-3">
                                         <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"

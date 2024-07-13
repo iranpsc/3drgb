@@ -17,7 +17,8 @@ class ProductDetails extends Component
             'tags',
             'attributes' => function ($query) {
                 $query->whereNotNull('value')
-                    ->whereNot('value', '-');
+                    ->whereNot('value', '-')
+                    ->where('display', 1);
             },
             'category',
         ])->loadCount([
@@ -35,6 +36,9 @@ class ProductDetails extends Component
             session()->flash('message', $this->product->name . ' قبلا به سبد خرید اضافه شده است.');
             return;
         }
+
+        // Just in case user tries to add 0 quantity
+        if($quantity == 0) $quantity = 1;
 
         session()->push('cart', [
             'product_id' => $this->product->id,

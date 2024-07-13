@@ -106,8 +106,8 @@
                     <div class="grid grid-cols-2 gap-5 items2">
                         @foreach ($tags as $tag)
                             <div class="flex items-center gap-5 item2">
-                                <input type="radio" id="{{ 'tag-' . $tag->id }}" value="{{ $tag->slug }}"
-                                    class="w-[22px] h-[22px] rounded-lg" wire:model.live="tag">
+                                <input type="checkbox" id="{{ 'tag-' . $tag->id }}" value="{{ $tag->slug }}"
+                                    class="w-[22px] h-[22px] rounded-lg" wire:model.live="tagsFilter">
                                 <label for="{{ 'tag-' . $tag->id }}">{{ $tag->name }}</label>
                             </div>
                         @endforeach

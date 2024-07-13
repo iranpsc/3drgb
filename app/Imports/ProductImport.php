@@ -8,113 +8,202 @@ use Maatwebsite\Excel\Concerns\WithChunkReading;
 
 class ProductImport implements ToArray, WithChunkReading, ShouldQueue
 {
-
+    /**
+     * Import an array of products.
+     *
+     * @param array $array The array of products to import.
+     * @return void
+     */
     public function array(array $array)
     {
         foreach ($array as $rowNumber => $row) {
-
             // skip the first row
             if ($rowNumber == 0) {
                 continue;
             }
 
             $categories = explode(',', $row[11]);
-
-            $categoriesIds = [];
-
-            foreach ($categories as $index => $category) {
-                $category = trim($category);
-
-                $parent_id = $index > 0 ? $categoriesIds[$index - 1] : null;
-
-                $category = \App\Models\Category::firstOrCreate([
-                    'name' => $category,
-                ], [
-                    'slug' => str_replace(' ', '-', $category),
-                    'parent_id' => $parent_id
-                ]);
-
-                $categoriesIds[] = $category->id;
-            }
-
             $tags = explode(',', $row[12]);
+            $images = explode(',', $row[13]);
+            $file = $row[14];
 
-            $tagsIds = [];
+            $categoriesIds = $this->createCategories($categories);
+            $tagsIds = $this->createTags($tags);
 
-            foreach ($tags as $index => $tag) {
-                $tag = trim($tag);
+            $product = $this->createOrUpdateProduct($row, $categoriesIds);
 
-                $tag = \App\Models\Tag::firstOrCreate(
-                    ['name' => trim($tag)],
-                    ['slug' => str_replace(' ', '-', $tag)]
-                );
+            $this->syncTags($product, $tagsIds);
+            $this->syncAttributes($product, $row);
+            $this->createImages($product, $images);
+            $this->createFile($product, $file);
+        }
+    }
 
-                $tagsIds[] = $tag->id;
-            }
+    /**
+     * Create categories and return their IDs.
+     *
+     * @param array $categories The array of category names.
+     * @return array The array of category IDs.
+     */
+    private function createCategories(array $categories): array
+    {
+        $categoriesIds = [];
 
-            $product = \App\Models\Product::updateOrCreate(
-                ['sku' => $row[0]],
-                [
-                    'category_id' => $categoriesIds[count($categoriesIds) - 1],
-                    'name' => $row[1],
-                    'slug' => str_replace(' ', '-', $row[1]),
-                    'published' => $row[2],
-                    'short_description' => $row[3],
-                    'long_description' => $row[4],
-                    'stock_status' => $row[5],
-                    'quantity' => $row[6],
-                    'delivery_time' => $row[7],
-                    'customer_can_add_review' => $row[8],
-                    'sale_price' => $row[9],
-                    'price' => $row[10],
-                ]
+        foreach ($categories as $index => $category) {
+            $category = trim($category);
+            $parent_id = $index > 0 ? $categoriesIds[$index - 1] : null;
+
+            $category = \App\Models\Category::firstOrCreate([
+                'name' => $category,
+            ], [
+                'slug' => str_replace(' ', '-', $category),
+                'parent_id' => $parent_id
+            ]);
+
+            $categoriesIds[] = $category->id;
+        }
+
+        return $categoriesIds;
+    }
+
+    /**
+     * Create tags and return their IDs.
+     *
+     * @param array $tags The array of tag names.
+     * @return array The array of tag IDs.
+     */
+    private function createTags(array $tags): array
+    {
+        $tagsIds = [];
+
+        foreach ($tags as $tag) {
+            $tag = trim($tag);
+
+            $tag = \App\Models\Tag::firstOrCreate(
+                ['name' => trim($tag)],
+                ['slug' => str_replace(' ', '-', $tag)]
             );
 
-            $product->tags()->sync($tagsIds);
+            $tagsIds[] = $tag->id;
+        }
 
-            for ($i = 15; $i <= count($row) - 1; $i += 3) {
-                if ($row[$i] != null) {
-                    $attribute = \App\Models\Attribute::where('name', trim($row[$i]))->first();
+        return $tagsIds;
+    }
 
-                    if ($attribute) {
-                        $product->attributes()->syncWithoutDetaching([$attribute->id => [
-                            'value' => $row[$i + 1],
-                            'display' => $row[$i + 2],
-                        ]]);
-                    } else {
-                        $attribute = \App\Models\Attribute::create([
-                            'name' => trim($row[$i]),
-                            'slug' => str_replace(' ', '-', $row[$i]),
-                        ]);
+    /**
+     * Create or update a product.
+     *
+     * @param array $row The array representing the product data.
+     * @param array $categoriesIds The array of category IDs.
+     * @return \App\Models\Product The created or updated product.
+     */
+    private function createOrUpdateProduct(array $row, array $categoriesIds): \App\Models\Product
+    {
+        return \App\Models\Product::updateOrCreate(
+            ['sku' => $row[0]],
+            [
+                'category_id' => $categoriesIds[count($categoriesIds) - 1],
+                'name' => $row[1],
+                'slug' => str_replace(' ', '-', $row[1]),
+                'published' => $row[2],
+                'short_description' => $row[3],
+                'long_description' => $row[4],
+                'stock_status' => $row[5],
+                'quantity' => $row[6],
+                'delivery_time' => $row[7],
+                'customer_can_add_review' => $row[8],
+                'sale_price' => $row[9],
+                'price' => $row[10],
+            ]
+        );
+    }
 
-                        $product->attributes()->attach($attribute->id, [
-                            'value' => $row[$i + 1],
-                            'display' => $row[$i + 2],
-                        ]);
-                    }
+    /**
+     * Sync the tags of a product.
+     *
+     * @param \App\Models\Product $product The product to sync tags for.
+     * @param array $tagsIds The array of tag IDs.
+     * @return void
+     */
+    private function syncTags(\App\Models\Product $product, array $tagsIds): void
+    {
+        $product->tags()->sync($tagsIds);
+    }
+
+    /**
+     * Sync the attributes of a product.
+     *
+     * @param \App\Models\Product $product The product to sync attributes for.
+     * @param array $row The array representing the product data.
+     * @return void
+     */
+    private function syncAttributes(\App\Models\Product $product, array $row): void
+    {
+        for ($i = 15; $i <= count($row) - 1; $i += 3) {
+            if ($row[$i] != null) {
+                $attribute = \App\Models\Attribute::where('name', trim($row[$i]))->first();
+
+                if ($attribute) {
+                    $product->attributes()->syncWithoutDetaching([$attribute->id => [
+                        'value' => $row[$i + 1],
+                        'display' => $row[$i + 2],
+                    ]]);
+                } else {
+                    $attribute = \App\Models\Attribute::create([
+                        'name' => trim($row[$i]),
+                        'slug' => str_replace(' ', '-', $row[$i]),
+                    ]);
+
+                    $product->attributes()->attach($attribute->id, [
+                        'value' => $row[$i + 1],
+                        'display' => $row[$i + 2],
+                    ]);
                 }
             }
+        }
+    }
 
-            $images = explode(',', $row[13]);
+    /**
+     * Create images for a product.
+     *
+     * @param \App\Models\Product $product The product to create images for.
+     * @param array $images The array of image paths.
+     * @return void
+     */
+    private function createImages(\App\Models\Product $product, array $images): void
+    {
+        $product->images()->delete();
 
-            $product->images()->delete();
+        foreach ($images as $image) {
+            $image = trim($image);
 
-            foreach ($images as $image) {
-                $image = trim($image);
-
-                $image = $product->images()->create([
-                    'path' => $image
-                ]);
-            }
-
-            $product->file()->delete();
-
-            $product->file()->create([
-                'path' => $row[14]
+            $image = $product->images()->create([
+                'path' => $image
             ]);
         }
     }
 
+    /**
+     * Create a file for a product.
+     *
+     * @param \App\Models\Product $product The product to create a file for.
+     * @param string $filePath The file path.
+     * @return void
+     */
+    private function createFile(\App\Models\Product $product, string $filePath): void
+    {
+        $product->file()->delete();
+
+        $product->file()->create([
+            'path' => $filePath
+        ]);
+    }
+
+    /**
+     * Get the chunk size for importing products.
+     *
+     * @return int The chunk size.
+     */
     public function chunkSize(): int
     {
         return 50;

@@ -18,8 +18,8 @@ class Store extends Component
     #[Url(as: 'search')]
     public $search = '';
 
-    #[Url(as: 'tag')]
-    public $tag;
+    #[Url(as: 'tags_filter')]
+    public $tagsFilter = [];
 
     #[Url(as: 'category')]
     public $category;
@@ -40,140 +40,153 @@ class Store extends Component
         'most-sales' => false,
     ];
 
+    /**
+     * Mount the component.
+     *
+     * This method is called when the component is being mounted.
+     * It loads the products and tags.
+     *
+     * @return void
+     */
     public function mount()
     {
-        if ($this->search) {
-            $this->products = Product::published()
-                ->where('name', 'like', '%' . $this->search . '%')
-                ->withCount('reviews')
-                ->withAvg('reviews as rating_avg', 'rating')
-                ->with('oldestImage')
-                ->orderByDesc('created_at')
-                ->paginate(15);
-        }
-
-        if ($this->tag) {
-            $this->products = Product::published()
-                ->whereHas('tags', function ($query) {
-                    $query->where('slug', $this->tag);
-                })
-                ->withCount('reviews')
-                ->withAvg('reviews as rating_avg', 'rating')
-                ->with('oldestImage')
-                ->orderByDesc('created_at')
-                ->paginate(15);
-        }
-
+        $this->loadProducts();
         $this->tags = Tag::take(10)->get();
     }
 
     /**
-     * Search for products.
+     * Load the products.
+     *
+     * This method loads the products based on the search, tags filter, category, and orderBy parameters.
+     *
+     * @return void
+     */
+    public function loadProducts()
+    {
+        $query = Product::published()
+            ->withCount('reviews')
+            ->withAvg('reviews as rating_avg', 'rating')
+            ->with('oldestImage')
+            ->orderByDesc('created_at');
+
+        if ($this->search) {
+            $query->where('name', 'like', '%' . $this->search . '%');
+        }
+
+        if ($this->tagsFilter) {
+            $query->whereHas('tags', function ($query) {
+                $query->whereIn('slug', $this->tagsFilter);
+            });
+        }
+
+        if ($this->category) {
+            $query->whereHas('category', function ($query) {
+                $query->where('slug', $this->category);
+            });
+        }
+
+        switch ($this->orderBy) {
+            case 'newest':
+                $query->latest();
+                break;
+            case 'cheapest':
+                $query->orderBy('price');
+                break;
+            case 'most-expensive':
+                $query->orderByDesc('price');
+                break;
+            case 'most-sales':
+                $query->withCount('sales')->orderByDesc('sales_count');
+                break;
+        }
+
+        $this->products = $query->paginate(15);
+    }
+
+    /**
+     * Update the search parameter.
+     *
+     * This method is called when the search parameter is updated.
+     * It resets the page and other filters, and reloads the products.
      *
      * @return void
      */
     public function updatedSearch()
     {
         $this->resetPage();
-
         $this->reset('tag', 'category');
-
-        $this->products = Product::published()
-            ->where('name', 'like', '%' . $this->search . '%')
-            ->withCount('reviews')
-            ->withAvg('reviews as rating_avg', 'rating')
-            ->with('oldestImage')
-            ->orderByDesc('created_at')
-            ->paginate(15);
+        $this->loadProducts();
     }
 
     /**
-     * Filter products by price.
+     * Update the price filter.
+     *
+     * This method is called when the price filter is updated.
+     * It resets the page and reloads the products.
      *
      * @return void
      */
     public function updatedPriceFilter()
     {
         $this->resetPage();
-
-        $this->products = Product::published()
-            ->whereBetween('price', [$this->price_filter['min'], $this->price_filter['max']])
-            ->withCount('reviews')
-            ->withAvg('reviews as rating_avg', 'rating')
-            ->with('oldestImage')
-            ->orderByDesc('created_at')
-            ->paginate(15);
+        $this->loadProducts();
     }
 
+    /**
+     * Get products by category.
+     *
+     * This method is called to get products by a specific category.
+     * It resets the page, search, and tag filters, sets the category, and reloads the products.
+     *
+     * @param int $id The ID of the category.
+     * @return void
+     */
     public function getPorductsByCategory($id)
     {
         $this->resetPage();
-
         $this->reset('search', 'tag');
-
         $this->category = Category::findOrFail($id)->slug;
-
-        $this->products = Product::published()
-            ->where('category_id', $id)
-            ->withCount('reviews')
-            ->withAvg('reviews as rating_avg', 'rating')
-            ->with('oldestImage')
-            ->orderByDesc('created_at')
-            ->paginate(15);
+        $this->loadProducts();
     }
 
-    public function updatedTag()
+    /**
+     * Update the tags filter.
+     *
+     * This method is called when the tags filter is updated.
+     * It resets the page, search, and category filters, and reloads the products.
+     *
+     * @return void
+     */
+    public function updatedTagsFilter()
     {
         $this->resetPage();
-
         $this->reset('search', 'category');
-
-        $this->products = Product::published()
-            ->when($this->tag, function ($query) {
-                $query->whereHas('tags', function ($query) {
-                    $query->where('tags.slug', $this->tag);
-                });
-            })
-            ->withCount('reviews')
-            ->withAvg('reviews as rating_avg', 'rating')
-            ->with('oldestImage')
-            ->orderByDesc('created_at')
-            ->paginate(15);
+        $this->loadProducts();
     }
 
+    /**
+     * Sort the products by the given order.
+     *
+     * This method is called to sort the products by the given order.
+     * It resets the page, sets the orderBy parameter, and reloads the products.
+     *
+     * @param string $orderBy The order by which to sort the products.
+     * @return void
+     */
     public function sortBy(string $orderBy)
     {
         $this->resetPage();
-
-        $this->orderBy = [
-            'newest' => false,
-            'cheapest' => false,
-            'most-expensive' => false,
-            'most-sales' => false,
-        ];
-
-        $this->orderBy[$orderBy] = true;
-
-        $this->products = Product::published()
-            ->when($orderBy == 'newest', function ($query) {
-                $query->latest();
-            })
-            ->when($orderBy == 'cheapest', function ($query) {
-                $query->orderBy('price');
-            })
-            ->when($orderBy == 'most-expensive', function ($query) {
-                $query->orderByDesc('price');
-            })
-            ->when($orderBy == 'most-sales', function ($query) {
-                $query->withCount('sales')->orderByDesc('sales_count');
-            })
-            ->withCount('reviews')
-            ->withAvg('reviews as rating_avg', 'rating')
-            ->with('oldestImage')
-            ->latest()
-            ->paginate(15);
+        $this->orderBy = $orderBy;
+        $this->loadProducts();
     }
 
+    /**
+     * Get the categories.
+     *
+     * This method returns the categories with their products count and image.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
     #[Computed(persist: true)]
     public function categories()
     {
@@ -183,32 +196,32 @@ class Store extends Component
             ->orderByDesc('products_count')->get();
     }
 
+    /**
+     * Updating the page parameter.
+     *
+     * This method is called when the page parameter is being updated.
+     * It can be used to perform additional actions when the page is being updated.
+     *
+     * @param int $page The updated page number.
+     * @return void
+     */
     public function updatingPage($page)
     {
         // $this->resetPage();
     }
 
+    /**
+     * Updated the page parameter.
+     *
+     * This method is called when the page parameter is updated.
+     * It reloads the products.
+     *
+     * @param int $page The updated page number.
+     * @return void
+     */
     public function updatedPage($page)
     {
-        $this->products = Product::published()
-            ->when($this->category, function ($query) {
-                $query->whereHas('category', function ($query) {
-                    $query->where('slug', $this->category);
-                });
-            })
-            ->when($this->tag, function ($query) {
-                $query->whereHas('tags', function ($query) {
-                    $query->where('slug', $this->tag);
-                });
-            })
-            ->when($this->search, function ($query) {
-                $query->where('name', 'like', '%' . $this->search . '%');
-            })
-            ->withCount('reviews')
-            ->withAvg('reviews as rating_avg', 'rating')
-            ->with('oldestImage')
-            ->latest()
-            ->paginate(15);
+        $this->loadProducts();
     }
 
     #[Title('محصولات')]
