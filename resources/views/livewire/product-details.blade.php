@@ -386,3 +386,15 @@
         </section>
     </main>
 </div>
+
+@script
+<script>
+    let addToCartBtn = document.getElementById('addToCartBtn');
+
+    if(addToCartBtn) {
+        addToCartBtn.addEventListener('click', () => {
+            addToCartBtn.innerHTML = '<div class="spinner-border spinner-border-sm text-white" role="status"><span class="visually-hidden">Loading...</span></div>';
+        });
+    }
+</script>
+@endscript

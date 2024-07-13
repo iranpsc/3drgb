@@ -28,7 +28,7 @@ class ProductDetails extends Component
         ])->loadAvg('reviews as rating_avg', 'rating');
     }
 
-    public function addToCart()
+    public function addToCart(int $quantity = 1)
     {
         // check if product is already in cart
         if (in_array($this->product->id, array_column(session('cart', []), 'product_id'))) {
@@ -38,7 +38,7 @@ class ProductDetails extends Component
 
         session()->push('cart', [
             'product_id' => $this->product->id,
-            'quantity' => 1
+            'quantity' => $quantity
         ]);
 
         $cartProductsCount = count(session()->get('cart', []));
