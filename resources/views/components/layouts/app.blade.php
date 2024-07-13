@@ -251,7 +251,7 @@
                                 <li class="flex flex-col gap-3  ">
                                     <input type="checkbox" id="c2" class="peer" />
                                     <label
-                                        class="px-[20px] py-[14px] w-full rounded-[10px] text-[#868B90]  peer-checked:text-white head_label peer-checked:bg-[#000BEE] dark:peer-checked:bg-[#C2008C] peer-checked:[&>div>svg]:rotate-180  peer-checked:[&>div>svg>path]:stroke-white"
+                                        class="px-[20px]  py-[14px] w-full rounded-[10px] text-[#868B90]  peer-checked:text-white head_label peer-checked:bg-[#000BEE] dark:peer-checked:bg-[#C2008C] peer-checked:[&>div>svg]:rotate-180  peer-checked:[&>div>svg>path]:stroke-white"
                                         for="c2">
                                         <div class="flex w-full justify-between items-center select-none"
                                             for="c2">
@@ -286,26 +286,35 @@
                                         @php
                                             $categories = \App\Models\Category::with('children', 'parent')->get();
                                         @endphp
-                                        <li class="">
-                                            <input type="checkbox" id="c3" class="peer" />
-                                            @foreach ($categories as $category)
-                                                @empty($category->parent_id)
-                                                    <label for="c3"
-                                                        class="tree_label w-full text-[#868B90] peer-checked:text-[#000BEE] dark:peer-checked:text-white peer-checked:bg-[#ECF4FE] dark:peer-checked:bg-[#C2008C]/30">
-                                                        {{ $category->name }}
-                                                    </label>
-                                                    <ul>
-                                                        <div
-                                                            class="flex flex-col text-sm text-[#000BEE] font-bold gap-5 p-3 pr-[20PX] dark:text-[#868B90]">
-                                                            @foreach ($category->children as $child)
-                                                                <a href="{{ route('categories.show', ['category_link' => $child->url]) }}"
-                                                                    class="text-[#868B90]">{{ $child->name }}</a>
-                                                            @endforeach
-                                                        </div>
-                                                    </ul>
-                                                @endempty
-                                            @endforeach
-                                        </li>
+<?php $counter = 1; ?>
+<div>
+    @foreach ($categories as $category)
+
+    <li class="">
+        <div>
+        @empty($category->parent_id)
+            <?php $inputId = sprintf("%03d", $counter++); ?>
+            <input type="checkbox" id="{{ $inputId }}" class="peer" />
+            <label for="{{ $inputId }}"
+                class="tree_label w-full text-[#868B90] peer-checked:text-[#000BEE] dark:peer-checked:text-white peer-checked:bg-[#ECF4FE] dark:peer-checked:bg-[#C2008C]/30">
+                {{ $category->name }}
+            </label>
+            <ul>
+                <div class="flex flex-col text-sm text-[#000BEE] font-bold gap-5 p-3 pr-[20PX] dark:text-[#868B90]">
+                    @foreach ($category->children as $child)
+                        <a href="{{ route('categories.show', ['category_link' => $child->url]) }}" class="text-[#868B90]">
+                            {{ $child->name }}
+                        </a>
+                    @endforeach
+                </div>
+            </ul>
+        @endempty
+    </div>
+</li>
+
+
+@endforeach
+</div>
                                     </ul>
                                 </li>
                             </ul>

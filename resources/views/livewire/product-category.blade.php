@@ -59,8 +59,8 @@
                                 <div
                                     class="bg-white dark:bg-[#001448] w-full flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
                                     <a href="{{ route('categories.show', ['category_link' => $children_links]) }}"
-                                        class="p-3 w-full ">
-                                        <img src="{{ $child->image->url ?? asset('home-page/images/3d-Strawberry-3dmodel.jpg') }}"
+                                        class="p-1 w-full ">
+                                        <img class="rounded-lg" src="{{ $child->image->url ?? asset('home-page/images/3d-Strawberry-3dmodel.jpg') }}"
                                             loading="lazy" alt="category">
                                     </a>
                                     <div class="w-full flex flex-col justify-center items-center gap-3">
