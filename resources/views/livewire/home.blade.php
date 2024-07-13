@@ -97,14 +97,14 @@
                         هزاران فایل بینظیر
                     </p>
                 </div>
-                <div class="w-full relative">
+                <div >
                     <!-- Swiper -->
-                    <div class="swiper-slider swiper-container  overflow-x-hidden " dir="ltr" wire:ignore>
-                        <div class="swiper-wrapper ">
+                    
+                        
                             <livewire:top-level-category-slider />
-                        </div>
-                        <!-- Add Pagination -->
-                    </div>
+                        
+                        
+                    
                 </div>
             </div>
             <div class="flex flex-col md:flex-row items-center gap-y-10 gap-x-20 w-full px-5 mt-28 py-32">
