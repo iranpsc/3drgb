@@ -176,7 +176,11 @@ class Store extends Component
     public function sortBy(string $orderBy)
     {
         $this->resetPage();
-        $this->orderBy = $orderBy;
+
+        foreach ($this->orderBy as $key => $value) {
+            $this->orderBy[$key] = $key === $orderBy;
+        }
+
         $this->loadProducts();
     }
 

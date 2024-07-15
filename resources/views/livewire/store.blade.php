@@ -43,9 +43,9 @@
                         <livewire:top-level-category-slider />
                     </div>
                     <!-- Add Pagination -->
-
-
                 </div>
+                <div class="swiper-pagination"></div>
+                <!-- End Swiper -->
             </div>
         </section>
         <section class="max-w-[1500px] mx-auto  lg:p-9 mt-24 lg:mt-14 flex flex-col lg:flex-row gap-5 ">
