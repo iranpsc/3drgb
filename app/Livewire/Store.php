@@ -234,7 +234,7 @@ class Store extends Component
                 ->with('oldestImage', 'category.parent')
                 ->latest()
                 ->paginate(15),
-            'tags' => Tag::all()
+            'tags' => Tag::paginate(10)
         ]);
     }
 }
