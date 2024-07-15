@@ -29,8 +29,6 @@ class Store extends Component
         'max' => 9000000,
     ];
 
-    public $tags;
-
     private $products;
 
     public $orderBy = [
@@ -51,7 +49,6 @@ class Store extends Component
     public function mount()
     {
         $this->loadProducts();
-        $this->tags = Tag::take(10)->get();
     }
 
     /**
@@ -67,7 +64,6 @@ class Store extends Component
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
             ->with('oldestImage');
-            // ->orderByDesc('created_at');
 
         if ($this->search) {
             $query->where('name', 'like', '%' . $this->search . '%');
@@ -115,7 +111,7 @@ class Store extends Component
     public function updatedSearch()
     {
         $this->resetPage();
-        $this->reset('tag', 'category');
+        $this->reset('tagsFilter', 'category');
         $this->loadProducts();
     }
 
@@ -145,7 +141,7 @@ class Store extends Component
     public function getPorductsByCategory($id)
     {
         $this->resetPage();
-        $this->reset('search', 'tag');
+        $this->reset('search', 'tagsFilter');
         $this->category = Category::findOrFail($id)->slug;
         $this->loadProducts();
     }
@@ -237,7 +233,8 @@ class Store extends Component
                 ->withAvg('reviews as rating_avg', 'rating')
                 ->with('oldestImage', 'category.parent')
                 ->latest()
-                ->paginate(15)
+                ->paginate(15),
+            'tags' => Tag::all()
         ]);
     }
 }
