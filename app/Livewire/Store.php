@@ -66,8 +66,8 @@ class Store extends Component
         $query = Product::published()
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
-            ->with('oldestImage')
-            ->orderByDesc('created_at');
+            ->with('oldestImage');
+            // ->orderByDesc('created_at');
 
         if ($this->search) {
             $query->where('name', 'like', '%' . $this->search . '%');
@@ -87,17 +87,21 @@ class Store extends Component
 
         foreach ($this->orderBy as $key => $value) {
             if ($value) {
-                if ($key === 'cheapest') {
-                    $query->orderBy('price');
-                } elseif ($key === 'most-expensive') {
-                    $query->orderByDesc('price');
-                } elseif ($key === 'most-sales') {
-                    $query->withCount('sales')->orderBy('sales_count');
+                switch ($key) {
+                    case 'cheapest':
+                        $query->orderBy('price');
+                        break;
+                    case 'most-expensive':
+                        $query->orderByDesc('price');
+                        break;
+                    case 'most-sales':
+                        $query->withCount('sales')->orderBy('sales_count');
+                        break;
                 }
             }
         }
 
-        $this->products = $query->paginate(15);
+        $this->products = $query->orderByDesc('created_at')->paginate(15);
     }
 
     /**
