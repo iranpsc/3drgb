@@ -85,19 +85,16 @@ class Store extends Component
             });
         }
 
-        switch ($this->orderBy) {
-            case 'newest':
-                $query->latest();
-                break;
-            case 'cheapest':
-                $query->orderBy('price');
-                break;
-            case 'most-expensive':
-                $query->orderByDesc('price');
-                break;
-            case 'most-sales':
-                $query->withCount('sales')->orderByDesc('sales_count');
-                break;
+        foreach ($this->orderBy as $key => $value) {
+            if ($value) {
+                if ($key === 'cheapest') {
+                    $query->orderBy('price');
+                } elseif ($key === 'most-expensive') {
+                    $query->orderByDesc('price');
+                } elseif ($key === 'most-sales') {
+                    $query->withCount('sales')->orderBy('sales_count');
+                }
+            }
         }
 
         $this->products = $query->paginate(15);
