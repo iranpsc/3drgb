@@ -98,7 +98,7 @@ class Store extends Component
             }
         }
 
-        $this->products = $query->orderByDesc('created_at')->paginate(15);
+        $this->products = $query->orderByDesc('id')->paginate(15);
     }
 
     /**
