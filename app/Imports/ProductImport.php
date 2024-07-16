@@ -2,7 +2,9 @@
 
 namespace App\Imports;
 
+use App\Models\Image;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Log;
 use Maatwebsite\Excel\Concerns\ToArray;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 
@@ -17,8 +19,12 @@ class ProductImport implements ToArray, WithChunkReading, ShouldQueue
     public function array(array $array)
     {
         foreach ($array as $rowNumber => $row) {
-            // skip the first row
-            if ($rowNumber == 0) {
+            if ($rowNumber === 0) {
+                continue; // Skip the header row
+            }
+
+            if(empty($row[0])) {
+                Log::warning('Row ' . ($rowNumber + 1) . ' is empty. Skipping...');
                 continue;
             }
 
@@ -174,13 +180,15 @@ class ProductImport implements ToArray, WithChunkReading, ShouldQueue
     {
         $product->images()->delete();
 
+        $imageData = [];
+
         foreach ($images as $image) {
             $image = trim($image);
 
-            $image = $product->images()->create([
-                'path' => $image
-            ]);
+            array_push($imageData, new Image(['path' => $image]));
         }
+
+        $product->images()->saveMany($imageData);
     }
 
     /**
@@ -192,11 +200,10 @@ class ProductImport implements ToArray, WithChunkReading, ShouldQueue
      */
     private function createFile(\App\Models\Product $product, string $filePath): void
     {
-        $product->file()->delete();
-
-        $product->file()->create([
-            'path' => $filePath
-        ]);
+        $product->file()->updateOrCreate(
+            ['product_id' => $product->id],
+            ['path' => $filePath]
+        );
     }
 
     /**
@@ -206,6 +213,6 @@ class ProductImport implements ToArray, WithChunkReading, ShouldQueue
      */
     public function chunkSize(): int
     {
-        return 50;
+        return 100;
     }
 }
