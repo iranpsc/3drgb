@@ -66,7 +66,8 @@ class Store extends Component
             ->with('oldestImage');
 
         if ($this->search) {
-            $query->where('name', 'like', '%' . $this->search . '%');
+            $query->where('name', 'like', '%' . $this->search . '%')
+            ->orWhere('sku', 'like', '%' . $this->search . '%');
         }
 
         if ($this->tagsFilter) {
@@ -91,13 +92,13 @@ class Store extends Component
                         $query->orderByDesc('price');
                         break;
                     case 'most-sales':
-                        $query->withCount('sales')->orderBy('sales_count');
+                        $query->withCount('sales')->orderByDesc('sales_count');
                         break;
                 }
             }
         }
 
-        $this->products = $query->orderByDesc('created_at')->paginate(15);
+        $this->products = $query->orderByDesc('sku')->paginate(15);
     }
 
     /**
