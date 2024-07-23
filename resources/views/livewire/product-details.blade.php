@@ -214,7 +214,8 @@
                                     </button>
                                     <input type="number"
                                         class="focus:border-0  focus:ring-0 border-0 text-center w-10 h-12 bg-white font-semibold text-md   flex items-center text-[#3A4980] "
-                                        name="custom-input-number" value="1" id="custom-input-number">
+                                        name="custom-input-number" min="1" max="{{ $product->quantity }}"
+                                        value="1" id="custom-input-number">
                                     <button data-action="increment"
                                         class="bg-white text-[#3A4980]  h-12 w-10 rounded-l-full cursor-pointer">
                                         <span class="m-auto text-2xl font-thin">+</span>
@@ -379,18 +380,33 @@
                 </div>
 
                 <div id="horizontal-right-alignment-2" class="hidden" role="tabpanel"
-                aria-labelledby="horizontal-right-alignment-item-2">
-                <div class="w-full lg:w-[60%] space-y-10">
-                    <livewire:reviews :product="$product" />
+                    aria-labelledby="horizontal-right-alignment-item-2">
+                    <div class="w-full lg:w-[60%] space-y-10">
+                        <livewire:reviews :product="$product" />
+                    </div>
                 </div>
-            </div>
             </div>
 
 
         </section>
         <section class="mt-10 max-w-[1500px] mx-auto p-4 lg:p-9 mt-20 lg:mt-0">
-            <p class="text-[#344054] dark:text-gray-200 font-bold text-xl text-center md:text-right md:text-[30px] my-8">موارد مشابه‌ که ممکن است دوست داشته باشید.</p>
+            <p
+                class="text-[#344054] dark:text-gray-200 font-bold text-xl text-center md:text-right md:text-[30px] my-8">
+                موارد مشابه‌ که ممکن است دوست داشته باشید.</p>
             <livewire:similar-products :category="$product->category" :product="$product" />
         </section>
     </main>
 </div>
+
+@script
+    <script>
+        let addToCartBtn = document.getElementById('addToCartBtn');
+        let customInputNumber = document.getElementById('custom-input-number');
+
+        if (addToCartBtn) {
+            addToCartBtn.addEventListener('click', () => {
+                $wire.call('addToCart', customInputNumber.value);
+            });
+        }
+    </script>
+@endscript

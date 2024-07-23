@@ -103,14 +103,10 @@
                         هزاران فایل بینظیر
                     </p>
                 </div>
-                <div >
+                <div>
                     <!-- Swiper -->
-                    
-                        
-                            <livewire:top-level-category-slider />
-                        
-                        
-                    
+                    <livewire:top-level-category-slider />
+                    <!-- Swiper -->
                 </div>
             </div>
             <div class="flex flex-col md:flex-row items-center gap-y-10 gap-x-20 w-full px-5 mt-28 py-32">
@@ -159,7 +155,7 @@
                                     <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
                                         class="bg-white dark:bg-[#001448] p-3 pb-7   w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-7 text-center">
                                         <div class="w-full ">
-                                            <img src="{{ asset($category->image?->url) }}" loading="lazy"
+                                            <img src="{{ asset($category->image->url ?? '') }}" loading="lazy"
                                                 alt="category" class="w-full rounded-xl">
                                         </div>
                                         <div>
@@ -232,10 +228,9 @@
                 </div>
 
             </div>
-            <div class="relative ">
-                <div class="swiper-slider swiper-container  overflow-x-hidden " dir="rtl" wire:ignore>
-                    <div class="swiper-wrapper">
-
+            <div class="relative">
+                <div class="swiper-slider swiper-container overflow-x-hidden" dir="rtl" wire:ignore>
+                    <div class="swiper-wrapper" id="products-slider">
                         <!-- start card -->
                         @forelse ($products as $product)
                             <div class="swiper-slide flex w-full" wire:key="product-{{ $product->id }}">
@@ -245,45 +240,51 @@
                             <x-alert type="warning" message="محصولی یافت نشد" />
                         @endforelse
                         <!-- end card -->
-
                     </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
             </div>
-            <!-- end show more products -->
         </section>
     </main>
 </div>
+
 @script
     <script>
-        const buttons = document.querySelectorAll("#order-by-score, #order-by-newest, #order-by-sales");
+        let buttons = document.getElementsByClassName("sortbtn");
+
+        buttons = Array.from(buttons);
 
         buttons.forEach(button => {
             button.addEventListener("click", () => {
+                console.log(button.id);
                 $wire.call('changeTab', button.id);
                 buttons.forEach(btn => btn.classList.remove("active"));
                 button.classList.add("active");
             });
         });
 
-        // slider
-        let defaultTransform = 0;
-
-        function goNext() {
-            defaultTransform = defaultTransform - 300;
-            var slider = document.getElementById("slider");
-            if (Math.abs(defaultTransform) >= slider.scrollWidth / 1.4) defaultTransform = 0;
-            slider.style.transform = "translateX(" + defaultTransform + "px)";
-        }
-        next.addEventListener("click", goNext);
-
-        function goPrev() {
-            var slider = document.getElementById("slider");
-            if (Math.abs(defaultTransform) === 0) defaultTransform = 0;
-            else defaultTransform = defaultTransform + 300;
-            slider.style.transform = "translateX(" + defaultTransform + "px)";
-        }
-        prev.addEventListener("click", goPrev);
-
-        //slyder end
+        let swiperSlider = new Swiper('.swiper-slider', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 50,
+                },
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
     </script>
 @endscript

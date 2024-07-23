@@ -17,7 +17,8 @@ class ProductDetails extends Component
             'tags',
             'attributes' => function ($query) {
                 $query->whereNotNull('value')
-                    ->whereNot('value', '-');
+                    ->whereNot('value', '-')
+                    ->where('display', 1);
             },
             'category',
         ])->loadCount([
@@ -28,7 +29,7 @@ class ProductDetails extends Component
         ])->loadAvg('reviews as rating_avg', 'rating');
     }
 
-    public function addToCart()
+    public function addToCart(int $quantity = 1)
     {
         // check if product is already in cart
         if (in_array($this->product->id, array_column(session('cart', []), 'product_id'))) {
@@ -36,9 +37,12 @@ class ProductDetails extends Component
             return;
         }
 
+        // Just in case user tries to add 0 quantity
+        if($quantity == 0) $quantity = 1;
+
         session()->push('cart', [
             'product_id' => $this->product->id,
-            'quantity' => 1
+            'quantity' => $quantity
         ]);
 
         $cartProductsCount = count(session()->get('cart', []));

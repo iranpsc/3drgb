@@ -49,13 +49,13 @@
                         <livewire:top-level-category-slider />
                     </div>
                     <!-- Add Pagination -->
-
-
                 </div>
+                <div class="swiper-pagination"></div>
+                <!-- End Swiper -->
             </div>
         </section>
         <section class="max-w-[1500px] mx-auto  lg:p-9 mt-24 lg:mt-14 flex flex-col lg:flex-row gap-5 ">
-            <div id="fillterContainer"
+            <div id="fillterContainer" wire:ignore
                 class="hidden h-min absolute top-0 lg:top-0 rounded-[10px] z-[1100]  lg:relative lg:block w-full lg:w-1/4 lg:p-5 space-y-6 bg-white dark:bg-[#001448] lg:bg-transparent ">
                 <div class="w-full bg-white dark:bg-[#001448] lg:rounded-[10px] p-5 ">
                     <div class="flex justify-between items-center px-4 py-3">
@@ -112,8 +112,8 @@
                     <div class="grid grid-cols-2 gap-5 items2">
                         @foreach ($tags as $tag)
                             <div class="flex items-center gap-5 item2">
-                                <input type="radio" id="{{ 'tag-' . $tag->id }}" value="{{ $tag->slug }}"
-                                    class="w-[22px] h-[22px] rounded-lg" wire:model.live="tag">
+                                <input type="checkbox" id="{{ 'tag-' . $tag->id }}" value="{{ $tag->slug }}"
+                                    class="w-[22px] h-[22px] rounded-lg" wire:model.live="tagsFilter">
                                 <label for="{{ 'tag-' . $tag->id }}">{{ $tag->name }}</label>
                             </div>
                         @endforeach

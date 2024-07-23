@@ -14,13 +14,25 @@ class Home extends Component
     #[Rule('required|string|min:3|max:255')]
     public $searchTerm;
 
-    private $products = null;
+    public $products;
 
     public function search()
     {
         $this->validate();
 
         $this->redirect('/products?search=' . $this->searchTerm);
+    }
+
+    public function mount()
+    {
+        $this->products = Product::published()
+            ->withAvg('reviews as rating_avg', 'rating')
+            ->with('latestImage')
+            ->orderByDesc('created_at')
+            ->take(15)
+            ->get();
+
+        // $this->dispatch('productsLoaded', products: $this->products);
     }
 
     /**
@@ -36,19 +48,24 @@ class Home extends Component
                 ->withAvg('reviews as rating_avg', 'rating')
                 ->with('latestImage')
                 ->orderByDesc('created_at')
-                ->paginate(12),
+                ->take(15)
+                ->get(),
             'order-by-score' => Product::published()
                 ->withAvg('reviews as rating_avg', 'rating')
                 ->with('latestImage')
                 ->orderBy('rating_avg', 'desc')
-                ->paginate(12),
+                ->take(15)
+                ->get(),
             'order-by-sales' => Product::published()
                 ->withAvg('reviews as rating_avg', 'rating')
                 ->withCount('sales')
                 ->with('latestImage')
                 ->orderByDesc('sales_count')
-                ->paginate(12),
+                ->take(15)
+                ->get(),
         };
+
+        // $this->dispatch('productsLoaded', products: $this->products);
     }
 
     #[Computed(persist: true)]
@@ -62,13 +79,6 @@ class Home extends Component
     #[Title('سه بعدی متا')]
     public function render()
     {
-        return view('livewire.home')
-            ->with([
-                'products' => $this->products ?? Product::published()
-                    ->withAvg('reviews as rating_avg', 'rating')
-                    ->with('latestImage')
-                    ->orderByDesc('rating_avg')
-                    ->paginate(12)
-            ]);
+        return view('livewire.home');
     }
 }

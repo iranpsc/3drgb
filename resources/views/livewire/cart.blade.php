@@ -98,9 +98,10 @@
                                                             <td style="padding-right: 8px">
                                                                 <div class="flex gap-3 items-center">
                                                                     <img class="aspect-square w-[80px] h-[80px] rounded-[10px]"
-                                                                        src="{{ $product->oldestImage->url ?? '' }}"
+                                                                        src="{{ $product->latestImage->url ?? '' }}"
                                                                         alt="Generic placeholder image">
-                                                                    <h5 class="mt-0 w-max pl-5">{{ $product->name }}
+                                                                    <h5 class="mt-0 w-max pl-5">
+                                                                        <a href="{{ route('products.show', $product->sku) }}"> {{ $product->name }} </a>
                                                                     </h5>
                                                                 </div>
                                                             </td>
