@@ -5,12 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="lmf8kBJQgLHew_wXcxGQwJQWiOSFy8odEBRTLOoX7Q4" />
-    <meta name="description"
-        content="سامانه سه بعدی متا با تعرفه ای ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .">
-    <meta name="keywords"
-        content="3d,3dmeta,3drgb,سبعدی,سه بعدی,محصولات سه بعدی,فایل سه بعدی,خرید فایل سبعدی,icon,آیکون,آیکون سه بعدی,خرید آیکون سه بعدی,انیمیشن,">
     <meta http-equiv="content-language" content="farsi">
     <meta name="robots" content="index,follow">
+
+    <title>@yield('title',  'سه بعدی متا' . ' | ' . $title ?? config('app.name'))</title>
+    <meta name="description" content="@yield('description' , 'سامانه سه بعدی متا با تعرفه ای ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .')">
+    <meta name="keywords" content="@yield('keywords', '3d,3dmeta,3drgb,سبعدی,سه بعدی,محصولات سه بعدی,فایل سه بعدی,خرید فایل سبعدی,icon,آیکون,آیکون سه بعدی,خرید آیکون سه بعدی,انیمیشن,' )">
+    <meta name="author" content="سبعدی متا">
+    <meta property="og:title" content="@yield('og:title',  $title ?? config('app.name'))">
+    <meta property="og:description" content="@yield('og:description' , 'سامانه سه بعدی متا با تعرفه ای ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .')">
+    <meta property="og:image" content="@yield('og:image', asset('home-page/images/3ddmetaa143.png'))">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:site_name" content="سبعدی متا">
+
+
+
     <link rel="icon" type="image/x-icon" href="{{ asset('home-page/images/3ddmetaa143.png') }}">
 
     <link href="{{ asset('home-page/style/swiper-main.css') }}" rel="stylesheet">
@@ -22,7 +31,7 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     @vite('resources/css/app.css')
 
-    <title>{{ 'سه بعدی متا' . ' | ' . $title ?? config('app.name') }}</title>
+    {{-- <title>{{ 'سه بعدی متا' . ' | ' . $title ?? config('app.name') }}</title> --}}
     <script>
         document.documentElement.className = document.documentElement.className
             .replace(/\bno-js\b/g, '') + ' js ';
