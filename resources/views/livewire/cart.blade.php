@@ -101,7 +101,7 @@
                                                                         src="{{ $product->latestImage->url ?? '' }}"
                                                                         alt="Generic placeholder image">
                                                                     <h5 class="mt-0 w-max pl-5">
-                                                                        <a href="{{ route('products.show', $product->sku) }}"> {{ $product->name }} </a>
+                                                                        <a href="{{ route('products.show', $product->sku) }}"> {{ $product->name }} <br>  {{ $product->sku }} </a>
                                                                     </h5>
                                                                 </div>
                                                             </td>

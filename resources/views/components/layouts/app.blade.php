@@ -5,18 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="lmf8kBJQgLHew_wXcxGQwJQWiOSFy8odEBRTLOoX7Q4" />
-    <meta http-equiv="content-language" content="farsi">
     <meta name="robots" content="index,follow">
 
     <title>@yield('title',  'سه بعدی متا' . ' | ' . $title ?? config('app.name'))</title>
+    <meta property="og:type" content="website">
     <meta name="description" content="@yield('description' , 'سامانه سه بعدی متا با تعرفه ای ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .')">
     <meta name="keywords" content="@yield('keywords', '3d,3dmeta,3drgb,سبعدی,سه بعدی,محصولات سه بعدی,فایل سه بعدی,خرید فایل سبعدی,icon,آیکون,آیکون سه بعدی,خرید آیکون سه بعدی,انیمیشن,' )">
+    <meta name="language" content="fa">
+
     <meta name="author" content="سبعدی متا">
     <meta property="og:title" content="@yield('og:title',  $title ?? config('app.name'))">
     <meta property="og:description" content="@yield('og:description' , 'سامانه سه بعدی متا با تعرفه ای ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .')">
-    <meta property="og:image" content="@yield('og:image', asset('home-page/images/3ddmetaa143.png'))">
+    <meta property="og:image" content="@yield('og:image', asset('home-page/images/3d.png'))">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:site_name" content="سبعدی متا">
+    <meta property="og:site_name" content="سه بعدی متا">
+    <meta property="og:locale" content="fa_IR">
 
 
 
@@ -857,7 +860,7 @@
                         </p>
                     </div>
                     <div class="font-bold">
-                        <a href="whatsapp://send?text=http://+989337850551"
+                        <a dir="ltr" href="whatsapp://send?text=http://+989337850551"
                             class="rounded-3xl bg-white dark:bg-[#DCFFE8]/75 py-3 px-5 text-[#20D05C] dark:text-[#02501D]">0933 785 0551</a>
                     </div>
                 </div>
