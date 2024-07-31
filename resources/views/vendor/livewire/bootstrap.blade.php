@@ -12,26 +12,46 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
 
 <div>
     <style>
-        .active  .page-item {
+    .active  .page-item {
         background-color: #000BEE; color: white;
     }
     .dark .active .page-item{
         background-color: #C2008C;
-        color: white
-        
+        color: white;
     }
-
 
     .page-item{
         border:solid 2px #000BEE; color:#000BEE; width:35px; height:35px; display:flex; justify-content:center; border-radius:6px;align-items: center;
     }
-    
+
     .dark .page-item{
         color: #C2008C;
         border-color: #C2008C;
     }
 
-    </style>
+    /* اضافه کردن اسکرول افقی به پگینیشن */
+    .pagination {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* مخفی کردن اسکرول‌بار برای ظاهر بهتر */
+    .pagination::-webkit-scrollbar {
+        display: none;
+    }
+    .pagination {
+        -ms-overflow-style: none;  /* برای اینترنت اکسپلورر */
+        scrollbar-width: none;  /* برای فایرفاکس */
+    }
+
+    /* تنظیم برای نمایش تعداد محدودی از آیتم‌ها در موبایل */
+    @media (max-width: 768px) {
+        .page-item {
+            flex: 0 0 auto;
+        }
+    }
+</style>
+
 
     @if ($paginator->hasPages())
         <nav style="margin-top:20px" class="w-full ">
@@ -97,4 +117,5 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
         });
     });
 </script>
+
 
