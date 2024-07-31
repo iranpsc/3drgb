@@ -5,6 +5,8 @@
 @section('og:title', $product->name)
 @section('og:description', $product->short_description)
 @section('og:image', $product->images->first()->url)
+@section('og:type', 'product')
+
 
 <div>
     <main>

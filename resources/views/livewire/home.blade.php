@@ -274,11 +274,11 @@
                 },
                 768: {
                     slidesPerView: 3,
-                    spaceBetween: 40,
+                    spaceBetween: 22,
                 },
                 1024: {
                     slidesPerView: 4,
-                    spaceBetween: 50,
+                    spaceBetween: 20,
                 },
             },
             navigation: {
