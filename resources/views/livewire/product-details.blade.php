@@ -1,3 +1,13 @@
+
+@section('title', $product->name . ' - ' . $product->sku . ' - فروشگاه آنلاین')
+@section('description', $product->description)
+@section('keywords', implode(',', ['کلمه کلیدی 1', 'کلمه کلیدی 2', $product->name]))
+@section('og:title', $product->name)
+@section('og:description', $product->short_description)
+@section('og:image', $product->images->first()->url)
+@section('og:type', 'product')
+
+
 <div>
     <main>
         <section class="max-w-[1500px] mx-auto p-4 lg:p-9 mt-20 lg:mt-0">

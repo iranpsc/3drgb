@@ -5,12 +5,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="lmf8kBJQgLHew_wXcxGQwJQWiOSFy8odEBRTLOoX7Q4" />
-    <meta name="description"
-        content="سامانه سه بعدی متا با تعرفه ای ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .">
-    <meta name="keywords"
-        content="3d,3dmeta,3drgb,سبعدی,سه بعدی,محصولات سه بعدی,فایل سه بعدی,خرید فایل سبعدی,icon,آیکون,آیکون سه بعدی,خرید آیکون سه بعدی,انیمیشن,">
-    <meta http-equiv="content-language" content="farsi">
     <meta name="robots" content="index,follow">
+
+    <title>@yield('title',  'سه بعدی متا' . ' | ' . $title ?? config('app.name'))</title>
+    <meta property="og:type" content="@yield('og:type', 'website')">
+    <meta name="description" content="@yield('description' , 'سامانه سه بعدی متا با تعرفه ای ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .')">
+    <meta name="keywords" content="@yield('keywords', '3d,3dmeta,3drgb,سبعدی,سه بعدی,محصولات سه بعدی,فایل سه بعدی,خرید فایل سبعدی,icon,آیکون,آیکون سه بعدی,خرید آیکون سه بعدی,انیمیشن,' )">
+    <meta name="language" content="fa">
+
+    <meta name="author" content="سه بعدی متا">
+    <meta property="og:title" content="@yield('og:title',  $title ?? config('app.name'))">
+    <meta property="og:description" content="@yield('og:description' , 'سامانه سه بعدی متا با تعرفه ای ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .')">
+    <meta property="og:image" content="@yield('og:image', asset('home-page/images/3d.png'))">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:site_name" content="سه بعدی متا">
+    <meta property="og:locale" content="fa_IR">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "name": "سه بعدی متا",
+                "alternateName": "3D Meta",
+                "url": "{{ url()->current() }}",
+                "logo": "{{ asset('home-page/images/3d.png') }}",
+                "image": "@yield('og:image', asset('home-page/images/3d.png'))",
+                "description": "@yield('description', 'سامانه سه‌بعدی متا با تعرفه‌ای ثابت مرکز عرضه جدیدترین مدل سه‌بعدی، آیکون، انیمیشن و دیگر فایل‌های طراحی می‌باشد.')",
+                "email": "dmeta.irpsc@gmail.com",
+                "telephone": "09337850551",
+                "inLanguage": "fa",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "ایران",
+                  "addressLocality": "قزوین",
+                  "addressRegion": "استان قزوین",
+                  "streetAddress": "میرداماد، 824H+JG2"
+                },
+                "sameAs": [
+                    "https://www.youtube.com/channel/UCG9jK8hoh9X5YoTs6Z1zlIQ",
+                    "https://discord.gg/xqBe3h9hnN",
+                    "https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy",
+                    "https://pin.it/7C5mYf6Q6"
+                  ]
+              },
+              {
+                "@type": "WebSite",
+                "name": "@yield('title', 'سه بعدی متا | ' . ($title ?? config('app.name')))",
+                "alternateName": "3D Meta",
+                "url": "{{ url()->current() }}",
+                "image": "@yield('og:image', asset('home-page/images/3d.png'))",
+                "logo": "{{ asset('home-page/images/3d.png') }}",
+                "description": "@yield('description', 'سامانه سه‌بعدی متا با تعرفه‌ای ثابت مرکز عرضه جدیدترین مدل سه‌بعدی، آیکون، انیمیشن و دیگر فایل‌های طراحی می‌باشد.')",
+                "keywords": "@yield('keywords', '3d,3dmeta,3drgb,سبعدی,سه بعدی,محصولات سه بعدی,فایل سه بعدی,خرید فایل سبعدی,icon,آیکون,آیکون سه بعدی,خرید آیکون سه بعدی,انیمیشن')",
+                "inLanguage": "fa",
+                "potentialAction": {
+                  "@type": "SearchAction",
+                  "target": "{{ url()->current() }}?q={search_term_string}",
+                  "query-input": "required name=search_term_string"
+                }
+              },
+              {
+                "@type": "Store",
+                "name": "سه بعدی متا",
+                "alternateName": "3D Meta",
+                "url": "{{ url()->current() }}",
+                "image": "@yield('og:image', asset('home-page/images/3d.png'))",
+                "logo": "{{ asset('home-page/images/3d.png') }}",
+                "description": "@yield('description', 'سامانه سه‌بعدی متا با تعرفه‌ای ثابت مرکز عرضه جدیدترین مدل سه‌بعدی، آیکون، انیمیشن و دیگر فایل‌های طراحی می‌باشد.')",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "ایران",
+                  "addressLocality": "قزوین",
+                  "addressRegion": "استان قزوین",
+                  "streetAddress": "میرداماد، 824H+JG2"
+                },
+                "email": "dmeta.irpsc@gmail.com",
+                "telephone": "09337850551"
+              }
+            ]
+          }
+          
+        </script>
+        
+
+
+
     <link rel="icon" type="image/x-icon" href="{{ asset('home-page/images/3ddmetaa143.png') }}">
 
     <link href="{{ asset('home-page/style/swiper-main.css') }}" rel="stylesheet">
@@ -22,7 +102,7 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     @vite('resources/css/app.css')
 
-    <title>{{ 'سه بعدی متا' . ' | ' . $title ?? config('app.name') }}</title>
+    {{-- <title>{{ 'سه بعدی متا' . ' | ' . $title ?? config('app.name') }}</title> --}}
     <script>
         document.documentElement.className = document.documentElement.className
             .replace(/\bno-js\b/g, '') + ' js ';
@@ -848,7 +928,7 @@
                         </p>
                     </div>
                     <div class="font-bold">
-                        <a href="whatsapp://send?text=http://+989337850551"
+                        <a dir="ltr" href="whatsapp://send?text=http://+989337850551"
                             class="rounded-3xl bg-white dark:bg-[#DCFFE8]/75 py-3 px-5 text-[#20D05C] dark:text-[#02501D]">0933 785 0551</a>
                     </div>
                 </div>

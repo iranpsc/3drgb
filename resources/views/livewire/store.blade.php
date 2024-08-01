@@ -1,3 +1,9 @@
+@section('title')
+@section('description')
+@section('keywords')
+@section('og:title')
+@section('og:description')
+@section('og:image')
 <div>
     <main>
         <section>

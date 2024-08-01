@@ -1,3 +1,9 @@
+@section('title')
+@section('description')
+@section('keywords')
+@section('og:title', 'سه بعدی متا')
+@section('og:description' )
+@section('og:image')
 <div>
     <main>
         <section>
@@ -5,7 +11,7 @@
                 style="font-family: rokh">
                 <div class="flex items-center justify-between max-w-[1500px] mx-auto">
                     <div>
-                        <a href="#" class="px-4">قوانین و مجوزات</a>
+                        <a href="http://localhost:8000/login" class="px-4">قوانین و مجوزات</a>
                         <a href="#" class="px-4 border-x"> سوالات متداول </a>
                         <a href="#" class="px-4"> سیاست حفظ حریم خصوصی </a>
                     </div>
@@ -268,11 +274,11 @@
                 },
                 768: {
                     slidesPerView: 3,
-                    spaceBetween: 40,
+                    spaceBetween: 22,
                 },
                 1024: {
                     slidesPerView: 4,
-                    spaceBetween: 50,
+                    spaceBetween: 20,
                 },
             },
             navigation: {
