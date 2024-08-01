@@ -103,6 +103,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->to(config('app.oauth_server_url') . '/logout');
+        return to_route('home');
     }
 }
