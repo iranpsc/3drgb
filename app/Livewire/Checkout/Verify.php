@@ -110,7 +110,7 @@ class Verify extends Component
         $this->order->load('products');
 
         $this->order->update([
-            'status' => $this->Status,
+            'status' => $this->tatus,
         ]);
 
         $user = $this->order->user;
