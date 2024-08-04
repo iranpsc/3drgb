@@ -35,7 +35,7 @@ class Payment extends Component
         $order = Order::create([
             'user_id' => auth()->id(),
             'amount' => $amount,
-            'tracking_id' => random_int(10000000000, 99999999999)
+            'tracking_id' => random_int(10000000000, 99999999999),
         ]);
 
         foreach ($this->products as $product) {

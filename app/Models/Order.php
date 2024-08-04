@@ -23,6 +23,15 @@ class Order extends Model
     }
 
     /**
+     * Attributes with default values
+     *
+     * @return array
+     */
+    protected $attributes = [
+        'status' => -1
+    ];
+
+    /**
      * Get the user that owns the order.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

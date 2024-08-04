@@ -23,6 +23,15 @@ class Transaction extends Model
     }
 
     /**
+     * Attributes with default values
+     *
+     * @return array
+     */
+    protected $attributes = [
+        'status' => -1
+    ];
+
+    /**
      * Get the order for the transaction.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
