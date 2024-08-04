@@ -47,7 +47,7 @@ class Verify extends Component
     {
         $this->transaction = Transaction::where('token', $this->Token)->with('order.orderItems')->first();
 
-        if (!$this->transaction || $this->transaction->status != 'pending') {
+        if (!$this->transaction || $this->transaction->status != -1) {
             session()->flash('error', 'تراکنش مورد نظر یافت نشد.');
             return;
         }
