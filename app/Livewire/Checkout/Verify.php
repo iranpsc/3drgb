@@ -9,7 +9,6 @@ use Livewire\Attributes\Locked;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Url;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 
 class Verify extends Component
 {
@@ -69,10 +68,8 @@ class Verify extends Component
             ->send();
 
         if (!$response->success()) {
-            Log::info('Failed transaction');
             $this->handleFailedTransaction($response);
         } else {
-            Log::info('Transaction is successful');
             $this->handleSuccessfulTransaction($response);
         }
     }

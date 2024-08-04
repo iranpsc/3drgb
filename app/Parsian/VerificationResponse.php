@@ -3,7 +3,6 @@
 namespace App\Parsian;
 
 use App\Parsian\Error;
-use Illuminate\Support\Facades\Log;
 
 class VerificationResponse
 {
@@ -31,11 +30,6 @@ class VerificationResponse
     {
         $this->status = $result->ConfirmPaymentResult->Status;
         $this->refference_id = $result->ConfirmPaymentResult->RRN;
-
-        if ($this->success()) {
-            Log::info('Confirmat payment result properties are:' . implode('|', get_class_vars($result->ConfirmPaymentResult)));
-            // $this->card_hash = $result->ConfirmPaymentResult->HashCardNumber;
-        }
     }
 
     /**

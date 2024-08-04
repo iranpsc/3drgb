@@ -2,8 +2,6 @@
 
 namespace App\Parsian;
 
-use Illuminate\Support\Facades\Log;
-
 class Error
 {
     /**
@@ -37,7 +35,6 @@ class Error
      */
     public function message(): string
     {
-        Log::info('Parsian error code: ' . $this->code);
         return match ($this->code) {
             -138 => 'تراکنش ناموفق می باشد',
             -127 => 'آدرس IP معتبر نمی باشد',
