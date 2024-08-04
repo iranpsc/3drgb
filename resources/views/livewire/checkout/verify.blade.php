@@ -45,10 +45,10 @@
                                 </div>
                                 <div class="current hidden lg:block w-full"><img src="{{ asset('img/svg/green.svg') }}" alt="img"
                                         class="w-full"></div>
-                                <div class="step flex flex-col gap-2  items-center mt-5  text-center {{ $status === 'OK' ? 'completed' : 'not-completed' }}"
+                                <div class="step flex flex-col gap-2  items-center mt-5  text-center {{ $status === 0 ? 'completed' : 'not-completed' }}"
                                     id="4">
                                     <span
-                                        class="flex justify-center items-center bg-[#EFEFEF] dark:bg-[#4A4E7C] aspect-square rounded-full text-white text-3xl w-12 las {{ $status === 'OK' ?  : 'la-times' }}"
+                                        class="flex justify-center items-center bg-[#EFEFEF] dark:bg-[#4A4E7C] aspect-square rounded-full text-white text-3xl w-12 las {{ $status === 0 ?  : 'la-times' }}"
                                         style="display: flex">
                                         <svg class="hidden" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 512 457.57">
