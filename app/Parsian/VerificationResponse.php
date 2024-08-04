@@ -32,7 +32,7 @@ class VerificationResponse
         $this->refference_id = $result->ConfirmPaymentResult->RRN;
 
         if ($this->success()) {
-            $this->card_hash = $result->ConfirmPaymentResult->CardHash;
+            $this->card_hash = $result->ConfirmPaymentResult->HashCardNumber;
         }
     }
 
