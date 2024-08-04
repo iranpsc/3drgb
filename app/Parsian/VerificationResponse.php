@@ -33,7 +33,7 @@ class VerificationResponse
         $this->refference_id = $result->ConfirmPaymentResult->RRN;
 
         if ($this->success()) {
-            Log::info('Confirmat payment result properties are:' . get_class_vars($result->ConfirmPaymentResult));
+            Log::info('Confirmat payment result properties are:' . implode('|', get_class_vars($result->ConfirmPaymentResult)));
             // $this->card_hash = $result->ConfirmPaymentResult->HashCardNumber;
         }
     }
