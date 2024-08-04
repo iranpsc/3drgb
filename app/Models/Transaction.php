@@ -12,8 +12,25 @@ class Transaction extends Model
     protected $guarded = [];
 
     /**
+     * Set status attribute
+     *
+     * @param mix $value
+     * @return string
+     */
+    public function setStatusAttribute($value)
+    {
+        if ($value !== 0) {
+            return 'NOK';
+        } elseif ($value === 0) {
+            return 'OK';
+        } else {
+            return 'pending';
+        }
+    }
+
+    /**
      * Get the order for the transaction.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function order()
@@ -23,7 +40,7 @@ class Transaction extends Model
 
     /**
      * Scope a query to only include pending transactions.
-     * 
+     *
      * @param \Illuminate\Database\Eloquent\Builder $query
      */
     public function scopePending($query)

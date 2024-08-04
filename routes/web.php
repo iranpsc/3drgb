@@ -117,7 +117,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::middleware('guest')->prefix('auth')->group(function () {
     Route::get('/register', RegisterController::class)->name('register');
     Route::get('/redirect', [LoginController::class, 'redirect'])->name('login');
-    Route::get('/callback', [LoginController::class, 'callback'])->name('callback');
+    Route::get('/callback', [LoginController::class, 'callback'])->name('auth.callback');
 });
 
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->name('logout');
@@ -127,3 +127,10 @@ Route::get('/download/{file}', function (Request $request, File $file) {
 })->middleware('signed')->name('files.download');
 
 Route::post('/upload', [FileUploadController::class, 'upload'])->name('files.upload');
+
+
+Route::post('/callback', function(Request $request) {
+    $data = http_build_query($request->all());
+
+    return to_route('verify', $data);
+})->name('callback');

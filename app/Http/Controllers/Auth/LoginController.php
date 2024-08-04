@@ -26,7 +26,7 @@ class LoginController extends Controller
 
         $query = http_build_query([
             'client_id' => config('app.oauth_client_id'),
-            'redirect_uri' => route('callback'),
+            'redirect_uri' => route('auth.callback'),
             'response_type' => 'code',
             'scope' => '',
             'state' => $state,
@@ -58,7 +58,7 @@ class LoginController extends Controller
             'grant_type' => 'authorization_code',
             'client_id' => config('app.oauth_client_id'),
             'client_secret' => config('app.oauth_client_secret'),
-            'redirect_uri' => route('callback'),
+            'redirect_uri' => route('auth.callback'),
             'code' => $request->code,
         ]);
 

@@ -9,14 +9,30 @@ use Livewire\Attributes\Locked;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Url;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class Verify extends Component
 {
     #[Url]
-    public $Authority = '';
+    public $Token;
 
     #[Url]
-    public $Status = '';
+    public $status;
+
+    #[Url]
+    public $OrderId;
+
+    #[Url]
+    public $TerminalNo;
+
+    #[Url]
+    public $RRN;
+
+    #[Url]
+    public $HashCardNumber;
+
+    #[URL]
+    public $Amount;
 
     #[Locked]
     public $transaction = null;
@@ -30,7 +46,7 @@ class Verify extends Component
      */
     public function mount()
     {
-        $this->transaction = Transaction::where('authority', $this->Authority)->with('order.orderItems')->first();
+        $this->transaction = Transaction::where('token', $this->Token)->with('order.orderItems')->first();
 
         if (!$this->transaction || $this->transaction->status != 'pending') {
             session()->flash('error', 'تراکنش مورد نظر یافت نشد.');
@@ -47,15 +63,16 @@ class Verify extends Component
      */
     private function handleTransaction()
     {
-        $response = zarinpal()
-            ->amount($this->transaction->amount)
+        $response = parsian()
+            ->token($this->Token)
             ->verification()
-            ->authority($this->Authority)
             ->send();
 
         if (!$response->success()) {
+            Log::info('Failed transaction');
             $this->handleFailedTransaction($response);
         } else {
+            Log::info('Transaction is successful');
             $this->handleSuccessfulTransaction($response);
         }
     }
@@ -68,11 +85,11 @@ class Verify extends Component
     private function handleFailedTransaction($response)
     {
         $this->transaction->update([
-            'status' => $this->Status,
+            'status' => $this->status,
         ]);
 
         $this->transaction->order->update([
-            'status' => $this->Status,
+            'status' => $this->status,
         ]);
 
         session()->flash('error', $response->error()->message());
@@ -88,9 +105,6 @@ class Verify extends Component
         $this->transaction->update([
             'reference_id' => $response->referenceId(),
             'card_hash' => $response->cardHash(),
-            'card_pan' => $response->cardPan(),
-            'fee_type' => $response->feeType(),
-            'fee' => $response->fee(),
             'status' => $this->Status,
         ]);
 

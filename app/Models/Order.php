@@ -12,6 +12,21 @@ class Order extends Model
     protected $guarded = [];
 
     /**
+     * Set status attribute
+     *
+     * @param mix $value
+     * @return string
+     */
+    public function setStatusAttribute($value)
+    {
+        return match ($value) {
+            -138 => 'NOK',
+            0 => 'OK',
+            default => 'pending'
+        };
+    }
+
+    /**
      * Get the user that owns the order.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

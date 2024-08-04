@@ -49,11 +49,11 @@ class Payment extends Component
 
         OrderItem::insert($orderItems);
 
-        $response = zarinpal()
+        $response = parsian()
             ->amount($amount)
+            ->orderId($order->id)
             ->request()
-            ->description('transaction info')
-            ->callbackUrl(route('verify'))
+            ->callbackUrl(route('callback'))
             ->send();
 
         if (!$response->success()) {
@@ -62,14 +62,14 @@ class Payment extends Component
         }
 
         $order->transaction()->create([
-            'authority' => $response->authority(),
+            'token' => $response->token(),
             'amount' => $amount,
         ]);
 
         $this->reset('products');
         session()->forget('cart');
 
-        return redirect()->to($response->url());
+        return $this->redirect($response->url());
     }
 
     private function calculateTotalPrice()
