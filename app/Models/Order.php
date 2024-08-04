@@ -12,18 +12,14 @@ class Order extends Model
     protected $guarded = [];
 
     /**
-     * Set status attribute
+     * Casts properties
      *
-     * @param mix $value
-     * @return string
+     * @return array
      */
-    public function setStatusAttribute($value)
-    {
-        return match ($value) {
-            -138 => 'NOK',
-            0 => 'OK',
-            default => 'pending'
-        };
+    protected function casts() {
+        return [
+            'status' => 'int'
+        ];
     }
 
     /**

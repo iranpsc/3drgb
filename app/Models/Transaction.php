@@ -12,20 +12,14 @@ class Transaction extends Model
     protected $guarded = [];
 
     /**
-     * Set status attribute
+     * Casts properties
      *
-     * @param mix $value
-     * @return string
+     * @return array
      */
-    public function setStatusAttribute($value)
-    {
-        if ($value !== 0) {
-            return 'NOK';
-        } elseif ($value === 0) {
-            return 'OK';
-        } else {
-            return 'pending';
-        }
+    protected function casts() {
+        return [
+            'status' => 'int'
+        ];
     }
 
     /**
