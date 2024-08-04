@@ -102,7 +102,7 @@ class Verify extends Component
         $this->transaction->update([
             'reference_id' => $response->referenceId(),
             'card_hash' => $response->cardHash(),
-            'status' => $this->Status,
+            'status' => $this->status,
         ]);
 
         $this->order = $this->transaction->order;
@@ -110,7 +110,7 @@ class Verify extends Component
         $this->order->load('products');
 
         $this->order->update([
-            'status' => $this->tatus,
+            'status' => $this->status,
         ]);
 
         $user = $this->order->user;
