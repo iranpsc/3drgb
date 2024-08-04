@@ -45,9 +45,9 @@ class VerificationResponse
     /**
      * Get the card hash associated with the response.
      *
-     * @return string The response card hash.
+     * @return string|null The response card hash.
      */
-    public function cardHash(): string
+    public function cardHash(): string|null
     {
         return $this->card_hash;
     }
