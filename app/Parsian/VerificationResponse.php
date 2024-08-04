@@ -43,9 +43,9 @@ class VerificationResponse
     }
 
     /**
-     * Get the refference id associated with the response.
+     * Get the card hash associated with the response.
      *
-     * @return string The response refference id.
+     * @return string The response card hash.
      */
     public function cardHash(): string
     {
@@ -53,11 +53,11 @@ class VerificationResponse
     }
 
     /**
-     * Get the refference id associated with the response.
+     * Get the reference id associated with the response.
      *
      * @return string The response refference id.
      */
-    public function refferenceId(): string
+    public function referenceId(): string
     {
         return $this->refference_id;
     }
