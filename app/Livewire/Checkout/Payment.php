@@ -51,7 +51,7 @@ class Payment extends Component
 
         $response = parsian()
             ->amount($amount)
-            ->orderId($order->id)
+            ->orderId($order->tracking_id)
             ->request()
             ->callbackUrl(route('callback'))
             ->send();
