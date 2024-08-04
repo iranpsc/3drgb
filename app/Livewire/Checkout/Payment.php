@@ -30,7 +30,7 @@ class Payment extends Component
 
     public function pay()
     {
-        $amount = $this->calculateTotalPrice();
+        $amount = $this->calculateTotalPrice() * 10;
 
         $order = Order::create([
             'user_id' => auth()->id(),
