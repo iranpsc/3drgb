@@ -202,7 +202,7 @@ class Product extends Model implements Sitemapable
             'id',
             'id',
             'order_id'
-        )->where('status', 'OK');
+        )->where('status', 0);
     }
 
     /**

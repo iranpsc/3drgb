@@ -69,6 +69,6 @@ class Order extends Model
      */
     public function isPaid()
     {
-        return $this->status === 'OK';
+        return $this->status === 0;
     }
 }
