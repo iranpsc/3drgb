@@ -87,7 +87,7 @@ class Payment extends Component
             ->first();
     }
 
-    private function prepareOrderItems(int $orderId): array
+    private function prepareOrderItems(string $orderId): array
     {
         $orderItems = [];
 
