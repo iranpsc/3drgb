@@ -35,7 +35,7 @@
                     <div class="w-full md:w-3/5 flex flex-col justify-center mt-20 lg:mt-0">
                         <img src="{{ asset('home-page/images/Asset2.png') }}" alt="3dmodel"
                             class="md:hidden w-full mx-auto">
-                        <p class="text-[#000BEE] dark:text-white py-3 text-head text-6xl text-center md:text-right leading-10"
+                        <p class="text-[#000BEE] dark:text-white py-3 text-head text-6xl text-center md:text-right leading-[60px]"
                             style="font-family:rokh-ebold">
                             مدل سه بعدی و تجربه ای متفاوت
                         </p>
