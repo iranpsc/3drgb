@@ -1,3 +1,10 @@
+@section('title', )
+@section('description', $category->description)
+@section('keywords', implode(',', ['کلمه کلیدی 1', 'کلمه کلیدی 2',$category->name]))
+@section('og:title', $category->name )
+@section('og:description', $category->description)
+@section('og:image', $category->image->url ?? asset('home-page/images/3d-Strawberry-3dmodel.jpg') )
+@section('og:type', 'product')
 <div>
     <main>
         <section>

@@ -6,20 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="lmf8kBJQgLHew_wXcxGQwJQWiOSFy8odEBRTLOoX7Q4" />
     <meta name="robots" content="index,follow">
-
-    <title>@yield('title',  'سه بعدی متا' . ' | ' . $title ?? config('app.name'))</title>
+    <title>@yield('title', 'سه بعدی متا' . ' | ' . $title ?? config('app.name'))</title>
     <meta property="og:type" content="@yield('og:type', 'website')">
-    <meta name="description" content="@yield('description' , 'سامانه سه بعدی متا با تعرفه ای ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .')">
-    <meta name="keywords" content="@yield('keywords', '3d,3dmeta,3drgb,سبعدی,سه بعدی,محصولات سه بعدی,فایل سه بعدی,خرید فایل سبعدی,icon,آیکون,آیکون سه بعدی,خرید آیکون سه بعدی,انیمیشن,' )">
+    <meta name="description" content="@yield('description', 'سامانه سه بعدی متا با تعرفه ای ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .')">
+    <meta name="keywords" content="@yield('keywords', '3d,3dmeta,3drgb,سبعدی,سه بعدی,محصولات سه بعدی,فایل سه بعدی,خرید فایل سبعدی,icon,آیکون,آیکون سه بعدی,خرید آیکون سه بعدی,انیمیشن,')">
     <meta name="language" content="fa">
-
     <meta name="author" content="سه بعدی متا">
-    <meta property="og:title" content="@yield('og:title',  $title ?? config('app.name'))">
-    <meta property="og:description" content="@yield('og:description' , 'سامانه سه بعدی متا با تعرفه ای ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .')">
+    <meta property="og:title" content="@yield('og:title', $title ?? config('app.name'))">
+    <meta property="og:description" content="@yield('og:description', 'سامانه سه بعدی متا با تعرفه ای ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .')">
     <meta property="og:image" content="@yield('og:image', asset('home-page/images/3d.png'))">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:site_name" content="سه بعدی متا">
     <meta property="og:locale" content="fa_IR">
+
+
+    @if (View::getSection('product-schema'))
+        @yield('product-schema')
+    @endif
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -87,12 +90,8 @@
           }
           
         </script>
-        
-
-
 
     <link rel="icon" type="image/x-icon" href="{{ asset('home-page/images/3ddmetaa143.png') }}">
-
     <link href="{{ asset('home-page/style/swiper-main.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/fontawesome.css') }}">
@@ -109,9 +108,10 @@
     </script>
     <style>
         body {
-  font-family: AzarMehr;
-  font-weight: bold;
-}
+            font-family: AzarMehr;
+            font-weight: bold;
+        }
+
         #style1::-webkit-scrollbar-track {
             border-radius: 10px;
             background-color: #ECECEC;
@@ -154,9 +154,9 @@
                 <div
                     class="flex justify-between items-center w-full fixed right-0 top-0 lg:relative  bg-white dark:bg-[#001448] lg:bg-transparent lg:p-0 px-5 py-4">
                     <!-- start open btn nav -->
-                    <div class="w-1/3  p-3 rounded-full cursor-pointer flex" >
-                        <svg onclick="openNav2()" class="lg:hidden dark:fill-white" width="30" height="22" viewBox="0 0 30 22"
-                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div class="w-1/3  p-3 rounded-full cursor-pointer flex">
+                        <svg onclick="openNav2()" class="lg:hidden dark:fill-white" width="30" height="22"
+                            viewBox="0 0 30 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path class="dark:fill-white" fill-rule="evenodd" clip-rule="evenodd"
                                 d="M0 1.375C0 0.615608 0.6296 0 1.40625 0H28.5938C29.3704 0 30 0.615608 30 1.375C30 2.13439 29.3704 2.75 28.5938 2.75H1.40625C0.6296 2.75 0 2.13439 0 1.375ZM0 11C0 10.2406 0.6296 9.625 1.40625 9.625H28.5938C29.3704 9.625 30 10.2406 30 11C30 11.7594 29.3704 12.375 28.5938 12.375H1.40625C0.6296 12.375 0 11.7594 0 11ZM0 20.625C0 19.8656 0.6296 19.25 1.40625 19.25H28.5938C29.3704 19.25 30 19.8656 30 20.625C30 21.3844 29.3704 22 28.5938 22H1.40625C0.6296 22 0 21.3844 0 20.625Z"
                                 fill="#0713EF" />
@@ -206,8 +206,8 @@
                         <div
                             class=" gap-5  my-2 w-full  items-center flex justify-between px-2  bg-white  dark:bg-[#001448] ">
                             <div class="flex items-center gap-1">
-                                <a href="{{ route('home') }}"><img src="{{ asset('home-page/images/3dmeta55.png') }}"
-                                        alt="3drgb"></a>
+                                <a href="{{ route('home') }}"><img
+                                        src="{{ asset('home-page/images/3dmeta55.png') }}" alt="3drgb"></a>
                                 <a href="{{ route('home') }}"><img
                                         src="{{ asset('home-page/images/3ddmetaa143.png') }}" alt="3dmeta"></a>
                             </div>
@@ -366,35 +366,35 @@
                                         @php
                                             $categories = \App\Models\Category::with('children', 'parent')->get();
                                         @endphp
-<?php $counter = 1; ?>
-<div>
-    @foreach ($categories as $category)
-
-    <li class="">
-        <div>
-        @empty($category->parent_id)
-            <?php $inputId = sprintf("%03d", $counter++); ?>
-            <input type="checkbox" id="{{ $inputId }}" class="peer" />
-            <label for="{{ $inputId }}"
-                class="tree_label w-full text-[#868B90] peer-checked:text-[#000BEE] dark:peer-checked:text-white peer-checked:bg-[#ECF4FE] dark:peer-checked:bg-[#C2008C]/30">
-                {{ $category->name }}
-            </label>
-            <ul>
-                <div class="flex flex-col text-sm text-[#000BEE] font-bold gap-5 p-3 pr-[20PX] dark:text-[#868B90]">
-                    @foreach ($category->children as $child)
-                        <a href="{{ route('categories.show', ['category_link' => $child->url]) }}" class="text-[#868B90]">
-                            {{ $child->name }}
-                        </a>
-                    @endforeach
-                </div>
-            </ul>
-        @endempty
-    </div>
-</li>
-
-
-@endforeach
-</div>
+                                        <?php $counter = 1; ?>
+                                        <div>
+                                            @foreach ($categories as $category)
+                                                <li class="">
+                                                    <div>
+                                                        @empty($category->parent_id)
+                                                            <?php $inputId = sprintf('%03d', $counter++); ?>
+                                                            <input type="checkbox" id="{{ $inputId }}"
+                                                                class="peer" />
+                                                            <label for="{{ $inputId }}"
+                                                                class="tree_label w-full text-[#868B90] peer-checked:text-[#000BEE] dark:peer-checked:text-white peer-checked:bg-[#ECF4FE] dark:peer-checked:bg-[#C2008C]/30">
+                                                                {{ $category->name }}
+                                                            </label>
+                                                            <ul>
+                                                                <div
+                                                                    class="flex flex-col text-sm text-[#000BEE] font-bold gap-5 p-3 pr-[20PX] dark:text-[#868B90]">
+                                                                    @foreach ($category->children as $child)
+                                                                        <a href="{{ route('categories.show', ['category_link' => $child->url]) }}"
+                                                                            class="text-[#868B90]">
+                                                                            {{ $child->name }}
+                                                                        </a>
+                                                                    @endforeach
+                                                                </div>
+                                                            </ul>
+                                                        @endempty
+                                                    </div>
+                                                </li>
+                                            @endforeach
+                                        </div>
                                     </ul>
                                 </li>
                             </ul>
@@ -644,7 +644,8 @@
                                 </a>
                             @else
                                 <a href="{{ route('user.profile') }}" class="w-full ">
-                                    <img src="{{ asset('storage/' . Auth::user()->avatar) }}" class="w-full border rounded-full aspect-square" />
+                                    <img src="{{ asset('storage/' . Auth::user()->avatar) }}"
+                                        class="w-full border rounded-full aspect-square" />
                                 </a>
                             @endguest
                         </div>
@@ -830,13 +831,13 @@
 
     <div class="w-full main-content-smallNav2">
         <footer class="px-5 lg:px-0 w-full max-w-[1500px] mx-auto mt-32">
-            <div class="flex-wrap flex justify-between  items-ctener gap-1 md:gap-2 mx-auto w-full bg-white dark:bg-[#001448] p-3 mb-10 rounded-2xl"
-                >
+            <div
+                class="flex-wrap flex justify-between  items-ctener gap-1 md:gap-2 mx-auto w-full bg-white dark:bg-[#001448] p-3 mb-10 rounded-2xl">
                 <a href="https://irpsc.com" style="width:55px ;" target="_blank "
                     title="وزارت تعاون کار و رفاه اجتماعی">
                     <img src="https://irpsc.com/img-icon/vezarat.png" class="rounded-lg">
                 </a>
-                <a class="active" href="#" target="_blank "  style="width:55px ;"
+                <a class="active" href="#" target="_blank " style="width:55px ;"
                     title="نماد اعتماد الکترونیک">
                     <img src="https://irpsc.com/img-icon/enamad.png" class="rounded-lg" alt="نماد اعتماد الکترونیک">
 
@@ -844,7 +845,7 @@
                 <a href="https://irpsc.com" target="_blank " style="width:55px ;" title="ثبت اسناد و املاک کشور">
                     <img src="https://irpsc.com/img-icon/qazaii.png" class="rounded-lg" alt="ثبت اسناد و املاک کشور">
                 </a>
-                <a href="https://video.irpsc.com" target="_blank "  style="width:55px ;" title="مرکز آموزش ویدئویی">
+                <a href="https://video.irpsc.com" target="_blank " style="width:55px ;" title="مرکز آموزش ویدئویی">
                     <img src="https://irpsc.com/img-icon/video.png" class="rounded-lg" alt="مرکز آموزش ویدئویی">
                 </a>
                 <a href="https://faq.irpsc.com" target="_blank " style="width:55px ;" title="انجمن پرسش و پاسخ">
@@ -853,51 +854,53 @@
                 <a href="https://Shop.irpsc.com" target="_blank " style="width:55px ;" title="فروشگاه ملی">
                     <img src="https://irpsc.com/img-icon/shop.png" class="rounded-lg" alt="فروشگاه ملی">
                 </a>
-                <a href="https://supply.irpsc.com" target="_blank " style="width:55px ;" title="تولید کنندگان"  >
-                    <img src="https://irpsc.com/img-icon/supply.png" class="rounded-lg" alt="تولید کنندگان">
                 <a href="https://supply.irpsc.com" target="_blank " style="width:55px ;" title="تولید کنندگان">
                     <img src="https://irpsc.com/img-icon/supply.png" class="rounded-lg" alt="تولید کنندگان">
-                </a>
-                <a href="https://crm.irpsc.com" target="_blank " style="width:55px ;" title="مدیریت بر مدیران">
-                    <img src="https://irpsc.com/img-icon/crm.png" class="rounded-lg" alt="مدیریت بر مدیران">
-                </a>
-                <a href="https://target.irpsc.com" target="_blank " style="width:55px ;" title="نگرش ملی">
-                    <img src="https://irpsc.com/img-icon/target.png" class="rounded-lg" alt="نگرش ملی">
-                </a>
-                <a href="https://animal.irpsc.com" target="_blank " style="width:55px ;" title="حیوانات و دامپزشک">
-                    <img src="https://irpsc.com/img-icon/animal.png" class="rounded-lg" alt="حیوانات و دامپزشک">
-                </a>
-                <a href="https://irpsc.com" target="_blank " style="width:55px ;" title="رسانه ملی">
-                    <img src="https://irpsc.com/img-icon/irpsc.png" class="rounded-lg" alt="رسانه ملی">
-                </a>
-                <a href="https://meta.irpsc.com" target="_blank " style="width:55px ;" title="اخبار متا">
-                    <img src="https://irpsc.com/img-icon/meta.png" class="rounded-lg" alt="اخبار متا">
-                </a>
-                <a href="https://uni.irpsc.com" target="_blank " style="width:55px ;" title="دانشگاه متاورس">
-                    <img src="https://irpsc.com/img-icon/uni.png" class="rounded-lg" alt="دانشگاه متاورس">
-                </a>
-                <a href="https://crm.irpsc.com/knowledgebase" target="_blank " style="width:55px ;"
-                    title="استخدام | دانش محور">
-                    <img src="https://irpsc.com/img-icon/knowledge.png" class="rounded-lg" alt="استخدام | دانش محور">
-                </a>
-                <a href="https://sale.irpsc.com" target="_blank " style="width:55px ;" title="فروشگاه مجازی حم">
-                    <img src="https://irpsc.com/img-icon/sale.png" class="rounded-lg" alt="فروشگاه مجازی حم">
-                </a>
-                <a href="https://ad.irpsc.com" target="_blank " style="width:55px ;" title="تبلیغات ملی">
-                    <img src="https://irpsc.com/img-icon/ad.png" class="rounded-lg" alt="تبلیغات ملی">
-                </a>
-                <a href="https://nft.irpsc.com" target="_blank "  style="width:55px ;" title="بازار NFT">
-                    <img src="https://irpsc.com/img-icon/nft.png" class="rounded-lg">
-                </a>
-                <a href="https://rgb.irpsc.com" target="_blank " style="width:55px ;" title="متاورس رنگ">
-                    <img src="https://irpsc.com/img-icon/rgb.png" class="rounded-lg" alt="متاورس رنگ">
-                </a>
-                <a href="https://3d.irpsc.com" target="_blank " style="width:55px ;" title="سه بعدی متا">
-                    <img src="https://irpsc.com/img-icon/3d.gif" class="rounded-lg" alt="سه بعدی متا">
-                </a>
-                <a title="خانه" style="width:55px ;">
-                    <img src="https://irpsc.com/img-icon/home-soon.png" class="rounded-lg">
-                </a>
+                    <a href="https://supply.irpsc.com" target="_blank " style="width:55px ;" title="تولید کنندگان">
+                        <img src="https://irpsc.com/img-icon/supply.png" class="rounded-lg" alt="تولید کنندگان">
+                    </a>
+                    <a href="https://crm.irpsc.com" target="_blank " style="width:55px ;" title="مدیریت بر مدیران">
+                        <img src="https://irpsc.com/img-icon/crm.png" class="rounded-lg" alt="مدیریت بر مدیران">
+                    </a>
+                    <a href="https://target.irpsc.com" target="_blank " style="width:55px ;" title="نگرش ملی">
+                        <img src="https://irpsc.com/img-icon/target.png" class="rounded-lg" alt="نگرش ملی">
+                    </a>
+                    <a href="https://animal.irpsc.com" target="_blank " style="width:55px ;"
+                        title="حیوانات و دامپزشک">
+                        <img src="https://irpsc.com/img-icon/animal.png" class="rounded-lg" alt="حیوانات و دامپزشک">
+                    </a>
+                    <a href="https://irpsc.com" target="_blank " style="width:55px ;" title="رسانه ملی">
+                        <img src="https://irpsc.com/img-icon/irpsc.png" class="rounded-lg" alt="رسانه ملی">
+                    </a>
+                    <a href="https://meta.irpsc.com" target="_blank " style="width:55px ;" title="اخبار متا">
+                        <img src="https://irpsc.com/img-icon/meta.png" class="rounded-lg" alt="اخبار متا">
+                    </a>
+                    <a href="https://uni.irpsc.com" target="_blank " style="width:55px ;" title="دانشگاه متاورس">
+                        <img src="https://irpsc.com/img-icon/uni.png" class="rounded-lg" alt="دانشگاه متاورس">
+                    </a>
+                    <a href="https://crm.irpsc.com/knowledgebase" target="_blank " style="width:55px ;"
+                        title="استخدام | دانش محور">
+                        <img src="https://irpsc.com/img-icon/knowledge.png" class="rounded-lg"
+                            alt="استخدام | دانش محور">
+                    </a>
+                    <a href="https://sale.irpsc.com" target="_blank " style="width:55px ;" title="فروشگاه مجازی حم">
+                        <img src="https://irpsc.com/img-icon/sale.png" class="rounded-lg" alt="فروشگاه مجازی حم">
+                    </a>
+                    <a href="https://ad.irpsc.com" target="_blank " style="width:55px ;" title="تبلیغات ملی">
+                        <img src="https://irpsc.com/img-icon/ad.png" class="rounded-lg" alt="تبلیغات ملی">
+                    </a>
+                    <a href="https://nft.irpsc.com" target="_blank " style="width:55px ;" title="بازار NFT">
+                        <img src="https://irpsc.com/img-icon/nft.png" class="rounded-lg">
+                    </a>
+                    <a href="https://rgb.irpsc.com" target="_blank " style="width:55px ;" title="متاورس رنگ">
+                        <img src="https://irpsc.com/img-icon/rgb.png" class="rounded-lg" alt="متاورس رنگ">
+                    </a>
+                    <a href="https://3d.irpsc.com" target="_blank " style="width:55px ;" title="سه بعدی متا">
+                        <img src="https://irpsc.com/img-icon/3d.gif" class="rounded-lg" alt="سه بعدی متا">
+                    </a>
+                    <a title="خانه" style="width:55px ;">
+                        <img src="https://irpsc.com/img-icon/home-soon.png" class="rounded-lg">
+                    </a>
             </div>
             <div class="flex flex-col-reverse md:flex-row gap-10">
                 <div
@@ -929,11 +932,13 @@
                     </div>
                     <div class="font-bold">
                         <a dir="ltr" href="whatsapp://send?text=http://+989337850551"
-                            class="rounded-3xl bg-white dark:bg-[#DCFFE8]/75 py-3 px-5 text-[#20D05C] dark:text-[#02501D]">0933 785 0551</a>
+                            class="rounded-3xl bg-white dark:bg-[#DCFFE8]/75 py-3 px-5 text-[#20D05C] dark:text-[#02501D]">0933
+                            785 0551</a>
                     </div>
                 </div>
             </div>
-            <div class="bg-[#c6d9fc] dark:bg-[#001448] w-full  p-5 rounded-t-[32px] mt-10 gap-6 flex flex-col lg:flex-row justify-between">
+            <div
+                class="bg-[#c6d9fc] dark:bg-[#001448] w-full  p-5 rounded-t-[32px] mt-10 gap-6 flex flex-col lg:flex-row justify-between">
                 <div></div>
                 <div class="gap-6 flex flex-col">
                     <div class="flex flex-col text-center md:text-right md:flex-row gap-5 md:gap-14 w-max mx-auto">
@@ -955,8 +960,8 @@
                         <div>
                             <a href="https://discord.gg/xqBe3h9hnN"
                                 class="bg-gray-200 w-[38px] h-[38px] rounded-full flex justify-center items-center">
-                                <img src="{{ asset('home-page/images/discord-icon-svgrepo-com.png') }}" alt="دیسکورد"
-                                    class="w-6 h-6  mt-1">
+                                <img src="{{ asset('home-page/images/discord-icon-svgrepo-com.png') }}"
+                                    alt="دیسکورد" class="w-6 h-6  mt-1">
                             </a>
                         </div>
                         <div>
@@ -983,8 +988,12 @@
                         </p>
                     </div>
                 </div>
-                <div class="flex items-center justify-end" >
-                    <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=491484&Code=pdzLR1cYzWx6kOYRxHckoMmXtXK0jux2'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=491484&Code=pdzLR1cYzWx6kOYRxHckoMmXtXK0jux2' alt='' style='cursor:pointer' code='pdzLR1cYzWx6kOYRxHckoMmXtXK0jux2'></a>
+                <div class="flex items-center justify-end">
+                    <a referrerpolicy='origin' target='_blank'
+                        href='https://trustseal.enamad.ir/?id=491484&Code=pdzLR1cYzWx6kOYRxHckoMmXtXK0jux2'><img
+                            referrerpolicy='origin'
+                            src='https://trustseal.enamad.ir/logo.aspx?id=491484&Code=pdzLR1cYzWx6kOYRxHckoMmXtXK0jux2'
+                            alt='' style='cursor:pointer' code='pdzLR1cYzWx6kOYRxHckoMmXtXK0jux2'></a>
                 </div>
             </div>
         </footer>
@@ -1143,6 +1152,7 @@
             }
         });
     </script>
+
 </body>
 
 </html>

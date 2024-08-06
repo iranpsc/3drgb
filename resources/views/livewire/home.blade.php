@@ -241,8 +241,7 @@
                         @endforelse
                         <!-- end card -->
                     </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
+
                 </div>
             </div>
         </section>
@@ -266,7 +265,7 @@
 
         let swiperSlider = new Swiper('.swiper-slider', {
             slidesPerView: 1,
-            spaceBetween: 10,
+            spaceBetween: 20,
             breakpoints: {
                 640: {
                     slidesPerView: 2,
@@ -281,10 +280,7 @@
                     spaceBetween: 20,
                 },
             },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
+
         });
     </script>
 @endscript

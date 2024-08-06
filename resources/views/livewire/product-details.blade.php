@@ -7,6 +7,34 @@
 @section('og:image', $product->images->first()->url)
 @section('og:type', 'product')
 
+@section('product-schema')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{{ $product->name }}",
+  "sku": "{{ $product->sku }}",
+  "image": "{{ $product->images->first()->url }}",
+  "description": "{{ $product->short_description }}",
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ url()->current() }}",
+    "priceCurrency": "IRR",
+    "price": "{{ $product->price }}",
+    "availability": "https://schema.org/{{ $product->stock > 0 ? 'InStock' : 'OutOfStock' }}",
+    "itemCondition": "https://schema.org/NewCondition",
+    "seller": {
+      "@type": "Organization",
+      "name": "سه بعدی متا"
+    }
+  },
+
+}
+</script>
+@endsection
+
+
+
 
 <div>
     <main>
