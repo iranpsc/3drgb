@@ -126,7 +126,7 @@
                         <p class="m-0 p-0">
                             لیست مدل های سه بعدی
                         </p>
-                        <img src="{{ asset('home-page/images/Union.png') }} ">
+                        <img src="{{ asset('home-page/images/Union.png') }} " alt="arrow">
                     </a>
                 </div>
             </div>

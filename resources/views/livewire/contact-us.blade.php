@@ -4,6 +4,54 @@
 @section('og:title')
 @section('og:description')
 @section('og:image')
+@section('extera-schema')
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact Us - سه بعدی متا فروشگاه",
+      "url": "{{ url()->current() }}",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "سه بعدی متا فروشگاه",
+        "url": "{{ url('/') }}",
+        "logo": "{{ asset('home-page/images/3d.png') }}",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+989337850551",
+            "contactType": "Customer Service",
+            "areaServed": "IR",
+            "availableLanguage": ["Persian", "English"],
+            "email": "info@example.com"
+          },
+          {
+            "@type": "ContactPoint",
+            "telephone": "+989337850551",
+            "contactType": "Sales",
+            "areaServed": "IR",
+            "availableLanguage": "Persian",
+            "email": "3dmeta.irpsc@gmail.com"
+          }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Mirdamad, 824H+JG2",
+          "addressLocality": "Qazvin",
+          "addressRegion": "Qazvin Province",
+          "postalCode": "123456789",
+          "addressCountry": "Iran"
+        },
+        "sameAs": [
+          "https://www.youtube.com/channel/UCG9jK8hoh9X5YoTs6Z1zlIQ",
+          "https://discord.gg/xqBe3h9hnN",
+          "https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy",
+          "https://pin.it/7C5mYf6Q6"
+        ]
+      }
+    }
+    </script>
+    
 <div>
     <main>
         <section>

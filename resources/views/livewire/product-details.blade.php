@@ -1,4 +1,3 @@
-
 @section('title', $product->name . ' - ' . $product->sku . ' - فروشگاه آنلاین')
 @section('description', $product->description)
 @section('keywords', implode(',', ['کلمه کلیدی 1', 'کلمه کلیدی 2', $product->name]))
@@ -7,30 +6,37 @@
 @section('og:image', $product->images->first()->url)
 @section('og:type', 'product')
 
-@section('product-schema')
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "{{ $product->name }}",
-  "sku": "{{ $product->sku }}",
-  "image": "{{ $product->images->first()->url }}",
-  "description": "{{ $product->short_description }}",
-  "offers": {
-    "@type": "Offer",
-    "url": "{{ url()->current() }}",
-    "priceCurrency": "IRR",
-    "price": "{{ $product->price }}",
-    "availability": "https://schema.org/{{ $product->stock > 0 ? 'InStock' : 'OutOfStock' }}",
-    "itemCondition": "https://schema.org/NewCondition",
-    "seller": {
-      "@type": "Organization",
-      "name": "سه بعدی متا"
+@section('extera-schema')
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "{{ $product->name }}",
+      "sku": "{{ $product->sku }}",
+      "category": "{{ $product->category->name }}",
+      "image": "{{ $product->images->first()->url }}",
+      "description": "{{ $product->short_description }}",
+      "offers": {
+        "@type": "Offer",
+        "url": "{{ url()->current() }}",
+        "priceCurrency": "IRR",
+        "price": "{{ $product->price }}",
+        "availability": "https://schema.org/{{ $product->stock > 0 ? 'InStock' : 'OutOfStock' }}",
+        "itemCondition": "https://schema.org/NewCondition",
+        "seller": {
+          "@type": "Organization",
+          "name": "سه بعدی متا"
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ number_format($product->rating_avg) }}",
+        "reviewCount": "{{ $product->approved_reviews_count }}"
+      }
+ 
     }
-  },
+    </script>
 
-}
-</script>
 @endsection
 
 

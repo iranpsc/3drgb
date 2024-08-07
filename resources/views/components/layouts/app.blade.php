@@ -20,8 +20,8 @@
     <meta property="og:locale" content="fa_IR">
 
 
-    @if (View::getSection('product-schema'))
-        @yield('product-schema')
+    @if (View::getSection('extera-schema'))
+        @yield('extera-schema')
     @endif
     <script type="application/ld+json">
         {
@@ -835,7 +835,7 @@
                 class="flex-wrap flex justify-between  items-ctener gap-1 md:gap-2 mx-auto w-full bg-white dark:bg-[#001448] p-3 mb-10 rounded-2xl">
                 <a href="https://irpsc.com" style="width:55px ;" target="_blank "
                     title="وزارت تعاون کار و رفاه اجتماعی">
-                    <img src="https://irpsc.com/img-icon/vezarat.png" class="rounded-lg">
+                    <img src="https://irpsc.com/img-icon/vezarat.png" class="rounded-lg" alt="وزارت تعاون کار و رفاه اجتماعی">
                 </a>
                 <a class="active" href="#" target="_blank " style="width:55px ;"
                     title="نماد اعتماد الکترونیک">
@@ -890,7 +890,7 @@
                         <img src="https://irpsc.com/img-icon/ad.png" class="rounded-lg" alt="تبلیغات ملی">
                     </a>
                     <a href="https://nft.irpsc.com" target="_blank " style="width:55px ;" title="بازار NFT">
-                        <img src="https://irpsc.com/img-icon/nft.png" class="rounded-lg">
+                        <img src="https://irpsc.com/img-icon/nft.png" class="rounded-lg" alt="nft">
                     </a>
                     <a href="https://rgb.irpsc.com" target="_blank " style="width:55px ;" title="متاورس رنگ">
                         <img src="https://irpsc.com/img-icon/rgb.png" class="rounded-lg" alt="متاورس رنگ">
@@ -898,8 +898,8 @@
                     <a href="https://3d.irpsc.com" target="_blank " style="width:55px ;" title="سه بعدی متا">
                         <img src="https://irpsc.com/img-icon/3d.gif" class="rounded-lg" alt="سه بعدی متا">
                     </a>
-                    <a title="خانه" style="width:55px ;">
-                        <img src="https://irpsc.com/img-icon/home-soon.png" class="rounded-lg">
+                    <a  href="#" title="خانه" style="width:55px ;">
+                        <img src="https://irpsc.com/img-icon/home-soon.png" class="rounded-lg" alt="home">
                     </a>
             </div>
             <div class="flex flex-col-reverse md:flex-row gap-10">
@@ -931,15 +931,14 @@
                         </p>
                     </div>
                     <div class="font-bold">
-                        <a dir="ltr" href="whatsapp://send?text=http://+989337850551"
+                        <a dir="ltr" href="whatsapp://send?text=http://+989337850551" target="_blank"
                             class="rounded-3xl bg-white dark:bg-[#DCFFE8]/75 py-3 px-5 text-[#20D05C] dark:text-[#02501D]">0933
                             785 0551</a>
                     </div>
                 </div>
             </div>
             <div
-                class="bg-[#c6d9fc] dark:bg-[#001448] w-full  p-5 rounded-t-[32px] mt-10 gap-6 flex flex-col lg:flex-row justify-between">
-                <div></div>
+                class="bg-[#c6d9fc] dark:bg-[#001448] w-full  p-5 rounded-t-[32px] mt-10 gap-6 flex flex-col lg:flex-row justify-center relative">
                 <div class="gap-6 flex flex-col">
                     <div class="flex flex-col text-center md:text-right md:flex-row gap-5 md:gap-14 w-max mx-auto">
                         <a href="#" class="text-stone-800 dark:text-[#ffffff] font-bold">بانک مدل 3 بعدی</a>
@@ -988,7 +987,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="flex items-center justify-end">
+                <div class="flex items-center justify-center lg:absolute top-8 left-8">
                     <a referrerpolicy='origin' target='_blank'
                         href='https://trustseal.enamad.ir/?id=491484&Code=pdzLR1cYzWx6kOYRxHckoMmXtXK0jux2'><img
                             referrerpolicy='origin'
