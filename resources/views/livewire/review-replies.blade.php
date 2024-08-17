@@ -1,8 +1,8 @@
 <div>
     <div class="flex flex-col gap-4 ">
         @foreach ($review->replies as $reply)
-            <div class="border-r-4 border-[#F4F4F4] mr-3 pr-3 md:pr-10 md:mr-10 dark:border-[#3A4980] w-full">
-                <div class="bg-[#F4F4F4] w-full rounded-[20px] p-5 flex flex-col gap-6 dark:bg-[#3A4980]  ">
+            <div class="border-r-4 border-[#F4F4F4] mr-3 pr-3 md:pr-10 md:mr-10 dark:border-[#0a0a0a] w-full">
+                <div class="bg-[#F4F4F4] w-full rounded-[20px] p-5 flex flex-col gap-6 dark:bg-[#0a0a0a]  ">
                     <div class="w-full grid grid-cols-2  justify-between items-center gap-y-4">
                         <div class="flex  gap-3 w-max">
                             <div class="flex gap-3 items-center">

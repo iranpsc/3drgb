@@ -125,6 +125,13 @@
             overflow-x: auto;
             border-radius: 10px;
         }
+        .dark #style1::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+            background-color: #ECECEC;
+            overflow-x: auto;
+            border-radius: 10px;
+        }
 
         #style1::-webkit-scrollbar-thumb {
             border-radius: 10px;
@@ -136,7 +143,7 @@
         /* Dark mode scrollbar styles */
 
         .dark #style1::-webkit-scrollbar-thumb {
-            background-color: #C2008C;
+            background-color: #111110;
         }
     </style>
 
@@ -145,14 +152,14 @@
 </head>
 
 <body
-    class="bg-gradient-to-t  to-[#DAE7FE] from-[#ECF4FE] dark:to-[#162658] dark:via-[#162658] dark:from-[#4A4E7C] w-full ">
+    class="bg-gradient-to-t  to-[#DAE7FE] from-[#ECF4FE] dark:to-black dark:via-black dark:from-black w-full ">
     <!-- start nav -->
     <header>
         <!-- start head mobile nav -->
         <nav class=" w-full m-0 p-0 fixed top-0 z-[1000]  lg:hidden">
-            <div class="w-full  items-center flex justify-between p-4 bg-white  dark:bg-[#001448] ">
+            <div class="w-full  items-center flex justify-between p-4 bg-white  dark:bg-[#1A1A18] ">
                 <div
-                    class="flex justify-between items-center w-full fixed right-0 top-0 lg:relative  bg-white dark:bg-[#001448] lg:bg-transparent lg:p-0 px-5 py-4">
+                    class="flex justify-between items-center w-full fixed right-0 top-0 lg:relative  bg-white dark:bg-[#1A1A18] lg:bg-transparent lg:p-0 px-5 py-4">
                     <!-- start open btn nav -->
                     <div class="w-1/3  p-3 rounded-full cursor-pointer flex">
                         <svg onclick="openNav2()" class="lg:hidden dark:fill-white" width="30" height="22"
@@ -199,12 +206,12 @@
         <div id="main-nav" class="sidenav  !z-[5000]">
             <!-- start opened nav -->
             <div id="open00" dir="ltr"
-                class="hidden bg-white  dark:bg-[#001448]  p-4  relative  pr-0 h-full !overflow-y-scroll scrollbar !z-[5000]">
+                class="hidden bg-white  dark:bg-[#1A1A18]  p-4  relative  pr-0 h-full !overflow-y-scroll scrollbar !z-[5000]">
                 <nav dir="rtl" class="w-full   space-y-6  relative">
                     <div class="space-y-6 ">
                         <!-- strat head icon RGB -->
                         <div
-                            class=" gap-5  my-2 w-full  items-center flex justify-between px-2  bg-white  dark:bg-[#001448] ">
+                            class=" gap-5  my-2 w-full  items-center flex justify-between px-2  bg-white  dark:bg-[#1A1A18] ">
                             <div class="flex items-center gap-1">
                                 <a href="{{ route('home') }}"><img
                                         src="{{ asset('home-page/images/3dmeta55.png') }}" alt="3drgb"></a>
@@ -229,7 +236,7 @@
                                 <li class="flex flex-col gap-4">
                                     <input type="checkbox" id="c1" class="peer" />
                                     <label
-                                        class="px-[20px] py-4 w-full rounded-[10px] bg-[#EFEFEF] text-[#282828]  font-bold dark:bg-[#9A9ECC] dark:text-[#2C2F32] before:!text-[#868B90]  peer-checked:[&>div>svg]:rotate-180 transition-[3s] flex  items-center"
+                                        class="px-[20px] py-4 w-full rounded-[10px] bg-[#EFEFEF] text-[#282828]  font-bold dark:bg-black dark:text-white  peer-checked:[&>div>svg]:rotate-180 transition-[3s] flex  items-center"
                                         for="c1">
                                         <div class="flex w-full items-center justify-between gap-5">
                                             <div class="flex items-center gap-4">
@@ -244,7 +251,7 @@
                                             </div>
                                             <svg class="transition-[5s] duration-300" width="15" height="9"
                                                 viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path class="dark:stroke-[#2C2F32]" d="M14 1L7.5 7.5L1 0.999999"
+                                                <path class="dark:stroke-white" d="M14 1L7.5 7.5L1 0.999999"
                                                     stroke="black" stroke-width="2" stroke-linecap="round"
                                                     stroke-linejoin="round" />
                                             </svg>
@@ -331,7 +338,7 @@
                                 <li class="flex flex-col gap-3  ">
                                     <input type="checkbox" id="c2" class="peer" />
                                     <label
-                                        class="px-[20px]  py-[14px] w-full rounded-[10px] text-[#868B90]  peer-checked:text-white head_label peer-checked:bg-[#000BEE] dark:peer-checked:bg-[#C2008C] peer-checked:[&>div>svg]:rotate-180  peer-checked:[&>div>svg>path]:stroke-white"
+                                        class="px-[20px]  py-[14px] w-full rounded-[10px] text-[#868B90]  peer-checked:text-white head_label peer-checked:bg-[#000BEE] dark:peer-checked:bg-black peer-checked:[&>div>svg]:rotate-180  peer-checked:[&>div>svg>path]:stroke-white"
                                         for="c2">
                                         <div class="flex w-full justify-between items-center select-none"
                                             for="c2">
@@ -376,7 +383,7 @@
                                                             <input type="checkbox" id="{{ $inputId }}"
                                                                 class="peer" />
                                                             <label for="{{ $inputId }}"
-                                                                class="tree_label w-full text-[#868B90] peer-checked:text-[#000BEE] dark:peer-checked:text-white peer-checked:bg-[#ECF4FE] dark:peer-checked:bg-[#C2008C]/30">
+                                                                class="tree_label w-full text-[#868B90] peer-checked:text-[#000BEE] dark:peer-checked:text-white peer-checked:bg-[#ECF4FE] dark:peer-checked:bg-[#111110]">
                                                                 {{ $category->name }}
                                                             </label>
                                                             <ul>
@@ -531,7 +538,7 @@
                         </div>
                     </div>
                     <div
-                        class="space-y-6  lg:absolute bottom-0  w-full h-auto lg:h-1/5 2xl:h-1/6 bg-white  dark:bg-[#001448] pb-10 lg:pb-1">
+                        class="space-y-6  lg:absolute bottom-0  w-full h-auto lg:h-1/5 2xl:h-1/6 bg-white  dark:bg-[#1A1A18] pb-10 lg:pb-1">
                         @guest
                             <a href="{{ route('login') }}"
                                 class=" w-full flex justify-between items-center px-6 p-[10px] font-bold text-white  bg-[#000BEE] dark:bg-[#C2008C] rounded-[10px] ">
@@ -577,9 +584,9 @@
                             </a>
                         @endauth
                         <div class="pt-5 border-t-2 border-[#EFEFEF]   dark:border-[#868B90] ">
-                            <div class=" flex rounded-full w-full p-[6px] bg-[#F4F4F4] dark:bg-[#4A4E7C] ">
+                            <div class=" flex rounded-full w-full p-[6px] bg-[#F4F4F4] dark:bg-black ">
                                 <button
-                                    class="enable-dark-mode bg-transparent dark:bg-[#9A9ECC] flex justify-center p-1 rounded-full w-1/2  ">
+                                    class="enable-dark-mode bg-transparent dark:bg-[#1A1A18] flex justify-center p-1 rounded-full w-1/2  ">
                                     <div>
                                         <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
                                             <path class="fill-slate-400 dark:fill-white"
@@ -610,9 +617,9 @@
             <!-- start closed nav -->
             <div dir="ltr" id="close00" class=" h-full">
                 <nav dir="rtl"
-                    class="bg-[#FCFCFC] dark:bg-[#001448]  pr-0 space-y-9 flex justify-start items-center flex-col py-6 h-full relative">
+                    class="bg-[#FCFCFC] dark:bg-[#1A1A18]  pr-0  flex justify-start items-center flex-col py-6 h-full relative">
                     <div
-                        class="w-full space-y-9 flex flex-col items-center justify-center border-b-2 border-[#EFEFEF] px-3  dark:border-[#868B90] pb-6   lg:h-[40%] xl:[40%] 2xl:h-[35%] 3xl:h-[30%] ">
+                        class="w-full space-y-9 flex flex-col items-center justify-center border-b-2 border-[#EFEFEF] px-3  dark:border-[#868B90] pb-6   ">
                         <div class="w-7 h-7 flex items-center justify-center">
                             <!-- start open btn nav -->
                             <div id="open-nav-btn" class="items-center w-7 h-7" onclick="openNav2()">
@@ -662,7 +669,7 @@
                         </div>
                     </div>
                     <div
-                        class="flex  items-center flex-col gap-11 h-auto pr-4 lg:h-[30%] xl:h-[35%] 2xl:h-[50%] 3xl:h-[55%] !overflow-y-scroll scrollbar">
+                        class="flex  items-center flex-col gap-11 h-auto pr-4  !overflow-y-scroll scrollbar pb-40 pt-7">
                         <div class=" w-7 h-7  ">
                             <a href="{{ route('products') }}" class="w-full">
                                 <img class=" w-7 h-7  " src="{{ asset('home-page/images/image25(1).png') }}"
@@ -747,7 +754,7 @@
                         </div>
                     </div>
                     <div
-                        class="w-full space-y-6 px-3   h-auto  lg:h-[30%] xl:h-[26%] 2xl:h-[15%] bg-white  dark:bg-[#001448] pb-5">
+                        class="w-full space-y-6 px-3   h-auto   bg-white  dark:bg-[#1A1A18] pb-5 absolute bottom-0 z-10 pt-1">
                         <div class="w-10  justify-center items-center">
 
                             @guest
@@ -791,9 +798,9 @@
                             @endauth
                         </div>
                         <div class="pt-6 border-t-2 border-[#EFEFEF] flex justify-center   dark:border-[#868B90]">
-                            <div class=" flex rounded-full w-max p-[6px] bg-[#F4F4F4] dark:bg-[#4A4E7C]">
+                            <div class=" flex rounded-full w-max p-[6px] bg-[#F4F4F4] dark:bg-black">
                                 <button
-                                    class="enable-dark-mode2 dark:hidden bg-transparent dark:bg-[#9A9ECC] flex justify-center items-center p-1 rounded-full w-5 h-5  ">
+                                    class="enable-dark-mode2 dark:hidden bg-transparent dark:bg-[#1A1A18] flex justify-center items-center p-1 rounded-full w-5 h-5  ">
                                     <div>
                                         <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
                                             <path class="fill-slate-400 dark:fill-white"
@@ -832,7 +839,7 @@
     <div class="w-full main-content-smallNav2">
         <footer class="px-5 lg:px-0 w-full max-w-[1500px] mx-auto mt-32">
             <div
-                class="flex-wrap flex justify-between  items-ctener gap-1 md:gap-2 mx-auto w-full bg-white dark:bg-[#001448] p-3 mb-10 rounded-2xl">
+                class="flex-wrap flex justify-between  items-ctener gap-1 md:gap-2 mx-auto w-full bg-white dark:bg-[#1A1A18] p-3 mb-10 rounded-2xl">
                 <a href="https://irpsc.com" style="width:55px ;" target="_blank "
                     title="وزارت تعاون کار و رفاه اجتماعی">
                     <img src="https://irpsc.com/img-icon/vezarat.png" class="rounded-lg" alt="وزارت تعاون کار و رفاه اجتماعی">
@@ -938,7 +945,7 @@
                 </div>
             </div>
             <div
-                class="bg-[#c6d9fc] dark:bg-[#001448] w-full  p-5 rounded-t-[32px] mt-10 gap-6 flex flex-col lg:flex-row justify-center relative">
+                class="bg-[#c6d9fc] dark:bg-[#1A1A18] w-full  p-5 rounded-t-[32px] mt-10 gap-6 flex flex-col lg:flex-row justify-center relative">
                 <div class="gap-6 flex flex-col">
                     <div class="flex flex-col text-center md:text-right md:flex-row gap-5 md:gap-14 w-max mx-auto">
                         <a href="#" class="text-stone-800 dark:text-[#ffffff] font-bold">بانک مدل 3 بعدی</a>

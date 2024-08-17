@@ -55,7 +55,7 @@
 <div>
     <main>
         <section>
-            <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm hidden lg:block px-5" style="font-family: rokh">
+            <div class="bg-[#000BEEF7] dark:bg-black w-full py-[10px] text-white text-sm hidden lg:block px-5" style="font-family: rokh">
                 <div class="flex items-center justify-between max-w-[1500px] mx-auto">
                     <div>
                         <a href="#" class="px-4">قوانین و مجوزات</a>
@@ -76,7 +76,7 @@
             </div>
         </section>
         <section class="max-w-[1500px] mx-auto p-4 lg:p-9 mt-24 lg:mt-14">
-            <div class="w-full bg-white dark:bg-[#001448] rounded-xl dark:text-white p-5 lg:p-7">
+            <div class="w-full bg-white dark:bg-[#1A1A18] rounded-xl dark:text-white p-5 lg:p-7">
                 <h1 class="text-3xl dark:text-white font-bold py-5 text-center lg:text-right" >تماس باما</h1>
 
                 <div class="flex-col flex gap-7 lg:flex-row w-full">
@@ -140,7 +140,7 @@
                             </div>
                         </div>
                         <div>
-                            <img src="{{ asset('home-page/images/map.jpg') }}" alt="" class="w-full rounded-[10px]">
+                            <img src="{{ asset('home-page/images/map.jpg') }}" alt="map" class="w-full rounded-[10px]">
                         </div>
                     </div>
                 </div>

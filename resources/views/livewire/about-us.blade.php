@@ -51,7 +51,7 @@
 <div>
     <main>
         <section>
-            <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm hidden lg:block px-5" style="font-family: rokh">
+            <div class="bg-[#000BEEF7] dark:bg-black w-full py-[10px] text-white text-sm hidden lg:block px-5" style="font-family: rokh">
                 <div class="flex items-center justify-between max-w-[1500px] mx-auto">
                     <div>
                         <a href="#" class="px-4">قوانین و مجوزات</a>
@@ -73,8 +73,8 @@
         </section>
         <section class="max-w-[1500px] mx-auto p-4 lg:p-9 mt-24 lg:mt-14">
             <div>
-                <h1 class="text-[#414040] dark:text-gray-200 text-3xl font-bold" style="font-family:rokh-ebold ;" > درباره ما</h1>
-                <p class="text-[#6A6A6A] dark:text-gray-400 text-justify text-xl mt-5  leading-10">در سه بعدی متا، ما به
+                <h1 class="text-[#414040] dark:text-white text-3xl font-bold" style="font-family:rokh-ebold ;" > درباره ما</h1>
+                <p class="text-[#6A6A6A] dark:text-[#B2B2B2] text-justify md:text-xl mt-5  leading-10">در سه بعدی متا، ما به
                     دنیایی وارد می‌شویم که هنر و تکنولوژی به آغوش هم می‌رقصند. فروشگاه سه بعدی متا با هدف ارائه بهترین
                     مدل‌های سه بعدی و آواتار با بهترین ویژگی‌ها و جزئیات، برای علاقه‌مندان به دنیای گرافیک دیجیتال و
                     طراحی سه بعدی ایجاد شده است. چرا سه بعدی متا؟ ترکیب هنر و دیجیتال: در سه بعدی متا، هنرمندان و
@@ -89,7 +89,7 @@
 
             <div class="flex flex-col lg:flex-row w-full gap-7 mt-16">
                 <div
-                    class="w-full flex items-center lg:w-2/3 bg-white dark:bg-[#4A4E7C] text-[#6A6A6A] dark:text-gray-400 rounded-[30px] p-6 md:py-10 leading-10 text-lg text-justify">
+                    class="w-full flex items-center lg:w-2/3 bg-white dark:bg-[#1A1A18] text-[#6A6A6A] dark:text-gray-400 rounded-[30px] p-6 md:py-10 leading-10 md:text-lg text-justify">
                     <p>در فروشگاه سه بعدی متا، مرزها باز می‌شوند و شما به دنیایی عظیم و بی‌پایان از تجربه‌ی خرید خوش آمد
                         گویی میکنیم. اینجا جایی است که واقعیت متلاقی با خیال می‌شود و هر خرید یک ماجراجویی جدید در دل
                         مدل های سه بعدی آغاز می‌شود. خرید نه تنها یک فعل است، بلکه سفری است که هر لحظه آن، یک کاوش در
@@ -97,7 +97,7 @@
                 </div>
                 <div class="w-full lg:w-1/3 flex gap-7">
                     <div
-                        class="flex w-1/2 flex-col justify-center items-center rounded-[30px] bg-white dark:bg-[#4A4E7C] text-[#157EFB] dark:text-white gap-5 px-3 py-7">
+                        class="flex w-1/2 flex-col justify-center items-center rounded-[30px] bg-white dark:bg-[#1A1A18] text-[#157EFB] dark:text-white gap-5 px-3 py-7">
                         <div class="rounded-full overflow-hidden w-[80%] border-2 border-[#157EFB]">
                             <img src="{{ asset('home-page/images/alizadeh.JPEG') }}" alt=""
                                 class="w-full h-full ">
@@ -108,7 +108,7 @@
                         </div>
                     </div>
                     <div
-                        class="flex w-1/2 flex-col justify-center items-center rounded-[30px] bg-white dark:bg-[#4A4E7C] text-[#157EFB] dark:text-white gap-5 px-3 py-7">
+                        class="flex w-1/2 flex-col justify-center items-center rounded-[30px] bg-white dark:bg-[#1A1A18] text-[#157EFB] dark:text-white gap-5 px-3 py-7">
                         <div class="rounded-full overflow-hidden w-[80%] border-2 border-[#157EFB]">
                             <img src="{{ asset('home-page/images/image 29.jpg') }}" alt=""
                                 class="w-full h-full">

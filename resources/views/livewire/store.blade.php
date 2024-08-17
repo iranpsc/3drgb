@@ -7,7 +7,7 @@
 <div>
     <main>
         <section>
-            <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm hidden lg:block px-5" style="font-family: rokh">
+            <div class="bg-[#000BEEF7] dark:bg-black w-full py-[10px] text-white text-sm hidden lg:block px-5" style="font-family: rokh">
                 <div class="flex items-center justify-between max-w-[1500px] mx-auto">
                     <div>
                         <a href="#" class="px-4">قوانین و مجوزات</a>
@@ -30,13 +30,13 @@
         <section class="max-w-[1500px] mx-auto p-4 lg:p-9 lg:pt-0 mt-24 lg:mt-4">
             <div class="lg:flex gap-5 hidden">
                 <div
-                    class="flex gap-1 text-[#828282] p-3 items-center lg:w-[70%] xl:w-[80%] bg-white dark:bg-[#001448] rounded-[10px]">
+                    class="flex gap-1 text-[#828282] p-3 items-center lg:w-[70%] xl:w-[80%] bg-white dark:bg-[#1A1A18] rounded-[10px]">
                     <a href="{{ route('home') }}" class="text-[#828282] !font-medium">خانه</a>
                     <span>/</span>
                     <a href="#" class="text-[#828282] font-bold">فروشگاه</a>
                 </div>
                 <div
-                    class="flex items-center justify-center lg:w-[30%] xl:w-[20%] bg-white dark:bg-[#001448] rounded-[10px] gap-1 text-[#828282] p-3">
+                    class="flex items-center justify-center lg:w-[30%] xl:w-[20%] bg-white dark:bg-[#1A1A18] rounded-[10px] gap-1 text-[#828282] p-3">
                     <span>دسته بندی : </span>
                     <a href="#">مدل سه بعدی </a>
                 </div>
@@ -56,8 +56,8 @@
         </section>
         <section class="max-w-[1500px] mx-auto  lg:p-9 mt-24 lg:mt-14 flex flex-col lg:flex-row gap-5 ">
             <div id="fillterContainer" wire:ignore
-                class="hidden h-min absolute top-0 lg:top-0 rounded-[10px] z-[1100]  lg:relative lg:block w-full lg:w-1/4 lg:p-5 space-y-6 bg-white dark:bg-[#001448] lg:bg-transparent ">
-                <div class="w-full bg-white dark:bg-[#001448] lg:rounded-[10px] p-5 ">
+                class="hidden h-min absolute top-0 lg:top-0 rounded-[10px] z-[1100]  lg:relative lg:block w-full lg:w-1/4 lg:p-5 space-y-6 bg-white dark:bg-[#1A1A18] dark:lg:bg-transparent  lg:bg-transparent ">
+                <div class="w-full bg-white dark:bg-[#1A1A18] lg:rounded-[10px] p-5 ">
                     <div class="flex justify-between items-center px-4 py-3">
                         <p class="text-[#FAB62F]  text-xl">همه</p>
                         <button onclick="closeFillterContainerMobile()"
@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <div
-                    class="w-full  bg-white dark:bg-[#001448] lg:rounded-[10px] p-5 text-[#848383] dark:text-[#F8F8F8] space-y-5">
+                    class="w-full  bg-white dark:bg-[#1A1A18] lg:rounded-[10px] p-5 text-[#848383] dark:text-[#F8F8F8] space-y-5">
                     <div>
                         <p>
                             فیلتر براساس قیمت ( تومان )
@@ -105,7 +105,7 @@
                     </div>
                 </div>
                 <div
-                    class="w-full bg-white dark:bg-[#001448] lg:rounded-[10px] p-5 text-[#848383] dark:text-[#F8F8F8] text-sm  space-y-5">
+                    class="w-full bg-white dark:bg-[#1A1A18] lg:rounded-[10px] p-5 text-[#848383] dark:text-[#F8F8F8] text-sm  space-y-5">
                     <div>
                         <p class="text-xl font-bold text-[#515151] dark:text-white py-2">برچسب ها</p>
                     </div>
@@ -173,7 +173,7 @@
 
                         <input type="text" id="input2" wire:model.live.debounce.500ms="search"
                             placeholder="جستجو"
-                            class="relative w-full py-3 text-[#000cee57] dark:text-[#ACB9FA] font-bold bg-[#c4d8ff] dark:bg-[#001448c9] rounded-[32px] focus:outline-none pl-11 px-5 border-0">
+                            class="relative w-full py-3 text-[#000cee57] dark:text-[#ACB9FA] font-bold bg-[#c4d8ff] dark:bg-[#1A1A18] rounded-[32px] focus:outline-none pl-11 px-5 border-0">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg" class="absolute left-5 top-3">
                             <path class="dark:stroke-white"
@@ -219,6 +219,15 @@
         color: #0077C8;
         text-decoration: none;
     }
+    .dark a.showMore {
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: 20px;
+        color: #E59819;
+        text-decoration: none;
+    }
 
     a.showMore::after {
         content: "+ مشاهده همه ";
@@ -235,6 +244,15 @@
         text-transform: uppercase;
         margin-top: 20px;
         color: #0077C8;
+        text-decoration: none;
+    }
+    .dark a.showMore2 {
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: 20px;
+        color: #E59819;
         text-decoration: none;
     }
 

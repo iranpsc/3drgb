@@ -75,7 +75,7 @@
                                                 <table id="cart">
                                                     <thead>
                                                         <tr style="height: 60px;"
-                                                            class="bg-[#EFEFEF] dark:bg-[#4A4E7C] rounded-[10px] ">
+                                                            class="bg-[#EFEFEF] dark:bg-black !rounded-[10px] ">
                                                             <th style="padding-right: 8px">محصول</th>
                                                             <th>قیمت</th>
                                                             <th>تعداد</th>
@@ -110,16 +110,16 @@
                                                                 <div
                                                                     class="flex flex-row rounded-lg relative bg-transparent justify-center mx-auto">
                                                                     <button type="button" id="decrement-button"
-                                                                        class=" bg-white text-[#3A4980]  h-12 w-10 rounded-r-full cursor-pointer outline-none">
+                                                                        class=" bg-white dark:bg-black dark:text-white text-[#3A4980]  h-12 w-10 rounded-r-full cursor-pointer outline-none">
                                                                         <span class="m-auto text-2xl font-thin">−</span>
                                                                     </button>
                                                                     <input type="number"
-                                                                        class="focus:border-0  focus:ring-0 border-0 text-center w-10 h-12 bg-white font-semibold text-md   flex items-center text-[#3A4980] "
+                                                                        class="focus:border-0  focus:ring-0 border-0 text-center w-10 h-12 bg-white dark:bg-black dark:text-white font-semibold text-md   flex items-center text-[#3A4980] "
                                                                         name="custom-input-number"
                                                                         value="{{ $quantity }}"
                                                                         id="custom-input-number">
                                                                     <button type="button" id="increment-button"
-                                                                        class="bg-white text-[#3A4980]  h-12 w-10 rounded-l-full cursor-pointer">
+                                                                        class="bg-white dark:bg-black dark:text-white text-[#3A4980]  h-12 w-10 rounded-l-full cursor-pointer">
                                                                         <span class="m-auto text-2xl font-thin">+</span>
                                                                     </button>
                                                                 </div>
@@ -143,22 +143,22 @@
                                                 </table><!-- End: table -->
                                             </div>
 
-                                            <div class="w-full lg:w-[30%] bg-[#EFEFEF] dark:bg-[#4A4E7C] rounded-[10px] p-5   "
+                                            <div class="w-full lg:w-[30%] bg-[#EFEFEF] dark:bg-black rounded-[10px] p-5   "
                                                 style="min-width: 236px">
                                                 <div class="flex flex-col gap-10  mt-20">
                                                     <div class="card-header border-bottom-0 p-0 pb-25">
                                                         <h5 class="fw-500">خلاصه سفارش</h5>
                                                     </div>
                                                     <div
-                                                        class="bg-white dark:bg-[#9A9ECC] rounded-[10px] p-5 flex flex-col gap-3">
-                                                        <div class="flex items-center justify-between ">
-                                                            <h6 style="color:blue">مجموع :</h6>
-                                                            <h5 style="color:blue">
+                                                        class="bg-white dark:bg-[#1A1A18] rounded-[10px] p-5 flex flex-col gap-3">
+                                                        <div class="flex items-center justify-between text-primery-blue dark:text-[#E59819]">
+                                                            <h6>مجموع :</h6>
+                                                            <h5 >
                                                                 {{ number_format($total_price, 0) }}
                                                                 تومان</h5>
                                                         </div>
                                                         <button type="button" wire:click="checkout"
-                                                            class="checkout text-white  mt-16 active:scale-105  bg-[#000BEE] dark:bg-[#C2008C] py-3 rounded-[10px]">تسویه
+                                                            class="checkout text-white  mt-16 active:scale-105  bg-[#000BEE] dark:bg-[#E59819] py-3 rounded-[10px] flex items-center gap-2 justify-center">تسویه
                                                             حساب<i class="las la-arrow-left"></i></button>
                                                     </div>
                                                 </div><!-- End: .order-summery-->

@@ -51,7 +51,7 @@
                     <div
                         class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-14 opacity-0 ease-out transition-all  px-5  ">
                         <div
-                            class="flex flex-col bg-white  shadow-sm rounded-xl pointer-events-auto dark:bg-[#001448]  dark:shadow-slate-700/[.7]  ">
+                            class="flex flex-col bg-white  shadow-sm rounded-xl pointer-events-auto dark:bg-[#1A1A18]  dark:shadow-slate-700/[.7]  ">
                             <div class="flex justify-between items-center py-3 px-4 border-b dark:border-gray-700">
                                 <h3 class="font-bold text-gray-800 dark:text-white">
                                     اشتراک این صفحه
@@ -113,7 +113,7 @@
                         @foreach ($product->images as $image)
                             <button class="image-btn w-full bg-white aspect-square rounded-lg overflow-hidden"
                                 data-src="{{ $image->url }}">
-                                <img class="aspect-square" src="{{ $image->url }}" alt="">
+                                <img class="aspect-square" src="{{ $image->url }}" alt="{{ $product->name }}">
                             </button>
                         @endforeach
                     </div>
@@ -126,11 +126,11 @@
 
                         <div class="flex flex-col gap-4 justify-center">
 
-                            <span class="text-[#3A498087] dark:text-gray-200">{{ $product->sku }}</span>
+                            <span class="text-[#1A1A18] dark:text-gray-200">{{ $product->sku }}</span>
                         </div>
                         <div class="flex items-start justify-end gap-2" wire:ignore>
                             <div
-                                class="p-1 h-8 bg-[#91B3FA29] dark:bg-[#3A4980] dark:text-white rounded-lg flex items-center gap-3 w-max select-none text-[#3A4980]">
+                                class="p-1 h-8 bg-[#91B3FA29] dark:bg-[#1A1A18] dark:text-white rounded-lg flex items-center gap-3 w-max select-none text-[#3A4980]">
                                 <div>
                                     <p>{{ $product->likes_count }}</p>
                                 </div>
@@ -149,7 +149,7 @@
                                 </div>
                             </div>
                             <div
-                                class="like p-1 h-8 w-8 aspect-square bg-white dark:bg-[#3A4980] rounded-lg flex items-center gap-3 justify-center select-none text-[#3A4980]">
+                                class="like p-1 h-8 w-8 aspect-square bg-white dark:bg-[#1A1A18] rounded-lg flex items-center gap-3 justify-center select-none text-[#3A4980]">
                                 <input id="save" type="checkbox" class="peer" wire:click="toggleBookmark"
                                     @checked($product->user_bookmarked)>
                                 <label for="save" class="like-label peer-checked:[&>svg>path]:fill-black">
@@ -163,7 +163,7 @@
                                 </label>
                             </div>
                             <button data-hs-overlay="#hs-slide-up-animation-modal"
-                                class="p-1 h-8 w-8 aspect-square bg-white dark:bg-[#3A4980] rounded-lg select-none flex items-center justify-center">
+                                class="p-1 h-8 w-8 aspect-square bg-white dark:bg-[#1A1A18] rounded-lg select-none flex items-center justify-center">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path class="dark:stroke-white"
@@ -192,7 +192,7 @@
                         <div class="flex flex-col gap-5">
                             <div class="flex items-start justify-end gap-2">
                                 <div
-                                    class="flex items-center w-max gap-3 px-3 py-1 text-[#3A4980] dark:text-white bg-[#91B3FA29] rounded-full">
+                                    class="flex items-center w-max gap-3 px-3 py-1 text-[#3A4980] dark:text-white bg-white dark:bg-[#1A1A18] rounded-full">
                                     <p>{{ number_format($product->rating_avg) }} </p>
                                     <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -203,7 +203,7 @@
                                     </svg>
                                 </div>
                                 <div
-                                    class="flex items-center w-max gap-3 px-3 py-1 text-[#3A4980] dark:text-white bg-white dark:bg-[#91B3FA29] rounded-full">
+                                    class="flex items-center w-max gap-3 px-3 py-1 text-[#3A4980] dark:text-white bg-white dark:bg-[#1A1A18] rounded-full">
                                     <p>{{ $product->approved_reviews_count }} &nbsp بررسی</p>
                                     <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -225,15 +225,15 @@
                     </div>
                     <div class="flex flex-col gap-5 justify-between h-min w-full  px-5 pb-5 border-b border-gray-300">
                         <div>
-                            <p class="text-[#8E9ABC] ">فرمت قابل دانلود</p>
+                            <p class="text-[#8E9ABC] dark:text-white">فرمت قابل دانلود</p>
                         </div>
                         <div class="flex gap-4">
                             <div
-                                class="flex items-center gap-3 p-2 rounded-lg bg-white dark:bg-[#001448] text-[#3A4980] dark:text-white">
+                                class="flex items-center gap-3 p-2 rounded-lg bg-white dark:bg-[#1A1A18] text-[#3A4980] dark:text-white">
                                 <p>png </p>
                             </div>
                             <div
-                                class="flex items-center gap-3 p-2 rounded-lg bg-white dark:bg-[#001448] text-[#3A4980] dark:text-white">
+                                class="flex items-center gap-3 p-2 rounded-lg bg-white dark:bg-[#1A1A18] text-[#3A4980] dark:text-white">
 
                                 <p>fbx </p>
                             </div>
@@ -241,19 +241,19 @@
                     </div>
                     <div class="flex  gap-2   justify-between ">
                         @if ($product->stock_status && $product->quantity > 1)
-                            <div class="flex flex-col md:flex-row items-center gap-4 text-[#3A4980] dark:text-gray-300 text-xs w-[25%] "
+                            <div class="flex flex-col md:flex-row items-center gap-4 text-[#3A4980]  dark:text-gray-300 text-xs w-[25%] "
                                 style="margin-right: 10px">
                                 <div class="flex flex-row rounded-lg relative bg-transparent ">
                                     <button data-action="decrement"
-                                        class=" bg-white text-[#3A4980]  h-12 w-10 rounded-r-full cursor-pointer outline-none">
+                                        class=" bg-white text-[#3A4980]  h-12 w-10 rounded-r-full cursor-pointer outline-none dark:bg-[#1A1A18] dark:text-white">
                                         <span class="m-auto text-2xl font-thin">−</span>
                                     </button>
                                     <input type="number"
-                                        class="focus:border-0  focus:ring-0 border-0 text-center w-10 h-12 bg-white font-semibold text-md   flex items-center text-[#3A4980] "
+                                        class="focus:border-0  focus:ring-0 border-0 text-center w-10 h-12 bg-white dark:text-white dark:bg-[#1A1A18] font-semibold text-md   flex items-center text-[#3A4980] "
                                         name="custom-input-number" min="1" max="{{ $product->quantity }}"
                                         value="1" id="custom-input-number">
                                     <button data-action="increment"
-                                        class="bg-white text-[#3A4980]  h-12 w-10 rounded-l-full cursor-pointer">
+                                        class="bg-white dark:text-white text-[#3A4980] dark:bg-[#1A1A18]  h-12 w-10 rounded-l-full cursor-pointer">
                                         <span class="m-auto text-2xl font-thin">+</span>
                                     </button>
                                 </div>
@@ -314,7 +314,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="bg-[#ffffff8a] rounded-[10px] flex items-center gap-4 p-5 dark:bg-[#3A4980]">
+                    <div class="bg-[#ffffff8a] rounded-[10px] flex items-center gap-4 p-5 dark:bg-[#1A1A18]">
                         <div>
                             <svg width="30" height="36" viewBox="0 0 30 36" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -337,7 +337,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="bg-[#ffffff8a] rounded-[10px] flex items-center gap-4 p-5 dark:bg-[#3A4980]">
+                    <div class="bg-[#ffffff8a] rounded-[10px] flex items-center gap-4 p-5 dark:bg-[#1A1A18]">
                         <div>
                             <svg width="30" height="36" viewBox="0 0 30 36" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -375,21 +375,21 @@
             <div class="flex flex-wrap gap-3 mt-6">
                 @foreach ($product->tags as $tag)
                     <a href="/products?tag={{ $tag->slug }}"
-                        class="py-3 pb-[13px] px-5 rounded-[10px] w-max bg-[#ffffffa8] dark:bg-[#3A4980] text-[#8E9ABC] dark:text-white/70 text-sm">{{ $tag->name }}</a>
+                        class="py-3 pb-[13px] px-5 rounded-[10px] w-max bg-[#ffffffa8] dark:bg-[#1A1A18] text-[#8E9ABC] dark:text-white/70 text-sm">{{ $tag->name }}</a>
                 @endforeach
             </div>
         </section>
         <section class="max-w-[1500px] mx-auto p-4 lg:p-9 mt-20 lg:mt-14">
             <div class="border-b-2 border-gray-200 dark:border-gray-700">
-                <nav class=" flex justify-start gap-10 mb-[-2px]" aria-label="Tabs" role="tablist">
+                <nav class=" flex justify-start gap-10 mb-[-2px] " aria-label="Tabs" role="tablist">
                     <button type="button"
-                        class=" hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-5 inline-flex items-center gap-x-2 border-b-2 border-transparent  whitespace-nowrap text-[#8E9ABC] hover:text-[#164C96]   disabled:pointer-events-none dark:text-gray-400  active"
+                        class=" hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 dark:hs-tab-active:text-[#E59819] dark:hs-tab-active:border-[#E59819] py-4 px-5 inline-flex items-center gap-x-2 border-b-2 border-transparent  whitespace-nowrap text-[#8E9ABC] hover:text-[#164C96]   disabled:pointer-events-none dark:text-gray-400  active"
                         id="horizontal-right-alignment-item-1" data-hs-tab="#horizontal-right-alignment-1"
                         aria-controls="horizontal-right-alignment-1" role="tab">
                         توضیحات
                     </button>
                     <button type="button"
-                        class=" hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-5 inline-flex items-center gap-x-2 border-b-2 border-transparent  whitespace-nowrap text-[#8E9ABC] hover:text-[#164C96]    disabled:pointer-events-none dark:text-gray-400 "
+                        class=" hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 dark:hs-tab-active:text-[#E59819] dark:hs-tab-active:border-[#E59819] py-4 px-5 inline-flex items-center gap-x-2 border-b-2 border-transparent  whitespace-nowrap text-[#8E9ABC] hover:text-[#164C96]    disabled:pointer-events-none dark:text-gray-400 "
                         id="horizontal-right-alignment-item-2" data-hs-tab="#horizontal-right-alignment-2"
                         aria-controls="horizontal-right-alignment-2" role="tab">
                         بررسی ها
@@ -400,14 +400,14 @@
                 <div id="horizontal-right-alignment-1" role="tabpanel"
                     aria-labelledby="horizontal-right-alignment-item-1" class="flex flex-col gap-4">
                     <div
-                        class="bg-[#FFFFFF] dark:bg-[#001448] rounded-[10px] flex flex-col gap-5 justify-between  p-5 px-4 dark:text-white">
+                        class="bg-[#FFFFFF] dark:bg-[#1A1A18] rounded-[10px] flex flex-col gap-5 justify-between  p-5 px-4 dark:text-white">
                         <p class="text-gray-800 dark:text-white">توضیحات :</p>
                         <p class="text-[#667085] dark:text-white">{!! nl2br($product->long_description) !!}</p>
                     </div>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
                         @foreach ($product->attributes->where('slug', '!=', 'convertable_to_3d_model') as $attribute)
                             <div
-                                class="bg-[#FFFFFF] dark:bg-[#001448] rounded-[10px] flex justify-between items-center p-5 px-4">
+                                class="bg-[#FFFFFF] dark:bg-[#1A1A18] rounded-[10px] flex justify-between items-center p-5 px-4">
                                 <p class="text-gray-800 dark:text-gray-300">{{ $attribute->name }}</p>
                                 <p class="text-[#667085] dark:text-gray-300"> {{ $attribute->pivot->value }}</p>
                             </div>

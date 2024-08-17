@@ -6,7 +6,7 @@
 
     <div class="flex flex-col-reverse md:flex-row gap-5 items-center justify-center w-full  my-5">
         <div
-            class="bg-[#FFFFFF] dark:bg-[#001448] p-8 rounded-[10px] flex flex-col justify-center items-center gap-5 w-full md:w-[70%]">
+            class="bg-[#FFFFFF] dark:bg-[#1A1A18] p-8 rounded-[10px] flex flex-col justify-center items-center gap-5 w-full md:w-[70%]">
             <dl class="w-full">
                 @php
                     $five_star_review_percentage = ($product->five_star_reviews_count / $users_count) * 100;
@@ -14,7 +14,7 @@
                 <dd class="flex items-center gap-4 w-full">
                     <div
                         class="w-[50%] md:w-[60%] 2xl:w-[65%] 3xl:w-[70%] bg-gray-200 rounded h-2.5 dark:bg-gray-700 me-2">
-                        <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500"
+                        <div class="bg-blue-600 dark:bg-[#E59819] h-2.5 rounded "
                             style="width: {{ $five_star_review_percentage }}%"></div>
                     </div>
                     <div class="flex items-center gap-4 w-[50%] md:w-[40%] 2xl:w-[35%] 3xl:w-[30%]">
@@ -64,7 +64,7 @@
                 <dd class="flex items-center gap-4 w-full">
                     <div
                         class="w-[50%] md:w-[60%] 2xl:w-[65%] 3xl:w-[70%] bg-gray-200 rounded h-2.5 dark:bg-gray-700 me-2">
-                        <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500"
+                        <div class="bg-blue-600 h-2.5 rounded dark:bg-[#E59819]"
                             style="width: {{ $four_star_review_percentage }}%"></div>
                     </div>
                     <div class="flex items-center gap-4 w-[50%] md:w-[40%] 2xl:w-[35%] 3xl:w-[30%]">
@@ -114,7 +114,7 @@
                 <dd class="flex items-center gap-4 w-full">
                     <div
                         class="w-[50%] md:w-[60%] 2xl:w-[65%] 3xl:w-[70%] bg-gray-200 rounded h-2.5 dark:bg-gray-700 me-2">
-                        <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500"
+                        <div class="bg-blue-600 h-2.5 rounded dark:bg-[#E59819]"
                             style="width: {{ $three_star_review_percentage }}%"></div>
                     </div>
                     <div class="flex items-center gap-4 w-[50%] md:w-[40%] 2xl:w-[35%] 3xl:w-[30%]">
@@ -164,7 +164,7 @@
                 <dd class="flex items-center gap-4 w-full">
                     <div
                         class="w-[50%] md:w-[60%] 2xl:w-[65%] 3xl:w-[70%] bg-gray-200 rounded h-2.5 dark:bg-gray-700 me-2">
-                        <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500"
+                        <div class="bg-blue-600 h-2.5 rounded dark:bg-[#E59819]"
                             style="width: {{ $two_star_review_percentage }}%"></div>
                     </div>
                     <div class="flex items-center gap-4 w-[50%] md:w-[40%] 2xl:w-[35%] 3xl:w-[30%]">
@@ -214,7 +214,7 @@
                 <dd class="flex items-center gap-4 w-full">
                     <div
                         class="w-[50%] md:w-[60%] 2xl:w-[65%] 3xl:w-[70%] bg-gray-200 rounded h-2.5 dark:bg-gray-700 me-2">
-                        <div class="bg-blue-600 h-2.5 rounded dark:bg-blue-500"
+                        <div class="bg-blue-600 h-2.5 rounded dark:bg-[#E59819]"
                             style="width: {{ $one_star_review_percentage }}%"></div>
                     </div>
                     <div class="flex items-center gap-4 w-[50%] md:w-[40%] 2xl:w-[35%] 3xl:w-[30%]">
@@ -259,7 +259,7 @@
             </dl>
         </div>
         <div
-            class="bg-[#FFFFFF] dark:bg-[#001448] p-5 md:p-[34px] rounded-[10px] flex flex-row-reverse md:flex-col items-center justify-between w-full md:w-[30%] md:min-h-[264px] gap-5 lg:gap-10">
+            class="bg-[#FFFFFF] dark:bg-[#1A1A18] p-5 md:p-[34px] rounded-[10px] flex flex-row-reverse md:flex-col items-center justify-between w-full md:w-[30%] md:min-h-[264px] gap-5 lg:gap-10">
             <div class="flex flex-col gap-5 lg:gap-10 items-center justify-center">
                 <p class="text-2xl md:text-5xl font-bold text-[#4F547B] dark:text-gray-300">
                     {{ floor($product->rating_avg) }}
@@ -311,12 +311,12 @@
                     <div class="text-[#1d29399d] dark:text-gray-200 text-sm">
                         <p>{{ $review->comment }}</p>
                         <div class="flex gap-4 items-center justify-between mt-5">
-                            <textarea id="review-reply-box-{{ $review->id }}" cols="30" rows="1" placeholder="پاسخ خود را بنویسید" class="placeholder:text-[#A8ABB4] w-full bg-[#FBFDFF] ring-0 focus:ring-0  dark:bg-[#001448] dark:border-transparent dark:text-[#A8ABB4] border border-[#ECEEF3] rounded-xl py-3 px-5"
+                            <textarea id="review-reply-box-{{ $review->id }}" cols="30" rows="1" placeholder="پاسخ خود را بنویسید" class="placeholder:text-[#A8ABB4] w-full bg-[#FBFDFF] ring-0 focus:ring-0  dark:bg-[#1A1A18] dark:border-transparent dark:text-[#A8ABB4] border border-[#ECEEF3] rounded-xl py-3 px-5"
                                 wire:model="reviewReplyText"></textarea>    
                             <div class="flex gap-4 items-center justify-end">
                                 <button class="text-xs text-red-600"
                                 wire:click="saveReviewReply({{ $review->id }})">Replay</button>
-                            <button class="text-xs" wire:click="likeReview({{ $review->id }})">Like</button>
+                                <button class="text-xs" wire:click="likeReview({{ $review->id }})">Like</button>
                             </div>
                         </div>
                         <div class="flex flex-col my-5 mb-10">
@@ -370,7 +370,7 @@
                 @enderror
                 <div class="flex justify-end mt-10">
                     <button type="button"
-                        class="bg-[#3A4980] dark:bg-[#001448] text-white py-4 pb-[17px] rounded-full w-max px-6"
+                        class="bg-[#3A4980] dark:bg-[#1A1A18] text-white py-4 pb-[17px] rounded-full w-max px-6"
                         id="save-review-btn">ارسال بررسی</button>
                 </div>
             </div>
@@ -400,13 +400,13 @@
                 <div class="space-y-5 w-full lg:w-[60%]">
                     <p class="mt-5">نظر شما در باره این محصول چیست؟</p>
                     <textarea wire:model="comment" name="" id="" cols="30" rows="10"
-                        class="w-full text-gray-400 py-3 rounded-[10px] border-2 border-gray-300 ring-offset-0 focus:ring-offset-0 ring-0 !focus:ring-0 bg-transparent"></textarea>
+                        class="w-full text-gray-400 py-3 rounded-[10px] border-2 border-gray-300 ring-offset-0 focus:ring-offset-0 ring-0 !focus:ring-0 bg-transparent dark:border-[#E59819] dark:ring-[#E59819]"></textarea>
                     @error('comment')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                     <div class="flex justify-end mt-10">
                         <button type="button"
-                            class="bg-[#3A4980] dark:bg-[#001448] text-white py-4 pb-[17px] rounded-full w-max px-6"
+                            class="bg-[#3A4980] dark:bg-[#E59819] text-white py-4 pb-[17px] rounded-full w-max px-6"
                             id="save-review-btn">ارسال بررسی</button>
                     </div>
                 </div>

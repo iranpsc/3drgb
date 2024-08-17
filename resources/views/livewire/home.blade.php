@@ -7,7 +7,7 @@
 <div>
     <main>
         <section>
-            <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm hidden lg:block px-5"
+            <div class="bg-[#000BEEF7] dark:bg-black w-full py-[10px] text-white text-sm hidden lg:block px-5"
                 style="font-family: rokh">
                 <div class="flex items-center justify-between max-w-[1500px] mx-auto">
                     <div>
@@ -29,17 +29,17 @@
             </div>
         </section>
         <div>
-            <div class="bg-[#ECF4FE] dark:bg-[#4A4E7C] w-full relative    ">
+            <div class="bg-[#ECF4FE] dark:bg-[#1A1A18] w-full relative    ">
                 <div
                     class="w-full mx-auto flex flex-col md:flex-row items-ctener justify-between  gap-10 px-10 md:px-10  py-5 lg:px-20 ">
                     <div class="w-full md:w-3/5 flex flex-col justify-center mt-20 lg:mt-0">
                         <img src="{{ asset('home-page/images/Asset2.png') }}" alt="3dmodel"
                             class="md:hidden w-full mx-auto">
-                        <p class="text-[#000BEE] dark:text-white py-3 text-head text-6xl text-center md:text-right leading-[60px]"
+                        <p class="text-[#000BEE] dark:text-[#FFFFFF] py-3 text-head text-6xl text-center md:text-right leading-[60px]"
                             style="font-family:rokh-ebold">
                             مدل سه بعدی و تجربه ای متفاوت
                         </p>
-                        <p class="text-stone-800 dark:text-[#ffffff] font-bold text-xl lg:text-2xl mt-5 text-center md:text-right"
+                        <p class="text-stone-800 dark:text-[#FFFFFF] font-bold text-xl lg:text-2xl mt-5 text-center md:text-right"
                             style="line-height: 50px">
                             ما اینجا هستیم تا روزانه محصولات سه بعدی را در اختیار شما طراحان قرار دهیم . سامانه سه بعدی
                             متا با
@@ -48,7 +48,7 @@
                         </p>
                         <div class="flex gap-5 relative mt-20 hidden lg:flex">
                             <input type="text" wire:model="searchTerm" placeholder="جستجوی محصول"
-                                class="relative w-full p-5 placeholder:text-[#ACB9FA] font-bold bg-[#D8E5FD] text-gray-500 dark:text-gray-400  dark:bg-[#001448c9] rounded-[32px] focus:outline-none pr-12 md:px-20 border-0">
+                                class="relative w-full p-5 placeholder:text-[#ACB9FA] font-bold bg-[#D8E5FD] text-gray-500 dark:text-[#C1C1C1] dark:placeholder:text-[#C1C1C1]  dark:bg-black rounded-[32px] focus:outline-none focus:ring-0 focus:border-0 pr-12 md:px-20 border-0">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" class="absolute right-5 top-5">
                                 <path class="dark:stroke-white"
@@ -58,7 +58,7 @@
                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                             <button type="button" wire:click="search"
-                                class="bg-[#000BEE] dark:bg-[#C2008C] text-white font-bold md:text-xl pb-5 pt-[18px] px-5 md:px-14 w-max rounded-[32px]  text-center">جستجو</button>
+                                class="bg-[#000BEE] dark:bg-[#E59819] text-white dark:text-black font-bold md:text-xl pb-5 pt-[18px] px-5 md:px-14 w-max rounded-[32px]  text-center">جستجو</button>
                         </div>
                     </div>
                     <div class="w-full flex items-center justify-end md:w-1/2 flex-col overflow-hidden">
@@ -95,7 +95,7 @@
         <section class="w-full mx-auto max-w-[1500px]  p-5" style="margin-top: -140px">
             <div class=" space-y-5 md:space-y-10">
                 <div class="w-full flex justify-center flex-col items-center gap-4 space-y-5 py-10">
-                    <p class="text-stone-800 dark:text-[#ffffff] font-bold text-2xl">
+                    <p class="text-stone-800 dark:text-[#D1D1D1] font-bold text-2xl">
                         محصولات ما
                     </p>
                     <p class="text-[#000BEE] dark:text-[#E8E9FF] font-extrabold text-4xl"
@@ -122,7 +122,7 @@
                         کیفیت طراحی های خود را با استفاده از مدل های سه بعدی افزایش دهید .
                     </p>
                     <a href="{{ route('products') }}"
-                        class="mt-5 text-[#000BEE] text-base md:text-xl dark:text-[#E8E9FF] bg-[#CDD6FC] dark:bg-[#C2008C] px-5 py-3 rounded-3xl font-bold lg:text-2xl w-max flex items-center justify-center gap-6 md:gap-10">
+                        class="mt-5 text-[#000BEE] text-base md:text-xl dark:text-black bg-[#CDD6FC] dark:bg-dark-yellow  px-5 py-3 rounded-3xl font-bold lg:text-2xl w-max flex items-center justify-center gap-6 md:gap-10">
                         <p class="m-0 p-0">
                             لیست مدل های سه بعدی
                         </p>
@@ -136,7 +136,7 @@
             <div class="flex flex-col  md:mt-32  w-full">
                 <div class="w-full flex-col relative  ">
                     <div class="flex flex-col  gap-3 px-5 text-center md:text-right">
-                        <p class="text-[26px] md:text-4xl text-[#000BEE] dark:text-[#E8E9FF] font-extrabold   p-0 m-0 "
+                        <p class="text-[26px] md:text-4xl text-[#000BEE] dark:text-[#FFFFFF] font-extrabold   p-0 m-0 "
                             style="font-family:rokh-ebold ;">
                             دسته بندی های پر طرفدار
                         </p>
@@ -153,7 +153,7 @@
                             @forelse ($this->popularCategories as $category)
                                 <div class="flex flex-shrink-0 relative  ">
                                     <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
-                                        class="bg-white dark:bg-[#001448] p-3 pb-7   w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-7 text-center">
+                                        class="bg-white dark:bg-[#1A1A18] p-3 pb-7  w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-7 text-center">
                                         <div class="w-full ">
                                             <img src="{{ asset($category->image->url ?? '') }}" loading="lazy"
                                                 alt="category" class="w-full rounded-xl">
@@ -175,7 +175,7 @@
 
                         <div>
                             <a href="{{ route('categories') }}"
-                                class="text-[#000BEE] dark:bg-[#c2008b36] dark:text-[#E8E9FF] bg-[#CDD6FC] px-3 md:px-5 py-3 rounded-3xl font-bold text-lg md:text-xl">مشاهده
+                                class="text-[#000BEE] dark:bg-[#271A04] dark:text-[#E59819] bg-[#CDD6FC] px-3 md:px-5 py-3 rounded-3xl font-bold text-lg md:text-xl">مشاهده
                                 همه</a>
                         </div>
                     </div>
@@ -185,24 +185,24 @@
         </section>
         <section class="w-full mt-32 mx-auto flex justify-center items-center max-w-[1500px] px-5 lg:px-0">
             <div
-                class="w-full text-center flex flex-col justify-center items-center xl:flex-row gap-5 gap-y-10 py-12 xl:py-16 px-7 rounded-3xl bg-[#000ceec2] dark:bg-[#001448] ">
+                class="w-full text-center flex flex-col justify-center items-center xl:flex-row gap-5 gap-y-10 py-12 xl:py-16 px-7 rounded-3xl bg-[#000ceec2] dark:bg-gradient-to-tl to-[#012F65] from-[#014AA0] ">
                 <div class="lg:w-[70%]">
                     <h2 class="text-white text-3xl 2xl:text-5xl !leading-[70px]  text-center "
                         style="font-family:rokh ;">“خدمات طراحی محیط های سه بعدی <br>به صورت Low-Poly و High-Poly”
                     </h2>
                 </div>
                 <a href="{{ route('submit-order') }}"
-                    class="lg:w-max h-max bg-white dark:bg-[#4A4E7C] text-[#000BEE] dark:text-white font-bold md:text-xl rounded-full px-5 md:px-10 py-6 w-max mx-auto flex items-center gap-6 md:gap-10">
+                    class="lg:w-max h-max bg-white dark:bg-gradient-to-r  to-[#416A9A] via-[#365E8E] from-[#27507F] text-[#000BEE] dark:text-white font-bold md:text-xl rounded-full px-5 md:px-10 py-6 w-max mx-auto flex items-center gap-6 md:gap-10">
                     <p class="m-0 p-0 ">
                         نمونه کار و ثبت سفارش
                     </p>
-                    <img src="{{ asset('home-page/images/Union.png') }}" alt="">
+                    <img src="{{ asset('home-page/images/Union.png') }}" alt="arrow">
                 </a>
             </div>
         </section>
         <section class="w-full max-w-[1500px] mx-auto px-5 lg:px-0">
             <div>
-                <p class="text-4xl font-bold text-[#000BEE] dark:text-[#E8E9FF] mt-32 text-center py-3"
+                <p class="text-4xl font-bold text-[#000BEE] dark:text-[#FFFFFF] mt-32 text-center py-3"
                     style="font-family:rokh-ebold ;">محصولات ما</p>
             </div>
             <div class="mx-auto  w-full ">

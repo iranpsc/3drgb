@@ -31,13 +31,13 @@
         <section class="max-w-[1500px] mx-auto p-4 lg:p-9 lg:pt-0 mt-24 lg:mt-4">
             <div class="lg:flex gap-5 hidden">
                 <div
-                    class="flex gap-1 text-[#828282] p-3 items-center lg:w-[70%] xl:w-[80%] bg-white dark:bg-[#001448] rounded-[10px]">
+                    class="flex gap-1 text-[#828282] p-3 items-center lg:w-[70%] xl:w-[80%] bg-white dark:bg-[#1A1A18] rounded-[10px]">
                     <a href="{{ route('home') }}" class="text-[#828282] !font-medium">خانه</a>
                     <span>/</span>
                     {!! $category->breadcrumb !!}
                 </div>
                 <div
-                    class="flex items-center justify-center lg:w-[30%] xl:w-[20%] bg-white dark:bg-[#001448] rounded-[10px] gap-1 text-[#828282] p-3">
+                    class="flex items-center justify-center lg:w-[30%] xl:w-[20%] bg-white dark:bg-[#1A1A18] rounded-[10px] gap-1 text-[#828282] p-3">
                     <span>دسته بندی : </span>
                     <span>{{ $category->name }}</span>
                 </div>
@@ -53,7 +53,19 @@
             </div>
         </section>
         <section class="max-w-[1500px] mx-auto  lg:p-9 mt-24 lg:mt-14 flex flex-col gap-5 ">
-            <span class="text-2xl p-5 dark:text-gray-300 text-gray-800"> {{ $category->name }}</span>
+            <div class="px-5">
+                <div class="flex flex-col md:flex-row gap-5 p-3 rounded-[20px] bg-[#ECF4FE] dark:bg-[#1A1A18]">
+                    <div class="w-full md:w-1/3 xl:w-1/4">
+                        <img class="w-full aspect-square rounded-[10px]" src="{{ $category->image->url ?? asset('home-page/images/default-product.jpg')}}"  onerror="this.onerror=null; this.src='{{ asset('home-page/images/default-product.jpg') }}';"
+                             />
+    
+                    </div>
+                    <div class="flex flex-col gap-5 px-5 py-2">
+                        <h1 class="font-bold text-xl md:text-[30px] text-[#000BEE] dark:text-white">{{ $category->name }}</h1>
+                        <p class="text-[#868B90] dark:text-[#989898] md:text-xl text-justify">{{ $category->description }}</p>
+                    </div>
+                </div>
+            </div>
             <div class="w-full space-y-5 px-5 mx-auto" id="products-list">
                 <div class=""> 
                     <div class="grid lg:grid-cols-2 xl:grid-cols-4 gap-5 transition-[5s] duration-500 ">
@@ -63,15 +75,15 @@
                             @endphp
                             <div class=" product">
                                 <div
-                                    class="bg-white dark:bg-[#001448] w-full flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
+                                    class="bg-[#ECF4FE] dark:bg-[#1A1A18] w-full flex flex-col overflow-hidden rounded-[20px]  items-center text-center p-2   duration-500 transition-all">
                                     <a href="{{ route('categories.show', ['category_link' => $children_links]) }}"
                                         class="p-1 w-full ">
-                                        <img class="rounded-lg" src="{{ $child->image->url ?? asset('home-page/images/3d-Strawberry-3dmodel.jpg') }}"
+                                        <img class="rounded-[10px]" src="{{ $child->image->url ?? asset('home-page/images/default-product.jpg') }}"
                                             loading="lazy" alt="category">
                                     </a>
                                     <div class="w-full flex flex-col justify-center items-center gap-3">
                                         <a href="{{ route('categories.show', ['category_link' => $children_links]) }}"
-                                            class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white py-5">{{ $child->name }}</a>
+                                            class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white py-[10px] ">{{ $child->name }}</a>
                                     </div>
                                 </div>
                             </div>
