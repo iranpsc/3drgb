@@ -457,7 +457,7 @@
                                     <li class="flex flex-col gap-3">
                                         <input type="checkbox" id="c111" class="peer" />
                                         <label
-                                            class="px-[20px] py-4 w-full rounded-[10px] text-[#868B90]  peer-checked:text-white head_label peer-checked:bg-[#000BEE] dark:peer-checked:bg-[#C2008C] peer-checked:[&>div>svg]:rotate-180 peer-checked:[&>div>svg>path]:stroke-white"
+                                            class="px-[20px] py-4 w-full rounded-[10px] text-[#868B90]  peer-checked:text-white head_label peer-checked:bg-[#000BEE] dark:peer-checked:bg-black peer-checked:[&>div>svg]:rotate-180 peer-checked:[&>div>svg>path]:stroke-white"
                                             for="c111">
                                             <div class="flex w-full justify-between items-center select-none"
                                                 for="c111">
@@ -504,7 +504,7 @@
                                 <li class="flex flex-col gap-3">
                                     <input type="checkbox" id="c11" class="peer" />
                                     <label
-                                        class="px-[20px] py-4 w-full rounded-[10px] text-[#868B90]  peer-checked:text-white head_label peer-checked:bg-[#000BEE] dark:peer-checked:bg-[#C2008C] peer-checked:[&>div>svg]:rotate-180 peer-checked:[&>div>svg>path]:stroke-white"
+                                        class="px-[20px] py-4 w-full rounded-[10px] text-[#868B90]  peer-checked:text-white head_label peer-checked:bg-[#000BEE] dark:peer-checked:bg-black peer-checked:[&>div>svg]:rotate-180 peer-checked:[&>div>svg>path]:stroke-white"
                                         for="c11">
                                         <div class="flex w-full justify-between items-center select-none"
                                             for="c2">
@@ -541,17 +541,17 @@
                         class="space-y-6  lg:absolute bottom-0  w-full h-auto lg:h-1/5 2xl:h-1/6 bg-white  dark:bg-[#1A1A18] pb-10 lg:pb-1">
                         @guest
                             <a href="{{ route('login') }}"
-                                class=" w-full flex justify-between items-center px-6 p-[10px] font-bold text-white  bg-[#000BEE] dark:bg-[#C2008C] rounded-[10px] ">
+                                class=" w-full flex justify-between items-center px-6 p-[10px] font-bold text-white  bg-[#000BEE] dark:bg-[#E59819] dark:text-black rounded-[10px] ">
                                 <svg class="w-7 h-7" width="22" height="23" viewBox="0 0 22 23" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path
+                                    <path class="dark:stroke-black"
                                         d="M7.8999 6.76691C8.2099 3.02857 10.0599 1.50208 14.1099 1.50208H14.2399C18.7099 1.50208 20.4999 3.36086 20.4999 8.00264V14.7732C20.4999 19.415 18.7099 21.2738 14.2399 21.2738H14.1099C10.0899 21.2738 8.2399 19.768 7.9099 16.092"
                                         stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round"
                                         stroke-linejoin="round" />
-                                    <path d="M1 11.3776H13.88" stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round"
+                                    <path class="dark:stroke-black" d="M1 11.3776H13.88" stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round"
                                         stroke-linejoin="round" />
                                     <path d="M11.6499 7.89868L14.9999 11.3774L11.6499 14.8562" stroke="#FCFCFC"
-                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    class="dark:stroke-black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                                 <span class="font-bold">ورود</span>
                             </a>
@@ -759,16 +759,16 @@
 
                             @guest
                                 <a href="{{ route('login') }}"
-                                    class=" w-full flex justify-center items-center h-10 font-bold text-white  bg-[#000BEE] dark:bg-[#C2008C] rounded-[10px] ">
+                                    class=" w-full flex justify-center items-center h-10 font-bold text-white  bg-[#000BEE] dark:bg-[#E59819] rounded-[10px] ">
                                     <svg class="w-[70%]" width="22" height="23" viewBox="0 0 22 23"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path
+                                        <path class="dark:stroke-black"
                                             d="M7.8999 6.76691C8.2099 3.02857 10.0599 1.50208 14.1099 1.50208H14.2399C18.7099 1.50208 20.4999 3.36086 20.4999 8.00264V14.7732C20.4999 19.415 18.7099 21.2738 14.2399 21.2738H14.1099C10.0899 21.2738 8.2399 19.768 7.9099 16.092"
                                             stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round"
                                             stroke-linejoin="round" />
-                                        <path d="M1 11.3776H13.88" stroke="#FCFCFC" stroke-width="1.5"
+                                        <path class="dark:stroke-black" d="M1 11.3776H13.88" stroke="#FCFCFC" stroke-width="1.5"
                                             stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M11.6499 7.89868L14.9999 11.3774L11.6499 14.8562" stroke="#FCFCFC"
+                                        <path class="dark:stroke-black" d="M11.6499 7.89868L14.9999 11.3774L11.6499 14.8562" stroke="#FCFCFC"
                                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </a>

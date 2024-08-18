@@ -86,9 +86,9 @@
                 </div>
             </div>
             <img id="home-img2" src="{{ asset('home-page/images/output-onlinepngtools.png') }}" alt="body"
-                class="mt-250 hidden dark:block  w-full  overflow-hidden mb-36 2xl:mt-[-185px] mt-250">
+                class="mt-250 hidden dark:block  w-full  overflow-hidden mb-36 2xl:mt-[-185px] mt-250 select-none">
             <img id="home-img" src="{{ asset('home-page/images/helal.png') }}" alt="body"
-                class=" dark:hidden w-full  overflow-hidden mb-36 2xl:mt-[-185px] mt-250">
+                class=" dark:hidden w-full  overflow-hidden mb-36 2xl:mt-[-185px] mt-250 select-none">
 
         </div>
 

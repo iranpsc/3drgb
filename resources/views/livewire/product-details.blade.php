@@ -69,32 +69,32 @@
                                 </button>
                             </div>
                             <div class="p-4  text-gray-800 dark:text-white  overflow-y-auto flex flex-wrap gap-5">
-                                <a class="rounded-xl px-5 py-3 dark:bg-[#4A4E7C] bg-[#EFEFEF]"
+                                <a class="rounded-xl px-5 py-3 dark:bg-[#0f0f0f] bg-[#EFEFEF]"
                                     href="https://twitter.com/share?url=<URL>&text=<TEXT>via=<USERNAME>">
                                     Twitter
                                 </a>
                                 <!-- Facebook (url) -->
-                                <a class="rounded-xl px-5 py-3 dark:bg-[#4A4E7C] bg-[#EFEFEF]"
+                                <a class="rounded-xl px-5 py-3 dark:bg-[#0f0f0f] bg-[#EFEFEF]"
                                     href="https://www.facebook.com/sharer/sharer.php?u=<URL>">
                                     Facebook
                                 </a>
                                 <!-- Reddit (url, title) -->
-                                <a class="rounded-xl px-5 py-3 dark:bg-[#4A4E7C] bg-[#EFEFEF]"
+                                <a class="rounded-xl px-5 py-3 dark:bg-[#0f0f0f] bg-[#EFEFEF]"
                                     href="https://reddit.com/submit?url=<URL>&title=<TITLE>">
                                     Reddit
                                 </a>
                                 <!-- Hacker News (url, title) -->
-                                <a class="rounded-xl px-5 py-3 dark:bg-[#4A4E7C] bg-[#EFEFEF]"
+                                <a class="rounded-xl px-5 py-3 dark:bg-[#0f0f0f] bg-[#EFEFEF]"
                                     href="https://news.ycombinator.com/submitlink?u=<URL>&t=<TITLE>">
                                     Hacker News
                                 </a>
                                 <!-- LinkedIn (url, title, summary, source url) -->
-                                <a class="rounded-xl px-5 py-3 dark:bg-[#4A4E7C] bg-[#EFEFEF]"
+                                <a class="rounded-xl px-5 py-3 dark:bg-[#0f0f0f] bg-[#EFEFEF]"
                                     href="https://www.linkedin.com/shareArticle?url=<URL>&title=<TITLE>&summary=<SUMMARY>&source=<SOURCE_URL>">
                                     LinkedIn
                                 </a>
                                 <!-- Email (subject, body) -->
-                                <a class="rounded-xl px-5 py-3 dark:bg-[#4A4E7C] bg-[#EFEFEF]"
+                                <a class="rounded-xl px-5 py-3 dark:bg-[#0f0f0f] bg-[#EFEFEF]"
                                     href="mailto:?subject=<SUBJECT>&body=<BODY>">
                                     Email
                                 </a>
