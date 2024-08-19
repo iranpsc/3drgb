@@ -93,12 +93,8 @@
 
     <link rel="icon" type="image/x-icon" href="{{ asset('home-page/images/3ddmetaa143.png') }}">
     <link href="{{ asset('home-page/style/swiper-main.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/select2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/fontawesome.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style-rtl.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/line-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/star-rating-svg.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     @vite('resources/css/app.css')
 
     {{-- <title>{{ 'سه بعدی متا' . ' | ' . $title ?? config('app.name') }}</title> --}}
@@ -540,7 +536,7 @@
                     <div
                         class="space-y-6  lg:absolute bottom-0  w-full h-auto lg:h-1/5 2xl:h-1/6 bg-white  dark:bg-[#1A1A18] pb-10 lg:pb-1">
                         @guest
-                            <a href="{{ route('login') }}"
+                            <a href="{{ route('login') }}" aria-label="login"
                                 class=" w-full flex justify-between items-center px-6 p-[10px] font-bold text-white  bg-[#000BEE] dark:bg-[#E59819] dark:text-black rounded-[10px] ">
                                 <svg class="w-7 h-7" width="22" height="23" viewBox="0 0 22 23" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -557,10 +553,10 @@
                             </a>
                         @endguest
                         @auth
-                            <a class=" w-full flex px-6 p-[10px] font-bold text-white   rounded-[10px] "
+                            <a class=" w-full flex px-6 p-[10px] font-bold text-white   rounded-[10px] " aria-label="logout "
                                 style="background-color:red" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
+                                document.getElementById('logout-form').submit();">
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
@@ -586,7 +582,7 @@
                         <div class="pt-5 border-t-2 border-[#EFEFEF]   dark:border-[#868B90] ">
                             <div class=" flex rounded-full w-full p-[6px] bg-[#F4F4F4] dark:bg-black ">
                                 <button
-                                    class="enable-dark-mode bg-transparent dark:bg-[#1A1A18] flex justify-center p-1 rounded-full w-1/2  ">
+                                    class="enable-dark-mode bg-transparent dark:bg-[#1A1A18] flex justify-center p-1 rounded-full w-1/2  " aria-label="enable dark mode">
                                     <div>
                                         <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
                                             <path class="fill-slate-400 dark:fill-white"
@@ -597,7 +593,7 @@
                                     </div>
                                 </button>
                                 <button
-                                    class="disable-dark-mode  bg-[#FCFCFC] dark:bg-transparent flex justify-center p-1 rounded-full w-1/2 shadow-[0_0_6px_0_rgba(0,0,0,0.1)] dark:shadow-none">
+                                    class="disable-dark-mode  bg-[#FCFCFC] dark:bg-transparent flex justify-center p-1 rounded-full w-1/2 shadow-[0_0_6px_0_rgba(0,0,0,0.1)] dark:shadow-none" aria-label="disable dark mode">
                                     <div for="light-switch">
                                         <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
                                             <path class="fill-slate-300 dark:fill-white"
@@ -634,14 +630,14 @@
 
                         </div>
                         <div class="w-7 h-7 flex mt-2">
-                            <a href="{{ route('home') }}" class="w-full">
+                            <a href="{{ route('home') }}" class="w-full" aria-label="3drgb home">
                                 <img src="{{ asset('home-page/images/3ddmetaa143.png') }}" alt=""
                                     class="w-full">
                             </a>
                         </div>
                         <div class="w-7 h-7 flex">
                             @guest
-                                <a href="{{ route('login') }}" class="w-full rounded-full bg-gray-300">
+                                <a href="{{ route('login') }}" aria-label="profile" class="w-full rounded-full bg-gray-300">
                                     <svg class="w-7 h-7" width="22" height="22" viewBox="0 0 22 22"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -657,7 +653,7 @@
                             @endguest
                         </div>
                         <div class="w-7 h-7">
-                            <a href="{{ route('cart') }}" class="w-full">
+                            <a href="{{ route('cart') }}" aria-label="cart" class="w-full">
 
                                 <svg class="w-7 h-7" width="21" height="21" viewBox="0 0 21 21"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -677,7 +673,7 @@
                             </a>
                         </div>
                         <div class="w-7 h-7">
-                            <a href="#" class="w-full">
+                            <a href="#" class="w-full" aria-label="3drgb">
                                 <svg class="w-7 h-7" width="22" height="22" viewBox="0 0 22 22"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -696,7 +692,7 @@
                             </a>
                         </div>
                         <div class="w-7 h-7">
-                            <a href="{{ route('submit-order') }}" class="w-full">
+                            <a href="{{ route('submit-order') }}" aria-label="sumbit order" class="w-full">
                                 <svg class="w-7 h-7" width="22" height="22" viewBox="0 0 22 22"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -718,7 +714,7 @@
                             </a>
                         </div>
                         <div class="w-7 h-7">
-                            <a href="{{ route('contact-us') }}" class="w-full">
+                            <a href="{{ route('contact-us') }}" aria-label="contact us" class="w-full">
                                 <svg class="w-7 h-7" width="22" height="22" viewBox="0 0 22 22"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -733,7 +729,7 @@
                             </a>
                         </div>
                         <div class="w-7 h-7">
-                            <a href="{{ route('about-us') }}" class="w-full">
+                            <a href="{{ route('about-us') }}" aria-label="about us" class="w-full">
                                 <svg class="w-7 h-7" width="23" height="24" viewBox="0 0 23 24"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -743,7 +739,7 @@
                             </a>
                         </div>
                         <div class="w-7 h-7">
-                            <a href="#" class="w-full">
+                            <a href="#" class="w-full" aria-label="lang">
                                 <svg class="w-7 h-7" width="22" height="22" viewBox="0 0 22 22"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -758,7 +754,7 @@
                         <div class="w-10  justify-center items-center">
 
                             @guest
-                                <a href="{{ route('login') }}"
+                                <a href="{{ route('login') }}" aria-label="login"
                                     class=" w-full flex justify-center items-center h-10 font-bold text-white  bg-[#000BEE] dark:bg-[#E59819] rounded-[10px] ">
                                     <svg class="w-[70%]" width="22" height="23" viewBox="0 0 22 23"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -774,7 +770,7 @@
                                 </a>
                             @endguest
                             @auth
-                                <a class="  w-full flex justify-center items-center h-10 font-bold text-white   rounded-[10px]  "
+                                <a class="  w-full flex justify-center items-center h-10 font-bold text-white   rounded-[10px]  " aria-label="logout"
                                     style="background-color:red" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
@@ -800,7 +796,7 @@
                         <div class="pt-6 border-t-2 border-[#EFEFEF] flex justify-center   dark:border-[#868B90]">
                             <div class=" flex rounded-full w-max p-[6px] bg-[#F4F4F4] dark:bg-black">
                                 <button
-                                    class="enable-dark-mode2 dark:hidden bg-transparent dark:bg-[#1A1A18] flex justify-center items-center p-1 rounded-full w-5 h-5  ">
+                                    class="enable-dark-mode2 dark:hidden bg-transparent dark:bg-[#1A1A18] flex justify-center items-center p-1 rounded-full w-5 h-5  " aria-label="enable dark mode">
                                     <div>
                                         <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
                                             <path class="fill-slate-400 dark:fill-white"
@@ -811,7 +807,7 @@
                                     </div>
                                 </button>
                                 <button
-                                    class="disable-dark-mode2 hidden   bg-[#FCFCFC] dark:bg-transparent dark:flex justify-center items-center p-1 rounded-full w-5 h-5  shadow-[0_0_6px_0_rgba(0,0,0,0.1)] dark:shadow-none">
+                                    class="disable-dark-mode2 hidden   bg-[#FCFCFC] dark:bg-transparent dark:flex justify-center items-center p-1 rounded-full w-5 h-5  shadow-[0_0_6px_0_rgba(0,0,0,0.1)] dark:shadow-none" aria-label="disable dark mode">
                                     <div for="light-switch">
                                         <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
                                             <path class="fill-slate-300 dark:fill-white"
@@ -1010,9 +1006,7 @@
     <script src="{{ asset('home-page/script/scripts.js') }}"></script>
     <script src="{{ asset('home-page/script/product-img.js') }}"></script>
     <script src="{{ asset('assets/vendor_assets/js/jquery/jquery-ui.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/bootstrap/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/vendor_assets/js/jquery.star-rating-svg.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/loader.js') }}"></script>
     <script src="{{ asset('assets/vendor_assets/js/message.js') }}"></script>
     <script src="{{ asset('assets/vendor_assets/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/theme_assets/js/drag-drop.js') }}"></script>
