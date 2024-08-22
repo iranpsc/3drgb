@@ -67,7 +67,7 @@ class Store extends Component
 
         if ($this->search) {
             $query->where('name', 'like', '%' . $this->search . '%')
-            ->orWhere('sku', 'like', '%' . $this->search . '%');
+                ->orWhere('sku', 'like', '%' . $this->search . '%');
         }
 
         if ($this->tagsFilter) {
@@ -96,6 +96,10 @@ class Store extends Component
                         break;
                 }
             }
+        }
+
+        if ($this->price_filter['min'] > 0 || $this->price_filter['max'] < 9000000) {
+            $query->whereBetween('price', [$this->price_filter['min'], $this->price_filter['max']]);
         }
 
         $this->products = $query->orderByDesc('id')->paginate(15);
