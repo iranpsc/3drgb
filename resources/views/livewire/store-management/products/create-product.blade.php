@@ -1,4 +1,8 @@
 <div>
+    @push('styles')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/select2.min.css') }}">
+    @endpush
     <x-page title="ایجاد محصول">
 
         @session('success')
@@ -176,6 +180,7 @@
 </div>
 
 @script
+    
     <script>
         let saveBtn = document.getElementById('save-btn');
         let tags;

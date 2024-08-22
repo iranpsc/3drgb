@@ -39,7 +39,7 @@
 
 
 .sidenav {
-  @apply h-full w-0 top-0 right-0  hidden  lg:w-[75px] transition-[1.5s] duration-300 text-right fixed z-10  lg:flex flex-col  items-center pt-0 bg-[#FCFCFC] dark:bg-[#001448]  
+  @apply h-full w-0 top-0 right-0  hidden  lg:w-[75px] transition-[1.5s] duration-300 text-right fixed z-10  lg:flex flex-col  items-center pt-0 bg-[#FCFCFC] dark:bg-[#1A1A18]  
 }
 .sidnav-t{
   @apply transition-[1.5s] duration-300 w-[87%] lg:w-[25%] xl:w-[20%] 2xl:w-[17%]  fixed  h-full z-50 top-0  right-0 
@@ -404,8 +404,8 @@ input[type="range"] {
     color: #000BEE;
   }
   .dark .nav-link.active{
-    background-color: #001448;
-    color: #C2008C;
+    background-color: #1A1A18;
+    color: #E59819;
   }
   .step.completed span{
     background-color: #06CC85;
@@ -424,7 +424,7 @@ input[type="range"] {
     color: #000BEE;
   }
   .dark .sortbtn.active{
-    color: #C2008C;
+    color: #E59819;
   }
   .text-head{
     font-size: 50px;

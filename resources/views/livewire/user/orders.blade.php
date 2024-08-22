@@ -60,6 +60,8 @@
                                                 <td>
                                                     <div class="orderDatatable-title">
                                                         {{ $order->products->pluck('name')->implode(', ') }}
+                                                        &nbsp;
+                                                        {{ $order->products->pluck('sku')->implode(', ') }}
                                                     </div>
                                                 </td>
                                                 <td>

@@ -2,7 +2,7 @@
 <div class="flex flex-col gap-3">
     <label for="{{ $name }}" >{{$label}}</label>
     <div class="flex flex-col gap-5">
-        <select  class="form-control  @error($name) is-invalid @enderror w-full  bg-[#F8F9FA] dark:bg-[#4A4E7C] rounded-[10px] p-4  px-10" name="{{ $name }}" {{ $attributes }} id="{{ $name }}">
+        <select  class="form-control  @error($name) is-invalid @enderror w-full  bg-[#F8F9FA] dark:bg-[#1A1A18] rounded-[10px] p-4  px-10" name="{{ $name }}" {{ $attributes }} id="{{ $name }}">
             {{ $slot }}
         </select>
         @error($name)

@@ -16,7 +16,7 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
         background-color: #000BEE; color: white;
     }
     .dark .active .page-item{
-        background-color: #C2008C;
+        background-color: #E59819;
         color: white;
     }
 
@@ -25,8 +25,8 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
     }
 
     .dark .page-item{
-        color: #C2008C;
-        border-color: #C2008C;
+        color: #E59819;
+        border-color: #E59819;
     }
 
     /* اضافه کردن اسکرول افقی به پگینیشن */

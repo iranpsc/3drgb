@@ -65,7 +65,7 @@
                                                 <table id="cart"
                                                     class="w-max lg:w-full flex flex-col gap-10 text-sm ">
                                                     <thead
-                                                        class="w-full bg-[#EFEFEF] dark:bg-[#4A4E7C] rounded-[10px] py-3 px-5 ">
+                                                        class="w-full bg-[#EFEFEF] dark:bg-[#1A1A18] rounded-[10px] py-3 px-5 ">
                                                         <tr class="flex  lg:gap-0 w-full justify-between text-right">
                                                             <th style="width:20%">#</th>
                                                             <th style="width:20%">محصول</th>
@@ -120,10 +120,10 @@
                                             </div>
                                             <div class="flex gap-5 my-5 justify-center items-center w-full">
                                                 <div class="">
-                                                    <x-button wire:click="goBack">بازگشت</x-button>
+                                                    <x-button wire:click="goBack" style="background-color:#E59819">بازگشت</x-button>
                                                 </div>
                                                 <div class="">
-                                                    <x-button style="background-color:#C2008C"
+                                                    <x-button 
                                                         wire:click="pay">پرداخت</x-button>
                                                 </div>
                                             </div>

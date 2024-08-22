@@ -6,20 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="lmf8kBJQgLHew_wXcxGQwJQWiOSFy8odEBRTLOoX7Q4" />
     <meta name="robots" content="index,follow">
-
-    <title>@yield('title',  'سه بعدی متا' . ' | ' . $title ?? config('app.name'))</title>
+    <title>@yield('title', 'سه بعدی متا' . ' | ' . $title ?? config('app.name'))</title>
     <meta property="og:type" content="@yield('og:type', 'website')">
-    <meta name="description" content="@yield('description' , 'سامانه سه بعدی متا با تعرفه ای ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .')">
-    <meta name="keywords" content="@yield('keywords', '3d,3dmeta,3drgb,سبعدی,سه بعدی,محصولات سه بعدی,فایل سه بعدی,خرید فایل سبعدی,icon,آیکون,آیکون سه بعدی,خرید آیکون سه بعدی,انیمیشن,' )">
+    <meta name="description" content="@yield('description', 'سامانه سه بعدی متا با تعرفه ای ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .')">
+    <meta name="keywords" content="@yield('keywords', '3d,3dmeta,3drgb,سبعدی,سه بعدی,محصولات سه بعدی,فایل سه بعدی,خرید فایل سبعدی,icon,آیکون,آیکون سه بعدی,خرید آیکون سه بعدی,انیمیشن,')">
     <meta name="language" content="fa">
-
     <meta name="author" content="سه بعدی متا">
-    <meta property="og:title" content="@yield('og:title',  $title ?? config('app.name'))">
-    <meta property="og:description" content="@yield('og:description' , 'سامانه سه بعدی متا با تعرفه ای ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .')">
+    <meta property="og:title" content="@yield('og:title', $title ?? config('app.name'))">
+    <meta property="og:description" content="@yield('og:description', 'سامانه سه بعدی متا با تعرفه ای ثابت مرکز عرضه جدید ترین مدل سه بعدی ، آیکون ، انیمیشن و دیگر فایل های طراحی میباشد .')">
     <meta property="og:image" content="@yield('og:image', asset('home-page/images/3d.png'))">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:site_name" content="سه بعدی متا">
     <meta property="og:locale" content="fa_IR">
+
+
+    @if (View::getSection('extera-schema'))
+        @yield('extera-schema')
+    @endif
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -87,19 +90,11 @@
           }
           
         </script>
-        
-
-
 
     <link rel="icon" type="image/x-icon" href="{{ asset('home-page/images/3ddmetaa143.png') }}">
-
     <link href="{{ asset('home-page/style/swiper-main.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/select2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/fontawesome.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style-rtl.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/line-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/star-rating-svg.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     @vite('resources/css/app.css')
 
     {{-- <title>{{ 'سه بعدی متا' . ' | ' . $title ?? config('app.name') }}</title> --}}
@@ -109,9 +104,10 @@
     </script>
     <style>
         body {
-  font-family: AzarMehr;
-  font-weight: bold;
-}
+            font-family: AzarMehr;
+            font-weight: bold;
+        }
+
         #style1::-webkit-scrollbar-track {
             border-radius: 10px;
             background-color: #ECECEC;
@@ -119,6 +115,13 @@
         }
 
         #style1::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+            background-color: #ECECEC;
+            overflow-x: auto;
+            border-radius: 10px;
+        }
+        .dark #style1::-webkit-scrollbar {
             width: 6px;
             height: 6px;
             background-color: #ECECEC;
@@ -136,7 +139,7 @@
         /* Dark mode scrollbar styles */
 
         .dark #style1::-webkit-scrollbar-thumb {
-            background-color: #C2008C;
+            background-color: #111110;
         }
     </style>
 
@@ -145,18 +148,18 @@
 </head>
 
 <body
-    class="bg-gradient-to-t  to-[#DAE7FE] from-[#ECF4FE] dark:to-[#162658] dark:via-[#162658] dark:from-[#4A4E7C] w-full ">
+    class="bg-gradient-to-t  to-[#DAE7FE] from-[#ECF4FE] dark:to-black dark:via-black dark:from-black w-full ">
     <!-- start nav -->
     <header>
         <!-- start head mobile nav -->
         <nav class=" w-full m-0 p-0 fixed top-0 z-[1000]  lg:hidden">
-            <div class="w-full  items-center flex justify-between p-4 bg-white  dark:bg-[#001448] ">
+            <div class="w-full  items-center flex justify-between p-4 bg-white  dark:bg-[#1A1A18] ">
                 <div
-                    class="flex justify-between items-center w-full fixed right-0 top-0 lg:relative  bg-white dark:bg-[#001448] lg:bg-transparent lg:p-0 px-5 py-4">
+                    class="flex justify-between items-center w-full fixed right-0 top-0 lg:relative  bg-white dark:bg-[#1A1A18] lg:bg-transparent lg:p-0 px-5 py-4">
                     <!-- start open btn nav -->
-                    <div class="w-1/3  p-3 rounded-full cursor-pointer flex" >
-                        <svg onclick="openNav2()" class="lg:hidden dark:fill-white" width="30" height="22" viewBox="0 0 30 22"
-                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div class="w-1/3  p-3 rounded-full cursor-pointer flex">
+                        <svg onclick="openNav2()" class="lg:hidden dark:fill-white" width="30" height="22"
+                            viewBox="0 0 30 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path class="dark:fill-white" fill-rule="evenodd" clip-rule="evenodd"
                                 d="M0 1.375C0 0.615608 0.6296 0 1.40625 0H28.5938C29.3704 0 30 0.615608 30 1.375C30 2.13439 29.3704 2.75 28.5938 2.75H1.40625C0.6296 2.75 0 2.13439 0 1.375ZM0 11C0 10.2406 0.6296 9.625 1.40625 9.625H28.5938C29.3704 9.625 30 10.2406 30 11C30 11.7594 29.3704 12.375 28.5938 12.375H1.40625C0.6296 12.375 0 11.7594 0 11ZM0 20.625C0 19.8656 0.6296 19.25 1.40625 19.25H28.5938C29.3704 19.25 30 19.8656 30 20.625C30 21.3844 29.3704 22 28.5938 22H1.40625C0.6296 22 0 21.3844 0 20.625Z"
                                 fill="#0713EF" />
@@ -199,15 +202,15 @@
         <div id="main-nav" class="sidenav  !z-[5000]">
             <!-- start opened nav -->
             <div id="open00" dir="ltr"
-                class="hidden bg-white  dark:bg-[#001448]  p-4  relative  pr-0 h-full !overflow-y-scroll scrollbar !z-[5000]">
+                class="hidden bg-white  dark:bg-[#1A1A18]  p-4  relative  pr-0 h-full !overflow-y-scroll scrollbar !z-[5000]">
                 <nav dir="rtl" class="w-full   space-y-6  relative">
                     <div class="space-y-6 ">
                         <!-- strat head icon RGB -->
                         <div
-                            class=" gap-5  my-2 w-full  items-center flex justify-between px-2  bg-white  dark:bg-[#001448] ">
+                            class=" gap-5  my-2 w-full  items-center flex justify-between px-2  bg-white  dark:bg-[#1A1A18] ">
                             <div class="flex items-center gap-1">
-                                <a href="{{ route('home') }}"><img src="{{ asset('home-page/images/3dmeta55.png') }}"
-                                        alt="3drgb"></a>
+                                <a href="{{ route('home') }}"><img
+                                        src="{{ asset('home-page/images/3dmeta55.png') }}" alt="3drgb"></a>
                                 <a href="{{ route('home') }}"><img
                                         src="{{ asset('home-page/images/3ddmetaa143.png') }}" alt="3dmeta"></a>
                             </div>
@@ -229,7 +232,7 @@
                                 <li class="flex flex-col gap-4">
                                     <input type="checkbox" id="c1" class="peer" />
                                     <label
-                                        class="px-[20px] py-4 w-full rounded-[10px] bg-[#EFEFEF] text-[#282828]  font-bold dark:bg-[#9A9ECC] dark:text-[#2C2F32] before:!text-[#868B90]  peer-checked:[&>div>svg]:rotate-180 transition-[3s] flex  items-center"
+                                        class="px-[20px] py-4 w-full rounded-[10px] bg-[#EFEFEF] text-[#282828]  font-bold dark:bg-black dark:text-white  peer-checked:[&>div>svg]:rotate-180 transition-[3s] flex  items-center"
                                         for="c1">
                                         <div class="flex w-full items-center justify-between gap-5">
                                             <div class="flex items-center gap-4">
@@ -244,7 +247,7 @@
                                             </div>
                                             <svg class="transition-[5s] duration-300" width="15" height="9"
                                                 viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path class="dark:stroke-[#2C2F32]" d="M14 1L7.5 7.5L1 0.999999"
+                                                <path class="dark:stroke-white" d="M14 1L7.5 7.5L1 0.999999"
                                                     stroke="black" stroke-width="2" stroke-linecap="round"
                                                     stroke-linejoin="round" />
                                             </svg>
@@ -331,7 +334,7 @@
                                 <li class="flex flex-col gap-3  ">
                                     <input type="checkbox" id="c2" class="peer" />
                                     <label
-                                        class="px-[20px]  py-[14px] w-full rounded-[10px] text-[#868B90]  peer-checked:text-white head_label peer-checked:bg-[#000BEE] dark:peer-checked:bg-[#C2008C] peer-checked:[&>div>svg]:rotate-180  peer-checked:[&>div>svg>path]:stroke-white"
+                                        class="px-[20px]  py-[14px] w-full rounded-[10px] text-[#868B90]  peer-checked:text-white head_label peer-checked:bg-[#000BEE] dark:peer-checked:bg-black peer-checked:[&>div>svg]:rotate-180  peer-checked:[&>div>svg>path]:stroke-white"
                                         for="c2">
                                         <div class="flex w-full justify-between items-center select-none"
                                             for="c2">
@@ -366,35 +369,35 @@
                                         @php
                                             $categories = \App\Models\Category::with('children', 'parent')->get();
                                         @endphp
-<?php $counter = 1; ?>
-<div>
-    @foreach ($categories as $category)
-
-    <li class="">
-        <div>
-        @empty($category->parent_id)
-            <?php $inputId = sprintf("%03d", $counter++); ?>
-            <input type="checkbox" id="{{ $inputId }}" class="peer" />
-            <label for="{{ $inputId }}"
-                class="tree_label w-full text-[#868B90] peer-checked:text-[#000BEE] dark:peer-checked:text-white peer-checked:bg-[#ECF4FE] dark:peer-checked:bg-[#C2008C]/30">
-                {{ $category->name }}
-            </label>
-            <ul>
-                <div class="flex flex-col text-sm text-[#000BEE] font-bold gap-5 p-3 pr-[20PX] dark:text-[#868B90]">
-                    @foreach ($category->children as $child)
-                        <a href="{{ route('categories.show', ['category_link' => $child->url]) }}" class="text-[#868B90]">
-                            {{ $child->name }}
-                        </a>
-                    @endforeach
-                </div>
-            </ul>
-        @endempty
-    </div>
-</li>
-
-
-@endforeach
-</div>
+                                        <?php $counter = 1; ?>
+                                        <div>
+                                            @foreach ($categories as $category)
+                                                <li class="">
+                                                    <div>
+                                                        @empty($category->parent_id)
+                                                            <?php $inputId = sprintf('%03d', $counter++); ?>
+                                                            <input type="checkbox" id="{{ $inputId }}"
+                                                                class="peer" />
+                                                            <label for="{{ $inputId }}"
+                                                                class="tree_label w-full text-[#868B90] peer-checked:text-[#000BEE] dark:peer-checked:text-white peer-checked:bg-[#ECF4FE] dark:peer-checked:bg-[#111110]">
+                                                                {{ $category->name }}
+                                                            </label>
+                                                            <ul>
+                                                                <div
+                                                                    class="flex flex-col text-sm text-[#000BEE] font-bold gap-5 p-3 pr-[20PX] dark:text-[#868B90]">
+                                                                    @foreach ($category->children as $child)
+                                                                        <a href="{{ route('categories.show', ['category_link' => $child->url]) }}"
+                                                                            class="text-[#868B90]">
+                                                                            {{ $child->name }}
+                                                                        </a>
+                                                                    @endforeach
+                                                                </div>
+                                                            </ul>
+                                                        @endempty
+                                                    </div>
+                                                </li>
+                                            @endforeach
+                                        </div>
                                     </ul>
                                 </li>
                             </ul>
@@ -450,7 +453,7 @@
                                     <li class="flex flex-col gap-3">
                                         <input type="checkbox" id="c111" class="peer" />
                                         <label
-                                            class="px-[20px] py-4 w-full rounded-[10px] text-[#868B90]  peer-checked:text-white head_label peer-checked:bg-[#000BEE] dark:peer-checked:bg-[#C2008C] peer-checked:[&>div>svg]:rotate-180 peer-checked:[&>div>svg>path]:stroke-white"
+                                            class="px-[20px] py-4 w-full rounded-[10px] text-[#868B90]  peer-checked:text-white head_label peer-checked:bg-[#000BEE] dark:peer-checked:bg-black peer-checked:[&>div>svg]:rotate-180 peer-checked:[&>div>svg>path]:stroke-white"
                                             for="c111">
                                             <div class="flex w-full justify-between items-center select-none"
                                                 for="c111">
@@ -497,7 +500,7 @@
                                 <li class="flex flex-col gap-3">
                                     <input type="checkbox" id="c11" class="peer" />
                                     <label
-                                        class="px-[20px] py-4 w-full rounded-[10px] text-[#868B90]  peer-checked:text-white head_label peer-checked:bg-[#000BEE] dark:peer-checked:bg-[#C2008C] peer-checked:[&>div>svg]:rotate-180 peer-checked:[&>div>svg>path]:stroke-white"
+                                        class="px-[20px] py-4 w-full rounded-[10px] text-[#868B90]  peer-checked:text-white head_label peer-checked:bg-[#000BEE] dark:peer-checked:bg-black peer-checked:[&>div>svg]:rotate-180 peer-checked:[&>div>svg>path]:stroke-white"
                                         for="c11">
                                         <div class="flex w-full justify-between items-center select-none"
                                             for="c2">
@@ -531,29 +534,29 @@
                         </div>
                     </div>
                     <div
-                        class="space-y-6  lg:absolute bottom-0  w-full h-auto lg:h-1/5 2xl:h-1/6 bg-white  dark:bg-[#001448] pb-10 lg:pb-1">
+                        class="space-y-6  lg:absolute bottom-0  w-full h-auto lg:h-1/5 2xl:h-1/6 bg-white  dark:bg-[#1A1A18] pb-10 lg:pb-1">
                         @guest
-                            <a href="{{ route('login') }}"
-                                class=" w-full flex justify-between items-center px-6 p-[10px] font-bold text-white  bg-[#000BEE] dark:bg-[#C2008C] rounded-[10px] ">
+                            <a href="{{ route('login') }}" aria-label="login"
+                                class=" w-full flex justify-between items-center px-6 p-[10px] font-bold text-white  bg-[#000BEE] dark:bg-[#E59819] dark:text-black rounded-[10px] ">
                                 <svg class="w-7 h-7" width="22" height="23" viewBox="0 0 22 23" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path
+                                    <path class="dark:stroke-black"
                                         d="M7.8999 6.76691C8.2099 3.02857 10.0599 1.50208 14.1099 1.50208H14.2399C18.7099 1.50208 20.4999 3.36086 20.4999 8.00264V14.7732C20.4999 19.415 18.7099 21.2738 14.2399 21.2738H14.1099C10.0899 21.2738 8.2399 19.768 7.9099 16.092"
                                         stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round"
                                         stroke-linejoin="round" />
-                                    <path d="M1 11.3776H13.88" stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round"
+                                    <path class="dark:stroke-black" d="M1 11.3776H13.88" stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round"
                                         stroke-linejoin="round" />
                                     <path d="M11.6499 7.89868L14.9999 11.3774L11.6499 14.8562" stroke="#FCFCFC"
-                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    class="dark:stroke-black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                                 <span class="font-bold">ورود</span>
                             </a>
                         @endguest
                         @auth
-                            <a class=" w-full flex px-6 p-[10px] font-bold text-white   rounded-[10px] "
+                            <a class=" w-full flex px-6 p-[10px] font-bold text-white   rounded-[10px] " aria-label="logout "
                                 style="background-color:red" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
+                                document.getElementById('logout-form').submit();">
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
@@ -577,9 +580,9 @@
                             </a>
                         @endauth
                         <div class="pt-5 border-t-2 border-[#EFEFEF]   dark:border-[#868B90] ">
-                            <div class=" flex rounded-full w-full p-[6px] bg-[#F4F4F4] dark:bg-[#4A4E7C] ">
+                            <div class=" flex rounded-full w-full p-[6px] bg-[#F4F4F4] dark:bg-black ">
                                 <button
-                                    class="enable-dark-mode bg-transparent dark:bg-[#9A9ECC] flex justify-center p-1 rounded-full w-1/2  ">
+                                    class="enable-dark-mode bg-transparent dark:bg-[#1A1A18] flex justify-center p-1 rounded-full w-1/2  " aria-label="enable dark mode">
                                     <div>
                                         <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
                                             <path class="fill-slate-400 dark:fill-white"
@@ -590,7 +593,7 @@
                                     </div>
                                 </button>
                                 <button
-                                    class="disable-dark-mode  bg-[#FCFCFC] dark:bg-transparent flex justify-center p-1 rounded-full w-1/2 shadow-[0_0_6px_0_rgba(0,0,0,0.1)] dark:shadow-none">
+                                    class="disable-dark-mode  bg-[#FCFCFC] dark:bg-transparent flex justify-center p-1 rounded-full w-1/2 shadow-[0_0_6px_0_rgba(0,0,0,0.1)] dark:shadow-none" aria-label="disable dark mode">
                                     <div for="light-switch">
                                         <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
                                             <path class="fill-slate-300 dark:fill-white"
@@ -610,9 +613,9 @@
             <!-- start closed nav -->
             <div dir="ltr" id="close00" class=" h-full">
                 <nav dir="rtl"
-                    class="bg-[#FCFCFC] dark:bg-[#001448]  pr-0 space-y-9 flex justify-start items-center flex-col py-6 h-full relative">
+                    class="bg-[#FCFCFC] dark:bg-[#1A1A18]  pr-0  flex justify-start items-center flex-col py-6 h-full relative">
                     <div
-                        class="w-full space-y-9 flex flex-col items-center justify-center border-b-2 border-[#EFEFEF] px-3  dark:border-[#868B90] pb-6   lg:h-[40%] xl:[40%] 2xl:h-[35%] 3xl:h-[30%] ">
+                        class="w-full space-y-9 flex flex-col items-center justify-center border-b-2 border-[#EFEFEF] px-3  dark:border-[#868B90] pb-6   ">
                         <div class="w-7 h-7 flex items-center justify-center">
                             <!-- start open btn nav -->
                             <div id="open-nav-btn" class="items-center w-7 h-7" onclick="openNav2()">
@@ -627,14 +630,14 @@
 
                         </div>
                         <div class="w-7 h-7 flex mt-2">
-                            <a href="{{ route('home') }}" class="w-full">
+                            <a href="{{ route('home') }}" class="w-full" aria-label="3drgb home">
                                 <img src="{{ asset('home-page/images/3ddmetaa143.png') }}" alt=""
                                     class="w-full">
                             </a>
                         </div>
                         <div class="w-7 h-7 flex">
                             @guest
-                                <a href="{{ route('login') }}" class="w-full rounded-full bg-gray-300">
+                                <a href="{{ route('login') }}" aria-label="profile" class="w-full rounded-full bg-gray-300">
                                     <svg class="w-7 h-7" width="22" height="22" viewBox="0 0 22 22"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -644,12 +647,13 @@
                                 </a>
                             @else
                                 <a href="{{ route('user.profile') }}" class="w-full ">
-                                    <img src="{{ asset('storage/' . Auth::user()->avatar) }}" class="w-full border rounded-full aspect-square" />
+                                    <img src="{{ asset('storage/' . Auth::user()->avatar) }}"
+                                        class="w-full border rounded-full aspect-square" />
                                 </a>
                             @endguest
                         </div>
                         <div class="w-7 h-7">
-                            <a href="{{ route('cart') }}" class="w-full">
+                            <a href="{{ route('cart') }}" aria-label="cart" class="w-full">
 
                                 <svg class="w-7 h-7" width="21" height="21" viewBox="0 0 21 21"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -661,7 +665,7 @@
                         </div>
                     </div>
                     <div
-                        class="flex  items-center flex-col gap-11 h-auto pr-4 lg:h-[30%] xl:h-[35%] 2xl:h-[50%] 3xl:h-[55%] !overflow-y-scroll scrollbar">
+                        class="flex  items-center flex-col gap-11 h-auto pr-4  !overflow-y-scroll scrollbar pb-40 pt-7">
                         <div class=" w-7 h-7  ">
                             <a href="{{ route('products') }}" class="w-full">
                                 <img class=" w-7 h-7  " src="{{ asset('home-page/images/image25(1).png') }}"
@@ -669,7 +673,7 @@
                             </a>
                         </div>
                         <div class="w-7 h-7">
-                            <a href="#" class="w-full">
+                            <a href="#" class="w-full" aria-label="3drgb">
                                 <svg class="w-7 h-7" width="22" height="22" viewBox="0 0 22 22"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -688,7 +692,7 @@
                             </a>
                         </div>
                         <div class="w-7 h-7">
-                            <a href="{{ route('submit-order') }}" class="w-full">
+                            <a href="{{ route('submit-order') }}" aria-label="sumbit order" class="w-full">
                                 <svg class="w-7 h-7" width="22" height="22" viewBox="0 0 22 22"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -710,7 +714,7 @@
                             </a>
                         </div>
                         <div class="w-7 h-7">
-                            <a href="{{ route('contact-us') }}" class="w-full">
+                            <a href="{{ route('contact-us') }}" aria-label="contact us" class="w-full">
                                 <svg class="w-7 h-7" width="22" height="22" viewBox="0 0 22 22"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -725,7 +729,7 @@
                             </a>
                         </div>
                         <div class="w-7 h-7">
-                            <a href="{{ route('about-us') }}" class="w-full">
+                            <a href="{{ route('about-us') }}" aria-label="about us" class="w-full">
                                 <svg class="w-7 h-7" width="23" height="24" viewBox="0 0 23 24"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -735,7 +739,7 @@
                             </a>
                         </div>
                         <div class="w-7 h-7">
-                            <a href="#" class="w-full">
+                            <a href="#" class="w-full" aria-label="lang">
                                 <svg class="w-7 h-7" width="22" height="22" viewBox="0 0 22 22"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -746,27 +750,27 @@
                         </div>
                     </div>
                     <div
-                        class="w-full space-y-6 px-3   h-auto  lg:h-[30%] xl:h-[26%] 2xl:h-[15%] bg-white  dark:bg-[#001448] pb-5">
+                        class="w-full space-y-6 px-3   h-auto   bg-white  dark:bg-[#1A1A18] pb-5 absolute bottom-0 z-10 pt-1">
                         <div class="w-10  justify-center items-center">
 
                             @guest
-                                <a href="{{ route('login') }}"
-                                    class=" w-full flex justify-center items-center h-10 font-bold text-white  bg-[#000BEE] dark:bg-[#C2008C] rounded-[10px] ">
+                                <a href="{{ route('login') }}" aria-label="login"
+                                    class=" w-full flex justify-center items-center h-10 font-bold text-white  bg-[#000BEE] dark:bg-[#E59819] rounded-[10px] ">
                                     <svg class="w-[70%]" width="22" height="23" viewBox="0 0 22 23"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path
+                                        <path class="dark:stroke-black"
                                             d="M7.8999 6.76691C8.2099 3.02857 10.0599 1.50208 14.1099 1.50208H14.2399C18.7099 1.50208 20.4999 3.36086 20.4999 8.00264V14.7732C20.4999 19.415 18.7099 21.2738 14.2399 21.2738H14.1099C10.0899 21.2738 8.2399 19.768 7.9099 16.092"
                                             stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round"
                                             stroke-linejoin="round" />
-                                        <path d="M1 11.3776H13.88" stroke="#FCFCFC" stroke-width="1.5"
+                                        <path class="dark:stroke-black" d="M1 11.3776H13.88" stroke="#FCFCFC" stroke-width="1.5"
                                             stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M11.6499 7.89868L14.9999 11.3774L11.6499 14.8562" stroke="#FCFCFC"
+                                        <path class="dark:stroke-black" d="M11.6499 7.89868L14.9999 11.3774L11.6499 14.8562" stroke="#FCFCFC"
                                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </a>
                             @endguest
                             @auth
-                                <a class="  w-full flex justify-center items-center h-10 font-bold text-white   rounded-[10px]  "
+                                <a class="  w-full flex justify-center items-center h-10 font-bold text-white   rounded-[10px]  " aria-label="logout"
                                     style="background-color:red" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
@@ -790,9 +794,9 @@
                             @endauth
                         </div>
                         <div class="pt-6 border-t-2 border-[#EFEFEF] flex justify-center   dark:border-[#868B90]">
-                            <div class=" flex rounded-full w-max p-[6px] bg-[#F4F4F4] dark:bg-[#4A4E7C]">
+                            <div class=" flex rounded-full w-max p-[6px] bg-[#F4F4F4] dark:bg-black">
                                 <button
-                                    class="enable-dark-mode2 dark:hidden bg-transparent dark:bg-[#9A9ECC] flex justify-center items-center p-1 rounded-full w-5 h-5  ">
+                                    class="enable-dark-mode2 dark:hidden bg-transparent dark:bg-[#1A1A18] flex justify-center items-center p-1 rounded-full w-5 h-5  " aria-label="enable dark mode">
                                     <div>
                                         <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
                                             <path class="fill-slate-400 dark:fill-white"
@@ -803,7 +807,7 @@
                                     </div>
                                 </button>
                                 <button
-                                    class="disable-dark-mode2 hidden   bg-[#FCFCFC] dark:bg-transparent dark:flex justify-center items-center p-1 rounded-full w-5 h-5  shadow-[0_0_6px_0_rgba(0,0,0,0.1)] dark:shadow-none">
+                                    class="disable-dark-mode2 hidden   bg-[#FCFCFC] dark:bg-transparent dark:flex justify-center items-center p-1 rounded-full w-5 h-5  shadow-[0_0_6px_0_rgba(0,0,0,0.1)] dark:shadow-none" aria-label="disable dark mode">
                                     <div for="light-switch">
                                         <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
                                             <path class="fill-slate-300 dark:fill-white"
@@ -830,13 +834,13 @@
 
     <div class="w-full main-content-smallNav2">
         <footer class="px-5 lg:px-0 w-full max-w-[1500px] mx-auto mt-32">
-            <div class="flex-wrap flex justify-between  items-ctener gap-1 md:gap-2 mx-auto w-full bg-white dark:bg-[#001448] p-3 mb-10 rounded-2xl"
-                >
+            <div
+                class="flex-wrap flex justify-between  items-ctener gap-1 md:gap-2 mx-auto w-full bg-white dark:bg-[#1A1A18] p-3 mb-10 rounded-2xl">
                 <a href="https://irpsc.com" style="width:55px ;" target="_blank "
                     title="وزارت تعاون کار و رفاه اجتماعی">
-                    <img src="https://irpsc.com/img-icon/vezarat.png" class="rounded-lg">
+                    <img src="https://irpsc.com/img-icon/vezarat.png" class="rounded-lg" alt="وزارت تعاون کار و رفاه اجتماعی">
                 </a>
-                <a class="active" href="#" target="_blank "  style="width:55px ;"
+                <a class="active" href="#" target="_blank " style="width:55px ;"
                     title="نماد اعتماد الکترونیک">
                     <img src="https://irpsc.com/img-icon/enamad.png" class="rounded-lg" alt="نماد اعتماد الکترونیک">
 
@@ -844,7 +848,7 @@
                 <a href="https://irpsc.com" target="_blank " style="width:55px ;" title="ثبت اسناد و املاک کشور">
                     <img src="https://irpsc.com/img-icon/qazaii.png" class="rounded-lg" alt="ثبت اسناد و املاک کشور">
                 </a>
-                <a href="https://video.irpsc.com" target="_blank "  style="width:55px ;" title="مرکز آموزش ویدئویی">
+                <a href="https://video.irpsc.com" target="_blank " style="width:55px ;" title="مرکز آموزش ویدئویی">
                     <img src="https://irpsc.com/img-icon/video.png" class="rounded-lg" alt="مرکز آموزش ویدئویی">
                 </a>
                 <a href="https://faq.irpsc.com" target="_blank " style="width:55px ;" title="انجمن پرسش و پاسخ">
@@ -853,51 +857,53 @@
                 <a href="https://Shop.irpsc.com" target="_blank " style="width:55px ;" title="فروشگاه ملی">
                     <img src="https://irpsc.com/img-icon/shop.png" class="rounded-lg" alt="فروشگاه ملی">
                 </a>
-                <a href="https://supply.irpsc.com" target="_blank " style="width:55px ;" title="تولید کنندگان"  >
-                    <img src="https://irpsc.com/img-icon/supply.png" class="rounded-lg" alt="تولید کنندگان">
                 <a href="https://supply.irpsc.com" target="_blank " style="width:55px ;" title="تولید کنندگان">
                     <img src="https://irpsc.com/img-icon/supply.png" class="rounded-lg" alt="تولید کنندگان">
-                </a>
-                <a href="https://crm.irpsc.com" target="_blank " style="width:55px ;" title="مدیریت بر مدیران">
-                    <img src="https://irpsc.com/img-icon/crm.png" class="rounded-lg" alt="مدیریت بر مدیران">
-                </a>
-                <a href="https://target.irpsc.com" target="_blank " style="width:55px ;" title="نگرش ملی">
-                    <img src="https://irpsc.com/img-icon/target.png" class="rounded-lg" alt="نگرش ملی">
-                </a>
-                <a href="https://animal.irpsc.com" target="_blank " style="width:55px ;" title="حیوانات و دامپزشک">
-                    <img src="https://irpsc.com/img-icon/animal.png" class="rounded-lg" alt="حیوانات و دامپزشک">
-                </a>
-                <a href="https://irpsc.com" target="_blank " style="width:55px ;" title="رسانه ملی">
-                    <img src="https://irpsc.com/img-icon/irpsc.png" class="rounded-lg" alt="رسانه ملی">
-                </a>
-                <a href="https://meta.irpsc.com" target="_blank " style="width:55px ;" title="اخبار متا">
-                    <img src="https://irpsc.com/img-icon/meta.png" class="rounded-lg" alt="اخبار متا">
-                </a>
-                <a href="https://uni.irpsc.com" target="_blank " style="width:55px ;" title="دانشگاه متاورس">
-                    <img src="https://irpsc.com/img-icon/uni.png" class="rounded-lg" alt="دانشگاه متاورس">
-                </a>
-                <a href="https://crm.irpsc.com/knowledgebase" target="_blank " style="width:55px ;"
-                    title="استخدام | دانش محور">
-                    <img src="https://irpsc.com/img-icon/knowledge.png" class="rounded-lg" alt="استخدام | دانش محور">
-                </a>
-                <a href="https://sale.irpsc.com" target="_blank " style="width:55px ;" title="فروشگاه مجازی حم">
-                    <img src="https://irpsc.com/img-icon/sale.png" class="rounded-lg" alt="فروشگاه مجازی حم">
-                </a>
-                <a href="https://ad.irpsc.com" target="_blank " style="width:55px ;" title="تبلیغات ملی">
-                    <img src="https://irpsc.com/img-icon/ad.png" class="rounded-lg" alt="تبلیغات ملی">
-                </a>
-                <a href="https://nft.irpsc.com" target="_blank "  style="width:55px ;" title="بازار NFT">
-                    <img src="https://irpsc.com/img-icon/nft.png" class="rounded-lg">
-                </a>
-                <a href="https://rgb.irpsc.com" target="_blank " style="width:55px ;" title="متاورس رنگ">
-                    <img src="https://irpsc.com/img-icon/rgb.png" class="rounded-lg" alt="متاورس رنگ">
-                </a>
-                <a href="https://3d.irpsc.com" target="_blank " style="width:55px ;" title="سه بعدی متا">
-                    <img src="https://irpsc.com/img-icon/3d.gif" class="rounded-lg" alt="سه بعدی متا">
-                </a>
-                <a title="خانه" style="width:55px ;">
-                    <img src="https://irpsc.com/img-icon/home-soon.png" class="rounded-lg">
-                </a>
+                    <a href="https://supply.irpsc.com" target="_blank " style="width:55px ;" title="تولید کنندگان">
+                        <img src="https://irpsc.com/img-icon/supply.png" class="rounded-lg" alt="تولید کنندگان">
+                    </a>
+                    <a href="https://crm.irpsc.com" target="_blank " style="width:55px ;" title="مدیریت بر مدیران">
+                        <img src="https://irpsc.com/img-icon/crm.png" class="rounded-lg" alt="مدیریت بر مدیران">
+                    </a>
+                    <a href="https://target.irpsc.com" target="_blank " style="width:55px ;" title="نگرش ملی">
+                        <img src="https://irpsc.com/img-icon/target.png" class="rounded-lg" alt="نگرش ملی">
+                    </a>
+                    <a href="https://animal.irpsc.com" target="_blank " style="width:55px ;"
+                        title="حیوانات و دامپزشک">
+                        <img src="https://irpsc.com/img-icon/animal.png" class="rounded-lg" alt="حیوانات و دامپزشک">
+                    </a>
+                    <a href="https://irpsc.com" target="_blank " style="width:55px ;" title="رسانه ملی">
+                        <img src="https://irpsc.com/img-icon/irpsc.png" class="rounded-lg" alt="رسانه ملی">
+                    </a>
+                    <a href="https://meta.irpsc.com" target="_blank " style="width:55px ;" title="اخبار متا">
+                        <img src="https://irpsc.com/img-icon/meta.png" class="rounded-lg" alt="اخبار متا">
+                    </a>
+                    <a href="https://uni.irpsc.com" target="_blank " style="width:55px ;" title="دانشگاه متاورس">
+                        <img src="https://irpsc.com/img-icon/uni.png" class="rounded-lg" alt="دانشگاه متاورس">
+                    </a>
+                    <a href="https://crm.irpsc.com/knowledgebase" target="_blank " style="width:55px ;"
+                        title="استخدام | دانش محور">
+                        <img src="https://irpsc.com/img-icon/knowledge.png" class="rounded-lg"
+                            alt="استخدام | دانش محور">
+                    </a>
+                    <a href="https://sale.irpsc.com" target="_blank " style="width:55px ;" title="فروشگاه مجازی حم">
+                        <img src="https://irpsc.com/img-icon/sale.png" class="rounded-lg" alt="فروشگاه مجازی حم">
+                    </a>
+                    <a href="https://ad.irpsc.com" target="_blank " style="width:55px ;" title="تبلیغات ملی">
+                        <img src="https://irpsc.com/img-icon/ad.png" class="rounded-lg" alt="تبلیغات ملی">
+                    </a>
+                    <a href="https://nft.irpsc.com" target="_blank " style="width:55px ;" title="بازار NFT">
+                        <img src="https://irpsc.com/img-icon/nft.png" class="rounded-lg" alt="nft">
+                    </a>
+                    <a href="https://rgb.irpsc.com" target="_blank " style="width:55px ;" title="متاورس رنگ">
+                        <img src="https://irpsc.com/img-icon/rgb.png" class="rounded-lg" alt="متاورس رنگ">
+                    </a>
+                    <a href="https://3d.irpsc.com" target="_blank " style="width:55px ;" title="سه بعدی متا">
+                        <img src="https://irpsc.com/img-icon/3d.gif" class="rounded-lg" alt="سه بعدی متا">
+                    </a>
+                    <a  href="#" title="خانه" style="width:55px ;">
+                        <img src="https://irpsc.com/img-icon/home-soon.png" class="rounded-lg" alt="home">
+                    </a>
             </div>
             <div class="flex flex-col-reverse md:flex-row gap-10">
                 <div
@@ -928,13 +934,14 @@
                         </p>
                     </div>
                     <div class="font-bold">
-                        <a dir="ltr" href="whatsapp://send?text=http://+989337850551"
-                            class="rounded-3xl bg-white dark:bg-[#DCFFE8]/75 py-3 px-5 text-[#20D05C] dark:text-[#02501D]">0933 785 0551</a>
+                        <a dir="ltr" href="whatsapp://send?text=http://+989337850551" target="_blank"
+                            class="rounded-3xl bg-white dark:bg-[#DCFFE8]/75 py-3 px-5 text-[#20D05C] dark:text-[#02501D]">0933
+                            785 0551</a>
                     </div>
                 </div>
             </div>
-            <div class="bg-[#c6d9fc] dark:bg-[#001448] w-full  p-5 rounded-t-[32px] mt-10 gap-6 flex flex-col lg:flex-row justify-between">
-                <div></div>
+            <div
+                class="bg-[#c6d9fc] dark:bg-[#1A1A18] w-full  p-5 rounded-t-[32px] mt-10 gap-6 flex flex-col lg:flex-row justify-center relative">
                 <div class="gap-6 flex flex-col">
                     <div class="flex flex-col text-center md:text-right md:flex-row gap-5 md:gap-14 w-max mx-auto">
                         <a href="#" class="text-stone-800 dark:text-[#ffffff] font-bold">بانک مدل 3 بعدی</a>
@@ -955,8 +962,8 @@
                         <div>
                             <a href="https://discord.gg/xqBe3h9hnN"
                                 class="bg-gray-200 w-[38px] h-[38px] rounded-full flex justify-center items-center">
-                                <img src="{{ asset('home-page/images/discord-icon-svgrepo-com.png') }}" alt="دیسکورد"
-                                    class="w-6 h-6  mt-1">
+                                <img src="{{ asset('home-page/images/discord-icon-svgrepo-com.png') }}"
+                                    alt="دیسکورد" class="w-6 h-6  mt-1">
                             </a>
                         </div>
                         <div>
@@ -983,8 +990,12 @@
                         </p>
                     </div>
                 </div>
-                <div class="flex items-center justify-end" >
-                    <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=491484&Code=pdzLR1cYzWx6kOYRxHckoMmXtXK0jux2'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=491484&Code=pdzLR1cYzWx6kOYRxHckoMmXtXK0jux2' alt='' style='cursor:pointer' code='pdzLR1cYzWx6kOYRxHckoMmXtXK0jux2'></a>
+                <div class="flex items-center justify-center lg:absolute top-8 left-8">
+                    <a referrerpolicy='origin' target='_blank'
+                        href='https://trustseal.enamad.ir/?id=491484&Code=pdzLR1cYzWx6kOYRxHckoMmXtXK0jux2'><img
+                            referrerpolicy='origin'
+                            src='https://trustseal.enamad.ir/logo.aspx?id=491484&Code=pdzLR1cYzWx6kOYRxHckoMmXtXK0jux2'
+                            alt='' style='cursor:pointer' code='pdzLR1cYzWx6kOYRxHckoMmXtXK0jux2'></a>
                 </div>
             </div>
         </footer>
@@ -995,9 +1006,7 @@
     <script src="{{ asset('home-page/script/scripts.js') }}"></script>
     <script src="{{ asset('home-page/script/product-img.js') }}"></script>
     <script src="{{ asset('assets/vendor_assets/js/jquery/jquery-ui.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/bootstrap/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/vendor_assets/js/jquery.star-rating-svg.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor_assets/js/loader.js') }}"></script>
     <script src="{{ asset('assets/vendor_assets/js/message.js') }}"></script>
     <script src="{{ asset('assets/vendor_assets/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/theme_assets/js/drag-drop.js') }}"></script>
@@ -1143,6 +1152,7 @@
             }
         });
     </script>
+
 </body>
 
 </html>
