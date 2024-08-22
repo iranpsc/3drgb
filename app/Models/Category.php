@@ -66,10 +66,6 @@ class Category extends Model implements Sitemapable
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
             ->setPriority(0.8);
 
-        if ($this->image) {
-            $url->addImage($this->image->url);
-        }
-
         return $url;
     }
 

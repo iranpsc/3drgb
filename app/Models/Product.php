@@ -68,12 +68,6 @@ class Product extends Model implements Sitemapable
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
             ->setPriority(0.8);
 
-        $this->loadMissing('images'); // eager load images (if not loaded yet)
-
-        foreach ($this->images as $image) {
-            $url->addImage($image->url);
-        }
-
         return $url;
     }
 

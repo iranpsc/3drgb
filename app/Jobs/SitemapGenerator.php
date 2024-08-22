@@ -32,7 +32,7 @@ class SitemapGenerator implements ShouldQueue
     {
         $sitemap->create();
 
-        Product::with('images')->published()->chunk(200, function ($products) use ($sitemap) {
+        Product::published()->chunk(200, function ($products) use ($sitemap) {
             $sitemap->add($products);
         });
 
@@ -41,7 +41,7 @@ class SitemapGenerator implements ShouldQueue
         $sitemap->create()->add(Tag::all())
             ->writeToFile(public_path('sitemap/tags.xml'));
 
-        $sitemap->create()->add(Category::with('image')->get())
+        $sitemap->create()->add(Category::all())
             ->writeToFile(public_path('sitemap/categories.xml'));
     }
 }
