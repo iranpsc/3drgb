@@ -64,7 +64,7 @@
                         <div class="w-full flex items-center justify-end md:w-1/2 flex-col overflow-hidden">
                             <img src="{{ asset('home-page/images/Asset2.png') }}" alt="3dmodel" class="hidden md:block"
                                 style="width: 125%; max-width:none; ">
-                            <div class="flex   mt-5 bg-[#D8E5FD] dark:bg-[#001448c9] rounded-full  p-2 lg:hidden">
+                            <div class="flex   mt-5 bg-[#D8E5FD]   dark:bg-black  rounded-full  p-2 lg:hidden">
                                 <div class="flex justify-center items-center p-3 w-min">
                                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -78,9 +78,9 @@
                                     </svg>
                                 </div>
                                 <input type="text" wire:model="searchTerm" placeholder="جستجوی محصول"
-                                    class=" w-full mr-[-14px]  placeholder:-[#ACB9FA] text-gray-500 dark:text-gray-400 font-bold ring-transparent outline-transparent    focus:!outline-0  focus:!right-0 border-0 focus:border-0 ring-offset-0  focus:ring-transparent     bg-transparent">
+                                    class=" w-full mr-[-14px]  placeholder:-[#ACB9FA] dark:placeholder:text-[#C1C1C1] text-gray-500 dark:text-gray-400 font-bold ring-transparent outline-transparent    focus:!outline-0  focus:!right-0 border-0 focus:border-0 ring-offset-0  focus:ring-transparent     bg-transparent">
                                 <button wire:click="search"
-                                    class="bg-[#000BEE] dark:bg-[#C2008C] text-white font-bold md:text-xl pb-4 pt-[15px]  px-5 w-[30%] lg:w-[20%] rounded-[32px]  text-center  min-w-max ">جستجو</button>
+                                    class="bg-[#000BEE] dark:bg-[#E59819] dark:text-black text-white font-bold md:text-xl pb-4 pt-[15px]  px-5 w-[30%] lg:w-[20%] rounded-[32px]  text-center  min-w-max ">جستجو</button>
                             </div>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
 
             </div>
 
-            <section class="w-full mx-auto max-w-[1500px]  p-5" style="margin-top: -140px">
+            <section class="w-full mx-auto max-w-[1500px] pt-5  px-5 lg:px-9 3xl:px-0" style="margin-top: -140px">
                 <div class=" space-y-5 md:space-y-10">
                     <div class="w-full flex justify-center flex-col items-center gap-4 space-y-5 py-10">
                         <p class="text-stone-800 dark:text-[#D1D1D1] font-bold text-2xl">
@@ -136,7 +136,7 @@
                     </div>
                 </div>
             </section>
-            <section class="w-full mx-auto  max-w-[1500px] -mt-10">
+            <section class="w-full mx-auto  max-w-[1500px] -mt-10  lg:px-9 3xl:px-0">
                 <!-- start slyder -->
                 <div class="flex flex-col  md:mt-32  w-full">
                     <div class="w-full flex-col relative  ">
@@ -160,8 +160,8 @@
                                         <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
                                             class="bg-white dark:bg-[#1A1A18] p-3 pb-7  w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-7 text-center">
                                             <div class="w-full ">
-                                                <img src="{{ asset($category->image->url ?? '') }}" loading="lazy"
-                                                    alt="category" class="w-full rounded-xl">
+                                                <img src="{{ asset($category->image->url ?? asset('home-page/images/default-product.jpg')) }}" loading="lazy"
+                                                    alt="{{ $category->name }}" class="w-full rounded-xl">
                                             </div>
                                             <div>
                                                 <p
@@ -188,7 +188,7 @@
                 </div>
                 <!-- end slyder -->
             </section>
-            <section class="w-full mt-32 mx-auto flex justify-center items-center max-w-[1500px] px-5 lg:px-0">
+            <section class="w-full mt-32 mx-auto flex justify-center items-center max-w-[1500px] px-5 lg:px-9 3xl:px-0">
                 <div
                     class="w-full text-center flex flex-col justify-center items-center xl:flex-row gap-5 gap-y-10 py-12 xl:py-16 px-7 rounded-3xl bg-[#000ceec2] dark:bg-gradient-to-tl to-[#012F65] from-[#014AA0] ">
                     <div class="lg:w-[70%]">
@@ -210,33 +210,31 @@
                     </a>
                 </div>
             </section>
-            <section class="w-full max-w-[1500px] mx-auto px-5 lg:px-0">
+            <section class="w-full max-w-[1500px] mx-auto px-5 lg:px-9 3xl:px-0">
                 <div>
                     <p class="text-4xl font-bold text-[#000BEE] dark:text-[#FFFFFF] mt-32 text-center py-3"
                         style="font-family:rokh-ebold ;">محصولات ما</p>
                 </div>
                 <div class="mx-auto  w-full ">
                     <div class="py-4">
-                        <nav class="flex justify-center gap-2  lg:text-2xl font-bold py-5"
-                            role="tablist" style="font-family:rokh ;">
+                        <nav class="flex justify-center gap-2 lg:text-2xl font-bold py-5" role="tablist" style="font-family:rokh;">
                             <button type="button"
-                                class="px-3  sortbtn items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1] dark:hover:text-white hover:text-black active"
-                                id="order-by-score"  aria-label="sortbtn">
+                                class="px-3 sortbtn items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1] dark:hover:text-white hover:text-black active"
+                                id="order-by-score" aria-label="Sort by highest score" role="tab" aria-selected="true">
                                 بالاترین امتیاز
                             </button>
                             <button type="button"
-                                class="px-4 sortbtn border-x-2 border-gray-400  items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1] dark:hover:text-white hover:text-black"
-                                id="order-by-newest"  aria-label="sortbtn">
+                                class="px-4 sortbtn border-x-2 border-gray-400 items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1] dark:hover:text-white hover:text-black"
+                                id="order-by-newest" aria-label="Sort by newest" role="tab" aria-selected="false">
                                 جدید ترین
                             </button>
                             <button type="button"
                                 class="px-3 sortbtn items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1] dark:hover:text-white hover:text-black"
-                                id="order-by-sales" aria-label="sortbtn">
+                                id="order-by-sales" aria-label="Sort by best selling" role="tab" aria-selected="false">
                                 پرفروش ترین
                             </button>
                         </nav>
-                    </div>
-
+                    </div>                    
                 </div>
                 <div class="relative">
                     <div class="swiper-slider swiper-container overflow-x-hidden" dir="rtl" wire:ignore>
@@ -273,24 +271,36 @@
                 });
             });
 
-            let swiperSlider = new Swiper('.swiper-slider', {
-                slidesPerView: 1,
-                spaceBetween: 20,
-                breakpoints: {
-                    640: {
-                        slidesPerView: 2,
-                        spaceBetween: 20,
-                    },
-                    768: {
-                        slidesPerView: 3,
-                        spaceBetween: 22,
-                    },
-                    1024: {
-                        slidesPerView: 4,
-                        spaceBetween: 20,
-                    },
+            let swiper = new Swiper('.swiper-slider', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+            spaceBetween: 12,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            // Responsive breakpoints
+            breakpoints: {
+                1550: {
+                    slidesPerView: 4,
+                    spaceBetween: 20
                 },
-
-            });
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                },
+                // when window width is <= 768px
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                },
+                // when window width is <= 480px
+                480: {
+                    slidesPerView: 1,
+                    spaceBetween: 12
+                }
+            }
+        });
         </script>
     @endscript

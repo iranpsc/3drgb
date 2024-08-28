@@ -113,6 +113,11 @@
             background-color: #ECECEC;
             overflow-x: auto;
         }
+        .dark #style1::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background-color: #000000;
+            overflow-x: auto;
+        }
 
         #style1::-webkit-scrollbar {
             width: 6px;
@@ -124,10 +129,11 @@
         .dark #style1::-webkit-scrollbar {
             width: 6px;
             height: 6px;
-            background-color: #ECECEC;
+            background-color: #000000;
             overflow-x: auto;
             border-radius: 10px;
         }
+        
 
         #style1::-webkit-scrollbar-thumb {
             border-radius: 10px;
@@ -386,7 +392,7 @@
                                                                 <div
                                                                     class="flex flex-col text-sm text-[#000BEE] font-bold gap-5 p-3 pr-[20PX] dark:text-[#868B90]">
                                                                     @foreach ($category->children as $child)
-                                                                        <a href="{{ route('categories.show', ['category_link' => $child->url]) }}"
+                                                                        <a class="text-[#000BEE] dark:text-[#E59819] " href="{{ route('categories.show', ['category_link' => $child->url]) }}"
                                                                             class="text-[#868B90]">
                                                                             {{ $child->name }}
                                                                         </a>
@@ -668,7 +674,7 @@
                         class="flex  items-center flex-col gap-11 h-auto pr-4  !overflow-y-scroll scrollbar pb-40 pt-7">
                         <div class=" w-7 h-7  ">
                             <a href="{{ route('products') }}" class="w-full">
-                                <img class=" w-7 h-7  " src="{{ asset('home-page/images/image25(1).png') }}"
+                                <img class=" w-7 h-7 aspect-square " src="{{ asset('home-page/images/image25(1).png') }}"
                                     alt="3drgb">
                             </a>
                         </div>
@@ -833,7 +839,7 @@
     </div>
 
     <div class="w-full main-content-smallNav2">
-        <footer class="px-5 lg:px-0 w-full max-w-[1500px] mx-auto mt-32">
+        <footer class="px-5 lg:px-9 3xl:px-0 w-full max-w-[1500px] mx-auto mt-32">
             <div
                 class="flex-wrap flex justify-between  items-ctener gap-1 md:gap-2 mx-auto w-full bg-white dark:bg-[#1A1A18] p-3 mb-10 rounded-2xl">
                 <a href="https://irpsc.com" style="width:55px ;" target="_blank "
@@ -1125,6 +1131,7 @@
             // Optional parameters
             direction: 'horizontal',
             loop: true,
+            spaceBetween: 12,
             autoplay: {
                 delay: 2500,
                 disableOnInteraction: false,
@@ -1147,7 +1154,7 @@
                 // when window width is <= 480px
                 480: {
                     slidesPerView: 1,
-                    spaceBetween: 10
+                    spaceBetween: 12,
                 }
             }
         });

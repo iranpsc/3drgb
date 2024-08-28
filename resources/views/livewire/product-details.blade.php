@@ -107,13 +107,13 @@
                 <div class="flex justify-start items-center flex-col gap-5 w-full md:w-1/3 xl:w-[35%] ">
                     <div wire:ignore
                         class=" zoomable rounded-lg overflow-hidden w-full bg-white aspect-square flex items-center justify-center">
-                        <img class="aspect-square zoomable__img" id="square" />
+                        <img class="aspect-square zoomable__img" id="square" loading="lazy" onerror="this.onerror=null; this.src='{{ asset('home-page/images/default.jpg') }}';"/>
                     </div>
                     <div class="grid grid-cols-3 gap-5 ">
                         @foreach ($product->images as $image)
                             <button class="image-btn w-full bg-white aspect-square rounded-lg overflow-hidden"
                                 data-src="{{ $image->url }}">
-                                <img class="aspect-square" src="{{ $image->url }}" alt="{{ $product->name }}">
+                                <img class="aspect-square" src="{{ $image->url }}" alt="{{ $product->name }} " loading="lazy" onerror="this.onerror=null; this.src='{{ asset('home-page/images/default.jpg') }}';">
                             </button>
                         @endforeach
                     </div>

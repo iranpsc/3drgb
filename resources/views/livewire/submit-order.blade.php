@@ -1,7 +1,7 @@
 <div>
     <main >
         <section>
-            <div class="bg-[#000BEEF7] w-full py-[10px] text-white text-sm hidden lg:block px-5" style="font-family: rokh">
+            <div class="bg-[#000BEEF7] dark:bg-black w-full py-[10px] text-white text-sm hidden lg:block px-5" style="font-family: rokh">
                 <div class="flex items-center justify-between max-w-[1500px] mx-auto">
                     <div>
                         <a href="#" class="px-4">قوانین و مجوزات</a>

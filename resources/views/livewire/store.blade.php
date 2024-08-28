@@ -92,16 +92,14 @@
                     </div>
                     <div class="flex flex-col gap-3">
                         <span class="multi-range">
-                            <input type="range" min="0" max="10000000" value="0" step="1"
-                                id="minPrice" wire:model.live.debounce.500ms="price_filter.min">
-                            <input type="range" min="0" max="9000000" value="479900" step="1"
-                                id="maxPrice" wire:model.live.debounce.500ms="price_filter.max">
+                            <input type="range" min="0" max="10000000" value="0" step="1" id="minPrice" wire:model.live.debounce.500ms="price_filter.min">
+                            <input type="range" min="0" max="9000000" value="479900" step="1" id="maxPrice" wire:model.live.debounce.500ms="price_filter.max">
                         </span>
                     </div>
                     <div class="flex items-center gap-3">
-                        <p id="priceFillterMin">{{ $price_filter['min'] }}  تومان </p>
+                        <p id="priceFilterMin">{{ $price_filter['min'] }} تومان</p>
                         <hr class="border w-10">
-                        <p id="priceFillterMax"> {{ $price_filter['max'] }} تومان</p>
+                        <p id="priceFilterMax">{{ $price_filter['max'] }} تومان</p>
                     </div>
                 </div>
                 <div
@@ -122,7 +120,7 @@
             </div>
             <div class="w-full lg:w-3/4 space-y-5 p-5" id="products-list">
                 <div class="flex flex-col-reverse lg:flex-row gap-6">
-                    <div class="flex items-center gap-6 w-[100%] lg:w-[70%] scrollbar overflow-y-hidenn overflow-x-auto " style="height: 55px;">
+                    <nav role="tablist" class="flex items-center gap-6 w-[100%] lg:w-[70%] scrollbar overflow-y-hidenn overflow-x-auto " style="height: 55px;">
                         <div class="font-bold dark:text-white w-max">
                             <p class="w-max hidden lg:block">مرتب سازی :</p>
                         </div>
@@ -167,7 +165,7 @@
                                 href="javascript::void(0)" wire:click="sortBy('cheapest')" role="tab"
                                 aria-controls="timeline" aria-selected="false">ارزان ترین</a>
                         </div>
-                    </div>
+                    </nav>
 
                     <div class="flex gap-5 relative w-full lg:w-[30%]">
 
@@ -207,7 +205,22 @@
     </main>
 
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const minPriceInput = document.getElementById('minPrice');
+        const maxPriceInput = document.getElementById('maxPrice');
+        const minPriceDisplay = document.getElementById('priceFilterMin');
+        const maxPriceDisplay = document.getElementById('priceFilterMax');
 
+        minPriceInput.addEventListener('input', function() {
+            minPriceDisplay.textContent = `${minPriceInput.value} تومان`;
+        });
+
+        maxPriceInput.addEventListener('input', function() {
+            maxPriceDisplay.textContent = `${maxPriceInput.value} تومان`;
+        });
+    });
+</script>
 @push('styles')
 <style>
     a.showMore {
