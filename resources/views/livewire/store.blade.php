@@ -125,7 +125,7 @@
                             <p class="w-max hidden lg:block">مرتب سازی :</p>
                         </div>
                         <button onclick="fillterContainerMobile()"
-                            class="lg:hidden px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383] items-center whitespace-nowrap dark:text-white dark:bg-[#001448] bg-white flex gap-3">
+                            class="lg:hidden px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383] items-center whitespace-nowrap dark:text-white dark:bg-[#1a1a18] bg-white flex gap-3">
                             <p>فیلتر</p>
                             <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 4.5H4" class="dark:stroke-white" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
