@@ -7,7 +7,7 @@
     <div>
         <main>
             <section>
-                <div class="bg-[#000BEEF7] dark:bg-black w-full py-[10px] text-white text-sm hidden lg:block px-5"
+                <div class="bg-[#000BEEF7] dark:bg-[#E59819] w-full py-[10px] text-white text-sm hidden lg:block px-5"
                     style="font-family: rokh">
                     <div class="flex items-center justify-between max-w-[1500px] mx-auto">
                         <div>
@@ -48,7 +48,7 @@
                             </p>
                             <div class="flex gap-5 relative mt-20 hidden lg:flex">
                                 <input type="text" wire:model="searchTerm" placeholder="جستجوی محصول"
-                                    class="relative w-full p-5 placeholder:text-[#ACB9FA] font-bold bg-[#D8E5FD] text-gray-500 dark:text-[#C1C1C1] dark:placeholder:text-[#C1C1C1]  dark:bg-black rounded-[32px] focus:outline-none focus:ring-0 focus:border-0 pr-12 md:px-20 border-0">
+                                    class="relative w-full p-5 placeholder:text-primery-blue font-bold bg-[#D8E5FD] text-gray-500 dark:text-[#C1C1C1] dark:placeholder:text-[#C1C1C1]  dark:bg-black rounded-[32px] focus:outline-none focus:ring-0 focus:border-0 pr-12 md:px-20 border-0">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg" class="absolute right-5 top-5">
                                     <path class="dark:stroke-white"
@@ -78,7 +78,7 @@
                                     </svg>
                                 </div>
                                 <input type="text" wire:model="searchTerm" placeholder="جستجوی محصول"
-                                    class=" w-full mr-[-14px]  placeholder:-[#ACB9FA] dark:placeholder:text-[#C1C1C1] text-gray-500 dark:text-gray-400 font-bold ring-transparent outline-transparent    focus:!outline-0  focus:!right-0 border-0 focus:border-0 ring-offset-0  focus:ring-transparent     bg-transparent">
+                                    class=" w-full mr-[-14px]  placeholder:text-primery-blue dark:placeholder:text-[#C1C1C1] text-gray-500 dark:text-gray-400 font-bold ring-transparent outline-transparent    focus:!outline-0  focus:!right-0 border-0 focus:border-0 ring-offset-0  focus:ring-transparent     bg-transparent">
                                 <button wire:click="search"
                                     class="bg-[#000BEE] dark:bg-[#E59819] dark:text-black text-white font-bold md:text-xl pb-4 pt-[15px]  px-5 w-[30%] lg:w-[20%] rounded-[32px]  text-center  min-w-max ">جستجو</button>
                             </div>

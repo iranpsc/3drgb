@@ -177,7 +177,7 @@
                                 alt="3Dmeta"></a>
                     </div>
                     <div class="lg:hidden flex justify-end items-center gap-6 w-1/3">
-                        <a href="{{ route('user.profile') }}" class="w-5">
+                        <a href="{{ route('user.profile') }}" class="w-5" aria-label="user profile">
                             <svg width="18" height="25" viewBox="0 0 18 25" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path class="dark:stroke-white"
@@ -190,7 +190,7 @@
                                     stroke-linejoin="round" />
                             </svg>
                         </a>
-                        <a href="{{ route('cart') }}" class="w-5">
+                        <a href="{{ route('cart') }}" class="w-5" aria-label="cart">
                             <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path class="dark:fill-white" fill-rule="evenodd" clip-rule="evenodd"
@@ -941,7 +941,7 @@
                     </div>
                     <div class="font-bold">
                         <a dir="ltr" href="whatsapp://send?text=http://+989337850551" target="_blank"
-                            class="rounded-3xl bg-white dark:bg-[#DCFFE8]/75 py-3 px-5 text-[#20D05C] dark:text-[#02501D]">0933
+                            class="rounded-3xl bg-white dark:bg-[#DCFFE8]/75 py-3 px-5 text-green-600 dark:text-[#02501D]">0933
                             785 0551</a>
                     </div>
                 </div>
