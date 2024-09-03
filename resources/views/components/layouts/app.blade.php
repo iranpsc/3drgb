@@ -997,7 +997,7 @@
                     </div>
                 </div>
                 <div class="flex items-center justify-center lg:absolute top-8 left-8">
-                    <a referrerpolicy='origin' target='_blank'
+                    <a referrerpolicy='origin' aria-label="Enamad" target='_blank'
                         href='https://trustseal.enamad.ir/?id=491484&Code=pdzLR1cYzWx6kOYRxHckoMmXtXK0jux2'><img
                             referrerpolicy='origin'
                             src='https://trustseal.enamad.ir/logo.aspx?id=491484&Code=pdzLR1cYzWx6kOYRxHckoMmXtXK0jux2'
