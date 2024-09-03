@@ -149,7 +149,7 @@
                                     class="bg-white dark:bg-[#001448] w-full flex flex-col overflow-hidden rounded-xl justify-between items-center text-center p-3 gap-2  duration-500 transition-all">
                                     <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
                                         class="p-3 w-full ">
-                                        <img src="{{ $category->image->url ?? asset('home-page/images/default-product.jpg') }}" loading="lazy" alt="{{ $category->name }}" onerror="this.onerror=null; this.src='{{ asset('home-page/images/default-product.jpg') }}';" >
+                                        <img src="{{ $category->image->url ?? asset('home-page/images/default-product.jpg') }}" loading="lazy" alt="دسته بندی {{ $category->name }}" onerror="this.onerror=null; this.src='{{ asset('home-page/images/default-product.jpg') }}';" >
                                     </a>
                                     <div class="w-full flex flex-col justify-center items-center gap-3">
                                         <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"

@@ -4,7 +4,7 @@
         <div
             class="bg-white dark:bg-[#1A1A18] w-full flex flex-col overflow-hidden rounded-xl justify-between items-center text-center  gap-2  duration-500 transition-all">
             <a href="{{ $product->url }}" style="width: 90% ;margin-top: 16px" class="overflow-hidden rounded-lg">
-                <img src="{{ $product->oldestImage->url ?? asset('home-page/images/default.jpg') }}" alt="{{ $product->category->name }}" loading="lazy" onerror="this.onerror=null; this.src='{{ asset('home-page/images/default.jpg') }}';">
+                <img src="{{ $product->oldestImage->url ?? asset('home-page/images/default.jpg') }}" alt="محصول {{ $product->category->name }}" loading="lazy" onerror="this.onerror=null; this.src='{{ asset('home-page/images/default.jpg') }}';">
             </a>
             <div class="w-full flex flex-col justify-center items-center gap-3 p-3">
                 <p class="text-[#000BEE] dark:text-[#D1D1D1]  text-xs lg:text-sm font-bold p-0 m-0">

@@ -8,7 +8,7 @@
 <div>
     <main>
         <section>
-            <div class="bg-[#000BEEF7] dark:bg-black w-full py-[10px] text-white text-sm hidden lg:block px-5" style="font-family: rokh">
+            <div class="bg-[#000BEEF7] dark:bg-[#E59819] w-full py-[10px] text-white text-sm hidden lg:block px-5" style="font-family: rokh">
                 <div class="flex items-center justify-between max-w-[1500px] mx-auto">
                     <div>
                         <a href="#" class="px-4">قوانین و مجوزات</a>
@@ -17,13 +17,13 @@
                     </div>
                     <div class="flex gap-4">
                         <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (1).png"
-                                    alt="social"></a></div>
-                        <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy"><img
-                                    src="https://3d.irpsc.com/home-page/images/Union (2).png" alt="social"></a></div>
+                                    alt="telegram"></a></div>
+                        <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy" ><img
+                                    src="https://3d.irpsc.com/home-page/images/Union (2).png" alt="instagram"></a></div>
                         <div><a href="whatsapp://send?text=http://+989337850551"><img
-                                    src="https://3d.irpsc.com/home-page/images/Union (3).png" alt="social"></a></div>
+                                    src="https://3d.irpsc.com/home-page/images/Union (3).png" alt="whatsapp"></a></div>
                         <div><a href="mailto:dmeta.irpsc@gmail.com"><img
-                                    src="https://3d.irpsc.com/home-page/images/Union (4).png" alt="social"></a></div>
+                                    src="https://3d.irpsc.com/home-page/images/Union (4).png" alt="email"></a></div>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
             <div class="px-5">
                 <div class="flex flex-col md:flex-row gap-5 p-3 rounded-[20px] bg-[#ECF4FE] dark:bg-[#1A1A18]">
                     <div class="w-full md:w-1/3 xl:w-1/4">
-                        <img class="w-full aspect-square rounded-[10px]" alt="{{ $category->name }}" src="{{ $category->image->url ?? asset('home-page/images/default-product.jpg')}}"  onerror="this.onerror=null; this.src='{{ asset('home-page/images/default-product.jpg') }}';"
+                        <img class="w-full aspect-square rounded-[10px]" alt="دسته بندی {{ $category->name }}" src="{{ $category->image->url ?? asset('home-page/images/default-product.jpg')}}"  onerror="this.onerror=null; this.src='{{ asset('home-page/images/default-product.jpg') }}';"
                              />
     
                     </div>
@@ -79,7 +79,7 @@
                                     <a href="{{ route('categories.show', ['category_link' => $children_links]) }}"
                                         class="p-1 w-full ">
                                         <img class="rounded-[10px]" src="{{ $child->image->url ?? asset('home-page/images/default-product.jpg') }}"
-                                            loading="lazy" alt="category">
+                                            loading="lazy" alt="دسته {{ $child->name }} ">
                                     </a>
                                     <div class="w-full flex flex-col justify-center items-center gap-3">
                                         <a href="{{ route('categories.show', ['category_link' => $children_links]) }}"

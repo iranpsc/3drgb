@@ -7,7 +7,7 @@
 <div>
     <main>
         <section>
-            <div class="bg-[#000BEEF7] dark:bg-black w-full py-[10px] text-white text-sm hidden lg:block px-5" style="font-family: rokh">
+            <div class="bg-[#000BEEF7] dark:bg-[#E59819] w-full py-[10px] text-white text-sm hidden lg:block px-5" style="font-family: rokh">
                 <div class="flex items-center justify-between max-w-[1500px] mx-auto">
                     <div>
                         <a href="#" class="px-4">قوانین و مجوزات</a>
@@ -16,13 +16,13 @@
                     </div>
                     <div class="flex gap-4">
                         <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (1).png"
-                                    alt=""></a></div>
-                        <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy"><img
-                                    src="https://3d.irpsc.com/home-page/images/Union (2).png" alt=""></a></div>
+                                    alt="telegram"></a></div>
+                        <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy" ><img
+                                    src="https://3d.irpsc.com/home-page/images/Union (2).png" alt="instagram"></a></div>
                         <div><a href="whatsapp://send?text=http://+989337850551"><img
-                                    src="https://3d.irpsc.com/home-page/images/Union (3).png" alt=""></a></div>
+                                    src="https://3d.irpsc.com/home-page/images/Union (3).png" alt="whatsapp"></a></div>
                         <div><a href="mailto:dmeta.irpsc@gmail.com"><img
-                                    src="https://3d.irpsc.com/home-page/images/Union (4).png" alt=""></a></div>
+                                    src="https://3d.irpsc.com/home-page/images/Union (4).png" alt="email"></a></div>
                     </div>
                 </div>
             </div>
@@ -92,14 +92,14 @@
                     </div>
                     <div class="flex flex-col gap-3">
                         <span class="multi-range">
-                            <input type="range" min="0" max="10000000" value="0" step="1" id="minPrice" wire:model.live.debounce.500ms="price_filter.min">
-                            <input type="range" min="0" max="9000000" value="479900" step="1" id="maxPrice" wire:model.live.debounce.500ms="price_filter.max">
+                            <input type="range" min="0" max="10000000" value="0" step="1" name="minprice" id="minPrice" wire:model.live.debounce.500ms="price_filter.min">
+                            <input type="range" min="0" max="9000000" value="479900" step="1" name="maxprice" id="maxPrice" wire:model.live.debounce.500ms="price_filter.max">
                         </span>
                     </div>
                     <div class="flex items-center gap-3">
-                        <p id="priceFilterMin">{{ $price_filter['min'] }} تومان</p>
+                        <label for="minprice" id="priceFilterMin">{{ $price_filter['min'] }} تومان</label>
                         <hr class="border w-10">
-                        <p id="priceFilterMax">{{ $price_filter['max'] }} تومان</p>
+                        <label for="maxprice" id="priceFilterMax">{{ $price_filter['max'] }} تومان</label>
                     </div>
                 </div>
                 <div
@@ -120,23 +120,18 @@
             </div>
             <div class="w-full lg:w-3/4 space-y-5 p-5" id="products-list">
                 <div class="flex flex-col-reverse lg:flex-row gap-6">
-                    <nav role="tablist" class="flex items-center gap-6 w-[100%] lg:w-[70%] scrollbar overflow-y-hidenn overflow-x-auto " style="height: 55px;">
+                    <nav role="tablist" class="flex items-center gap-6 w-[100%] lg:w-[70%] scrollbar overflow-y-hidden overflow-x-auto" style="height: 55px;">
                         <div class="font-bold dark:text-white w-max">
                             <p class="w-max hidden lg:block">مرتب سازی :</p>
                         </div>
                         <button onclick="fillterContainerMobile()"
-                            class=" lg:hidden px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383]   items-center  whitespace-nowrap  dark:text-white dark:bg-[#001448]  bg-white flex  gap-3">
+                            class="lg:hidden px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383] items-center whitespace-nowrap dark:text-white dark:bg-[#001448] bg-white flex gap-3">
                             <p>فیلتر</p>
-                            <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 4.5H4" class="dark:stroke-white" stroke="#141B34" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M1 14.5H7" class="dark:stroke-white" stroke="#141B34" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M16 14.5H19" class="dark:stroke-white" stroke="#141B34" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M13 4.5H19" class="dark:stroke-white" stroke="#141B34" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
+                            <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 4.5H4" class="dark:stroke-white" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M1 14.5H7" class="dark:stroke-white" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M16 14.5H19" class="dark:stroke-white" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M13 4.5H19" class="dark:stroke-white" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                 <path class="dark:stroke-white"
                                     d="M4 4.5C4 3.56812 4 3.10218 4.15224 2.73463C4.35523 2.24458 4.74458 1.85523 5.23463 1.65224C5.60218 1.5 6.06812 1.5 7 1.5C7.93188 1.5 8.3978 1.5 8.7654 1.65224C9.2554 1.85523 9.6448 2.24458 9.8478 2.73463C10 3.10218 10 3.56812 10 4.5C10 5.43188 10 5.89782 9.8478 6.26537C9.6448 6.75542 9.2554 7.14477 8.7654 7.34776C8.3978 7.5 7.93188 7.5 7 7.5C6.06812 7.5 5.60218 7.5 5.23463 7.34776C4.74458 7.14477 4.35523 6.75542 4.15224 6.26537C4 5.89782 4 5.43188 4 4.5Z"
                                     stroke="#141B34" stroke-width="1.5" />
@@ -145,27 +140,24 @@
                                     stroke="#141B34" stroke-width="1.5" />
                             </svg>
                         </button>
-                        <div role="tab">
-                            <a class="nav-link @if ($orderBy['newest']) active @endif  px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383]  items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  text-xs md:text-base"
-                                href="javascript::void(0)" wire:click="sortBy('newest')" role="tab"
-                                aria-controls="ap-overview" aria-selected="false">جدید ترین</a>
-                        </div>
-                        <div role="tab">
-                            <a class="nav-link @if ($orderBy['most-sales']) active @endif   px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383]  items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  text-xs md:text-base"
-                                href="javascript::void(0)" wire:click="sortBy('most-sales')" role="tab"
-                                aria-controls="draft" aria-selected="false">پر فروش ترین</a>
-                        </div>
-                        <div role="tab">
-                            <a class="nav-link @if ($orderBy['most-expensive']) active @endif   px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383]  items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  text-xs md:text-base"
-                                href="javascript::void(0)" wire:click="sortBy('most-expensive')" role="tab"
-                                aria-controls="activity" aria-selected="false">گرانترین</a>
-                        </div>
-                        <div role="tab">
-                            <a class="nav-link @if ($orderBy['cheapest']) active @endif   px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383]  items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1]  text-xs md:text-base"
-                                href="javascript::void(0)" wire:click="sortBy('cheapest')" role="tab"
-                                aria-controls="timeline" aria-selected="false">ارزان ترین</a>
-                        </div>
+                        <a class="nav-link @if ($orderBy['newest']) active @endif px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383] items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1] text-xs md:text-base"
+                           href="javascript::void(0)" wire:click="sortBy('newest')" role="tab" aria-selected="true">
+                            جدید ترین
+                        </a>
+                        <a class="nav-link @if ($orderBy['most-sales']) active @endif px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383] items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1] text-xs md:text-base"
+                           href="javascript::void(0)" wire:click="sortBy('most-sales')" role="tab" aria-selected="false">
+                            پر فروش ترین
+                        </a>
+                        <a class="nav-link @if ($orderBy['most-expensive']) active @endif px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383] items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1] text-xs md:text-base"
+                           href="javascript::void(0)" wire:click="sortBy('most-expensive')" role="tab" aria-selected="false">
+                            گرانترین
+                        </a>
+                        <a class="nav-link @if ($orderBy['cheapest']) active @endif px-3 rounded-full py-1 transition-[5s] duration-500 text-[#848383] items-center gap-2 whitespace-nowrap text-black/30 dark:text-[#D1D1D1] text-xs md:text-base"
+                           href="javascript::void(0)" wire:click="sortBy('cheapest')" role="tab" aria-selected="false">
+                            ارزان ترین
+                        </a>
                     </nav>
+                    
 
                     <div class="flex gap-5 relative w-full lg:w-[30%]">
 

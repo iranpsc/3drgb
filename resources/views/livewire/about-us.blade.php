@@ -51,7 +51,7 @@
 <div>
     <main>
         <section>
-            <div class="bg-[#000BEEF7] dark:bg-black w-full py-[10px] text-white text-sm hidden lg:block px-5" style="font-family: rokh">
+            <div class="bg-[#000BEEF7] dark:bg-[#E59819] w-full py-[10px] text-white text-sm hidden lg:block px-5" style="font-family: rokh">
                 <div class="flex items-center justify-between max-w-[1500px] mx-auto">
                     <div>
                         <a href="#" class="px-4">قوانین و مجوزات</a>
@@ -60,13 +60,13 @@
                     </div>
                     <div class="flex gap-4">
                         <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (1).png"
-                                    alt=""></a></div>
-                        <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy"><img src="https://3d.irpsc.com/home-page/images/Union (2).png"
-                                    alt=""></a></div>
-                        <div><a href="whatsapp://send?text=http://+989337850551"><img src="https://3d.irpsc.com/home-page/images/Union (3).png"
-                                    alt=""></a></div>
-                        <div><a href="mailto:dmeta.irpsc@gmail.com"><img src="https://3d.irpsc.com/home-page/images/Union (4).png"
-                                    alt=""></a></div>
+                                    alt="telegram"></a></div>
+                        <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy" ><img
+                                    src="https://3d.irpsc.com/home-page/images/Union (2).png" alt="instagram"></a></div>
+                        <div><a href="whatsapp://send?text=http://+989337850551"><img
+                                    src="https://3d.irpsc.com/home-page/images/Union (3).png" alt="whatsapp"></a></div>
+                        <div><a href="mailto:dmeta.irpsc@gmail.com"><img
+                                    src="https://3d.irpsc.com/home-page/images/Union (4).png" alt="email"></a></div>
                     </div>
                 </div>
             </div>

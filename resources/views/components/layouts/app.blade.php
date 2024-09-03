@@ -224,7 +224,7 @@
                             <!-- start close btn nav -->
                             <div>
                                 <div id="close-nav-btn"
-                                    class="bg-slate-200 w-10 h-10 p-3 rounded-full cursor-pointer flex items-center justify-center  "
+                                    class="bg-slate-200 dark:bg-[#010101] w-10 h-10 p-3 rounded-full cursor-pointer flex items-center justify-center  "
                                     onclick="closeNav2()">
                                     <img src="{{ asset('home-page/images/aroowww.svg') }}" alt="arrow"
                                         class="w-[60%] ">
@@ -238,7 +238,7 @@
                                 <li class="flex flex-col gap-4">
                                     <input type="checkbox" id="c1" class="peer" />
                                     <label
-                                        class="px-[20px] py-4 w-full rounded-[10px] bg-[#EFEFEF] text-[#282828]  font-bold dark:bg-black dark:text-white  peer-checked:[&>div>svg]:rotate-180 transition-[3s] flex  items-center"
+                                        class="px-[20px] py-4 w-full rounded-[10px] peer-checked:bg-[#EFEFEF] text-[#282828]  font-bold peer-checked:dark:bg-black dark:text-white  peer-checked:[&>div>svg]:rotate-180 peer-checked:[&>div>svg>path]:stroke-black peer-checked:[&>div>svg>path]:dark:stroke-white transition-[3s] flex  items-center"
                                         for="c1">
                                         <div class="flex w-full items-center justify-between gap-5">
                                             <div class="flex items-center gap-4">
@@ -253,8 +253,8 @@
                                             </div>
                                             <svg class="transition-[5s] duration-300" width="15" height="9"
                                                 viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path class="dark:stroke-white" d="M14 1L7.5 7.5L1 0.999999"
-                                                    stroke="black" stroke-width="2" stroke-linecap="round"
+                                                <path class="dark:stroke-gray-500 stroke-gray-400" d="M14 1L7.5 7.5L1 0.999999"
+                                                     stroke-width="2" stroke-linecap="round"
                                                     stroke-linejoin="round" />
                                             </svg>
                                         </div>

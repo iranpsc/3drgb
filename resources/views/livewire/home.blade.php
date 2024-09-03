@@ -161,7 +161,7 @@
                                             class="bg-white dark:bg-[#1A1A18] p-3 pb-7  w-[160px] md:w-[190px] flex flex-col overflow-hidden rounded-[20px] justify-center items-center gap-7 text-center">
                                             <div class="w-full ">
                                                 <img src="{{ asset($category->image->url ?? asset('home-page/images/default-product.jpg')) }}" loading="lazy"
-                                                    alt="{{ $category->name }}" class="w-full rounded-xl">
+                                                    alt="دسته {{ $category->name }}" class="w-full rounded-xl">
                                             </div>
                                             <div>
                                                 <p
