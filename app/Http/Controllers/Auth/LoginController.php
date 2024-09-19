@@ -35,7 +35,7 @@ class LoginController extends Controller
 
         $url = config('app.oauth_server_url') . '/oauth/authorize?' . $query;
 
-        return redirect($url);
+        return redirect()->away($url);
     }
 
     /**
