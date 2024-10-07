@@ -1,12 +1,15 @@
 <div>
-    <button onclick="openAvatarCreator()">Create Avatar</button>
+    <div class="flex flex-col items-center bg-gray-200 gap-3">
+        <button class="bg-primery-blue rounded" onclick="openAvatarCreator()">Create Avatar</button>
+        <p>Click the link below to view your avatar:</p>
+  <a id="avatar-link" href="#" target="_blank" style="display:none;">View Avatar</a>
+    </div>
 
   <!-- ایجاد یک iframe برای نمایش Ready Player Me -->
-  <iframe id="rpm-frame" style="width: 100%; height: 600px; display:none;" allow="camera *; microphone *"></iframe>
+  <iframe id="rpm-frame" class="w-full h-[93.5vh]" allow="camera *; microphone *"></iframe>
 
   <!-- لینک برای نمایش URL آواتار -->
-  <p>Click the link below to view your avatar:</p>
-  <a id="avatar-link" href="#" target="_blank" style="display:none;">View Avatar</a>
+  
 
   <script>
     const frame = document.getElementById('rpm-frame');
