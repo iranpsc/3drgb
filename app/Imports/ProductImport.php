@@ -61,9 +61,9 @@ class ProductImport implements ToArray, WithChunkReading, ShouldQueue
 
             $category = \App\Models\Category::firstOrCreate([
                 'name' => $category,
+                'parent_id' => $parent_id
             ], [
                 'slug' => str_replace(' ', '-', $category),
-                'parent_id' => $parent_id
             ]);
 
             $categoriesIds[] = $category->id;
