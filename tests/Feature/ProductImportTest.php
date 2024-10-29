@@ -24,21 +24,25 @@ class ProductImportTest extends TestCase
     }
 
     public function testImportProductArray()
-    {
-        $data = [
-            ['sku', 'name', 'published', 'short_description', 'long_description', 'stock_status', 'quantity', 'delivery_time', 'customer_can_add_review', 'sale_price', 'price', 'categories', 'tags', 'images', 'file'],
-            ['SKU123', 'Test Product', true, 'Short desc', 'Long desc', 1, 10, 2, true, 100, 150, 'Category1,Category2', 'Tag1,Tag2', 'image1.jpg,image2.jpg', 'file1.pdf']
-        ];
+{
+    $data = [
+        ['sku', 'name', 'published', 'short_description', 'long_description', 'stock_status', 'quantity', 'delivery_time', 'customer_can_add_review', 'sale_price', 'price', 'categories', 'tags', 'images', 'file'],
+        ['SKU123', 'Test Product', true, 'Short desc', 'Long desc', 1, 10, 2, true, 100, 150, 'Category1,Category2', 'Tag1,Tag2', 'image1.jpg,image2.jpg', 'file1.pdf']
+    ];
 
-        $import = new ProductImport();
-        $import->array($data);
+    $import = new ProductImport();
+    $import->array($data);
 
-        // تأیید ثبت محصول
-        $this->assertDatabaseHas('products', ['sku' => 'SKU123']);
-        $this->assertDatabaseHas('categories', ['name' => 'Category1']);
-        $this->assertDatabaseHas('tags', ['name' => 'Tag1']);
-        $this->assertDatabaseHas('images', ['path' => 'image1.jpg']);
-    }
+    // تأیید ثبت محصول
+    $this->assertDatabaseHas('products', ['sku' => 'SKU123', 'name' => 'Test Product']);
+    $this->assertDatabaseHas('categories', ['name' => 'Category1']);
+    $this->assertDatabaseHas('categories', ['name' => 'Category2']);
+    $this->assertDatabaseHas('tags', ['name' => 'Tag1']);
+    $this->assertDatabaseHas('tags', ['name' => 'Tag2']);
+    $this->assertDatabaseHas('images', ['path' => 'image1.jpg']);
+    $this->assertDatabaseHas('images', ['path' => 'image2.jpg']);
+}
+
 
     public function testCreateCategories()
     {
@@ -130,5 +134,6 @@ class ProductImportTest extends TestCase
         $method->setAccessible(true);
 
         return $method->invokeArgs($object, $parameters);
-    }
+    }   
+    
 }

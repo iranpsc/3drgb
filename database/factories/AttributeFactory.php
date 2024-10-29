@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Ybazli\Faker\Facades\Faker;
+
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Feature>
@@ -18,7 +18,7 @@ class AttributeFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => Faker::word(),
+            'name' => $this->faker->word,
             'slug' => $this->faker->slug,
         ];
     }

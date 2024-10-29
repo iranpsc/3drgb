@@ -30,7 +30,7 @@ class LoginControllerTest extends TestCase
 
         // Build the expected URL with URL encoding
         $expectedUrl = 'https://accounts.irpsc.com/oauth/authorize?' . http_build_query([
-            'client_id' => '17',
+            'client_id' => '19',
             'redirect_uri' => route('auth.callback'),
             'response_type' => 'code',
             'scope' => '',
@@ -50,7 +50,7 @@ class LoginControllerTest extends TestCase
 
         // Set configuration values and initialize session state
         config([
-            'app.oauth_client_id' => env('OAUTH_CLIENT_ID', '17'),
+            'app.oauth_client_id' => env('OAUTH_CLIENT_ID', '19'),
             'app.oauth_server_url' => env('OAUTH_SERVER_URL', 'https://accounts.irpsc.com'),
             'app.oauth_client_secret' => 'test-client-secret',
         ]);
