@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Ybazli\Faker\Facades\Faker;
+
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Product>
@@ -20,10 +20,10 @@ class ProductFactory extends Factory
         return [
             'category_id' => $this->faker->numberBetween(1, 10),
             'sku' => $this->faker->unique()->numberBetween(100000, 999999),
-            'name' => Faker::word(),
+            'name' => $this->faker->word,
             'slug' => $this->faker->slug,
-            'short_description' => Faker::paragraph(),
-            'long_description' => Faker::paragraph(),
+            'short_description' => $this->faker->paragraph(),
+            'long_description' => $this->faker->paragraph(),
             'stock_status' => true,
             'quantity' => $this->faker->numberBetween(1, 100),
             'delivery_time' => $this->faker->numberBetween(1, 10),

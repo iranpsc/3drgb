@@ -164,7 +164,6 @@ return [
          * Package Service Providers...
          */
         Maatwebsite\Excel\ExcelServiceProvider::class,
-        Ybazli\Faker\FakerServiceProvider::class,
 
         /*
          * Application Service Providers...
