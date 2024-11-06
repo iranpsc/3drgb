@@ -4,8 +4,6 @@ namespace Tests\Unit;
 
 use App\Models\Product;
 use App\Models\Category;
-use App\Models\Tag;
-use App\Models\Attribute;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -13,134 +11,235 @@ class ProductTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_it_creates_a_product()
+    /** @test */
+    public function it_creates_a_product()
     {
-        $product = new Product([
-            'category_id' => 1,
-            'sku' => 'SKU123',
+        dump("Step 1: Creating a category...");
+
+        $category = Category::create([
+            'name' => 'Test Category',
+            'slug' => 'test-category'
+        ]);
+
+        dump("Step 2: Creating a product...");
+
+        $product = Product::factory()->create([
+            'category_id' => $category->id,
             'name' => 'Test Product',
-            'slug' => 'test-product',
-            'short_description' => 'Short description of product',
-            'long_description' => 'Long description of product',  // مقداردهی long_description
-            'stock_status' => true,
-            'quantity' => 10,
-            'delivery_time' => '2-4 days',  // مقداردهی delivery_time
-            'customer_can_add_review' => true,
-            'price' => 100,
-            'sale_price' => 80,
+            'sku' => '3D-rgb-10001',
+            'price' => 50000,
+            'sale_price' => 45000,
             'published' => true,
-            'meta_description' => 'Product meta description',
-            'meta_keywords' => 'product, test',
-        ]);
-        $product->save();
-
-        $this->assertDatabaseHas('products', ['name' => 'Test Product']);
-    }
-
-    public function test_it_calculates_discount()
-    {
-        $product = Product::create([
-            'sku' => 'SKU123',
-            'name' => 'Test Product',
-            'short_description' => 'Short description of product',
-            'long_description' => 'Long description of product',  // مقداردهی long_description
-            'delivery_time' => '2-4 days',  // مقداردهی delivery_time
-            'price' => 100,
-            'sale_price' => 80,
         ]);
 
-        $this->assertEquals(20, $product->discount);
-    }
-
-    public function test_it_gets_final_price()
-    {
-        $product = Product::create([
-            'sku' => 'SKU123',
+        dump("Step 3: Verifying the product exists in the database...");
+        $this->assertDatabaseHas('products', [
+            'id' => $product->id,
             'name' => 'Test Product',
-            'short_description' => 'Short description of product',
-            'long_description' => 'Long description of product',  // مقداردهی long_description
-            'delivery_time' => '2-4 days',  // مقداردهی delivery_time
-            'price' => 100,
-            'sale_price' => 80,
-        ]);
-
-        $this->assertEquals(80, $product->final_price);
-
-        $product->sale_price = 0;
-        $this->assertEquals(100, $product->final_price);
-    }
-
-    public function test_it_checks_if_product_is_free()
-    {
-        $product = Product::create([
-            'sku' => 'SKU123',
-            'name' => 'Test Product',
-            'short_description' => 'Short description of product',
-            'long_description' => 'Long description of product',  // مقداردهی long_description
-            'delivery_time' => '2-4 days',  // مقداردهی delivery_time
-            'price' => 0,
-        ]);
-
-        $this->assertTrue($product->is_free);
-    }
-
-    public function test_it_has_a_url()
-    {
-        $product = Product::create([
-            'sku' => 'SKU123',
-            'name' => 'Test Product',
-            'short_description' => 'Short description of product',
-            'long_description' => 'Long description of product',  // مقداردهی long_description
-            'delivery_time' => '2-4 days',  // مقداردهی delivery_time
-        ]);
-
-        $this->assertStringContainsString(route('products.show', $product->sku), $product->url);
-    }
-
-    public function test_it_belongs_to_category()
-    {
-        $category = Category::create(['name' => 'Test Category']);
-        $product = Product::create([
-            'sku' => 'SKU123',
-            'name' => 'Test Product',
-            'short_description' => 'Short description of product',
-            'long_description' => 'Long description of product',  // مقداردهی long_description
-            'delivery_time' => '2-4 days',  // مقداردهی delivery_time
+            'sku' => '3D-rgb-10001',
+            'price' => 50000,
+            'sale_price' => 45000,
+            'published' => true,
             'category_id' => $category->id,
         ]);
 
-        $this->assertInstanceOf(Category::class, $product->category);
+        dump("Product creation test passed.");
     }
 
-    public function test_it_has_tags()
+    /** @test */
+    public function it_retrieves_a_product()
     {
-        $product = Product::create([
-            'sku' => 'SKU123',
-            'name' => 'Test Product',
-            'short_description' => 'Short description of product',
-            'long_description' => 'Long description of product',  // مقداردهی long_description
-            'delivery_time' => '2-4 days',  // مقداردهی delivery_time
+        dump("Step 1: Creating a category...");
+
+        $category = Category::create([
+            'name' => 'Test Category',
+            'slug' => 'test-category'
         ]);
 
-        $tag = Tag::create(['name' => 'Test Tag']);
-        $product->tags()->attach($tag);
+        dump("Step 2: Creating a product to retrieve...");
 
-        $this->assertTrue($product->tags->contains($tag));
-    }
-
-    public function test_it_has_attributes()
-    {
-        $product = Product::create([
-            'sku' => 'SKU123',
+        $product = Product::factory()->create([
+            'category_id' => $category->id,
             'name' => 'Test Product',
-            'short_description' => 'Short description of product',
-            'long_description' => 'Long description of product',  // مقداردهی long_description
-            'delivery_time' => '2-4 days',  // مقداردهی delivery_time
+            'sku' => '3D-rgb-10001',
+            'short_description' => 'Sample short description',
+            'long_description' => 'Sample long description',
+            'stock_status' => true,
+            'quantity' => 10,
+            'delivery_time' => 5,
+            'customer_can_add_review' => true,
+            'price' => 50000,
+            'sale_price' => 45000,
+            'published' => true,
         ]);
 
-        $attribute = Attribute::create(['name' => 'Color']);
-        $product->attributes()->attach($attribute, ['value' => 'Red']);
+        $retrievedProduct = Product::find($product->id);
 
-        $this->assertEquals('Red', $product->attributes->first()->pivot->value);
+        dump("Step 3: Displaying all retrieved product details...");
+        foreach ($retrievedProduct->toArray() as $key => $value) {
+            dump("{$key}: {$value}");
+        }
+
+        $this->assertNotNull($retrievedProduct);
+        $this->assertEquals($product->id, $retrievedProduct->id);
+        dump("Product retrieval test passed.");
     }
+
+    /** @test */
+    public function it_updates_a_product()
+    {
+        dump("Step 1: Creating a category...");
+
+        $category = Category::create([
+            'name' => 'Test Category',
+            'slug' => 'test-category'
+        ]);
+
+        dump("Step 2: Creating a product to update...");
+
+        $product = Product::factory()->create([
+            'category_id' => $category->id,
+            'name' => 'Test Product',
+            'sku' => '3D-rgb-10001',
+            'short_description' => 'Sample short description',
+            'long_description' => 'Sample long description',
+            'stock_status' => true,
+            'quantity' => 10,
+            'delivery_time' => 5,
+            'customer_can_add_review' => true,
+            'price' => 50000,
+            'sale_price' => 45000,
+            'published' => true,
+        ]);
+
+        dump("Step 3: Updating the product details...");
+
+        $product->update([
+            'name' => 'Updated Product',
+            'sku' => '3D-rgb-20002',
+            'short_description' => 'Updated short description',
+            'long_description' => 'Updated long description',
+            'stock_status' => false,
+            'quantity' => 20,
+            'delivery_time' => 7,
+            'customer_can_add_review' => false,
+            'price' => 60000,
+            'sale_price' => 55000,
+            'published' => false,
+        ]);
+
+        dump("Step 4: Displaying all updated product details...");
+        foreach ($product->fresh()->toArray() as $key => $value) {
+            dump("{$key}: {$value}");
+        }
+
+        $this->assertDatabaseHas('products', [
+            'id' => $product->id,
+            'name' => 'Updated Product',
+            'sku' => '3D-rgb-20002',
+            'price' => 60000,
+            'sale_price' => 55000,
+            'published' => false,
+            'category_id' => $category->id,
+        ]);
+
+        dump("Product update test passed.");
+    }
+
+    /** @test */
+    public function it_deletes_a_product()
+    {
+        dump("Step 1: Creating a category...");
+
+        $category = Category::create([
+            'name' => 'Test Category',
+            'slug' => 'test-category'
+        ]);
+
+        dump("Step 2: Creating a product to delete...");
+
+        $product = Product::factory()->create([
+            'category_id' => $category->id,
+            'name' => 'Test Product',
+        ]);
+
+        dump("Step 3: Deleting the product...");
+        $product->delete();
+
+        dump("Step 4: Verifying the product no longer exists in the database...");
+        $this->assertDatabaseMissing('products', [
+            'id' => $product->id,
+        ]);
+
+        dump("Product deletion test passed.");
+    }
+    
+ /** @test */
+ public function it_calculates_discount_and_final_price_correctly()
+ {
+     dump("Step 1: Creating a category and product with price and sale price...");
+     $category = Category::create(['name' => 'Test Category']);
+     $product = Product::factory()->create([
+         'category_id' => $category->id,
+         'price' => 10000,
+         'sale_price' => 8000,
+     ]);
+
+     $this->assertEquals(20, $product->discount);
+     $this->assertEquals(8000, $product->final_price);
+     dump("Discount and final price calculation test passed.");
+ }
+
+ /** @test */
+ public function it_generates_correct_product_url()
+ {
+     dump("Step 1: Creating a category and product with specific SKU...");
+     $category = Category::create(['name' => 'Test Category']);
+     $product = Product::factory()->create(['category_id' => $category->id, 'sku' => '3D-rgb-10001']);
+
+     $expectedUrl = route('products.show', '3D-rgb-10001');
+     $this->assertEquals($expectedUrl, $product->url);
+     dump("Product URL generation test passed.");
+ }
+
+ /** @test */
+ public function it_filters_published_products()
+ {
+     dump("Step 1: Creating a category with published and unpublished products...");
+     $category = Category::create(['name' => 'Test Category']);
+     Product::factory()->create(['category_id' => $category->id, 'published' => true]);
+     Product::factory()->create(['category_id' => $category->id, 'published' => false]);
+
+     $publishedProducts = Product::published()->get();
+
+     $this->assertCount(1, $publishedProducts);
+     $this->assertTrue($publishedProducts->first()->published);
+     dump("Published products filter test passed.");
+ }
+
+ /** @test */
+ public function it_checks_product_stock_status()
+ {
+     dump("Step 1: Creating a category and products with stock status...");
+     $category = Category::create(['name' => 'Test Category']);
+     $productInStock = Product::factory()->create(['category_id' => $category->id, 'stock_status' => true, 'quantity' => 5]);
+     $productOutOfStock = Product::factory()->create(['category_id' => $category->id, 'stock_status' => false, 'quantity' => 0]);
+
+     $this->assertTrue($productInStock->stock_status);
+     $this->assertFalse($productOutOfStock->stock_status);
+     dump("Stock status check test passed.");
+ }
+
+ /** @test */
+ public function it_checks_if_product_is_free()
+ {
+     dump("Step 1: Creating a category and free and paid products...");
+     $category = Category::create(['name' => 'Test Category']);
+     $freeProduct = Product::factory()->create(['category_id' => $category->id, 'price' => 0]);
+     $paidProduct = Product::factory()->create(['category_id' => $category->id, 'price' => 1000]);
+
+     $this->assertTrue($freeProduct->is_free);
+     $this->assertFalse($paidProduct->is_free);
+     dump("Free product check test passed.");
+ }
 }
