@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Feature;
 
 use App\Models\Product;
 use App\Models\Category;
@@ -173,7 +173,7 @@ class ProductTest extends TestCase
 
         dump("Product deletion test passed.");
     }
-    
+
  /** @test */
  public function it_calculates_discount_and_final_price_correctly()
  {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Feature;
 
 use App\Imports\ProductImport;
 use App\Models\Product;
@@ -72,7 +72,7 @@ class ProductImportTest extends TestCase
     {
         $product = Product::factory()->create(['category_id' => Category::inRandomOrder()->first()->id]);
         $tags = ['Tag1', 'Tag2'];
-        
+
         $import = new ProductImport();
         $tagIds = $this->invokeMethod($import, 'createTags', [$tags]);
         $this->invokeMethod($import, 'syncTags', [$product, $tagIds]);
@@ -134,6 +134,6 @@ class ProductImportTest extends TestCase
         $method->setAccessible(true);
 
         return $method->invokeArgs($object, $parameters);
-    }   
-    
+    }
+
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Feature;
 
 use App\Models\Category;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -128,130 +128,130 @@ class CategoryTest extends TestCase
         $this->assertEquals($expectedBreadcrumb, $childCategory->breadcrumb);
         dump("Breadcrumb generation test passed.");
     }
-      /** @test */
-      public function it_creates_a_parent_category_with_subcategories()
-      {
-          dump("Step 1: Creating a parent category...");
-          $parentCategory = Category::create([
-              'name' => 'Parent Category',
-              'slug' => 'parent-category',
-              'description' => 'This is a parent category.',
-          ]);
-  
-          dump("Step 2: Creating a subcategory under the parent category...");
-          $subCategory = Category::create([
-              'name' => 'Subcategory',
-              'slug' => 'subcategory',
-              'description' => 'This is a subcategory.',
-              'parent_id' => $parentCategory->id,
-          ]);
-  
-          dump("Step 3: Verifying the subcategory exists in the parent category...");
-          $this->assertTrue($parentCategory->children->contains($subCategory));
-          dump("Parent category with subcategory creation test passed.");
-      }
-  
-      /** @test */
-      public function it_retrieves_subcategories_for_a_parent_category()
-      {
-          dump("Step 1: Creating a parent category with multiple subcategories...");
-          $parentCategory = Category::create([
-              'name' => 'Parent Category',
-              'slug' => 'parent-category',
-              'description' => 'This is a parent category.',
-          ]);
-  
-          $subCategory1 = Category::create([
-              'name' => 'Subcategory 1',
-              'slug' => 'subcategory-1',
-              'description' => 'This is the first subcategory.',
-              'parent_id' => $parentCategory->id,
-          ]);
-  
-          $subCategory2 = Category::create([
-              'name' => 'Subcategory 2',
-              'slug' => 'subcategory-2',
-              'description' => 'This is the second subcategory.',
-              'parent_id' => $parentCategory->id,
-          ]);
-  
-          dump("Step 2: Retrieving subcategories for the parent category...");
-          $subCategories = $parentCategory->children;
-  
-          $this->assertCount(2, $subCategories);
-          $this->assertTrue($subCategories->contains($subCategory1));
-          $this->assertTrue($subCategories->contains($subCategory2));
-          dump("Subcategory retrieval for parent category test passed.");
-      }
-  
-      /** @test */
-      public function it_generates_correct_url_and_breadcrumb_for_subcategories()
-      {
-          dump("Step 1: Creating a parent category and a subcategory...");
-          $parentCategory = Category::create([
-              'name' => 'Parent Category',
-              'slug' => 'parent-category',
-              'description' => 'This is a parent category.',
-          ]);
-  
-          $subCategory = Category::create([
-              'name' => 'Subcategory',
-              'slug' => 'subcategory',
-              'description' => 'This is a subcategory.',
-              'parent_id' => $parentCategory->id,
-          ]);
-  
-          dump("Step 2: Verifying URL generation for the subcategory...");
-          $expectedUrl = 'parent-category/subcategory';
-          $this->assertEquals($expectedUrl, $subCategory->url);
-  
-          dump("Step 3: Verifying breadcrumb generation for the subcategory...");
-          $expectedBreadcrumb = '<a href="' . url('categories/parent-category') . '">Parent Category</a> / <a href="' . url('categories/parent-category/subcategory') . '">Subcategory</a>';
-          $this->assertEquals($expectedBreadcrumb, $subCategory->breadcrumb);
-  
-          dump("URL and breadcrumb generation for subcategory test passed.");
-      }
-      /** @test */
-public function it_identifies_root_categories_correctly()
-{
-    dump("Creating a root category...");
-    $rootCategory = Category::create([
-        'name' => 'Root Category',
-        'slug' => 'root-category',
-        'description' => 'This is a root category.',
-    ]);
+    /** @test */
+    public function it_creates_a_parent_category_with_subcategories()
+    {
+        dump("Step 1: Creating a parent category...");
+        $parentCategory = Category::create([
+            'name' => 'Parent Category',
+            'slug' => 'parent-category',
+            'description' => 'This is a parent category.',
+        ]);
 
-    dump("Checking that root category has no parent...");
-    $this->assertNull($rootCategory->parent_id);
-    $this->assertNull($rootCategory->parent);
-    dump("Root category identification test passed.");
-}
+        dump("Step 2: Creating a subcategory under the parent category...");
+        $subCategory = Category::create([
+            'name' => 'Subcategory',
+            'slug' => 'subcategory',
+            'description' => 'This is a subcategory.',
+            'parent_id' => $parentCategory->id,
+        ]);
 
-/** @test */
-public function it_updates_parent_and_regenerates_url_breadcrumb()
-{
-    dump("Creating initial parent category...");
-    $initialParent = Category::create(['name' => 'Initial Parent', 'slug' => 'initial-parent']);
-    
-    dump("Creating a category with initial parent...");
-    $childCategory = Category::create([
-        'name' => 'Child Category',
-        'slug' => 'child-category',
-        'parent_id' => $initialParent->id,
-    ]);
+        dump("Step 3: Verifying the subcategory exists in the parent category...");
+        $this->assertTrue($parentCategory->children->contains($subCategory));
+        dump("Parent category with subcategory creation test passed.");
+    }
 
-    dump("Creating new parent category...");
-    $newParent = Category::create(['name' => 'New Parent', 'slug' => 'new-parent']);
-    
-    dump("Updating the parent of child category...");
-    $childCategory->update(['parent_id' => $newParent->id]);
+    /** @test */
+    public function it_retrieves_subcategories_for_a_parent_category()
+    {
+        dump("Step 1: Creating a parent category with multiple subcategories...");
+        $parentCategory = Category::create([
+            'name' => 'Parent Category',
+            'slug' => 'parent-category',
+            'description' => 'This is a parent category.',
+        ]);
 
-    dump("Verifying updated URL and breadcrumb...");
-    $expectedUrl = 'new-parent/child-category';
-    $expectedBreadcrumb = '<a href="' . url('categories/new-parent') . '">New Parent</a> / <a href="' . url('categories/new-parent/child-category') . '">Child Category</a>';
+        $subCategory1 = Category::create([
+            'name' => 'Subcategory 1',
+            'slug' => 'subcategory-1',
+            'description' => 'This is the first subcategory.',
+            'parent_id' => $parentCategory->id,
+        ]);
 
-    $this->assertEquals($expectedUrl, $childCategory->url);
-    $this->assertEquals($expectedBreadcrumb, $childCategory->breadcrumb);
-    dump("Parent update and regeneration test passed.");
-}
+        $subCategory2 = Category::create([
+            'name' => 'Subcategory 2',
+            'slug' => 'subcategory-2',
+            'description' => 'This is the second subcategory.',
+            'parent_id' => $parentCategory->id,
+        ]);
+
+        dump("Step 2: Retrieving subcategories for the parent category...");
+        $subCategories = $parentCategory->children;
+
+        $this->assertCount(2, $subCategories);
+        $this->assertTrue($subCategories->contains($subCategory1));
+        $this->assertTrue($subCategories->contains($subCategory2));
+        dump("Subcategory retrieval for parent category test passed.");
+    }
+
+    /** @test */
+    public function it_generates_correct_url_and_breadcrumb_for_subcategories()
+    {
+        dump("Step 1: Creating a parent category and a subcategory...");
+        $parentCategory = Category::create([
+            'name' => 'Parent Category',
+            'slug' => 'parent-category',
+            'description' => 'This is a parent category.',
+        ]);
+
+        $subCategory = Category::create([
+            'name' => 'Subcategory',
+            'slug' => 'subcategory',
+            'description' => 'This is a subcategory.',
+            'parent_id' => $parentCategory->id,
+        ]);
+
+        dump("Step 2: Verifying URL generation for the subcategory...");
+        $expectedUrl = 'parent-category/subcategory';
+        $this->assertEquals($expectedUrl, $subCategory->url);
+
+        dump("Step 3: Verifying breadcrumb generation for the subcategory...");
+        $expectedBreadcrumb = '<a href="' . url('categories/parent-category') . '">Parent Category</a> / <a href="' . url('categories/parent-category/subcategory') . '">Subcategory</a>';
+        $this->assertEquals($expectedBreadcrumb, $subCategory->breadcrumb);
+
+        dump("URL and breadcrumb generation for subcategory test passed.");
+    }
+    /** @test */
+    public function it_identifies_root_categories_correctly()
+    {
+        dump("Creating a root category...");
+        $rootCategory = Category::create([
+            'name' => 'Root Category',
+            'slug' => 'root-category',
+            'description' => 'This is a root category.',
+        ]);
+
+        dump("Checking that root category has no parent...");
+        $this->assertNull($rootCategory->parent_id);
+        $this->assertNull($rootCategory->parent);
+        dump("Root category identification test passed.");
+    }
+
+    /** @test */
+    public function it_updates_parent_and_regenerates_url_breadcrumb()
+    {
+        dump("Creating initial parent category...");
+        $initialParent = Category::create(['name' => 'Initial Parent', 'slug' => 'initial-parent']);
+
+        dump("Creating a category with initial parent...");
+        $childCategory = Category::create([
+            'name' => 'Child Category',
+            'slug' => 'child-category',
+            'parent_id' => $initialParent->id,
+        ]);
+
+        dump("Creating new parent category...");
+        $newParent = Category::create(['name' => 'New Parent', 'slug' => 'new-parent']);
+
+        dump("Updating the parent of child category...");
+        $childCategory->update(['parent_id' => $newParent->id]);
+
+        dump("Verifying updated URL and breadcrumb...");
+        $expectedUrl = 'new-parent/child-category';
+        $expectedBreadcrumb = '<a href="' . url('categories/new-parent') . '">New Parent</a> / <a href="' . url('categories/new-parent/child-category') . '">Child Category</a>';
+
+        $this->assertEquals($expectedUrl, $childCategory->url);
+        $this->assertEquals($expectedBreadcrumb, $childCategory->breadcrumb);
+        dump("Parent update and regeneration test passed.");
+    }
 }

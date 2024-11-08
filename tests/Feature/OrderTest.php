@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Feature;
 
 use App\Models\File;
 use App\Models\Order;
@@ -210,7 +210,7 @@ public function it_can_download_a_product_file()
         'size' => 1024
     ]);
 
- 
+
     Storage::disk('local')->put($file->path, 'Dummy content for testing');
 
     dump("Step 3: Creating an order and linking the product...");

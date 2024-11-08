@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Auth;
+namespace Tests\Feature;
 
 use Tests\TestCase;
 use Illuminate\Support\Str;
