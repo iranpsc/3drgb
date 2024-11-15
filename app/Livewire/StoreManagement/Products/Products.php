@@ -20,7 +20,8 @@ class Products extends Component
         $this->resetPage();
 
         $this->products = Product::where('name', 'like', "%{$this->search}%")
-            ->orderByDesc('sku')
+            ->with('category')
+            ->latest()
             ->paginate(10);
     }
 
@@ -38,7 +39,7 @@ class Products extends Component
     public function render()
     {
         return view('livewire.store-management.products.products', [
-            'products' => $this->products ?? Product::orderByDesc('sku')->paginate(10)
+            'products' => $this->products ?? Product::with('category')->latest()->paginate(10)
         ]);
     }
 }

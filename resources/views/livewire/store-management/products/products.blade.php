@@ -51,7 +51,7 @@
                         </td>
                         <td>
                             <div>
-                                {{ $product->category->name }}
+                                {{ $product->category->name ?? 'بدون دسته بندی' }}
                             </div>
                         </td>
                         <td>

@@ -12,17 +12,18 @@ class ProductCategory extends Component
 
     public $category_link, $category;
 
-    private $products;
-
     public function mount(string $category_link = null)
     {
         $this->category_link = explode('/', $category_link);
         $category = $this->category_link[count($this->category_link) - 1];
 
         $this->category = Category::where('slug', $category)->with('children', 'image')->first();
+    }
 
-        if (count($this->category->children) == 0) {
-            $this->products = $this->category->products()
+    private function getProducts()
+    {
+        if (count($this->category->children ?? []) == 0) {
+            return $this->category->products()
                 ->published()
                 ->withCount('reviews')
                 ->withAvg('reviews as rating_avg', 'rating')
@@ -30,12 +31,14 @@ class ProductCategory extends Component
                 ->latest()
                 ->paginate(16);
         }
+
+        return collect(); // Return an empty collection if there are children
     }
 
     public function render()
     {
         return view('livewire.product-category', [
-            'products' => $this->products,
+            'products' => $this->getProducts(),
         ])->title($this->category->name);
     }
 }

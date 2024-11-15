@@ -27,12 +27,11 @@
                     class="flex gap-1 text-[#828282] p-3 items-center lg:w-[70%] xl:w-[80%] bg-white dark:bg-[#001448] rounded-[10px]">
                     <a href="{{ route('home') }}" class="text-[#828282] !font-medium">خانه</a>
                     <span>/</span>
-                    <a href="#" class="text-[#828282] font-bold">فروشگاه</a>
+                    <a href="#" class="text-[#828282] font-bold">دسته بندی محصولات</a>
                 </div>
                 <div
                     class="flex items-center justify-center lg:w-[30%] xl:w-[20%] bg-white dark:bg-[#001448] rounded-[10px] gap-1 text-[#828282] p-3">
-                    <span>دسته بندی : </span>
-                    <a href="#">آیکون ها</a>
+                    <span>لیست دسته ها</span>
                 </div>
             </div>
             <div class="w-full relative ">
@@ -50,23 +49,26 @@
             <div class="w-full lg:w-3/4 space-y-5 p-5 mx-auto" id="products-list">
                 <div >
                     <div class="grid lg:grid-cols-2 xl:grid-cols-4 gap-5 transition-[5s] duration-500 ">
-                        @forelse ($categories as $category)
-                            <div class=" product">
-                                <div
-                                    class="bg-[#ECF4FE] dark:bg-[#1A1A18] w-full flex flex-col overflow-hidden rounded-[20px]  items-center text-center p-2   duration-500 transition-all">
-                                    <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
-                                        class="p-1 w-full ">
-                                        <img class="rounded-[10px]" src="{{ $category->image->url ?? asset('home-page/images/default-product.jpg') }}" loading="lazy" alt="دسته بندی {{ $category->name }}" onerror="this.onerror=null; this.src='{{ asset('home-page/images/default-product.jpg') }}';" >
-                                    </a>
-                                    <div class="w-full flex flex-col justify-center items-center gap-3">
+                        @if ($categories->isEmpty())
+                            <x-alert type="warning" message="دسته بندی تعریف نشده است." />
+                        @else
+                            @foreach ($categories as $category)
+                                <div class=" product">
+                                    <div
+                                        class="bg-[#ECF4FE] dark:bg-[#1A1A18] w-full flex flex-col overflow-hidden rounded-[20px]  items-center text-center p-2   duration-500 transition-all">
                                         <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
-                                            class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white py-[10px] ">{{ $category->name }}</a>
+                                            class="p-1 w-full ">
+                                            <img class="rounded-[10px]" src="{{ $category->image->url ?? asset('home-page/images/default-product.jpg') }}" loading="lazy" alt="دسته بندی {{ $category->name }}" onerror="this.onerror=null; this.src='{{ asset('home-page/images/default-product.jpg') }}';" >
+                                        </a>
+                                        <div class="w-full flex flex-col justify-center items-center gap-3">
+                                            <a href="{{ route('categories.show', ['category_link' => $category->url]) }}"
+                                                class="font-bold text-sm lg:text-xl text-stone-800 dark:text-white py-[10px] ">{{ $category->name }}</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @empty
-                            <x-alert type="warning" message="هیچ محصولی در این دسته بندی وجود ندارد" />
-                        @endforelse
+                            @endforeach
+                            {{ $categories->links() }}
+                        @endif
                     </div>
                 </div>
             </div>
