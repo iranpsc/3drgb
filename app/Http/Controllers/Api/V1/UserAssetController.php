@@ -179,14 +179,14 @@ class UserAssetController extends Controller
             return Category::where('slug', 'avatar')->first();
         });
 
-        $avatarCategoryChildren = cache()->remember('avatar_category_children', now()->addWeek(), function () use ($avatarCategory) {
-            return $avatarCategory->children()->get();
+        $avatarCategoryIds = cache()->remember('avatar_category_ids', now()->addWeek(), function () use ($avatarCategory) {
+            return $avatarCategory->children()->pluck('id')->push($avatarCategory->id);
         });
 
         $user = request()->user();
 
         if (request()->query('defaults') == true) {
-            $avatars = Product::whereIn('category_id', $avatarCategoryChildren->pluck('id'))
+            $avatars = Product::whereIn('category_id', $avatarCategoryIds)
                 ->with('oldestImage')
                 ->get();
 
@@ -199,7 +199,7 @@ class UserAssetController extends Controller
             });
         } else {
             $avatars = $user->products()
-                ->whereIn('category_id', $avatarCategoryChildren->pluck('id'))
+                ->whereIn('category_id', $avatarCategoryIds)
                 ->with('oldestImage')
                 ->withPivot('quantity')
                 ->orderByPivot('updated_at', 'desc')
