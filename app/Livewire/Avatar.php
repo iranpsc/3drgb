@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Locked;
 use Livewire\Attributes\Title;
-use Illuminate\Support\Facades\Http;
 
 class Avatar extends Component
 {
@@ -68,7 +67,7 @@ class Avatar extends Component
 
     private function downloadFile($url)
     {
-        return Http::get($url)->body();
+        return file_get_contents($url);
     }
 
     private function generateFilename($extension)
