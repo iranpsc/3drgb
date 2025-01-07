@@ -31,8 +31,8 @@ class AuthenticateWithOnceBasic
 
         $response = $response->json();
 
-        $user = Cache::remember('user:' . $response['user']['email'], now()->addDay(), function () use ($response) {
-            return User::where('email', $response['user']['email'])->first();
+        $user = Cache::remember('user:' . $response['email'], now()->addDay(), function () use ($response) {
+            return User::where('email', $response['email'])->first();
         });
 
         Auth::onceUsingId($user->id);
