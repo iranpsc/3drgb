@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Locked;
 use Livewire\Attributes\Title;
+use App\Jobs\DownloadFileJob;
 
 class Avatar extends Component
 {
@@ -36,9 +37,19 @@ class Avatar extends Component
     {
         $this->validate();
 
-        // Download the image and avatar file
-        [$imageContents, $imageExtension] = $this->downloadFile($this->avatarImageURL);
-        [$fileContents, $fileExtension] = $this->downloadFile($this->avatarUrl);
+        $category = $this->getOrCreateCategory('avatar', 'Avatars');
+
+        $product = $this->createProduct($category->id);
+
+        // Dispatch jobs to download the image and avatar file
+        $imageJob = new DownloadFileJob($this->avatarImageURL);
+        $fileJob = new DownloadFileJob($this->avatarUrl);
+
+        $imageJob->handle();
+        $fileJob->handle();
+
+        [$imageContents, $imageExtension] = $imageJob->getFileData();
+        [$fileContents, $fileExtension] = $fileJob->getFileData();
 
         // Generate unique filenames
         $imageFilename = $this->generateFilename($imageExtension);
@@ -47,10 +58,6 @@ class Avatar extends Component
         // Store the files
         $this->storeFile('public/products/' . $imageFilename, $imageContents);
         $this->storeFile('products/' . $fileFilename, $fileContents);
-
-        $category = $this->getOrCreateCategory('avatar', 'Avatars');
-
-        $product = $this->createProduct($category->id);
 
         // Handle chunked file uploads
         $this->createProductImages($product, $imageFilename, $fileFilename);
