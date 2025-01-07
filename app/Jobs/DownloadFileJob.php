@@ -24,6 +24,9 @@ class DownloadFileJob implements ShouldQueue
     {
         $contents = file_get_contents($this->url);
         $extension = pathinfo(parse_url($this->url, PHP_URL_PATH), PATHINFO_EXTENSION);
+        if (empty($extension)) {
+            $extension = 'glb';
+        }
         $this->fileData = [$contents, $extension];
     }
 

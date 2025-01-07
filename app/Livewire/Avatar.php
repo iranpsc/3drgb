@@ -42,8 +42,8 @@ class Avatar extends Component
         $product = $this->createProduct($category->id);
 
         // Dispatch jobs to download the image and avatar file
-        $imageJob = new DownloadFileJob($this->avatarImageURL);
-        $fileJob = new DownloadFileJob($this->avatarUrl);
+        $imageJob = DownloadFileJob::dispatch($this->avatarImageURL);
+        $fileJob = DownloadFileJob::dispatch($this->avatarUrl);
 
         $imageJob->handle();
         $fileJob->handle();
