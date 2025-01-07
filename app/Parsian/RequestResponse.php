@@ -67,7 +67,7 @@ class RequestResponse
     public function url(): string
     {
         if (!$this->success()) {
-            return '';
+            return null;
         }
 
         $url = 'https://pec.shaparak.ir/NewIPG/?Token=';

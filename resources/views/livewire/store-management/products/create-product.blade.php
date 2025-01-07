@@ -1,7 +1,7 @@
 <div>
     @push('styles')
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/select2.min.css') }}">
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/select2.min.css') }}">
     @endpush
     <x-page title="ایجاد محصول">
 
@@ -64,8 +64,7 @@
                         </x-form.select>
 
                         <x-form.text wire:model="form.quantity" name="form.quantity" label="تعداد موجود در انبار" />
-                        <x-form.text wire:model="form.delivery_time" name="form.delivery_time"
-                            label="مدت زمان تحویل" />
+                        <x-form.text wire:model="form.delivery_time" name="form.delivery_time" label="مدت زمان تحویل" />
                     </div>
                 </div>
 
@@ -180,7 +179,6 @@
 </div>
 
 @script
-    
     <script>
         let saveBtn = document.getElementById('save-btn');
         let tags;

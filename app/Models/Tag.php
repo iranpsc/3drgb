@@ -15,7 +15,7 @@ class Tag extends Model implements Sitemapable
 
     /**
      * Get the products for the tag.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function products()

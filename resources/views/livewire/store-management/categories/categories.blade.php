@@ -18,7 +18,7 @@
                     <th>تاریخ ویرایش</th>
                     <th>عملیات</th>
                 </x-slot:header>
-    
+
                 @foreach ($categories as $category)
                     <tr wire:key="{{ $category->id }}">
                         <td>

@@ -221,12 +221,13 @@ class UserAssetController extends Controller
     /**
      * Get the avatar of the user.
      *
+     * @param \Illuminate\Http\Request $request
      * @param int $avatarId
      * @return \Illuminate\Http\JsonResponse
      */
-    public function getAvatar(int $avatarId)
+    public function getAvatar(Request $request, int $avatarId)
     {
-        $user = request()->user();
+        $user = $request->user();
 
         $avatar = $user->products()
             ->where('product_id', $avatarId)

@@ -63,7 +63,7 @@ class FileUploadController extends Controller
         // Group files by mime type
         $mime = str_replace('/', '-', $file->getMimeType());
         // Group files by the date week
-        $dateFolder = date("Y-m-W");
+        $dateFolder = date("Y-m-d");
 
         // Build the file path
         $filePath = "upload/{$mime}/{$dateFolder}/";

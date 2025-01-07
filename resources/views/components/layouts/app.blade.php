@@ -88,7 +88,7 @@
               }
             ]
           }
-          
+
         </script>
 
     <link rel="icon" type="image/x-icon" href="{{ asset('home-page/images/3ddmetaa143.png') }}">
@@ -133,7 +133,7 @@
             overflow-x: auto;
             border-radius: 10px;
         }
-        
+
 
         #style1::-webkit-scrollbar-thumb {
             border-radius: 10px;
@@ -428,6 +428,13 @@
                                     stroke-linecap="round" />
                             </svg>
                             <a href="{{ route('submit-order') }}" class="text-[#868B90]">ثبت سفارش</a>
+                        </div>
+                        <div class="pr-[20PX] p-[14px] flex items-center gap-4">
+                            <svg class="w-7 h-7" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11 11C13.7614 11 16 8.76142 16 6C16 3.23858 13.7614 1 11 1C8.23858 1 6 3.23858 6 6C6 8.76142 8.23858 11 11 11Z" stroke="#868B90" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21 21C21 16.0294 16.9706 12 12 12H10C5.02944 12 1 16.0294 1 21" stroke="#868B90" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <a href="{{ route('user.avatar') }}" class="text-[#868B90]">ساخت آواتار</a>
                         </div>
                         <div class="pr-[20PX] p-[14px] flex items-center gap-4">
                             <svg class="w-7 h-7" width="22" height="22" viewBox="0 0 22 22" fill="none"

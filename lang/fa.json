@@ -15,5 +15,7 @@
     "Product updated successfully.": "محصول با موفقیت به روز شد.",
     "The :attribute must not contain spaces.": ":attribute نباید شامل فاصله باشد.",
     "Sitemap generated successfully.": "نقشه سایت با موفقیت ایجاد شد.",
-    "Product created successfully.": "محصول با موفقیت ایجاد شد."
+    "Product created successfully.": "محصول با موفقیت ایجاد شد.",
+    "Avatar created successfully.": "آواتار با موفقیت ایجاد شد.",
+    "Create your avatar first.": "ابتدا آواتار خود را ایجاد کنید."
 }

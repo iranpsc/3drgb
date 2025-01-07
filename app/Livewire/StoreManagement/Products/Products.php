@@ -20,6 +20,7 @@ class Products extends Component
         $this->resetPage();
 
         $this->products = Product::where('name', 'like', "%{$this->search}%")
+            ->createdByAdmin()
             ->with('category')
             ->latest()
             ->paginate(10);

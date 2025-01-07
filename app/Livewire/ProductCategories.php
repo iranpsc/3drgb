@@ -16,7 +16,7 @@ class ProductCategories extends Component
     {
         return view('livewire.product-categories', [
             'categories' => Category::with('parent', 'image')->whereHas('products', function ($query) {
-                $query->published();
+                $query->published()->createdByAdmin();
             })->withCount('products')->orderByDesc('products_count')->paginate(12)
         ]);
     }

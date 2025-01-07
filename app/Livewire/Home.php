@@ -26,13 +26,12 @@ class Home extends Component
     public function mount()
     {
         $this->products = Product::published()
+            ->createdByAdmin()
             ->withAvg('reviews as rating_avg', 'rating')
             ->with('latestImage')
             ->orderByDesc('created_at')
             ->take(15)
             ->get();
-
-        // $this->dispatch('productsLoaded', products: $this->products);
     }
 
     /**
@@ -45,18 +44,21 @@ class Home extends Component
     {
         $this->products = match ($tab) {
             'order-by-newest' => Product::published()
+                ->createdByAdmin()
                 ->withAvg('reviews as rating_avg', 'rating')
                 ->with('latestImage')
                 ->orderByDesc('created_at')
                 ->take(15)
                 ->get(),
             'order-by-score' => Product::published()
+                ->createdByAdmin()
                 ->withAvg('reviews as rating_avg', 'rating')
                 ->with('latestImage')
                 ->orderBy('rating_avg', 'desc')
                 ->take(15)
                 ->get(),
             'order-by-sales' => Product::published()
+                ->createdByAdmin()
                 ->withAvg('reviews as rating_avg', 'rating')
                 ->withCount('sales')
                 ->with('latestImage')
@@ -65,7 +67,6 @@ class Home extends Component
                 ->get(),
         };
 
-        // $this->dispatch('productsLoaded', products: $this->products);
     }
 
     #[Computed(persist: true)]

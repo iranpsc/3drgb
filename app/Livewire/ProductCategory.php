@@ -25,6 +25,7 @@ class ProductCategory extends Component
         if (count($this->category->children ?? []) == 0) {
             return $this->category->products()
                 ->published()
+                ->createdByAdmin()
                 ->withCount('reviews')
                 ->withAvg('reviews as rating_avg', 'rating')
                 ->with('oldestImage')

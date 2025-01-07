@@ -1,40 +1,75 @@
 <div>
-    <div class="flex flex-col items-center bg-gray-200 gap-3">
-        <button class="bg-primery-blue rounded" id="create-avatar-btn">Create Avatar</button>
-        <p>Click the link below to view your avatar:</p>
-        <a id="avatar-link" href="#" target="_blank" style="display:none;">View Avatar</a>
-    </div>
+    <x-page title="ایجاد آواتار">
+        <div class="row justify-content-center">
+            <div class="flex flex-col gap-5">
 
-    <!-- ایجاد یک iframe برای نمایش Ready Player Me -->
-    <iframe id="rpm-frame" class="w-full h-[93.5vh]" allow="camera *; microphone *"></iframe>
+                @session('message')
+                    <x-alert type="success" message="{{ session('message') }}" />
+                @endsession
+
+                <x-form.text wire:model="name" name="name" label="نام" />
+
+                <div wire:ignore>
+                    <iframe id="frame" class="frame w-full h-96 md:w-full md:h-600"
+                        allow="camera *; microphone *; clipboard-write"></iframe>
+                </div>
+
+                @if ($errors->has(['avatarUrl', 'avatarImageURL']))
+                    <x-alert type="error" message="{{ __('Create your avatar first.') }}" />
+                @endif
+
+                <x-button wire:loading.attr="disabled" wire:click="save">ذخیره</x-button>
+            </div>
+        </div>
+    </x-page>
 </div>
 
 @script
     <script>
-        const createAvatarBtn = document.getElementById('create-avatar-btn');
-        const frame = document.getElementById('rpm-frame');
-        const avatarLink = document.getElementById('avatar-link');
+        const subdomain = '3drgb';
+        const frame = document.getElementById('frame');
+        let avatarUrl = '';
+        let avatarImageURL = '';
 
-        // Ready Player Me listener for receiving avatar URL
-        window.addEventListener('message', receiveMessage, false);
+        frame.src = `https://${subdomain}.readyplayer.me/avatar?frameApi`;
 
-        function receiveMessage(event) {
-            if (event.origin === "https://meta-rgb.readyplayer.me") {
-                const avatarUrl = event.data;
-                if (typeof avatarUrl === 'string') {
-                    console.log('Avatar URL:', avatarUrl);
+        window.addEventListener('message', subscribe);
+        document.addEventListener('message', subscribe);
 
-                    // Set URL to a tag href and display it
-                    avatarLink.href = avatarUrl;
-                    avatarLink.style.display = 'inline'; // Display link
-                }
+        function subscribe(event) {
+            const json = parse(event);
+
+            if (json?.source !== 'readyplayerme') {
+                return;
+            }
+
+            // Subscribe to all events sent from Ready Player Me once frame is ready
+            if (json.eventName === 'v1.frame.ready') {
+                frame.contentWindow.postMessage(
+                    JSON.stringify({
+                        target: 'readyplayerme',
+                        type: 'subscribe',
+                        eventName: 'v1.**'
+                    }),
+                    '*'
+                );
+            }
+
+            // Get avatar GLB URL
+            if (json.eventName === 'v1.avatar.exported') {
+                avatarUrl = json.data.url;
+                avatarImageURL = 'https://models.readyplayer.me/' + json.data.avatarId + '.png';
+                @this.set('avatarUrl', avatarUrl);
+                @this.set('avatarImageURL', avatarImageURL);
             }
         }
 
-        createAvatarBtn.addEventListener('click', function() {
-            // Open iframe and show Ready Player Me
-            frame.src = 'https://meta-rgb.readyplayer.me/avatar?appId=65e221503f3494050d2cfcff';
-            frame.style.display = 'block'; // Display iframe
-        });
+        function parse(event) {
+            try {
+                return JSON.parse(event.data);
+            } catch (error) {
+                return null;
+            }
+        }
     </script>
 @endscript

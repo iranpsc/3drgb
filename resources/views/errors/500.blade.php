@@ -1,13 +1,13 @@
-<x-layouts.app title="صفحه یافت نشد">
+<x-layouts.app title="خطای سرور داخلی">
     <main class="w-full main-content-smallNav ">
         <div class="w-[85%] 2xl:w-[70%] mx-auto bg-white dark:bg-[#1A1A18] rounded-2xl overflow-hidden mt-24 lg:mt-10">
             <div class="flex flex-col lg:flex-row justify-between w-full">
                 <div
                     class="text-[#000BEE] flex flex-col justify-between gap-8 w-full lg:w-[50%] dark:text-white mt-7 lg:mt-12">
                     <div class="flex flex-col gap-8 p-5">
-                        <p class="text-xl lg:text-3xl">صفحه ای که در خواست دادید پیدا نشد..!</p>
+                        <p class="text-xl lg:text-3xl">خطای سرور داخلی..!</p>
                         <p class="lg:text-xl">
-                            صفحه ای که دنبال آن هستید وجود ندارد . از جستجو کردن کمک بگیرید یا به صفحه اصلی بروید .
+                            مشکلی در سرور رخ داده است. لطفاً بعداً دوباره تلاش کنید یا با پشتیبانی تماس بگیرید.
                         </p>
                         <div class="flex gap-5  mt-5 bg-[#D8E5FD] dark:bg-[#302818] rounded-full  p-2 ">
                             <div class="flex justify-center items-center p-3 w-min">
@@ -39,7 +39,7 @@
                     <div class="relative hidden lg:block">
                         <img src="{{ asset('home-page/images/Polygon 1.png') }}" class="relative dark:hidden">
                         <img src="{{ asset('home-page/images/Polygon 1d.png') }}" class="relative  hidden dark:block">
-                        <img src="{{ asset('home-page/images/g10.png') }}" alt="404 error"
+                        <img src="{{ asset('home-page/images/g10.png') }}" alt="500 error"
                             class="absolute top-[23%] left-[16%] w-[58%]">
 
 
@@ -49,7 +49,7 @@
                             class="relative w-[90%] dark:hidden">
                         <img src="{{ asset('home-page/images/Rectangle 23999.png') }}"
                             class="relative w-[90%] hidden dark:block">
-                        <img src="{{ asset('home-page/images/g10.png') }}" alt="404 error"
+                        <img src="{{ asset('home-page/images/g10.png') }}" alt="500 error"
                             class="absolute top-[21%] left-[4%] w-[58%] rotate-[-25deg]">
 
                     </div>

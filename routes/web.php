@@ -56,7 +56,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', Home::class)->name('home');
 Route::get('/about-us', AboutUs::class)->name('about-us');
-Route::get('/avatar', Avatar::class)->name('avatar');
 Route::get('/contact-us', ContactUs::class)->name('contact-us');
 Route::get('/products', Store::class)->name('products');
 Route::get('/products/{product:sku}', ProductDetails::class)->name('products.show');
@@ -106,6 +105,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/orders', Orders::class)->name('orders');
         Route::get('/orders/{order}', OrderDetails::class)->name('orders.show');
         Route::get('/profile', Profile::class)->name('profile');
+        Route::get('/avatar', Avatar::class)->name('avatar');
     });
 
     Route::prefix('tickets')->name('tickets.')->group(function () {
@@ -131,7 +131,7 @@ Route::get('/download/{file}', function (Request $request, File $file) {
 Route::post('/upload', [FileUploadController::class, 'upload'])->name('files.upload');
 
 
-Route::post('/callback', function(Request $request) {
+Route::post('/callback', function (Request $request) {
     $data = http_build_query($request->all());
 
     return to_route('verify', $data);

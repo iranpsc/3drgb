@@ -14,7 +14,7 @@ class Categories extends Component
     public function delete(Category $category)
     {
         $this->authorize('delete', $category);
-        
+
         $category->children()->delete();
         $category->delete();
 

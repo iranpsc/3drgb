@@ -61,6 +61,7 @@ class Store extends Component
     public function loadProducts()
     {
         $query = Product::published()
+            ->createdByAdmin()
             ->withCount('reviews')
             ->withAvg('reviews as rating_avg', 'rating')
             ->with('oldestImage');

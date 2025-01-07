@@ -20,13 +20,5 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-
-        // $this->call(ProductSeeder::class);
-
-        Product::all()->each(function (Product $product) {
-            $product->update([
-                'slug' => str_replace(' ', '-', $product->slug)
-            ]);
-        });
     }
 }

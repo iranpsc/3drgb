@@ -12,6 +12,11 @@ class Product extends Model implements Sitemapable
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<string>
+     */
     protected $fillable = [
         'category_id',
         'sku',
@@ -28,6 +33,24 @@ class Product extends Model implements Sitemapable
         'published',
         'meta_description',
         'meta_keywords',
+        'created_by'
+    ];
+
+    protected $attributes = [
+        'sku' => '',
+        'name' => '',
+        'slug' => '',
+        'short_description' => '',
+        'long_description' => '',
+        'stock_status' => false,
+        'quantity' => 0,
+        'customer_can_add_review' => false,
+        'price' => 0.0,
+        'sale_price' => 0.0,
+        'published' => false,
+        'meta_description' => '',
+        'meta_keywords' => '',
+        'created_by' => 'admin'
     ];
 
     protected $appends = [
@@ -44,6 +67,11 @@ class Product extends Model implements Sitemapable
             'stock_status' => 'boolean',
             'customer_can_add_review' => 'boolean',
         ];
+    }
+
+    public function setDelevileryTimeAttribute($value)
+    {
+        $this->attributes['delivery_time'] = $value ? $value : now();
     }
 
     public function setSlugAttribute($value)
@@ -69,6 +97,17 @@ class Product extends Model implements Sitemapable
             ->setPriority(0.8);
 
         return $url;
+    }
+
+    /**
+     * Get products created by admin.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeCreatedByAdmin($query)
+    {
+        return $query->where('created_by', 'admin');
     }
 
     /**
