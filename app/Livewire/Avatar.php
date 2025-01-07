@@ -67,7 +67,7 @@ class Avatar extends Component
 
     private function downloadFile($url)
     {
-        return file_get_contents($url);
+        return Storage::get($url);
     }
 
     private function generateFilename($extension)
