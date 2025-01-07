@@ -21,10 +21,9 @@ class DownloadFileJob implements ShouldQueue
     protected $product;
     protected $type;
 
-    public function __construct($url, $directory, Product $product, $type)
+    public function __construct($url, Product $product, $type)
     {
         $this->url = $url;
-        $this->directory = $directory;
         $this->product = $product;
         $this->type = $type;
     }
@@ -32,11 +31,12 @@ class DownloadFileJob implements ShouldQueue
     public function handle()
     {
         $contents = file_get_contents($this->url);
-        $extension = pathinfo(parse_url($this->url, PHP_URL_PATH), PATHINFO_EXTENSION);
-        if ($extension != 'png') {
-            $extension = 'glb';
-        }
+        $extension = $this->type == 'file' ? 'glb' : 'png';
+
         $this->filename = Str::random(40) . '.' . $extension;
+
+        $this->directory = $this->type === 'image' ? 'public/images/' : 'products/';
+
         Storage::put($this->directory . $this->filename, $contents);
 
         // Save the file path to the database
