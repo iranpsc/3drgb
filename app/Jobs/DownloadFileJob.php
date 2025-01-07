@@ -16,8 +16,6 @@ class DownloadFileJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     protected $url;
-    protected $directory;
-    protected $filename;
     protected $product;
     protected $type;
 
@@ -32,31 +30,24 @@ class DownloadFileJob implements ShouldQueue
 
     public function handle()
     {
+        $directory = $this->type === 'image' ? 'public/images/' : 'products/';
         $extension = $this->type == 'file' ? 'glb' : 'png';
+        $filename = Str::random(40) . '.' . $extension;
 
-        $this->filename = Str::random(40) . '.' . $extension;
-
-        $this->directory = $this->type === 'image' ? 'images/' : 'products/';
-
+        $contents = file_get_contents($this->url);
+        Storage::put($directory . $filename, $contents);
 
         // Save the file path to the database
         if ($this->type === 'image') {
             $this->product->images()->create([
-                'path' => $this->directory . $this->filename,
+                'path' => $directory . $filename,
             ]);
         } else {
             $this->product->file()->create([
                 'name' => $this->product->name,
-                'path' => $this->directory . $this->filename,
+                'path' => $directory . $filename,
             ]);
         }
 
-        $contents = file_get_contents($this->url);
-        Storage::put($this->directory . $this->filename, $contents);
-    }
-
-    public function getFilename()
-    {
-        return $this->filename;
     }
 }
