@@ -23,7 +23,7 @@ class AuthenticateWithOnceBasic
 
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $token,
-        ])->acceptJson()->get(config('app.oauth_server_url') . '/api/auth/check');
+        ])->acceptJson()->get(config('app.oauth_server_url') . '/api/user');
 
         if ($response->status() !== 200) {
             return response()->json(['message' => 'Unauthorized'], 401);
