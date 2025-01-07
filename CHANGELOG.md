@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.0.26 (2025-01-07)
+
+
+### Bug Fixes
+
+* update file download route to use Storage facade ([56b6f02](https://github.com/iranpsc/3drgb/commit/56b6f02a30a339cc43e15d7b88369897b555b6d6))
+
 ### 1.0.25 (2025-01-07)
 
 ### 1.0.24 (2025-01-07)
