@@ -105,12 +105,12 @@ class Avatar extends Component
     private function createProductImages($product, $imageFilename, $fileFilename)
     {
         $product->images()->create([
-            'path' => 'storage/products/' . $imageFilename,
+            'path' => 'public/products/' . $imageFilename,
         ]);
 
         $product->file()->create([
             'name' => $this->name,
-            'path' => 'storage/products/' . $fileFilename,
+            'path' => 'products/' . $fileFilename,
         ]);
     }
 
