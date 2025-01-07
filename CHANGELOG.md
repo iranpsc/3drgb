@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.0.28 (2025-01-07)
+
+
+### Bug Fixes
+
+* update file download response to use response()->file() ([50ecee3](https://github.com/iranpsc/3drgb/commit/50ecee341507aced946e4a332c223569bb99843f))
+
 ### 1.0.27 (2025-01-07)
 
 
