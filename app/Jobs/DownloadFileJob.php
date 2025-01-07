@@ -33,7 +33,7 @@ class DownloadFileJob implements ShouldQueue
     {
         $contents = file_get_contents($this->url);
         $extension = pathinfo(parse_url($this->url, PHP_URL_PATH), PATHINFO_EXTENSION);
-        if (is_null($extension) || $extension !== 'png') {
+        if ($extension != 'png') {
             $extension = 'glb';
         }
         $this->filename = Str::random(40) . '.' . $extension;

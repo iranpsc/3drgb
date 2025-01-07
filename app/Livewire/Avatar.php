@@ -42,7 +42,7 @@ class Avatar extends Component
         $product = $this->createProduct($category->id);
 
         // Dispatch jobs to download, store, and save the image and avatar file paths to the database
-        DownloadFileJob::dispatch($this->avatarImageURL, 'public/products/', $product, 'image');
+        DownloadFileJob::dispatch($this->avatarImageURL, 'products/', $product, 'image');
         DownloadFileJob::dispatch($this->avatarUrl, 'products/', $product, 'file');
 
         // Attach random tag and attribute
