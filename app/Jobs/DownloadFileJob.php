@@ -24,13 +24,11 @@ class DownloadFileJob implements ShouldQueue
         $this->url = $url;
         $this->product = $product;
         $this->type = $type;
-
-        $this->afterCommit();
     }
 
     public function handle()
     {
-        $directory = $this->type === 'image' ? 'public/images/' : 'products/';
+        $directory = $this->type === 'image' ? 'public/avatars/' : 'products/';
         $extension = $this->type == 'file' ? 'glb' : 'png';
         $filename = Str::random(40) . '.' . $extension;
 
@@ -40,7 +38,7 @@ class DownloadFileJob implements ShouldQueue
         // Save the file path to the database
         if ($this->type === 'image') {
             $this->product->images()->create([
-                'path' => $directory . $filename,
+                'path' => 'avatars/' . $filename,
             ]);
         } else {
             $this->product->file()->create([
@@ -48,6 +46,5 @@ class DownloadFileJob implements ShouldQueue
                 'path' => $directory . $filename,
             ]);
         }
-
     }
 }
