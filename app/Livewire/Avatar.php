@@ -41,27 +41,11 @@ class Avatar extends Component
 
         $product = $this->createProduct($category->id);
 
-        // Dispatch jobs to download the image and avatar file
-        $imageJob = DownloadFileJob::dispatch($this->avatarImageURL);
-        $fileJob = DownloadFileJob::dispatch($this->avatarUrl);
+        // Dispatch jobs to download, store, and save the image and avatar file paths to the database
+        DownloadFileJob::dispatch($this->avatarImageURL, 'public/products/', $product, 'image');
+        DownloadFileJob::dispatch($this->avatarUrl, 'products/', $product, 'file');
 
-        $imageJob->handle();
-        $fileJob->handle();
-
-        [$imageContents, $imageExtension] = $imageJob->getFileData();
-        [$fileContents, $fileExtension] = $fileJob->getFileData();
-
-        // Generate unique filenames
-        $imageFilename = $this->generateFilename($imageExtension);
-        $fileFilename = $this->generateFilename($fileExtension);
-
-        // Store the files
-        $this->storeFile('public/products/' . $imageFilename, $imageContents);
-        $this->storeFile('products/' . $fileFilename, $fileContents);
-
-        // Handle chunked file uploads
-        $this->createProductImages($product, $imageFilename, $fileFilename);
-
+        // Attach random tag and attribute
         $this->attachRandomTag($product);
         $this->attachRandomAttribute($product);
 
@@ -70,23 +54,6 @@ class Avatar extends Component
         $this->reset();
 
         session()->flash('message', __('Avatar created successfully.'));
-    }
-
-    private function downloadFile($url)
-    {
-        $contents = file_get_contents($url);
-        $extension = pathinfo(parse_url($url, PHP_URL_PATH), PATHINFO_EXTENSION);
-        return [$contents, $extension];
-    }
-
-    private function generateFilename($extension)
-    {
-        return Str::random(40) . '.' . $extension;
-    }
-
-    private function storeFile($path, $contents)
-    {
-        Storage::put($path, $contents);
     }
 
     private function getOrCreateCategory($slug, $name)
