@@ -37,12 +37,12 @@ class Avatar extends Component
         $this->validate();
 
         // Download the image and avatar file
-        $imageContents = $this->downloadFile($this->avatarImageURL);
-        $fileContents = $this->downloadFile($this->avatarUrl);
+        [$imageContents, $imageExtension] = $this->downloadFile($this->avatarImageURL);
+        [$fileContents, $fileExtension] = $this->downloadFile($this->avatarUrl);
 
         // Generate unique filenames
-        $imageFilename = $this->generateFilename('png');
-        $fileFilename = $this->generateFilename('glb');
+        $imageFilename = $this->generateFilename($imageExtension);
+        $fileFilename = $this->generateFilename($fileExtension);
 
         // Store the files
         $this->storeFile('public/products/' . $imageFilename, $imageContents);
@@ -67,7 +67,9 @@ class Avatar extends Component
 
     private function downloadFile($url)
     {
-        return Storage::get($url);
+        $contents = file_get_contents($url);
+        $extension = pathinfo(parse_url($url, PHP_URL_PATH), PATHINFO_EXTENSION);
+        return [$contents, $extension];
     }
 
     private function generateFilename($extension)
