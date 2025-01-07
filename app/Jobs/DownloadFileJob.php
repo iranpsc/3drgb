@@ -42,7 +42,7 @@ class DownloadFileJob implements ShouldQueue
             ]);
         } else {
             $this->product->file()->create([
-                'name' => $this->product->name,
+                'name' => $filename,
                 'path' => $directory . $filename,
             ]);
         }
