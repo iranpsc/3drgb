@@ -113,7 +113,7 @@ class Avatars extends Component
     #[Title('بارگذاری آواتار')]
     public function render()
     {
-        $products = Product::where('category_id', $this->getOrCreateCategory('avatar', 'Avatars')->id)
+        $products = $this->user->products()->where('category_id', $this->getOrCreateCategory('avatar', 'Avatars')->id)
             ->when($this->search, function ($query) {
                 $query->where('name', 'like', '%' . $this->search . '%');
             })
