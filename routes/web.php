@@ -4,7 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\FileUploadController;
 use App\Livewire\AboutUs;
-use App\Livewire\Avatar;
+use App\Livewire\Avatars;
 use App\Livewire\ContactUsMessages;
 use App\Livewire\AdminDashboard;
 use App\Livewire\Cart;
@@ -105,7 +105,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/orders', Orders::class)->name('orders');
         Route::get('/orders/{order}', OrderDetails::class)->name('orders.show');
         Route::get('/profile', Profile::class)->name('profile');
-        Route::get('/avatar', Avatar::class)->name('avatar');
+        Route::get('/avatars', Avatars::class)->name('avatars');
     });
 
     Route::prefix('tickets')->name('tickets.')->group(function () {

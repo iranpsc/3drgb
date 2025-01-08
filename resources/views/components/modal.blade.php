@@ -3,7 +3,7 @@
 <!-- ends: .modal-colored-success -->
 <div class="flex flex-col items-center justify-center dark:text-gray-300">
     <div id="hs-slide-up-animation-modal-02"
-        class="hs-overlay hidden w-[100%] fixed top-14  start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none mx-auto   flex flex-col justify-center items-center">
+        class="hs-overlay hidden w-[100%] fixed top-14  start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none mx-auto   flex flex-col justify-center items-center" wire:ignore.self>
         <div
             class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-14  ease-out transition-all    ">
             <div

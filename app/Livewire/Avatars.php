@@ -3,21 +3,23 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Attribute;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Locked;
 use Livewire\Attributes\Title;
 use App\Jobs\DownloadFileJob;
 
-class Avatar extends Component
+class Avatars extends Component
 {
-    public $name, $avatarImageURL, $avatarUrl;
+    use WithPagination;
+
+    public $name, $avatarImageURL, $avatarUrl, $search;
 
     #[Locked]
     public User $user;
@@ -77,18 +79,6 @@ class Avatar extends Component
         ]);
     }
 
-    private function createProductImages($product, $imageFilename, $fileFilename)
-    {
-        $product->images()->create([
-            'path' => 'products/' . $imageFilename,
-        ]);
-
-        $product->file()->create([
-            'name' => $this->name,
-            'path' => 'products/' . $fileFilename,
-        ]);
-    }
-
     private function attachRandomTag($product)
     {
         $randomTag = Tag::inRandomOrder()->first();
@@ -115,9 +105,24 @@ class Avatar extends Component
         return $lastSku;
     }
 
+    public function updatedSearch()
+    {
+        $this->resetPage();
+    }
+
     #[Title('بارگذاری آواتار')]
     public function render()
     {
-        return view('livewire.avatar');
+        $products = Product::where('category_id', $this->getOrCreateCategory('avatar', 'Avatars')->id)
+            ->when($this->search, function ($query) {
+                $query->where('name', 'like', '%' . $this->search . '%');
+            })
+            ->where('created_by', 'user')
+            ->whereHas('file')
+            ->whereHas('latestImage')
+            ->with('file', 'latestImage')
+            ->paginate(10);
+
+        return view('livewire.avatars', compact('products'));
     }
 }
