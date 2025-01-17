@@ -1,5 +1,14 @@
+@section('title', 'ساخت آواتار رایگان  ')
+@section('description', 'ساخت آواتار رایگان به سادگی و با چند کلیک در وب‌سایت ما انجام می‌شود. از ابزارهای حرفه‌ای برای طراحی آواتارهای شخصی خود به صورت رایگان استفاده کنید.')
+@section('keywords', 'ساخت آواتار رایگان, طراحی آواتار آنلاین, آواتار رایگان, ابزار طراحی آواتار')
+@section('og:title', 'ساخت آواتار رایگان')
+@section('og:description', 'با وب‌سایت ما به راحتی و به صورت رایگان آواتارهای جذاب و حرفه‌ای طراحی کنید.')
+@section('og:image', asset('home-page/images/avatar.s.png'))
+@section('og:type', 'website')
+
+
 <div>
-    <x-page title="آواتارها" actionBtn="true" actionBtnLink="#" actionBtnText="ایجاد آواتار" toggle="modal"
+    <x-page title="آواتارها"  toggle="modal2"
         target="#create-avatar">
         <div class="row justify-content-center">
             <div class="flex flex-col gap-5">
@@ -29,26 +38,33 @@
 
                 {{ $products->links() }}
 
-                <x-modal id="create-avatar" title="ایجاد آواتار">
-                    <x-form.text wire:model="name" name="name" label="نام" />
+                <x-modal2 id="create-avatar" title="ایجاد آواتار">
+                    <div class="  w-full flex flex-col lg:flex-row items-center gap-5">
+                        <div class="flex items-center mt-[-10px]">
+                            <x-form.text wire:model="name" name="name" label=""  placeholder="نام"/>
+                        </div>
+                    <div class="flex gap-5 items-center justify-center">
+                        <button class="px-11 py-[14.5px] bg-primery-blue dark:bg-dark-yellow rounded-[10px] dark:text-black text-white" wire:loading.attr="disabled" wire:click="save">ذخیره</button>
+                        <button class="px-11 py-[14.5px] border  rounded-[10px]" color="danger" data-bs-dismiss="modal" >لغو</button>
+                    </div>
+                    
+                    </div>
                     <div wire:ignore>
-                        <iframe id="frame" class="frame w-full h-96 md:w-full md:h-600"
+                        <iframe id="frame" class="frame w-full h-[80vh] md:w-full rounded-xl"
                             allow="camera *; microphone *; clipboard-write"></iframe>
                     </div>
                     @if ($errors->has(['avatarUrl', 'avatarImageURL']))
                         <x-alert type="error" message="{{ __('Create your avatar first.') }}" />
                     @endif
-                    <x-slot name="footer">
-                        <x-button wire:loading.attr="disabled" wire:click="save">ذخیره</x-button>
-                        <x-button color="danger" data-bs-dismiss="modal">لغو</x-button>
-                    </x-slot>
-                </x-modal>
+
+                </x-modal2>
             </div>
         </div>
     </x-page>
 </div>
 
 @script
+    
     <script>
         const subdomain = '3drgb';
         const frame = document.getElementById('frame');

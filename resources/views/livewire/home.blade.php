@@ -4,7 +4,7 @@
 @section('og:title', 'سه بعدی متا')
 @section('og:description')
 @section('og:image')
-    <div>
+    <div>     
         <main>
             <section>
                 <div class="bg-[#000BEEF7] dark:bg-[#E59819] w-full py-[10px] text-white text-sm hidden lg:block px-5"
@@ -136,7 +136,25 @@
                     </div>
                 </div>
             </section>
-            <section class="w-full mx-auto  max-w-[1500px] -mt-10  lg:px-9 3xl:px-0">
+            <section class="w-full mx-auto  max-w-[1500px]   lg:px-9 3xl:px-0 my-20 mb-[400px]">
+                <div class="flex flex-col lg:flex-row gap-y-7 justify-between items-center ad-section">
+                    <div class="background-shapes">
+                        <div class="shape"></div>
+                        <div class="shape"></div>
+                        <div class="shape"></div>
+                      </div>
+
+                    <div class="flex flex-col gap-10 justify-start items-center w-full lg:w-[60%]">
+                        <p class="text-[26px] md:text-4xl  px-14 py-10 text-[#000BEE]  dark:text-dark-yellow" style="font-family:rokh-ebold ;"> آواتار رویایی خود را رایگان بسازید! </p>
+                        <p class="text-stone-800 dark:text-[#D1D1D1] font-medium leading-[30px] text-xl">
+                            فقط با چند کلیک، یک اواتار سفارشی مطابق با سلیقه خودتان بسازید. کاملاً رایگان و بدون محدودیت!
+                        </p>
+                        <a href="{{ route('user.avatars') }}" class="bg-primery-blue rounded-2xl px-10 py-3 text-white dark:text-black dark:bg-dark-yellow lg:text-xl">همین حالا آواتار بسازید</a>
+                    </div>
+                    <div class="w-full h-screen" id="avatar-container"></div>
+                </div>
+            </section>
+            <section class="w-full mx-auto  max-w-[1500px]   lg:px-9 3xl:px-0">
                 <!-- start slyder -->
                 <div class="flex flex-col  md:mt-32  w-full">
                     <div class="w-full flex-col relative  ">
@@ -255,6 +273,95 @@
             </section>
         </main>
     </div>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "ساخت آواتار رایگان",
+          "description": "فقط با چند کلیک، یک آواتار سفارشی مطابق با سلیقه خودتان بسازید. کاملاً رایگان و بدون محدودیت!",
+          "url": "https://3d.irpsc.com/avatars",
+          "author": {
+            "@type": "Organization",
+            "name": "سبعدی متا"
+          },
+          "mainEntity": {
+            "@type": "SoftwareApplication",
+            "name": "ابزار ساخت آواتار",
+            "operatingSystem": "All",
+            "applicationCategory": "DesignApplication",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "IRR",
+              "availability": "https://schema.org/InStock"
+            }
+          }
+        }
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
+    <script>
+        // تنظیم صحنه
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    
+        const container = document.getElementById('avatar-container'); // دسترسی به div
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 5)); // بهبود کیفیت با نسبت پیکسلی دستگاه
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        renderer.physicallyCorrectLights = true; // استفاده از نورپردازی فیزیکی واقعی
+        container.appendChild(renderer.domElement); // الحاق به تگ div
+    
+        // تنظیم نور
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.1); // نور محیطی
+        scene.add(ambientLight);
+    
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 40.1);
+        directionalLight.position.set(5, 10, 7.5);
+        scene.add(directionalLight);
+    
+        const modelPath = "{{ asset('home-page/3dfiles/avatar.glb') }}"; // مسیر فایل
+    
+        const loader = new THREE.GLTFLoader();
+        loader.load(
+            modelPath,
+            function (gltf) {
+                const model = gltf.scene;
+                model.position.set(0, -1, 0); // تنظیم موقعیت مدل
+                scene.add(model);
+                camera.position.z = 1.3; // فاصله دوربین از مدل
+    
+                // بهبود متریال مدل
+                model.traverse((node) => {
+                    if (node.isMesh) {
+                        node.material.roughness = 0.5; // کاهش زبری سطح
+                        node.material.metalness = 0.8; // افزایش حالت فلزی
+                    }
+                });
+    
+                // چرخش مدل
+                function animate() {
+                    requestAnimationFrame(animate);
+                    model.rotation.y += 0.01; // چرخش مدل حول محور Y
+                    renderer.render(scene, camera);
+                }
+                animate();
+            },
+            function (xhr) {
+                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+            },
+            function (error) {
+                console.error('An error occurred:', error);
+            }
+        );
+    
+        // تنظیم ریسایز صفحه
+        window.addEventListener('resize', () => {
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        });
+    </script>
 
     @script
         <script>
@@ -303,4 +410,5 @@
             }
         });
         </script>
+
     @endscript
