@@ -8,12 +8,12 @@
 
 
 <div>
-    <x-page title="آواتارها"  toggle="modal2"
+    <x-page title="آواتارها"  toggle="modal2" 
         target="#create-avatar">
         <div class="row justify-content-center">
             <div class="flex flex-col gap-5">
 
-                <x-form.text wire:model.live="search" name="search" label="جستجو" />
+                <input type="text" wire:model.live="search" name="search" placeholder="جستجو آواتار " class="bg-[#e9f3fd] dark:bg-black placeholder:text-[#90bde9] dark:placeholder:text-white/40 dark:text-white/50 rounded-[10px] p-4 border-0 placeholder:text-[#00000030] dark:ring-[#E59819]">
 
                 <x-table>
                     <x-slot name="header">
@@ -37,15 +37,14 @@
                 </x-table>
 
                 {{ $products->links() }}
-
+                <button id="openModalBtn" class="px-11 py-3 bg-primery-blue dark:bg-dark-yellow rounded-[10px] dark:text-black text-white">ایجاد آواتار</button>
                 <x-modal2 id="create-avatar" title="ایجاد آواتار">
                     <div class="  w-full flex flex-col lg:flex-row items-center gap-5">
-                        <div class="flex items-center mt-[-10px]">
-                            <x-form.text wire:model="name" name="name" label=""  placeholder="نام"/>
+                        <div class="flex items-center ">
+                            <input type="text" wire:model="name" name="name" placeholder="نام آواتار را وارد کنید" class="bg-[#e9f3fd] dark:bg-black placeholder:text-[#90bde9] dark:placeholder:text-white/40 dark:text-white/50 rounded-[10px] p-4 py-3 border-1 border-primery-blue dark:border-dark-yellow placeholder:text-[#00000030] dark:ring-[#E59819] lg:w-96">
                         </div>
                     <div class="flex gap-5 items-center justify-center">
-                        <button class="px-11 py-[14.5px] bg-primery-blue dark:bg-dark-yellow rounded-[10px] dark:text-black text-white" wire:loading.attr="disabled" wire:click="save">ذخیره</button>
-                        <button class="px-11 py-[14.5px] border  rounded-[10px]" color="danger" data-bs-dismiss="modal" >لغو</button>
+                        <button class="px-11 py-3 bg-primery-blue dark:bg-dark-yellow rounded-[10px] dark:text-black text-white" wire:loading.attr="disabled" wire:click="save">ذخیره</button>
                     </div>
                     
                     </div>

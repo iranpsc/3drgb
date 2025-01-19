@@ -298,70 +298,117 @@
           }
         }
         </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
-    <script>
-        // تنظیم صحنه
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    
-        const container = document.getElementById('avatar-container'); // دسترسی به div
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 5)); // بهبود کیفیت با نسبت پیکسلی دستگاه
-        renderer.setSize(container.clientWidth, container.clientHeight);
-        renderer.physicallyCorrectLights = true; // استفاده از نورپردازی فیزیکی واقعی
-        container.appendChild(renderer.domElement); // الحاق به تگ div
-    
-        // تنظیم نور
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.1); // نور محیطی
-        scene.add(ambientLight);
-    
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 40.1);
-        directionalLight.position.set(5, 10, 7.5);
-        scene.add(directionalLight);
-    
-        const modelPath = "{{ asset('home-page/3dfiles/avatar.glb') }}"; // مسیر فایل
-    
-        const loader = new THREE.GLTFLoader();
-        loader.load(
-            modelPath,
-            function (gltf) {
-                const model = gltf.scene;
-                model.position.set(0, -1, 0); // تنظیم موقعیت مدل
-                scene.add(model);
-                camera.position.z = 1.3; // فاصله دوربین از مدل
-    
-                // بهبود متریال مدل
-                model.traverse((node) => {
-                    if (node.isMesh) {
-                        node.material.roughness = 0.5; // کاهش زبری سطح
-                        node.material.metalness = 0.8; // افزایش حالت فلزی
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/three/examples/js/controls/OrbitControls.js"></script>
+        <script>
+            // تنظیم صحنه
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        
+            const container = document.getElementById('avatar-container'); 
+            renderer.setPixelRatio(1);
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.physicallyCorrectLights = false;
+            container.appendChild(renderer.domElement);
+        
+            // تنظیم نور
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.07); // نور محیطی کم شدت
+            scene.add(ambientLight);
+        
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 11.5); // کاهش شدت نور جهت‌دار
+            directionalLight.position.set(5, 10, 7.5);
+            scene.add(directionalLight);
+        
+            const modelPath = "{{ asset('home-page/3dfiles/avatar.glb') }}"; 
+        
+            const loader = new THREE.GLTFLoader();
+            let model;
+        
+            function loadModel() {
+                loader.load(
+                    modelPath,
+                    function (gltf) {
+                        model = gltf.scene;
+                        model.position.set(0, -1, 0); // تنظیم موقعیت مدل
+                        scene.add(model);
+                        camera.position.z = 1.3; // فاصله دوربین از مدل
+        
+                       
+                        model.traverse((node) => {
+                            if (node.isMesh) {
+                                node.material.roughness = 0.6; 
+                                node.material.metalness = 0.5; 
+                            }
+                        });
+        
+                        // شروع رندر
+                        animate();
+                    },
+                    function (xhr) {
+                        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+                    },
+                    function (error) {
+                        console.error('An error occurred:', error);
+                    }
+                );
+            }
+        
+           
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        loadModel();
+                        observer.disconnect(); 
                     }
                 });
-    
-                // چرخش مدل
-                function animate() {
+            }, { threshold: 0.1 });
+        
+            observer.observe(container);
+        
+            
+            const controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true; 
+            controls.dampingFactor = 0.05;
+            controls.screenSpacePanning = false;
+            controls.enableZoom = false; 
+            controls.target.set(0, 0, 0); 
+        
+           
+            let lastRenderTime = 0;
+            const renderInterval = 1000 / 24; 
+        
+            function animate() {
+                if (!document.hidden) {
                     requestAnimationFrame(animate);
-                    model.rotation.y += 0.01; // چرخش مدل حول محور Y
+                    const currentTime = performance.now();
+                    if (currentTime - lastRenderTime < renderInterval) return;
+                    lastRenderTime = currentTime;
+        
+                    if (model) {
+                        model.rotation.y += 0.005; 
+                    }
+                    controls.update(); 
                     renderer.render(scene, camera);
                 }
-                animate();
-            },
-            function (xhr) {
-                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-            },
-            function (error) {
-                console.error('An error occurred:', error);
             }
-        );
-    
-        // تنظیم ریسایز صفحه
-        window.addEventListener('resize', () => {
-            camera.aspect = container.clientWidth / container.clientHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(container.clientWidth, container.clientHeight);
-        });
-    </script>
+        
+            
+            window.addEventListener('resize', () => {
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
+        
+            // مدیریت از دست رفتن کانتکست WebGL
+            renderer.domElement.addEventListener("webglcontextlost", (event) => {
+                event.preventDefault();
+                console.warn("WebGL context lost");
+            });
+        </script>
+        
+        
 
     @script
         <script>
