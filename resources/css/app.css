@@ -54,7 +54,7 @@
   @apply left-0 lg:w-[93%] xl:w-[95%] 2xl:w-[96%] 3xl:w-[96%]  lg:mr-auto transition-[0.5s] duration-300
 }
 .modal-avatar-activeNav{
-  @apply w-full mt-[-55px]
+  @apply w-full mt-[-55px] left-0
 }
 
 #open-nav-btn{

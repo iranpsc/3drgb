@@ -2,7 +2,7 @@
 
 
 <div id="myModal"
-class="modal-avatar-smallNav hidden w-[100%] pb-[50px]  fixed top-0 z-[80]  overflow-y-auto pointer-events-none bg-white dark:bg-[#1A1A18] h-screen mt-0 pt-0  flex flex-col justify-center items-center" wire:ignore.self>
+class="modal-avatar-smallNav hidden w-[100%] pb-[50px] lg:pb-0  fixed top-0 z-[80]  overflow-y-auto pointer-events-none bg-white dark:bg-[#1A1A18] h-screen mt-0 pt-0  flex flex-col justify-center items-center" wire:ignore.self>
 <div
     class="hs-overlay-open:opacity-100 hs-overlay-open:duration-500   ease-out transition-all    ">
     <div

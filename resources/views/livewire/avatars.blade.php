@@ -46,7 +46,9 @@
                     <div class="flex gap-5 items-center justify-center">
                         <button class="px-11 py-3 bg-primery-blue dark:bg-dark-yellow rounded-[10px] dark:text-black text-white" wire:loading.attr="disabled" wire:click="save">ذخیره</button>
                     </div>
-                    
+                    <div>
+                        <p class="text-red-600">لطفا ابتدا فیلد نام آواتار را با نامی دلخواه پر کنید و بعد به ساخت آواتار بپردازید</p>
+                    </div>
                     </div>
                     <div wire:ignore>
                         <iframe id="frame" class="frame w-full h-[80vh] md:w-full rounded-xl"

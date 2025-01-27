@@ -26,9 +26,9 @@
                             <p>{{ $order->subject }}</p>
                         </div>
                         <div class="flex flex-col md:flex-row gap-2 justify-between md:items-center">
-                            <p >پیام  : </p>
-                            <div class="flex justify-end">
-                                <p style="width:85% ;">{{ $order->message }}</p>
+                            <p class="w-max" >پیام  : </p>
+                            <div class="flex " style="width: 80%">
+                                <p style=" white-space: pre-wrap;">{{ $order->message }}</p>
                             </div>
                         </div>
                         <div class="flex justify-between items-center">
