@@ -11,7 +11,6 @@ use App\Models\Attribute;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
-use Livewire\Attributes\Locked;
 use Livewire\Attributes\Title;
 use App\Jobs\DownloadFileJob;
 
@@ -21,7 +20,7 @@ class Avatars extends Component
 
     public $name, $avatarImageURL, $avatarUrl, $search;
 
-    public User $user;
+    public ?User $user;
 
     protected $rules = [
         'name' => 'required|min:3|max:255',
@@ -112,13 +111,14 @@ class Avatars extends Component
     #[Title('بارگذاری آواتار')]
     public function render()
     {
-        $products = $this->user->products()->where('category_id', $this->getOrCreateCategory('avatar', 'Avatars')->id)
+        $products = Auth::user()->products()->where('category_id', $this->getOrCreateCategory('avatar', 'Avatars')->id)
             ->when($this->search, function ($query) {
                 $query->where('name', 'like', '%' . $this->search . '%');
             })
             ->whereHas('file')
             ->whereHas('latestImage')
             ->with('file', 'latestImage')
+            ->orderBy('created_at', 'desc')
             ->paginate(10);
 
         return view('livewire.avatars', compact('products'));
