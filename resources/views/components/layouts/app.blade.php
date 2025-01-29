@@ -19,7 +19,6 @@
     <meta property="og:site_name" content="سه بعدی متا">
     <meta property="og:locale" content="fa_IR">
 
-
     @if (View::getSection('extera-schema'))
         @yield('extera-schema')
     @endif
@@ -843,9 +842,9 @@
     <!-- end nav -->
     <div class="w-full main-content-smallNav ">
         {{ $slot }}
-    </div>
 
-    <div class="w-full main-content-smallNav2">
+
+
         <footer class="px-5 lg:px-9 3xl:px-0 w-full max-w-[1500px] mx-auto mt-32">
             <div
                 class="flex-wrap flex justify-between  items-ctener gap-1 md:gap-2 mx-auto w-full bg-white dark:bg-[#1A1A18] p-3 mb-10 rounded-2xl">
@@ -1013,6 +1012,8 @@
             </div>
         </footer>
     </div>
+
+
     <script src="{{ asset('assets/vendor_assets/js/jquery/jquery-3.5.1.min.js') }}"></script>
     <script src="{{ asset('home-page/script/swiper.js') }}"></script>
     <script src="{{ asset('home-page/script/preline.js') }}"></script>
@@ -1166,6 +1167,7 @@
             }
         });
     </script>
+    
 
 </body>
 

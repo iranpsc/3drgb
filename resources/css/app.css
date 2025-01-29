@@ -50,13 +50,13 @@
 .main-content-activeNav{
   @apply w-full  lg:w-[75%] xl:w-[80%] 2xl:w-[83%] lg:mr-auto transition-[0.5s] duration-300 blur-sm lg:blur-0 
 }
+.modal-avatar-smallNav{
+  @apply left-0 lg:w-[93%] xl:w-[95%] 2xl:w-[96%] 3xl:w-[96%]  lg:mr-auto transition-[0.5s] duration-300
+}
+.modal-avatar-activeNav{
+  @apply w-full mt-[-55px] left-0
+}
 
-.main-content-smallNav2{
-  @apply w-full lg:w-[93%] xl:w-[95%] 2xl:w-[96%] 3xl:w-[97%]  lg:mr-auto transition-[0.5s] duration-300 
-}
-.main-content-activeNav2{
-  @apply w-full  lg:w-[75%] xl:w-[80%] 2xl:w-[83%] lg:mr-auto transition-[0.5s] duration-300 blur-sm lg:blur-0 
-}
 #open-nav-btn{
   @apply   lg:w-10 lg:h-10 p-3 lg:px-2 rounded-full cursor-pointer flex lg:justify-center  z-50
 }
@@ -439,4 +439,78 @@ input[type="range"] {
       margin-top: -250px;
     }
   }
+  #avatar-container {
+    @apply w-full h-screen  lg:w-[40%] lg:h-[35vh]
+  }
  
+  .ad-section {
+    position: relative;
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ECF4FE, #CDD6FC); /* گرادیانت لایت */
+    color: #333333; /* متن تیره */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* سایه برای عمق */
+    transition: all 0.3s ease-in-out;
+  }
+  
+  
+  /* استایل دارک مود */
+  .dark .ad-section {
+    background: linear-gradient(135deg, rgba(255, 199, 0, 0.4), rgba(255, 245, 200, 0.7));
+    color: #FFFFFF; /* متن سفید */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6); /* سایه تیره */
+  }
+  
+
+  
+  .ad-section .background-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  
+  .ad-section .shape {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3); /* دایره‌ها نیمه‌شفاف */
+    animation: moveShapes 20s ease-in-out infinite;
+  }
+  
+  .ad-section .shape:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 20%;
+  }
+  
+  .ad-section .shape:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    top: 50%;
+    left: 70%;
+  }
+  
+  .ad-section .shape:nth-child(3) {
+    width: 150px;
+    height: 150px;
+    top: 80%;
+    left: 40%;
+  }
+  
+  @keyframes moveShapes {
+    0% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(180deg);
+    }
+    100% {
+      transform: translateY(0) rotate(360deg);
+    }
+  }
+  

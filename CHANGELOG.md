@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.0.36 (2025-01-27)
+
+### 1.0.35 (2025-01-19)
+
+### 1.0.34 (2025-01-19)
+
+### 1.0.33 (2025-01-17)
+
+### 1.0.32 (2025-01-08)
+
+
+### Bug Fixes
+
+* update product query to filter by user in Avatars component ([a8826e4](https://github.com/iranpsc/3drgb/commit/a8826e4fa70f1267bff24d2defea5ea4b6840b75))
+
 ### 1.0.31 (2025-01-08)
 
 ### 1.0.30 (2025-01-07)
