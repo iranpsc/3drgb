@@ -21,7 +21,6 @@ class Avatars extends Component
 
     public $name, $avatarImageURL, $avatarUrl, $search;
 
-    #[Locked]
     public User $user;
 
     protected $rules = [
