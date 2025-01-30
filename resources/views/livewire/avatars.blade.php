@@ -10,6 +10,9 @@
     <x-page title="آواتارها">
         <div class="row justify-content-center">
             <div class="flex flex-col gap-5">
+                <button id="openModalBtn" class="px-11 py-3 bg-primery-blue dark:bg-dark-yellow rounded-[10px] dark:text-black text-white">
+                    ایجاد آواتار
+                </button>
                 <input type="text" wire:model.live="search" name="search" placeholder="جستجو آواتار " class="bg-[#e9f3fd] dark:bg-black placeholder:text-[#90bde9] dark:placeholder:text-white/40 dark:text-white/50 rounded-[10px] p-4 border-0 placeholder:text-[#00000030] dark:ring-[#E59819]">
 
                 <x-table>
