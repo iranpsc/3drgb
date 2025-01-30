@@ -26,7 +26,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $product->sku }}</td>
                             <td>{{ $product->name }}</td>
-                            <td  class="flex gap-3 justify-between items-center"><a href="{{ $product->latestImage->url }}" target="_blank">لینک تصویر</a> <img class="w-[80px] rounded-lg" src="{{ $product->latestImage->url }}" alt="تصویر آواتار"></td>
+                            <td  class="flex  justify-center items-center"><a href="{{ $product->latestImage->url }}" target="_blank"><img class="w-[120px] rounded-lg" src="{{ $product->latestImage->url }}" alt="تصویر آواتار"> </a> </td>
                             <td><a href="{{ $product->file->url }}">دانلود</a></td>
                             <td>{{ jdate($product->created_at)->format('Y/m/d') }}</td>
                         </tr>
