@@ -22,11 +22,11 @@
                         <th>تاریخ ایجاد</th>
                     </x-slot>
                     @foreach ($products as $product)
-                        <tr>
+                        <tr >
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $product->sku }}</td>
                             <td>{{ $product->name }}</td>
-                            <td><a href="{{ $product->latestImage->url }}" target="_blank">لینک تصویر</a></td>
+                            <td  class="flex gap-3 justify-between items-center"><a href="{{ $product->latestImage->url }}" target="_blank">لینک تصویر</a> <img class="w-[80px] rounded-lg" src="{{ $product->latestImage->url }}" alt="تصویر آواتار"></td>
                             <td><a href="{{ $product->file->url }}">دانلود</a></td>
                             <td>{{ jdate($product->created_at)->format('Y/m/d') }}</td>
                         </tr>
