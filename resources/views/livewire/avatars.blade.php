@@ -39,7 +39,7 @@
                     ایجاد آواتار
                 </button>
 
-                <x-modal2 id="create-avatar" title="ایجاد آواتار">
+                <x-modal2  title="ایجاد آواتار">
                     <div class="w-full flex flex-col items-center gap-5">
                         <div class="flex items-center">
                             <input type="text" wire:model="name" id="avatarName" placeholder="نام آواتار را وارد کنید" 
@@ -138,7 +138,16 @@ function subscribe(event) {
             avatarSection.classList.add('hidden');
         }, 1000);
     }
+    document.getElementById('saveAvatarBtn').addEventListener('click', function () {
+    setTimeout(() => {
+        document.getElementById('myModal').style.display = 'none'; 
+    }, 1000);
+});
+
 }
+
+
+
 
 function parse(event) {
     try {
@@ -147,6 +156,7 @@ function parse(event) {
         return null;
     }
 }
+
 
 </script>
 @endscript
