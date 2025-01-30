@@ -44,19 +44,19 @@
                             <input type="text" wire:model="name" name="name" placeholder="نام آواتار را وارد کنید" class="bg-[#e9f3fd] dark:bg-black placeholder:text-[#90bde9] dark:placeholder:text-white/40 dark:text-white/50 rounded-[10px] p-4 py-3 border-1 border-primery-blue dark:border-dark-yellow placeholder:text-[#00000030] dark:ring-[#E59819] lg:w-96">
                         </div>
                     <div class="flex gap-5 items-center justify-center">
-                        <button class="px-11 py-3 bg-primery-blue dark:bg-dark-yellow rounded-[10px] dark:text-black text-white" wire:loading.attr="disabled" wire:click="save">ذخیره</button>
+                        <button class="px-11 py-3 bg-primery-blue dark:bg-dark-yellow rounded-[10px] dark:text-black text-white" wire:loading.attr="disabled" wire:click="save"  id="saveAvatarBtn">ذخیره</button>
                     </div>
                     <div>
-                        <p class="text-red-600">لطفا ابتدا فیلد نام آواتار را با نامی دلخواه پر کنید و بعد به ساخت آواتار بپردازید</p>
+                        @if ($errors->has(['avatarUrl', 'avatarImageURL']))
+                        <x-alert type="error" message="{{ __('Create your avatar first.') }}" />
+                    @endif
                     </div>
                     </div>
                     <div wire:ignore>
                         <iframe id="frame" class="frame w-full h-[80vh] md:w-full rounded-xl"
                             allow="camera *; microphone *; clipboard-write"></iframe>
                     </div>
-                    @if ($errors->has(['avatarUrl', 'avatarImageURL']))
-                        <x-alert type="error" message="{{ __('Create your avatar first.') }}" />
-                    @endif
+                    
 
                 </x-modal2>
             </div>
@@ -67,50 +67,69 @@
 @script
     
     <script>
-        const subdomain = '3drgb';
-        const frame = document.getElementById('frame');
-        let avatarUrl = '';
-        let avatarImageURL = '';
+       const subdomain = '3drgb';
+const frame = document.getElementById('frame');
+let avatarUrl = '';
+let avatarImageURL = '';
+const saveButton = document.getElementById('saveAvatarBtn'); // Save button
+const nameInput = document.querySelector('input[name="name"]'); // Avatar name input field
 
-        frame.src = `https://${subdomain}.readyplayer.me/avatar?frameApi`;
+// Initially, disable the save button
+saveButton.disabled = true;
 
-        window.addEventListener('message', subscribe);
-        document.addEventListener('message', subscribe);
+frame.src = `https://${subdomain}.readyplayer.me/avatar?frameApi`;
 
-        function subscribe(event) {
-            const json = parse(event);
+window.addEventListener('message', subscribe);
+document.addEventListener('message', subscribe);
 
-            if (json?.source !== 'readyplayerme') {
-                return;
-            }
+function subscribe(event) {
+    const json = parse(event);
 
-            // Subscribe to all events sent from Ready Player Me once frame is ready
-            if (json.eventName === 'v1.frame.ready') {
-                frame.contentWindow.postMessage(
-                    JSON.stringify({
-                        target: 'readyplayerme',
-                        type: 'subscribe',
-                        eventName: 'v1.**'
-                    }),
-                    '*'
-                );
-            }
+    if (json?.source !== 'readyplayerme') {
+        return;
+    }
 
-            // Get avatar GLB URL
-            if (json.eventName === 'v1.avatar.exported') {
-                avatarUrl = json.data.url;
-                avatarImageURL = 'https://models.readyplayer.me/' + json.data.avatarId + '.png';
-                @this.set('avatarUrl', avatarUrl);
-                @this.set('avatarImageURL', avatarImageURL);
-            }
-        }
+    // Subscribe to all events sent from Ready Player Me once the frame is ready
+    if (json.eventName === 'v1.frame.ready') {
+        frame.contentWindow.postMessage(
+            JSON.stringify({
+                target: 'readyplayerme',
+                type: 'subscribe',
+                eventName: 'v1.**'
+            }),
+            '*'
+        );
+    }
 
-        function parse(event) {
-            try {
-                return JSON.parse(event.data);
-            } catch (error) {
-                return null;
-            }
-        }
+    // Receive avatar data and enable the save button
+    if (json.eventName === 'v1.avatar.exported') {
+        avatarUrl = json.data.url;
+        avatarImageURL = 'https://models.readyplayer.me/' + json.data.avatarId + '.png';
+        @this.set('avatarUrl', avatarUrl);
+        @this.set('avatarImageURL', avatarImageURL);
+
+        // Enable the save button after receiving the avatar
+        saveButton.disabled = false;
+    }
+}
+
+function parse(event) {
+    try {
+        return JSON.parse(event.data);
+    } catch (error) {
+        return null;
+    }
+}
+
+// Add validation when clicking the save button
+saveButton.addEventListener('click', function (event) {
+    if (!nameInput.value.trim()) {
+        event.preventDefault(); // Prevent the save request from executing
+        alert('لطفا نام آواتار را وارد کنید'); // Show error message
+    }
+});
+
     </script>
+
+
 @endscript
