@@ -7,7 +7,7 @@ class="modal-avatar-smallNav hidden w-[100%] pb-[50px] lg:pb-0  fixed top-0 z-[8
     class="hs-overlay-open:opacity-100 hs-overlay-open:duration-500   ease-out transition-all    ">
     <div
         class="flex flex-col   pointer-events-auto   dark:shadow-slate-700/[.7]  ">
-        <div class="flex justify-between items-center p-5 border-b dark:border-black">
+        <div class="flex justify-between items-center p-5 lg:pb-0">
             <h6 class="font-bold text-gray-800 dark:text-white">
                 {{ $title }}
             </h6>
@@ -23,7 +23,7 @@ class="modal-avatar-smallNav hidden w-[100%] pb-[50px] lg:pb-0  fixed top-0 z-[8
                 </svg>
             </button>
         </div>
-        <div class="p-4 overflow-y-auto flex flex-col gap-5">
+        <div class="p-4 overflow-y-auto flex flex-col gap-5 lg:pt-0">
 
             {{ $slot }}
 
