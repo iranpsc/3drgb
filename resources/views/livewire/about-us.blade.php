@@ -19,7 +19,7 @@
         "sameAs": [
           "https://www.youtube.com/channel/UCG9jK8hoh9X5YoTs6Z1zlIQ",
           "https://discord.gg/xqBe3h9hnN",
-          "https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy",
+          "https://www.instagram.com/modelify3d_com/",
           "https://pin.it/7C5mYf6Q6"
         ],
         "contactPoint": {
@@ -61,7 +61,7 @@
                     <div class="flex gap-4">
                         <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (1).png"
                                     alt="telegram"></a></div>
-                        <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy" ><img
+                        <div><a href="https://www.instagram.com/modelify3d_com/" ><img
                                     src="https://3d.irpsc.com/home-page/images/Union (2).png" alt="instagram"></a></div>
                         <div><a href="whatsapp://send?text=http://+989127855049"><img
                                     src="https://3d.irpsc.com/home-page/images/Union (3).png" alt="whatsapp"></a></div>

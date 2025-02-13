@@ -47,7 +47,7 @@
                 "sameAs": [
                     "https://www.youtube.com/channel/UCG9jK8hoh9X5YoTs6Z1zlIQ",
                     "https://discord.gg/xqBe3h9hnN",
-                    "https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy",
+                    "https://www.instagram.com/modelify3d_com/",
                     "https://pin.it/7C5mYf6Q6"
                   ]
               },
@@ -978,7 +978,7 @@
                             </a>
                         </div>
                         <div>
-                            <a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy">
+                            <a href="https://www.instagram.com/modelify3d_com/">
                                 <img src="{{ asset('home-page/images/istagram.png') }}" alt="اینستاگرام">
                             </a>
                         </div>

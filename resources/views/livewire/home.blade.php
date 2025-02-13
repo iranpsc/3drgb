@@ -18,7 +18,7 @@
                         <div class="flex gap-4">
                             <div><a href="#"><img src="https://3d.irpsc.com/home-page/images/Union (1).png"
                                         alt="social"></a></div>
-                            <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy"><img
+                            <div><a href="https://www.instagram.com/modelify3d_com/"><img
                                         src="https://3d.irpsc.com/home-page/images/Union (2).png" alt="social"></a></div>
                             <div><a href="whatsapp://send?text=http://+989127855049"><img
                                         src="https://3d.irpsc.com/home-page/images/Union (3).png" alt="social"></a></div>
