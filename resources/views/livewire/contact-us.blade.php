@@ -19,7 +19,7 @@
         "contactPoint": [
           {
             "@type": "ContactPoint",
-            "telephone": "+989337850551",
+            "telephone": "+989127855049",
             "contactType": "Customer Service",
             "areaServed": "IR",
             "availableLanguage": ["Persian", "English"],
@@ -27,11 +27,11 @@
           },
           {
             "@type": "ContactPoint",
-            "telephone": "+989337850551",
+            "telephone": "+989127855049",
             "contactType": "Sales",
             "areaServed": "IR",
             "availableLanguage": "Persian",
-            "email": "3dmeta.irpsc@gmail.com"
+            "email": "hq@irpsc.com"
           }
         ],
         "address": {
@@ -67,9 +67,9 @@
                                     alt="telegram"></a></div>
                         <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy" ><img
                                     src="https://3d.irpsc.com/home-page/images/Union (2).png" alt="instagram"></a></div>
-                        <div><a href="whatsapp://send?text=http://+989337850551"><img
+                        <div><a href="whatsapp://send?text=http://989127855049"><img
                                     src="https://3d.irpsc.com/home-page/images/Union (3).png" alt="whatsapp"></a></div>
-                        <div><a href="mailto:dmeta.irpsc@gmail.com"><img
+                        <div><a href="mailto:hq@irpsc.com"><img
                                     src="https://3d.irpsc.com/home-page/images/Union (4).png" alt="email"></a></div>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                         <div class="flex flex-col lg:flex-row lg:flex-wrap w-full items-center justify-between gap-6 ">
                             <div class="flex gap-3 items-center ">
                                 <a class="font-bold text-2xl text-black/50 dark:text-gray-300"
-                                    href="tel:۰۹۳۳۷۸۵۰۴۲۴">۰۹۳۳۷۸۵۰۴۲۴</a>
+                                    href="tel:+989127855049">09127855049</a>
                                 <svg width="27" height="27" viewBox="0 0 20 21" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path class="dark:stroke-white"
@@ -127,7 +127,7 @@
                             </div>
                             <div class="flex gap-3 items-center text-center lg:text-right">
                                 <a class="text-2xl text-black/50 dark:text-gray-300 " 
-                                    href="mailto:3dmeta.irpsc@gmail.com">3dmeta.irpsc@gmail.com</a>
+                                    href="mailto:hq@irpsc.com">hq@irpsc.com</a>
                                 <svg width="27" height="27" viewBox="0 0 22 22" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path class="dark:stroke-white"

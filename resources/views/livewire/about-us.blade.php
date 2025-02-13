@@ -24,7 +24,7 @@
         ],
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+989337850551",
+          "telephone": "+989127855049",
           "contactType": "Customer Service",
           "areaServed": "IR",
           "availableLanguage": "Persian"
@@ -63,7 +63,7 @@
                                     alt="telegram"></a></div>
                         <div><a href="https://www.instagram.com/3d.irpsc?igsh=ZzRhNXVndXZldXYy" ><img
                                     src="https://3d.irpsc.com/home-page/images/Union (2).png" alt="instagram"></a></div>
-                        <div><a href="whatsapp://send?text=http://+989337850551"><img
+                        <div><a href="whatsapp://send?text=http://+989127855049"><img
                                     src="https://3d.irpsc.com/home-page/images/Union (3).png" alt="whatsapp"></a></div>
                         <div><a href="mailto:dmeta.irpsc@gmail.com"><img
                                     src="https://3d.irpsc.com/home-page/images/Union (4).png" alt="email"></a></div>
@@ -96,17 +96,7 @@
                         فضاهای بی‌پایان است. به دنیای ما بپیوندید، جایی که هر کالا داستانی دارد..</p>
                 </div>
                 <div class="w-full lg:w-1/3 flex gap-7">
-                    <div
-                        class="flex w-1/2 flex-col justify-center items-center rounded-[30px] bg-white dark:bg-[#1A1A18] text-[#157EFB] dark:text-white gap-5 px-3 py-7">
-                        <div class="rounded-full overflow-hidden w-[80%] border-2 border-[#157EFB]">
-                            <img src="{{ asset('home-page/images/alizadeh.JPEG') }}" alt=""
-                                class="w-full h-full ">
-                        </div>
-                        <div class="flex flex-col justify-center items-center gap-4 text-center">
-                            <a href="https://uni.irpsc.com/member/sagheb-alizadeh/">مرضیه ثاقب علیزاده</a>
-                            <p class="text-sm">مدیر سایت</p>
-                        </div>
-                    </div>
+
                     <div
                         class="flex w-1/2 flex-col justify-center items-center rounded-[30px] bg-white dark:bg-[#1A1A18] text-[#157EFB] dark:text-white gap-5 px-3 py-7">
                         <div class="rounded-full overflow-hidden w-[80%] border-2 border-[#157EFB]">

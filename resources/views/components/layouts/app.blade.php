@@ -34,8 +34,8 @@
                 "logo": "{{ asset('home-page/images/3d.png') }}",
                 "image": "@yield('og:image', asset('home-page/images/3d.png'))",
                 "description": "@yield('description', 'سامانه سه‌بعدی متا با تعرفه‌ای ثابت مرکز عرضه جدیدترین مدل سه‌بعدی، آیکون، انیمیشن و دیگر فایل‌های طراحی می‌باشد.')",
-                "email": "dmeta.irpsc@gmail.com",
-                "telephone": "09337850551",
+                "email": "hq@irpsc.com",
+                "telephone": "09127855049",
                 "inLanguage": "fa",
                 "address": {
                   "@type": "PostalAddress",
@@ -82,8 +82,8 @@
                   "addressRegion": "استان قزوین",
                   "streetAddress": "میرداماد، 824H+JG2"
                 },
-                "email": "dmeta.irpsc@gmail.com",
-                "telephone": "09337850551"
+                "email": "hq@irpsc.com",
+                "telephone": "09127855049"
               }
             ]
           }
@@ -946,9 +946,8 @@
                         </p>
                     </div>
                     <div class="font-bold">
-                        <a dir="ltr" href="whatsapp://send?text=http://+989337850551" target="_blank"
-                            class="rounded-3xl bg-white dark:bg-[#DCFFE8]/75 py-3 px-5 text-green-600 dark:text-[#02501D]">0933
-                            785 0551</a>
+                        <a dir="ltr" href="whatsapp://send?text=http://+989127855049" target="_blank"
+                            class="rounded-3xl bg-white dark:bg-[#DCFFE8]/75 py-3 px-5 text-green-600 dark:text-[#02501D]">09127855049</a>
                     </div>
                 </div>
             </div>
@@ -967,7 +966,7 @@
                             </a>
                         </div>
                         <div>
-                            <a href="whatsapp://send?text=http://+989337850551">
+                            <a href="whatsapp://send?text=http://+989127855049">
                                 <img src="{{ asset('home-page/images/whatsapp.png') }}" alt="واتساپ">
                             </a>
                         </div>
@@ -984,7 +983,7 @@
                             </a>
                         </div>
                         <div>
-                            <a href="mailto:dmeta.irpsc@gmail.com"
+                            <a href="mailto:hq@irpsc.com"
                                 class="rounded-full bg-gray-500 p-2 w-max flex justify-center items-center">
                                 <img src="{{ asset('home-page/images/sms.png') }}" alt="پیام">
                             </a>
