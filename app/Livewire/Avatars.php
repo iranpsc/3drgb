@@ -30,7 +30,7 @@ class Avatars extends Component
 
     public function mount()
     {
-        $this->user = User::find(Auth::id());
+        $this->user = Auth::user();
     }
 
     public function save()
@@ -111,7 +111,7 @@ class Avatars extends Component
     #[Title('بارگذاری آواتار')]
     public function render()
     {
-        $products = Auth::user()->products()->where('category_id', $this->getOrCreateCategory('avatar', 'Avatars')->id)
+        $products = $this->user ? $this->user->products()->where('category_id', $this->getOrCreateCategory('avatar', 'Avatars')->id)
             ->when($this->search, function ($query) {
                 $query->where('name', 'like', '%' . $this->search . '%');
             })
@@ -119,7 +119,7 @@ class Avatars extends Component
             ->whereHas('latestImage')
             ->with('file', 'latestImage')
             ->orderBy('created_at', 'desc')
-            ->paginate(10);
+            ->paginate(10) : collect();
 
         return view('livewire.avatars', compact('products'));
     }

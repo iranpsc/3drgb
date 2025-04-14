@@ -64,6 +64,7 @@ Route::get('/categories/{category_link}', ProductCategory::class)->where('catego
 Route::get('/cart', Cart::class)->name('cart');
 Route::get('/checkout', Checkout::class)->name('checkout');
 Route::get('/submit-order', SubmitOrder::class)->name('submit-order');
+Route::get('/avatars', Avatars::class)->name('avatars');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware('admin')->prefix('admin')->group(function () {
@@ -105,7 +106,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/orders', Orders::class)->name('orders');
         Route::get('/orders/{order}', OrderDetails::class)->name('orders.show');
         Route::get('/profile', Profile::class)->name('profile');
-        Route::get('/avatars', Avatars::class)->name('avatars');
     });
 
     Route::prefix('tickets')->name('tickets.')->group(function () {

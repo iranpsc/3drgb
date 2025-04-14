@@ -4,7 +4,7 @@
 @section('og:title', 'سه بعدی متا')
 @section('og:description')
 @section('og:image')
-    <div>     
+    <div>
         <main>
             <section>
                 <div class="bg-[#000BEEF7] dark:bg-[#E59819] w-full py-[10px] text-white text-sm hidden lg:block px-5"
@@ -149,7 +149,7 @@
                         <p class="text-stone-800 dark:text-[#D1D1D1] font-medium leading-[30px] text-xl">
                             فقط با چند کلیک، یک اواتار سفارشی مطابق با سلیقه خودتان بسازید. کاملاً رایگان و بدون محدودیت!
                         </p>
-                        <a href="{{ route('user.avatars') }}" class="bg-primery-blue rounded-2xl px-10 py-3 text-white dark:text-black dark:bg-dark-yellow lg:text-xl">همین حالا آواتار بسازید</a>
+                        <a href="{{ route('avatars') }}" class="bg-primery-blue rounded-2xl px-10 py-3 text-white dark:text-black dark:bg-dark-yellow lg:text-xl">همین حالا آواتار بسازید</a>
                     </div>
                     <div class="w-full h-screen" id="avatar-container"></div>
                 </div>
@@ -252,7 +252,7 @@
                                 پرفروش ترین
                             </button>
                         </nav>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="relative">
                     <div class="swiper-slider swiper-container overflow-x-hidden" dir="rtl" wire:ignore>
@@ -306,26 +306,26 @@
             const scene = new THREE.Scene();
             const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
             const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        
-            const container = document.getElementById('avatar-container'); 
+
+            const container = document.getElementById('avatar-container');
             renderer.setPixelRatio(1);
             renderer.setSize(container.clientWidth, container.clientHeight);
             renderer.physicallyCorrectLights = false;
             container.appendChild(renderer.domElement);
-        
+
             // تنظیم نور
             const ambientLight = new THREE.AmbientLight(0xffffff, 0.07); // نور محیطی کم شدت
             scene.add(ambientLight);
-        
+
             const directionalLight = new THREE.DirectionalLight(0xffffff, 11.5); // کاهش شدت نور جهت‌دار
             directionalLight.position.set(5, 10, 7.5);
             scene.add(directionalLight);
-        
-            const modelPath = "{{ asset('home-page/3dfiles/avatar.glb') }}"; 
-        
+
+            const modelPath = "{{ asset('home-page/3dfiles/avatar.glb') }}";
+
             const loader = new THREE.GLTFLoader();
             let model;
-        
+
             function loadModel() {
                 loader.load(
                     modelPath,
@@ -334,15 +334,15 @@
                         model.position.set(0, -1, 0); // تنظیم موقعیت مدل
                         scene.add(model);
                         camera.position.z = 1.3; // فاصله دوربین از مدل
-        
-                       
+
+
                         model.traverse((node) => {
                             if (node.isMesh) {
-                                node.material.roughness = 0.6; 
-                                node.material.metalness = 0.5; 
+                                node.material.roughness = 0.6;
+                                node.material.metalness = 0.5;
                             }
                         });
-        
+
                         // شروع رندر
                         animate();
                     },
@@ -354,61 +354,61 @@
                     }
                 );
             }
-        
-           
+
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         loadModel();
-                        observer.disconnect(); 
+                        observer.disconnect();
                     }
                 });
             }, { threshold: 0.1 });
-        
+
             observer.observe(container);
-        
-            
+
+
             const controls = new THREE.OrbitControls(camera, renderer.domElement);
-            controls.enableDamping = true; 
+            controls.enableDamping = true;
             controls.dampingFactor = 0.05;
             controls.screenSpacePanning = false;
-            controls.enableZoom = false; 
-            controls.target.set(0, 0, 0); 
-        
-           
+            controls.enableZoom = false;
+            controls.target.set(0, 0, 0);
+
+
             let lastRenderTime = 0;
-            const renderInterval = 1000 / 24; 
-        
+            const renderInterval = 1000 / 24;
+
             function animate() {
                 if (!document.hidden) {
                     requestAnimationFrame(animate);
                     const currentTime = performance.now();
                     if (currentTime - lastRenderTime < renderInterval) return;
                     lastRenderTime = currentTime;
-        
+
                     if (model) {
-                        model.rotation.y += 0.005; 
+                        model.rotation.y += 0.005;
                     }
-                    controls.update(); 
+                    controls.update();
                     renderer.render(scene, camera);
                 }
             }
-        
-            
+
+
             window.addEventListener('resize', () => {
                 camera.aspect = container.clientWidth / container.clientHeight;
                 camera.updateProjectionMatrix();
                 renderer.setSize(container.clientWidth, container.clientHeight);
             });
-        
+
             // مدیریت از دست رفتن کانتکست WebGL
             renderer.domElement.addEventListener("webglcontextlost", (event) => {
                 event.preventDefault();
                 console.warn("WebGL context lost");
             });
         </script>
-        
-        
+
+
 
     @script
         <script>
