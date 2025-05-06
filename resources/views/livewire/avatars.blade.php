@@ -44,7 +44,6 @@
 
                     <input type="text" wire:model.live="search" name="search" placeholder="جستجو آواتار "
                         class="bg-[#e9f3fd] dark:bg-black placeholder:text-[#90bde9] dark:placeholder:text-white/40 dark:text-white/50 rounded-[10px] p-4 border-0 placeholder:text-[#00000030] dark:ring-[#E59819]">
-
                     <x-table>
                         <x-slot name="header">
                             <th>ردیف</th>
@@ -77,7 +76,7 @@
 
 @script
     <script>
-        const subdomain = '3drgb';
+        const subdomain = 'metargb';
         const frame = document.getElementById('frame');
         const saveButton = document.getElementById('saveAvatarBtn');
         const nameInput = document.getElementById('avatarName');
