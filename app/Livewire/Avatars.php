@@ -47,7 +47,7 @@ class Avatars extends Component
 
         $this->reset();
 
-        session()->flash('message', __('Avatar created successfully.'));
+        session()->flash('success', __('Avatar created successfully.'));
     }
 
     private function getOrCreateCategory($slug, $name)

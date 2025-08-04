@@ -8,6 +8,16 @@
 
 <div>
     <x-page title="آواتارها">
+
+        @session('success')
+            <div class="mb-4 rounded-lg bg-green-100 px-6 py-4 text-green-800 border border-green-300 flex items-center">
+                <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>{{ session('success') }}</span>
+            </div>
+        @endsession
+
         <div class="row justify-content-center">
             <div class="flex flex-col gap-5">
                 <button command="show-modal" commandfor="avatarDialog"
