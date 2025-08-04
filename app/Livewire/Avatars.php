@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Title;
 use App\Jobs\DownloadFileJob;
+use Livewire\Attributes\Locked;
 
 class Avatars extends Component
 {
@@ -20,18 +21,11 @@ class Avatars extends Component
 
     public $name, $avatarImageURL, $avatarUrl, $search;
 
-    public ?User $user;
-
     protected $rules = [
         'name' => 'required|min:3|max:255',
         'avatarUrl' => 'required|url',
         'avatarImageURL' => 'required|url',
     ];
-
-    public function mount()
-    {
-        $this->user = Auth::user();
-    }
 
     public function save()
     {
@@ -49,7 +43,7 @@ class Avatars extends Component
         $this->attachRandomTag($product);
         $this->attachRandomAttribute($product);
 
-        $this->user->products()->attach($product);
+        Auth::user()->products()->attach($product);
 
         $this->reset();
 
@@ -111,7 +105,7 @@ class Avatars extends Component
     #[Title('بارگذاری آواتار')]
     public function render()
     {
-        $products = $this->user ? $this->user->products()->where('category_id', $this->getOrCreateCategory('avatar', 'Avatars')->id)
+        $products = Auth::user()->products()->where('category_id', $this->getOrCreateCategory('avatar', 'Avatars')->id)
             ->when($this->search, function ($query) {
                 $query->where('name', 'like', '%' . $this->search . '%');
             })
@@ -119,7 +113,7 @@ class Avatars extends Component
             ->whereHas('latestImage')
             ->with('file', 'latestImage')
             ->orderBy('created_at', 'desc')
-            ->paginate(10) : collect();
+            ->paginate(10);
 
         return view('livewire.avatars', compact('products'));
     }

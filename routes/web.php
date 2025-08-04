@@ -64,9 +64,11 @@ Route::get('/categories/{category_link}', ProductCategory::class)->where('catego
 Route::get('/cart', Cart::class)->name('cart');
 Route::get('/checkout', Checkout::class)->name('checkout');
 Route::get('/submit-order', SubmitOrder::class)->name('submit-order');
-Route::get('/avatars', Avatars::class)->name('avatars');
 
 Route::middleware(['auth', 'verified'])->group(function () {
+
+    Route::get('/avatars', Avatars::class)->name('avatars');
+
     Route::middleware('admin')->prefix('admin')->group(function () {
 
         Route::get('/dashboard', AdminDashboard::class)->name('admin.dashboard');
