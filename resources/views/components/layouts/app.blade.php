@@ -153,7 +153,7 @@
 </head>
 
 <body
-    class="bg-gradient-to-t  to-[#DAE7FE] from-[#ECF4FE] dark:to-black dark:via-black dark:from-black w-full ">
+    class="bg-gradient-to-t  to-[#DAE7FE] from-[#ECF4FE] dark:to-black dark:via-black dark:from-black w-full relative">
     <!-- start nav -->
     <header>
         <!-- start head mobile nav -->

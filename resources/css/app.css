@@ -39,10 +39,10 @@
 
 
 .sidenav {
-  @apply h-full w-0 top-0 right-0  hidden  lg:w-[75px] transition-[1.5s] duration-300 text-right fixed z-10  lg:flex flex-col  items-center pt-0 bg-[#FCFCFC] dark:bg-[#1A1A18]  
+  @apply h-full w-0 top-0 right-0  hidden  lg:w-[75px] transition-[1.5s] duration-300 text-right fixed  z-[5000]   lg:flex flex-col  items-center pt-0 bg-[#FCFCFC] dark:bg-[#1A1A18]  
 }
 .sidnav-t{
-  @apply transition-[1.5s] duration-300 w-[87%] lg:w-[25%] xl:w-[20%] 2xl:w-[17%]  fixed  h-full z-50 top-0  right-0 
+  @apply transition-[1.5s] duration-300 w-[87%] lg:w-[25%] xl:w-[20%] 2xl:w-[17%]  fixed  h-full z-[5000] top-0  right-0 
 }
 .main-content-smallNav{
   @apply w-full lg:w-[93%] xl:w-[95%] 2xl:w-[96%] 3xl:w-[97%]  lg:mr-auto transition-[0.5s] duration-300 
@@ -51,11 +51,15 @@
   @apply w-full  lg:w-[75%] xl:w-[80%] 2xl:w-[83%] lg:mr-auto transition-[0.5s] duration-300 blur-sm lg:blur-0 
 }
 .modal-avatar-smallNav{
-  @apply left-0 lg:w-[93%] xl:w-[95%] 2xl:w-[96%] 3xl:w-[96%]  lg:mr-auto transition-[0.5s] duration-300
+  @apply left-0 w-full lg:w-[93%] xl:w-[95%] 2xl:w-[96%] 3xl:w-[96%]  lg:mr-auto transition-[0.5s] duration-300  
 }
+
 .modal-avatar-activeNav{
-  @apply w-full mt-[-55px] left-0
+  @apply w-full left-0 mt-[-56px]
 }
+
+
+   
 
 #open-nav-btn{
   @apply   lg:w-10 lg:h-10 p-3 lg:px-2 rounded-full cursor-pointer flex lg:justify-center  z-50
