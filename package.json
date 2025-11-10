@@ -1,7 +1,7 @@
 {
     "private": true,
     "type": "module",
-    "version": "1.0.53",
+    "version": "1.0.54",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
