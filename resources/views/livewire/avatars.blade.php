@@ -76,7 +76,7 @@
                                 <div
                                     class="bg-gray-50 dark:bg-gray-900 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 flex-shrink-0">
                                     <button id="saveAvatarBtn"
-                                        class="inline-flex w-full justify-center rounded-md bg-primery-blue dark:bg-dark-yellow px-3 py-2 text-sm font-semibold text-white dark:text-black shadow-sm hover:bg-primery-blue/90 dark:hover:bg-dark-yellow/90 sm:ml-3 sm:w-auto disabled:opacity-50">
+                                        class="hidden inline-flex w-full justify-center rounded-md bg-primery-blue dark:bg-dark-yellow px-3 py-2 text-sm font-semibold text-white dark:text-black shadow-sm hover:bg-primery-blue/90 dark:hover:bg-dark-yellow/90 sm:ml-3 sm:w-auto disabled:opacity-50">
                                         ذخیره آواتار
                                     </button>
                                     <button type="button" command="close" commandfor="avatarDialog"
@@ -104,14 +104,14 @@
                             <th>تاریخ ایجاد</th>
                         </x-slot>
                         @foreach ($products as $product)
-                            <tr>
+                            <tr class="text-center">
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $product->sku }}</td>
                                 <td>{{ $product->name }}</td>
-                                <td class="flex  justify-center items-center"><a href="{{ $product->latestImage->url }}"
+                                <td class="flex  justify-center items-center border-0"><a href="{{ $product->latestImage->url }}"
                                         target="_blank"><img class="w-[60px] rounded-lg"
                                             src="{{ $product->latestImage->url }}" alt="تصویر آواتار"> </a> </td>
-                                <td><a href="{{ $product->file->url }}">دانلود</a></td>
+                                <td ><a href="{{ $product->file->url }}">دانلود</a></td>
                                 <td>{{ jdate($product->created_at)->format('Y/m/d') }}</td>
                             </tr>
                         @endforeach
@@ -167,7 +167,10 @@
                 avatarImageURL = 'https://models.readyplayer.me/' + json.data.avatarId + '.png';
                 @this.set('avatarUrl', avatarUrl);
                 @this.set('avatarImageURL', avatarImageURL);
+
+                saveButton.classList.remove('hidden');
             }
+
         }
 
         saveButton.addEventListener('click', function() {
