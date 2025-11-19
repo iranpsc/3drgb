@@ -18,7 +18,7 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:site_name" content="سه بعدی متا">
     <meta property="og:locale" content="fa_IR">
-
+    
     @if (View::getSection('extera-schema'))
         @yield('extera-schema')
     @endif
@@ -94,6 +94,8 @@
     <link href="{{ asset('home-page/style/swiper-main.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/style-rtl.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor_assets/css/star-rating-svg.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css">
+
     @vite('resources/css/app.css')
 
     {{-- <title>{{ 'سه بعدی متا' . ' | ' . $title ?? config('app.name') }}</title> --}}
