@@ -54,67 +54,67 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', Home::class)->name('home');
-Route::get('/about-us', AboutUs::class)->name('about-us');
-Route::get('/contact-us', ContactUs::class)->name('contact-us');
-Route::get('/products', Store::class)->name('products');
-Route::get('/products/{product:sku}', ProductDetails::class)->name('products.show');
-Route::get('/categories', ProductCategories::class)->name('categories');
-Route::get('/categories/{category_link}', ProductCategory::class)->where('category_link', '.*')->name('categories.show');
-Route::get('/cart', Cart::class)->name('cart');
-Route::get('/checkout', Checkout::class)->name('checkout');
-Route::get('/submit-order', SubmitOrder::class)->name('submit-order');
+Route::livewire('/', Home::class)->name('home');
+Route::livewire('/about-us', AboutUs::class)->name('about-us');
+Route::livewire('/contact-us', ContactUs::class)->name('contact-us');
+Route::livewire('/products', Store::class)->name('products');
+Route::livewire('/products/{product:sku}', ProductDetails::class)->name('products.show');
+Route::livewire('/categories', ProductCategories::class)->name('categories');
+Route::livewire('/categories/{category_link}', ProductCategory::class)->where('category_link', '.*')->name('categories.show');
+Route::livewire('/cart', Cart::class)->name('cart');
+Route::livewire('/checkout', Checkout::class)->name('checkout');
+Route::livewire('/submit-order', SubmitOrder::class)->name('submit-order');
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    Route::get('/avatars', Avatars::class)->name('avatars');
+    Route::livewire('/avatars', Avatars::class)->name('avatars');
 
     Route::middleware('admin')->prefix('admin')->group(function () {
 
-        Route::get('/dashboard', AdminDashboard::class)->name('admin.dashboard');
+        Route::livewire('/dashboard', AdminDashboard::class)->name('admin.dashboard');
 
         Route::prefix('products')->name('products.')->group(function () {
-            Route::get('/', Products::class)->name('index');
-            Route::get('/create', CreateProduct::class)->name('create');
-            Route::get('/{product}/edit', EditProduct::class)->name('edit');
-            Route::get('/import', Import::class)->name('import');
+            Route::livewire('/', Products::class)->name('index');
+            Route::livewire('/create', CreateProduct::class)->name('create');
+            Route::livewire('/{product}/edit', EditProduct::class)->name('edit');
+            Route::livewire('/import', Import::class)->name('import');
         });
 
         Route::prefix('categories')->name('categories.')->group(function () {
-            Route::get('/', Categories::class)->name('index');
-            Route::get('/create', CreateCategory::class)->name('create');
-            Route::get('/{category}/edit', EditCategory::class)->name('edit');
+            Route::livewire('/', Categories::class)->name('index');
+            Route::livewire('/create', CreateCategory::class)->name('create');
+            Route::livewire('/{category}/edit', EditCategory::class)->name('edit');
         });
 
-        Route::get('/tags', Tags::class)->name('tags');
+        Route::livewire('/tags', Tags::class)->name('tags');
 
-        Route::get('/attributes', Attributes::class)->name('attributes');
+        Route::livewire('/attributes', Attributes::class)->name('attributes');
 
-        Route::get('/reviews', Reviews::class)->name('reviews');
+        Route::livewire('/reviews', Reviews::class)->name('reviews');
 
-        Route::get('/reviews/{review}/replies', ReviewReplies::class)->name('review-replies');
+        Route::livewire('/reviews/{review}/replies', ReviewReplies::class)->name('review-replies');
 
-        Route::get('/users', Users::class)->name('users');
+        Route::livewire('/users', Users::class)->name('users');
 
-        Route::get('/submited-orders', SubmitedOrdersListing::class)->name('submited-orders-index');
-        Route::get('/submited-orders/{order}', SubmitedOrdersShow::class)->name('submited-orders-show');
-        Route::get('/contact-us-messages', ContactUsMessages::class)->name('contact-us-messages');
+        Route::livewire('/submited-orders', SubmitedOrdersListing::class)->name('submited-orders-index');
+        Route::livewire('/submited-orders/{order}', SubmitedOrdersShow::class)->name('submited-orders-show');
+        Route::livewire('/contact-us-messages', ContactUsMessages::class)->name('contact-us-messages');
     });
 
-    Route::get('/verify', Verify::class)->name('verify');
+    Route::livewire('/verify', Verify::class)->name('verify');
 
     Route::as('user.')->group(function () {
-        Route::get('/dashboard', Dashboard::class)->name('dashboard');
-        Route::get('/orders', Orders::class)->name('orders');
-        Route::get('/orders/{order}', OrderDetails::class)->name('orders.show');
-        Route::get('/profile', Profile::class)->name('profile');
+        Route::livewire('/dashboard', Dashboard::class)->name('dashboard');
+        Route::livewire('/orders', Orders::class)->name('orders');
+        Route::livewire('/orders/{order}', OrderDetails::class)->name('orders.show');
+        Route::livewire('/profile', Profile::class)->name('profile');
     });
 
     Route::prefix('tickets')->name('tickets.')->group(function () {
-        Route::get('/', Tickets::class)->name('index');
-        Route::get('/create', CreateTicket::class)->name('create');
-        Route::get('/{ticket}', ShowTicket::class)->name('show');
-        Route::get('/{ticket}/edit', UpdateTicket::class)->name('edit');
+        Route::livewire('/', Tickets::class)->name('index');
+        Route::livewire('/create', CreateTicket::class)->name('create');
+        Route::livewire('/{ticket}', ShowTicket::class)->name('show');
+        Route::livewire('/{ticket}/edit', UpdateTicket::class)->name('edit');
     });
 });
 

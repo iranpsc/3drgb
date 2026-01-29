@@ -18,16 +18,16 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:site_name" content="سه بعدی متا">
     <meta property="og:locale" content="fa_IR">
-    
+
     @if (View::getSection('extera-schema'))
         @yield('extera-schema')
     @endif
     <script type="application/ld+json">
         {
-            "@context": "https://schema.org",
-            "@graph": [
+            "@@context": "https://schema.org",
+            "@@graph": [
               {
-                "@type": "Organization",
+                "@@type": "Organization",
                 "name": "سه بعدی متا",
                 "alternateName": "3D Meta",
                 "url": "{{ url()->current() }}",
@@ -38,7 +38,7 @@
                 "telephone": "09127855049",
                 "inLanguage": "fa",
                 "address": {
-                  "@type": "PostalAddress",
+                  "@@type": "PostalAddress",
                   "addressCountry": "ایران",
                   "addressLocality": "قزوین",
                   "addressRegion": "استان قزوین",
@@ -52,7 +52,7 @@
                   ]
               },
               {
-                "@type": "WebSite",
+                "@@type": "WebSite",
                 "name": "@yield('title', 'سه بعدی متا | ' . ($title ?? config('app.name')))",
                 "alternateName": "3D Meta",
                 "url": "{{ url()->current() }}",
@@ -62,13 +62,13 @@
                 "keywords": "@yield('keywords', '3d,3dmeta,3drgb,سبعدی,سه بعدی,محصولات سه بعدی,فایل سه بعدی,خرید فایل سبعدی,icon,آیکون,آیکون سه بعدی,خرید آیکون سه بعدی,انیمیشن')",
                 "inLanguage": "fa",
                 "potentialAction": {
-                  "@type": "SearchAction",
+                  "@@type": "SearchAction",
                   "target": "{{ url()->current() }}?q={search_term_string}",
                   "query-input": "required name=search_term_string"
                 }
               },
               {
-                "@type": "Store",
+                "@@type": "Store",
                 "name": "سه بعدی متا",
                 "alternateName": "3D Meta",
                 "url": "{{ url()->current() }}",
@@ -76,7 +76,7 @@
                 "logo": "{{ asset('home-page/images/3d.png') }}",
                 "description": "@yield('description', 'سامانه سه‌بعدی متا با تعرفه‌ای ثابت مرکز عرضه جدیدترین مدل سه‌بعدی، آیکون، انیمیشن و دیگر فایل‌های طراحی می‌باشد.')",
                 "address": {
-                  "@type": "PostalAddress",
+                  "@@type": "PostalAddress",
                   "addressCountry": "ایران",
                   "addressLocality": "قزوین",
                   "addressRegion": "استان قزوین",
@@ -844,9 +844,6 @@
     <!-- end nav -->
     <div class="w-full main-content-smallNav ">
         {{ $slot }}
-
-
-
         <footer class="px-5 lg:px-9 3xl:px-0 w-full max-w-[1500px] mx-auto mt-32">
             <div
                 class="flex-wrap flex justify-between  items-ctener gap-1 md:gap-2 mx-auto w-full bg-white dark:bg-[#1A1A18] p-3 mb-10 rounded-2xl">
