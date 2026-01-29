@@ -200,6 +200,12 @@ class ProductImport implements ToArray, WithChunkReading, ShouldQueue
      */
     private function createFile(\App\Models\Product $product, string $filePath): void
     {
+        // Security check: prevent path traversal
+        if (strpos($filePath, '..') !== false) {
+             Log::warning("Skipping file creation for product {$product->id} due to invalid path: {$filePath}");
+             return;
+        }
+
         $product->file()->updateOrCreate(
             ['product_id' => $product->id],
             ['path' => $filePath]

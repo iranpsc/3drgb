@@ -33,7 +33,7 @@
         "ratingValue": "{{ number_format($product->rating_avg) }}",
         "reviewCount": "{{ $product->approved_reviews_count }}"
       }
- 
+
     }
     </script>
 
@@ -402,7 +402,7 @@
                     <div
                         class="bg-[#FFFFFF] dark:bg-[#1A1A18] rounded-[10px] flex flex-col gap-5 justify-between  p-5 px-4 dark:text-white">
                         <p class="text-gray-800 dark:text-white">توضیحات :</p>
-                        <p class="text-[#667085] dark:text-white">{!! nl2br($product->long_description) !!}</p>
+                        <p class="text-[#667085] dark:text-white">{!! nl2br(e($product->long_description)) !!}</p>
                     </div>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
                         @foreach ($product->attributes->where('slug', '!=', 'convertable_to_3d_model') as $attribute)

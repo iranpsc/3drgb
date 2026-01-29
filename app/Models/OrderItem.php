@@ -9,7 +9,11 @@ class OrderItem extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'order_id',
+        'product_id',
+        'quantity',
+    ];
 
     public $timestamps = false;
 

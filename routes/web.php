@@ -130,7 +130,9 @@ Route::get('/download/{file}', function (Request $request, File $file) {
     return response()->download(storage_path("app/{$file->path}"), $file->name);
 })->middleware('signed')->name('files.download');
 
-Route::post('/upload', [FileUploadController::class, 'upload'])->name('files.upload');
+Route::middleware(['auth'])->group(function () {
+    Route::post('/upload', [FileUploadController::class, 'upload'])->name('files.upload');
+});
 
 
 Route::post('/callback', function (Request $request) {

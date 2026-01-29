@@ -16,12 +16,15 @@ class CreateTicket extends Component
     public $attachment;
     public $priority = 'medium';
 
-    protected $rules = [
-        'title' => 'required|string|min:3|max:255',
-        'message' => 'required|string|min:3|max:5000',
-        'attachment' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:1024',
-        'priority' => 'required|in:low,medium,high'
-    ];
+    public function rules()
+    {
+        return [
+            'title' => 'required|string|min:3|max:255',
+            'message' => 'required|string|min:3|max:5000',
+            'attachment' => ['nullable', 'file', 'max:1024', new \App\Rules\SecureFile(['pdf', 'jpg', 'jpeg', 'png'])],
+            'priority' => 'required|in:low,medium,high'
+        ];
+    }
 
     public function createTicket()
     {

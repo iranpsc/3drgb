@@ -49,7 +49,7 @@ class Category extends Model implements Sitemapable
     {
         $this->loadMissing('parent');
 
-        $url = '<a href="' . url('categories/' . $this->url) . '">' . $this->name . '</a>';
+        $url = '<a href="' . url('categories/' . $this->url) . '">' . e($this->name) . '</a>';
 
         return $this->parent ? $this->parent->breadcrumb . ' / ' . $url : $url;
     }

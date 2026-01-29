@@ -148,7 +148,21 @@ class UpdateProduct extends Form
                 mkdir(storage_path('app/' . $uploadPath), 0777, true);
             }
 
+            // Security check for file path traversal
+            $inputPath = $this->fbx_file['path'] . $this->fbx_file['name'];
+            if (strpos($inputPath, '..') !== false || strpos($this->fbx_file['path'], 'upload/') !== 0) {
+                $this->addError('fbx_file', 'Invalid file path.');
+                return;
+            }
+
             $originalPath = storage_path('app/' . $this->fbx_file['path'] . $this->fbx_file['name']);
+
+             // Verify the file exists and is inside the upload directory
+            if (!file_exists($originalPath) || !str_starts_with(realpath($originalPath), storage_path('app/upload'))) {
+                 $this->addError('fbx_file', 'File not found or invalid path.');
+                 return;
+            }
+
             $newPath = storage_path('app/' . $uploadPath . '/' . $this->fbx_file['name']);
 
             // Move the file to the new path

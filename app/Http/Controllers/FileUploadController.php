@@ -7,6 +7,8 @@ use Pion\Laravel\ChunkUpload\Receiver\FileReceiver;
 use Pion\Laravel\ChunkUpload\Exceptions\UploadMissingFileException;
 use Pion\Laravel\ChunkUpload\Handler\HandlerFactory;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Validator;
+use App\Rules\SecureFile;
 
 class FileUploadController extends Controller
 {
@@ -58,6 +60,16 @@ class FileUploadController extends Controller
      */
     protected function saveFile(UploadedFile $file)
     {
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'zip', 'rar', 'pdf', 'doc', 'docx', 'fbx', 'obj', 'blend', 'stl', 'gltf', 'glb'];
+
+        $validator = Validator::make(['file' => $file], [
+            'file' => ['required', 'file', new SecureFile($allowedExtensions)],
+        ]);
+
+        if ($validator->fails()) {
+            abort(422, $validator->errors()->first());
+        }
+
         $fileName = $this->createFilename($file);
         $fileSize = $this->formatSizeUnits($file->getSize());
         // Group files by mime type
@@ -88,7 +100,8 @@ class FileUploadController extends Controller
     protected function createFilename(UploadedFile $file)
     {
         $extension = $file->getClientOriginalExtension();
-        $filename = str_replace("." . $extension, "", $file->getClientOriginalName()); // Filename without extension
+        $originalName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+        $filename = \Illuminate\Support\Str::slug($originalName);
 
         // Add timestamp hash to name of the file
         $filename .= "_" . md5(time()) . "." . $extension;
