@@ -5,4 +5,4 @@
         {{ $message }}
     </div>
  </div>
-</main>    
+</main>

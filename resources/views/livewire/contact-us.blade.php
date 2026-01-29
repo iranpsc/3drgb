@@ -7,18 +7,18 @@
 @section('extera-schema')
 <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "ContactPage",
+      "@@context": "https://schema.org",
+      "@@type": "ContactPage",
       "name": "Contact Us - سه بعدی متا فروشگاه",
       "url": "{{ url()->current() }}",
       "mainEntity": {
-        "@type": "Organization",
+        "@@type": "Organization",
         "name": "سه بعدی متا فروشگاه",
         "url": "{{ url('/') }}",
         "logo": "{{ asset('home-page/images/3d.png') }}",
         "contactPoint": [
           {
-            "@type": "ContactPoint",
+            "@@type": "ContactPoint",
             "telephone": "+989127855049",
             "contactType": "Customer Service",
             "areaServed": "IR",
@@ -26,7 +26,7 @@
             "email": "info@example.com"
           },
           {
-            "@type": "ContactPoint",
+            "@@type": "ContactPoint",
             "telephone": "+989127855049",
             "contactType": "Sales",
             "areaServed": "IR",
@@ -35,7 +35,7 @@
           }
         ],
         "address": {
-          "@type": "PostalAddress",
+          "@@type": "PostalAddress",
           "streetAddress": "Mirdamad, 824H+JG2",
           "addressLocality": "Qazvin",
           "addressRegion": "Qazvin Province",
@@ -51,7 +51,7 @@
       }
     }
     </script>
-    
+
 <div>
     <main>
         <section>
@@ -126,7 +126,7 @@
                                 </svg>
                             </div>
                             <div class="flex gap-3 items-center text-center lg:text-right">
-                                <a class="text-2xl text-black/50 dark:text-gray-300 " 
+                                <a class="text-2xl text-black/50 dark:text-gray-300 "
                                     href="mailto:hq@irpsc.com">hq@irpsc.com</a>
                                 <svg width="27" height="27" viewBox="0 0 22 22" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">

@@ -7,12 +7,12 @@
 @section('extera-schema')
 <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "AboutPage",
+      "@@context": "https://schema.org",
+      "@@type": "AboutPage",
       "name": "About Us - سه بعدی متا فروشگاه",
       "url": "{{ url()->current() }}",
       "mainEntity": {
-        "@type": "Organization",
+        "@@type": "Organization",
         "name": "سه بعدی متا فروشگاه",
         "url": "{{ url('/') }}",
         "logo": "{{ asset('home-page/images/3d.png') }}",
@@ -23,7 +23,7 @@
           "https://pin.it/7C5mYf6Q6"
         ],
         "contactPoint": {
-          "@type": "ContactPoint",
+          "@@type": "ContactPoint",
           "telephone": "+989127855049",
           "contactType": "Customer Service",
           "areaServed": "IR",
@@ -31,12 +31,12 @@
         },
         "description": "سه بعدی متا فروشگاه پیشرو در زمینه چاپ سه بعدی است که خدمات حرفه‌ای و محصولات با کیفیت بالا ارائه می‌دهد.",
         "parentOrganization": {
-          "@type": "Organization",
+          "@@type": "Organization",
           "name": "هولدینگ زنجیره تامین بهشت"
         },
         "foundingDate": "2020",
         "address": {
-          "@type": "PostalAddress",
+          "@@type": "PostalAddress",
           "addressCountry": "Iran",
           "addressLocality": "Qazvin",
           "addressRegion": "Qazvin Province",
@@ -45,7 +45,7 @@
       }
     }
     </script>
-    
+
 @endsection
 
 <div>

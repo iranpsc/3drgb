@@ -9,27 +9,27 @@
 @section('extera-schema')
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "Product",
+      "@@context": "https://schema.org",
+      "@@type": "Product",
       "name": "{{ $product->name }}",
       "sku": "{{ $product->sku }}",
       "category": "{{ $product->category->name }}",
       "image": "{{ $product->images->first()->url }}",
       "description": "{{ $product->short_description }}",
       "offers": {
-        "@type": "Offer",
+        "@@type": "Offer",
         "url": "{{ url()->current() }}",
         "priceCurrency": "IRR",
         "price": "{{ $product->price }}",
         "availability": "https://schema.org/{{ $product->stock > 0 ? 'InStock' : 'OutOfStock' }}",
         "itemCondition": "https://schema.org/NewCondition",
         "seller": {
-          "@type": "Organization",
+          "@@type": "Organization",
           "name": "سه بعدی متا"
         }
       },
       "aggregateRating": {
-        "@type": "AggregateRating",
+        "@@type": "AggregateRating",
         "ratingValue": "{{ number_format($product->rating_avg) }}",
         "reviewCount": "{{ $product->approved_reviews_count }}"
       }
