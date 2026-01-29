@@ -9,7 +9,18 @@ class Transaction extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'order_id',
+        'authority',
+        'amount',
+        'currency',
+        'status',
+        'card_hash',
+        'card_pan',
+        'fee_type',
+        'fee',
+        'reference_id',
+    ];
 
     /**
      * Casts properties

@@ -10,7 +10,12 @@ class Order extends Model
 {
     use HasFactory, HasUuids;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'user_id',
+        'amount',
+        'status',
+        'tracking_id',
+    ];
 
     /**
      * The data type of the primary key ID.
